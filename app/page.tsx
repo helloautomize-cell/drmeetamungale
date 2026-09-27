@@ -1,7 +1,7 @@
+import { FirstVisit, DoctorQuestions } from "@/components/sections/patient-journey";
+import { CareDiscovery } from "@/components/sections/CareDiscovery";
 import { Hero } from "@/components/sections/Hero";
 import { TrustPillars } from "@/components/sections/TrustPillars";
-import { DoctorsBanner } from "@/components/sections/DoctorsBanner";
-import { TreatmentsShowcase } from "@/components/sections/TreatmentsShowcase";
 import { DoctorsGrid } from "@/components/sections/DoctorsGrid";
 import { Reviews } from "@/components/sections/Reviews";
 import { HealthInsights } from "@/components/sections/HealthInsights";
@@ -15,18 +15,19 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustPillars />
-      <DoctorsBanner />
-      <TreatmentsShowcase />
+      <CareDiscovery />
       {/* TODO(content): patient-journey — no visit-process description exists in
           source (checked home/about/faqs/treatment pages). Do not invent steps.
           See docs/CONTENT_GAPS.md. */}
       <DoctorsGrid />
+      <FirstVisit />
       {/* TODO(content): gallery-strip — item-level photo→category mapping needs
           MCP verification (docs/CONTENT_GAPS.md #10). GalleryStrip component
           built for Phase 6 reuse; not rendered until mapping is verified. */}
       <Reviews />
       <HealthInsights />
       <LocationBlock />
+      <DoctorQuestions />
       <CTABand />
     </>
   );

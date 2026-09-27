@@ -16,7 +16,7 @@ export function DoctorsGrid() {
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
-              <span className="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">
+              <span className="font-label-sm text-label-sm text-primary-fixed uppercase font-bold tracking-wider">
                 Qualified Specialists
               </span>
               <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold mt-1">
@@ -28,7 +28,7 @@ export function DoctorsGrid() {
             </div>
             <Link
               href="/about-us/"
-              className="shrink-0 font-label-md text-label-md text-primary font-bold inline-flex items-center gap-1 hover:gap-2 transition-all"
+              className="shrink-0 font-label-md text-label-md text-primary-fixed font-bold inline-flex items-center gap-1 hover:gap-2 transition-all link-focus"
             >
               <span>About Our Hospital</span>
               <ChevronRight className="w-[18px] h-[18px]" />
@@ -86,7 +86,7 @@ export function DoctorsGrid() {
                   <h3 className="font-headline-lg text-headline-lg text-on-surface font-bold -mt-4">
                     {d.name}
                   </h3>
-                  <p className="font-label-md text-label-md text-primary font-semibold mt-1">
+                  <p className="font-label-md text-label-md text-primary-fixed font-semibold mt-1">
                     {d.title}
                   </p>
                   <p className="font-body-lg text-body-lg text-on-surface-variant mt-4 leading-relaxed max-w-xl">

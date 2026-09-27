@@ -46,7 +46,7 @@ function TreatmentCard({ t, index }: { t: Treatment; index: number }) {
   return (
     <Reveal delay={0.06 * index} className="h-full">
       <div className="h-full bg-card-white rounded-3xl p-7 shadow-sm ring-1 ring-border-light/50 hover:shadow-brand-md hover:-translate-y-1 hover:ring-primary/20 transition-all duration-200 flex flex-col group">
-        <span className="w-14 h-14 rounded-2xl bg-surface-tint flex items-center justify-center text-primary mb-5 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-primary-fixed group-hover:text-white group-hover:shadow-brand-sm transition-all duration-200">
+        <span className="w-14 h-14 rounded-2xl bg-surface-tint flex items-center justify-center text-primary mb-5 group-hover:bg-primary group-hover:text-white group-hover:shadow-brand-sm transition-all duration-200">
           <Icon className="w-8 h-8" />
         </span>
         <h3 className="font-title-md text-title-md text-on-surface font-bold">{t.title}</h3>
@@ -56,14 +56,14 @@ function TreatmentCard({ t, index }: { t: Treatment; index: number }) {
         <div className="mt-6 pt-4 border-t border-border-light flex items-center justify-between">
           <Link
             href={"/treatments/" + t.slug + "/"}
-            className="font-label-sm text-label-sm text-primary font-bold inline-flex items-center gap-1 hover:gap-2 transition-all"
+            className="font-label-sm text-label-sm text-primary-fixed font-bold inline-flex items-center gap-1 hover:gap-2 transition-all link-focus"
           >
             <span>Learn More</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
             href="/contact-us/"
-            className="w-9 h-9 rounded-full bg-surface-tint text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary hover:shadow-brand-sm transition-all"
+            className="w-9 h-9 rounded-full bg-surface-tint text-primary flex items-center justify-center hover:bg-primary-fixed hover:text-on-primary hover:shadow-brand-sm transition-all"
             aria-label={"Book appointment for " + t.title}
           >
             <ArrowUpRight className="w-[18px] h-[18px]" />

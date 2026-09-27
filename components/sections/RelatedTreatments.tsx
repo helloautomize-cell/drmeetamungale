@@ -28,7 +28,7 @@ export function RelatedTreatments({
               <h3 className="font-title-md text-title-md text-on-surface font-bold">{t.title}</h3>
               <Link
                 href={"/treatments/" + t.slug + "/"}
-                className="mt-3 font-label-sm text-label-sm text-primary font-bold inline-flex items-center gap-1 hover:underline"
+                className="mt-3 font-label-sm text-label-sm text-primary-fixed font-bold inline-flex items-center gap-1 hover:underline"
               >
                 <span>Learn More</span>
                 <ArrowRight className="w-4 h-4" />

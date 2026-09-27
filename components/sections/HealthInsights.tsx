@@ -50,7 +50,7 @@ export function HealthInsights() {
                   />
                 </Link>
                 <div className="flex flex-col justify-center min-w-0 py-1">
-                  <p className="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold">
+                  <p className="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider font-semibold">
                     Article
                   </p>
                   <h3 className="font-title-md text-title-md text-on-surface font-bold leading-snug mt-1">
@@ -60,7 +60,7 @@ export function HealthInsights() {
                   </h3>
                   <Link
                     href={p.url}
-                    className="mt-2 font-label-sm text-label-sm text-primary font-bold inline-flex items-center gap-1 hover:gap-2 transition-all"
+                    className="mt-2 font-label-sm text-label-sm text-primary-fixed font-bold inline-flex items-center gap-1 hover:gap-2 transition-all link-focus"
                   >
                     <span>Read More</span>
                     <ArrowRight className="w-4 h-4" />

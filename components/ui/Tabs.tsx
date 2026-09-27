@@ -28,7 +28,7 @@ export function Tabs({ tabs, defaultTab }: { tabs: TabItem[]; defaultTab?: strin
               "px-6 py-2.5 rounded-full font-label-md text-label-md transition-all",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40",
               "disabled:pointer-events-none disabled:opacity-50",
-              "data-[state=active]:bg-primary data-[state=active]:text-on-primary data-[state=active]:shadow-brand-sm",
+              "data-[state=active]:bg-primary-fixed data-[state=active]:text-on-primary data-[state=active]:shadow-brand-sm",
               "data-[state=inactive]:bg-card-white data-[state=inactive]:text-on-surface data-[state=inactive]:hover:bg-surface-tint data-[state=inactive]:hover:-translate-y-px"
             )}
           >

@@ -6,19 +6,22 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 // shadcn-style button (cva variants + cn merge + asChild).
-// Variant names kept (primary/tonal/ghost) using the Mungale design tokens
-// so all existing call sites keep working unchanged.
+// CTA hierarchy per design.md: primary = flat red filled (hover dark red);
+// secondary = black outline; tertiary = plain text link (inline, not here).
+// "cta" = primary with lift, for the single booking action per view.
 const buttonVariants = cva(
-  "inline-flex items-center gap-2 px-6 py-3 rounded-lg font-label-md text-label-md transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center gap-2 px-6 py-3 rounded-full font-label-md text-label-md font-semibold transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         primary:
-          "bg-primary text-on-primary hover:bg-primary-container shadow-md hover:shadow-lg",
-        tonal: "bg-primary-container text-on-primary hover:bg-primary/20",
+          "bg-primary text-on-primary hover:bg-primary-fixed",
+        secondary:
+          "bg-transparent text-on-surface ring-1 ring-inset ring-secondary/30 hover:ring-secondary hover:bg-secondary hover:text-white",
+        tonal: "bg-primary-container text-primary hover:bg-primary/10",
         ghost:
-          "bg-transparent text-primary border border-primary hover:bg-primary hover:text-on-primary",
-        cta: "bg-gradient-to-r from-primary to-primary-fixed text-on-primary shadow-brand-md hover:shadow-brand-glow hover:-translate-y-0.5",
+          "bg-transparent text-primary hover:underline shadow-none px-2",
+        cta: "bg-primary text-on-primary shadow-brand-md hover:bg-primary-fixed hover:shadow-brand-glow hover:-translate-y-0.5",
       },
     },
     defaultVariants: {

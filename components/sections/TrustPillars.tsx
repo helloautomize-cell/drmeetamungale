@@ -1,115 +1,264 @@
-import Link from "next/link";
-import type { ComponentType } from "react";
-import { ArrowRight } from "lucide-react";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { Reveal } from "@/components/ui/motion";
-import {
-  AwardIcon,
-  StethoscopeIcon,
-  CareBellIcon,
-  MicroscopeIcon,
-  ReferralIcon,
-  ReceiptIcon,
-} from "@/components/icons/duotone";
+"use client";
 
-// ─── 4.3 Trust pillars — dark navy contrast band ────────────────────────
-// The page's single dark section: deep trustworthy navy (#0b1c30) breaks the
-// all-light monotony. Copy VERBATIM (about-us.md, homepage highlights,
-// insurance-cashless page existence) — visual treatment only.
-// - Duotone brand icons replace the generic lucide set (single line system).
-// - Five pillars render as borderless glass rows; the Insurance pillar is a
-//   red-gradient action card (the section's one real link, given CTA weight).
-// - No invented statistics. Eyebrow uses lightened red for AA on navy.
-const pillars: {
-  icon: ComponentType<{ className?: string }>;
-  title: string;
-  text: string;
-}[] = [
+import React from "react";
+import Image from "next/image";
+import { Reveal } from "@/components/ui/motion";
+
+// ─── Why Mungale — sticky scroll story (owner redesign) ─────────────
+// Replaces both the card grid AND the hero's separate stat row: one dark
+// immersive section (bg-secondary ink #111112) where the three website
+// statistics (20+ / 40,000+ / 15,000+) live as story moments, not a
+// showcase. Normal page scroll throughout — no scroll-jacking: a sticky
+// viewport (100vh minus header) holds the layout while three tall
+// sentinel spacers (~80vh each) drive the active state via
+// IntersectionObserver. Numbers crossfade with a gentle rise (450-600ms);
+// images crossfade with a 1% scale; text fades with a small rise.
+// Copy provenance:
+// - Eyebrow/headline/state headings + bodies: OWNER-PROVIDED direction
+//   (sticky-story prompt). Factual grounding from the live site:
+//   established 2007 (about-us), referral center for complex cornea and
+//   glaucoma cases (about-us), full-range diagnostic/surgical equipment
+//   (homepage). "40,000+" / "15,000+" are the WEBSITE'S claimed numbers —
+//   kept per owner instruction, NOT independently verified
+//   (docs/CONTENT_GAPS.md #1).
+// - Patient quote: VERBATIM excerpt from Pankaj Makhijani's Google review
+//   (content/reviews.ts) — original wording preserved, short excerpt only.
+// - Photos: real Mungale photography, no stock, no heavy grading.
+// Palette: warm paper white, charcoal, Mungale red (eyebrow, indices,
+// active progress, arc motif). Giant numbers stay warm white — never red.
+
+const states = [
   {
-    icon: AwardIcon,
-    title: "20+ Years Expertise",
-    text: "Mungale Eye Hospital was established on 24th June, 2007 in Vadodara, Gujarat, India.",
+    index: "01",
+    value: "20+",
+    label: "Years of specialist eye care",
+    heading: "Experience that compounds over time.",
+    body: "Established in 2007, Mungale Eye Hospital has grown into a referral center for complex cornea and glaucoma cases.",
+    img: "/images/IMG_2239-jpg.webp",
+    alt: "A Mungale Eye Hospital doctor studying a corneal topography scan during diagnosis.",
+    caption: "Since 2007 · Kothi, Vadodara",
+    eager: true,
   },
   {
-    icon: StethoscopeIcon,
-    title: "Certified Eye Surgeons",
-    text: "A private joint venture led by two accomplished ophthalmologists, Dr. Meeta Mungale and Dr. Sachin Mungale.",
+    index: "02",
+    value: "40,000+",
+    label: "Patients treated",
+    heading: "Every number is a person.",
+    body: "Behind every count is an individual story — a concern, a family, a decision.",
+    quote:
+      "The doctors explained everything clearly and the staff was very supportive. We are very happy with the results.",
+    quoteBy: "Pankaj Makhijani · Google review",
+    img: "/images/IMG_21191-jpg.webp",
+    alt: "Dr. Meeta Mungale in consultation at Mungale Eye Hospital.",
+    caption: undefined as string | undefined,
+    eager: false,
   },
   {
-    icon: CareBellIcon,
-    title: "24/7 Service Facilities",
-    text: "Round-the-clock service facilities with emergency care on +91 9723311209.",
-  },
-  {
-    icon: MicroscopeIcon,
-    title: "Full-Range Diagnostic & Surgical Equipment",
-    text: "The hospital is equipped with a full range of state-of-the-art diagnostic, curative, and surgical equipment designed to treat a wide variety of eye diseases.",
-  },
-  {
-    icon: ReferralIcon,
-    title: "Referral Center for Cornea & Glaucoma",
-    text: "MEH is a referral center for complex cases of cornea and glaucoma, providing quality eye care at affordable prices.",
+    index: "03",
+    value: "15,000+",
+    label: "Eye surgeries",
+    heading: "Surgical experience built over thousands of procedures.",
+    body: "Each procedure begins with careful evaluation, clear discussion and a plan tailored to the patient.",
+    img: "/images/IMG_0887-jpg.webp",
+    alt: "A Mungale Eye Hospital surgeon performing a YAG laser procedure for a patient.",
+    caption: undefined as string | undefined,
+    eager: false,
   },
 ];
 
+const onCls =
+  "story-motion transition-all duration-500 ease-out opacity-100 translate-y-0";
+const offCls =
+  "story-motion transition-all duration-500 ease-out opacity-0 translate-y-7 pointer-events-none";
+
 export function TrustPillars() {
+  const [active, setActive] = React.useState(0);
+  const sentinels = React.useRef<(HTMLDivElement | null)[]>([]);
+
+  React.useEffect(() => {
+    const els = sentinels.current.filter(Boolean) as HTMLDivElement[];
+    if (!els.length || typeof IntersectionObserver === "undefined") return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            setActive(Number((e.target as HTMLElement).dataset["i"] || 0));
+          }
+        }
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+    );
+    els.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+
+  const goTo = (i: number) => {
+    const el = sentinels.current.at(i);
+    if (!el) return;
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+  };
+
   return (
-    <section className="relative py-space-2xl bg-secondary overflow-hidden">
-      {/* Soft red glow on navy (decorative). */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute -bottom-40 right-[-6rem] w-[34rem] h-[34rem] rounded-full bg-primary/25 blur-3xl animate-hero-drift" />
+    <section className="relative bg-secondary overflow-x-clip">
+      {/* Intro — established eyebrow + headline, one quiet support line */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 lg:pt-24">
+        <Reveal className="max-w-3xl">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#ff8080]">
+            Why Mungale
+          </p>
+          <h2 className="mt-4 font-display-hero text-white tracking-[-0.015em] leading-[1.04] text-[36px] sm:text-[44px] lg:text-[54px]">
+            Specialist care, with the time to explain.
+          </h2>
+          {/* Structural microcopy, not a claim. */}
+          <p className="mt-4 text-[16px] text-white/60">
+            Three numbers. One story.
+          </p>
+        </Reveal>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
-        <Reveal>
-          <SectionHeader
-            tone="dark"
-            eyebrow="Clinical Excellence"
-            title="Why Choose Mungale Eye Hospital"
-            subtitle="Specialized eye care led by two accomplished ophthalmologists, with a full range of state-of-the-art diagnostic, curative, and surgical equipment."
-          />
-        </Reveal>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {pillars.map((p, i) => (
-            <Reveal key={p.title} delay={0.06 * i}>
-              <div className="h-full rounded-2xl bg-white/[0.05] ring-1 ring-white/10 p-7 backdrop-blur-sm hover:bg-white/[0.08] hover:ring-white/20 hover:-translate-y-1 transition-all duration-200">
-                <span className="w-12 h-12 rounded-xl bg-primary/15 ring-1 ring-primary/30 flex items-center justify-center text-white mb-5">
-                  <p.icon className="w-7 h-7" />
-                </span>
-                <h3 className="font-title-md text-title-md text-white font-bold mb-2">
-                  {p.title}
-                </h3>
-                <p className="font-body-md text-body-md text-white/70 leading-relaxed">
-                  {p.text}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-          {/* Insurance pillar — the section's one link, as a red action card */}
-          <Reveal delay={0.3}>
-            <Link
-              href="/insurance-cashless/"
-              className="h-full rounded-2xl bg-gradient-to-br from-primary to-primary-fixed p-7 flex flex-col justify-between gap-6 shadow-brand-glow hover:-translate-y-1 transition-all duration-200 group"
-            >
+      {/* Sticky track: viewport + three sentinel spacers (~80vh each) */}
+      <div className="relative">
+        <div className="sticky top-[96px] lg:top-[104px] h-[calc(88vh-96px)] lg:h-[calc(100vh-104px)]">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 h-full flex flex-col justify-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 items-center min-h-0">
+              {/* LEFT — anchored statistic (crossfading stack) */}
               <div>
-                <span className="w-12 h-12 rounded-xl bg-white/15 ring-1 ring-white/25 flex items-center justify-center text-white mb-5">
-                  <ReceiptIcon className="w-7 h-7" />
-                </span>
-                <h3 className="font-title-md text-title-md text-white font-bold mb-2">
-                  Insurance &amp; Cashless
-                </h3>
-                <p className="font-body-md text-body-md text-white/85 leading-relaxed">
-                  Insurance and cashless facility support. See our Insurance &amp; Cashless page for details.
-                </p>
+                <svg
+                  width="104"
+                  height="14"
+                  viewBox="0 0 104 14"
+                  fill="none"
+                  aria-hidden="true"
+                  className="text-primary"
+                >
+                  <path
+                    d="M2 11 Q52 -3 102 8.5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <div className="relative mt-3 lg:mt-4 grid">
+                  {states.map((s, i) => (
+                    <div
+                      key={s.index}
+                      aria-hidden={i !== active}
+                      className={
+                        "col-start-1 row-start-1 " +
+                        (i === active ? onCls : offCls)
+                      }
+                    >
+                      <p className="text-[12px] lg:text-[13px] font-bold tracking-[0.22em] text-[#ff8080]">
+                        {s.index}
+                      </p>
+                      <p className="mt-1 font-display-hero text-background leading-[0.9] tracking-tight whitespace-nowrap text-[68px] sm:text-[96px] lg:text-[112px] xl:text-[128px]">
+                        {s.value}
+                      </p>
+                      <p className="mt-2 lg:mt-3 text-[14px] lg:text-[16px] text-white/65">
+                        {s.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <span className="inline-flex items-center gap-2 font-label-md text-label-md text-white font-bold">
-                <span>Learn More</span>
-                <ArrowRight className="w-[18px] h-[18px] group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Link>
-          </Reveal>
+
+              {/* RIGHT — story content + photography (crossfading stack) */}
+              <div className="relative grid items-center">
+                {states.map((s, i) => (
+                  <article
+                    key={s.index}
+                    aria-hidden={i !== active}
+                    className={
+                      "col-start-1 row-start-1 " +
+                      (i === active ? onCls : offCls)
+                    }
+                  >
+                    <h3 className="font-display-hero text-white tracking-tight leading-tight text-[22px] sm:text-[26px] lg:text-[32px]">
+                      {s.heading}
+                    </h3>
+                    <p className="mt-2 lg:mt-3 text-[14.5px] lg:text-[16px] leading-relaxed text-white/65 max-w-lg">
+                      {s.body}
+                    </p>
+                    {s.quote && (
+                      <blockquote className="mt-3 lg:mt-4 border-l-2 border-primary pl-3 lg:pl-4 max-w-lg">
+                        <p className="text-[13px] lg:text-[15px] leading-relaxed text-white/85 italic">
+                          “{s.quote}”
+                        </p>
+                        <cite className="mt-1.5 block text-[12px] lg:text-[13px] not-italic text-white/50">
+                          — {s.quoteBy}
+                        </cite>
+                      </blockquote>
+                    )}
+                    <div className="mt-3 lg:mt-5">
+                      <div className="w-full overflow-hidden rounded-[20px] ring-1 ring-white/10 h-[132px] sm:h-[190px] lg:h-[300px] xl:h-[380px]">
+                        <Image
+                          src={s.img}
+                          alt={s.alt}
+                          width={880}
+                          height={660}
+                          loading={s.eager ? undefined : "lazy"}
+                          sizes="(min-width: 1024px) 45vw, 90vw"
+                          className={
+                            "story-motion h-full w-full object-cover transition-transform duration-700 ease-out " +
+                            (i === active ? "scale-100" : "scale-[1.01]")
+                          }
+                        />
+                      </div>
+                      {s.caption && (
+                        <p className="mt-2 text-[12px] lg:text-[13px] text-white/50">
+                          {s.caption}
+                        </p>
+                      )}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            {/* Progress — tiny indices, active red */}
+            <div
+              className="mt-4 lg:mt-8 flex items-center gap-4"
+              role="tablist"
+              aria-label="Story progress"
+            >
+              {states.map((s, i) => (
+                <button
+                  key={s.index}
+                  role="tab"
+                  aria-selected={i === active}
+                  aria-label={"Go to moment " + s.index}
+                  onClick={() => goTo(i)}
+                  className={
+                    "text-[12px] font-bold tracking-[0.2em] transition-colors duration-300 " +
+                    (i === active ? "text-primary" : "text-white/30 hover:text-white/60")
+                  }
+                >
+                  {s.index}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
+
+        {/* Sentinel spacers — drive the active state, pure scroll length */}
+        {[0, 1, 2].map((i) => (
+          <div
+            key={i}
+            ref={(el) => {
+              sentinels.current[i] = el;
+            }}
+            data-i={i}
+            aria-hidden="true"
+            className="h-[70vh] lg:h-[80vh]"
+          />
+        ))}
       </div>
+
+      {/* Quiet release breathing before the next section */}
+      <div aria-hidden="true" className="h-20 lg:h-28" />
     </section>
   );
 }

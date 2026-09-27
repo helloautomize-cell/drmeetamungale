@@ -18,6 +18,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 const fraunces = Fraunces({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
   display: "swap",
   variable: "--font-display",
 });
@@ -56,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-IN" className={plusJakarta.variable + " " + fraunces.variable} suppressHydrationWarning>
       <head />
-      <body className="font-sans bg-background text-on-surface min-h-screen flex flex-col overflow-x-hidden">
+      <body className="font-sans bg-background text-on-surface min-h-screen flex flex-col overflow-x-clip">
         <JsonLd data={hospitalJsonLd()} />
         <a
           href="#content"

@@ -65,7 +65,7 @@ function Avatar({ name, index }: { name: string; index: number }) {
       className={
         "w-12 h-12 rounded-full flex items-center justify-center font-headline-sm text-headline-sm text-white font-bold shrink-0 " +
         (index % 2 === 0
-          ? "bg-gradient-to-br from-primary to-primary-fixed"
+          ? "bg-primary"
           : "bg-secondary")
       }
       aria-hidden="true"
@@ -92,7 +92,7 @@ function ReviewSlide({ r, index }: { r: Review; index: number }) {
       <button
         type="button"
         onClick={() => setExpanded((v) => !v)}
-        className="self-start mt-2 font-label-sm text-label-sm text-primary font-bold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded"
+        className="self-start mt-2 font-label-sm text-label-sm text-primary-fixed font-bold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded"
         aria-expanded={expanded}
       >
         {expanded ? "Show Less" : "Read More"}
@@ -160,7 +160,7 @@ export function Reviews() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* CTA band — book / call, no invented metrics */}
         <Reveal>
-          <div className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-fixed to-primary rounded-3xl p-8 lg:p-12 shadow-brand-lg text-center mb-14">
+          <div className="relative overflow-hidden bg-primary-fixed rounded-3xl p-8 lg:p-12 shadow-brand-lg text-center mb-14">
             <h2 className="relative font-headline-lg text-headline-lg text-on-primary font-bold">
               Ready for Clearer Vision?
             </h2>
@@ -225,7 +225,7 @@ export function Reviews() {
                   className={
                     "snap-start shrink-0 px-5 py-2.5 rounded-full font-label-md text-label-md font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 " +
                     (active === f
-                      ? "bg-gradient-to-r from-primary to-primary-fixed text-white shadow-brand-sm"
+                      ? "bg-primary hover:bg-primary-fixed text-white shadow-brand-sm"
                       : "bg-card-white text-on-surface ring-1 ring-border-light hover:ring-primary/40 hover:text-primary")
                   }
                 >
@@ -247,7 +247,7 @@ export function Reviews() {
             role="presentation"
           >
             <div
-              className="h-full w-1/3 rounded-full bg-gradient-to-r from-primary to-primary-fixed transition-[margin] duration-200"
+              className="h-full w-1/3 rounded-full bg-primary hover:bg-primary-fixed transition-[margin] duration-200"
               style={{ marginLeft: (pillsProgress * 66).toFixed(1) + "%" }}
             />
           </div>

@@ -1,0 +1,359 @@
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Reveal } from "@/components/ui/motion";
+import { treatments } from "@/content/treatments";
+import { siteConfig } from "@/content/site";
+
+// ─── Care discovery (owner redesign: ONE unified patient-first section)
+// Replaces the homepage's "What Brought You Here?" concern pills AND the
+// "Signature Eye Care Treatments" card grid (TreatmentsShowcase stays in
+// use on /treatments/ — untouched). Patient experience first ("what am I
+// experiencing?") → Mungale response ("here is where we can help").
+// Editorial index left (~42%), relevant care right (~58%); mobile is an
+// intentional accordion reusing the same panel. No cards, no pills, no
+// icons, no shadows — typography, numbers, rules and one red curve.
+// Copy provenance:
+// - Section header (eyebrow/headline/support), concern labels, blurry
+//   heading "Where clearer vision begins.", blurry support line, not-sure
+//   panel wording: OWNER-PROVIDED (redesign prompt).
+// - Other concern headings + support lines: DRAFTED at owner permission,
+//   plain-language navigation only — no diagnoses, no triage, no medical
+//   advice (mark: DRAFT-COPY, CONTENT_GAPS).
+// - Treatment blurbs: shortened from VERBATIM treatments.ts descriptions,
+//   factual meaning preserved. Concern→treatment mapping stays inside the
+//   site's own clinical families (cornea / glaucoma / cataract / optical),
+//   extending the previously validated concern links — never invented
+//   pages (e.g. owner's "Cataract Evaluation" example maps to the real
+//   "Cataract Surgery" page). No images: no verified concern-specific
+//   photos exist, and the spec forbids forcing one — the composition is
+//   complete as pure typography.
+// Accessibility: semantic buttons, aria-expanded + aria-controls, visible
+// focus rings, active state carried by text weight + support line + red
+// accents (never color alone), animate-tab-in is reduced-motion safe.
+
+type CareConcern = {
+  index: string;
+  title: string;
+  support: string;
+  heading: string;
+  slugs: string[];
+};
+
+const concerns: CareConcern[] = [
+  {
+    index: "01",
+    title: "Blurry vision",
+    // OWNER-PROVIDED support line.
+    support: "Something doesn't feel as clear as it used to.",
+    // OWNER-PROVIDED heading.
+    heading: "Where clearer vision begins.",
+    slugs: ["cataract-surgery", "optical-contact-lenses"],
+  },
+  {
+    index: "02",
+    title: "Glaucoma concerns",
+    // DRAFT-COPY — navigation label only.
+    support: "Questions about eye pressure or ongoing checks.",
+    // DRAFT-COPY.
+    heading: "Understanding eye pressure, step by step.",
+    slugs: ["glaucoma-evaluation", "glaucoma-treatments"],
+  },
+  {
+    index: "03",
+    title: "Corneal problems",
+    // DRAFT-COPY — navigation label only.
+    support: "Irritation, injury or surface discomfort.",
+    // DRAFT-COPY.
+    heading: "Care for the front of your eye.",
+    slugs: ["cornea-evaluation", "corneal-treatments"],
+  },
+  {
+    index: "04",
+    title: "Cataract",
+    // DRAFT-COPY — navigation label only.
+    support: "Clouding, glare or fading colour.",
+    // DRAFT-COPY.
+    heading: "When clarity starts to cloud.",
+    slugs: ["cataract-surgery"],
+  },
+  {
+    index: "05",
+    title: "Glasses & lenses",
+    // DRAFT-COPY — navigation label only.
+    support: "Power checks, frames and contact lenses.",
+    // DRAFT-COPY.
+    heading: "Seeing well, every day.",
+    slugs: ["optical-contact-lenses"],
+  },
+];
+
+// Shortened from VERBATIM treatments.ts descriptions — meaning preserved.
+const blurbs: Record<string, string> = {
+  "cataract-surgery":
+    "Removes the clouded lens with advanced phaco technology, replacing it with a suitable intraocular lens.",
+  "optical-contact-lenses":
+    "Glasses and contact lenses correcting myopia, hyperopia and astigmatism.",
+  "glaucoma-evaluation":
+    "Measures eye pressure and checks optic nerve health and visual field to detect vision loss.",
+  "glaucoma-treatments":
+    "Eye drops, medications, laser therapy and surgical options to lower eye pressure.",
+  "cornea-evaluation":
+    "Assesses corneal shape, thickness and clarity to diagnose eye conditions.",
+  "corneal-treatments":
+    "Medication, surgery or specialised therapies for infections, injuries and conditions.",
+};
+
+const NOT_SURE_INDEX = 5;
+
+function TreatmentRows({ slugs }: { slugs: string[] }) {
+  return (
+    <ul className="divide-y divide-secondary/10 border-y border-secondary/10">
+      {slugs.map((slug, i) => {
+        const t = treatments.find((x) => x.slug === slug)!;
+        return (
+          <li key={slug}>
+            <Link
+              href={"/treatments/" + slug + "/"}
+              className="group flex items-start gap-4 lg:gap-5 py-5 lg:py-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded-lg"
+            >
+              <span
+                aria-hidden="true"
+                className="pt-1 text-[13px] font-bold tracking-[0.12em] text-on-surface/35 shrink-0"
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="flex-1 min-w-0">
+                <span className="block text-[17px] lg:text-[19px] font-semibold text-on-surface group-hover:text-primary transition-colors duration-200">
+                  {t.title}
+                </span>
+                <span className="mt-1 block text-[14px] lg:text-[15px] leading-relaxed text-on-surface-variant">
+                  {blurbs[slug]}
+                </span>
+              </span>
+              <ArrowRight
+                aria-hidden="true"
+                className="mt-1.5 w-[18px] h-[18px] shrink-0 text-on-surface/30 group-hover:text-primary group-hover:translate-x-1 transition-all duration-200"
+              />
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+function ExploreAll() {
+  return (
+    <Link
+      href="/treatments/"
+      className="cta-quiet group mt-7 lg:mt-8 inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
+    >
+      <span className="cta-quiet-text">Explore all treatments</span>
+      <ArrowRight
+        aria-hidden="true"
+        className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1"
+      />
+    </Link>
+  );
+}
+
+function ConversationPanel() {
+  const phone = siteConfig.phone.replace(/\s/g, "");
+  return (
+    <div>
+      {/* OWNER-PROVIDED wording — navigation to conversation, never a diagnosis. */}
+      <h3 className="font-display-hero text-on-surface tracking-tight leading-tight text-[26px] lg:text-[34px]">
+        That&apos;s okay. Start with a conversation.
+      </h3>
+      <p className="mt-3 text-[15px] lg:text-[16px] leading-relaxed text-on-surface-variant max-w-lg">
+        Tell our team what you&apos;re experiencing and we&apos;ll help you
+        find the right place to begin.
+      </p>
+      <div className="mt-7 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+        <a
+          href={"tel:" + phone}
+          className="cta-quiet group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
+        >
+          <span className="cta-quiet-text">Speak to our team</span>
+          <ArrowRight
+            aria-hidden="true"
+            className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1"
+          />
+        </a>
+        <Link
+          href="/contact-us/"
+          className="cta-quiet group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
+        >
+          <span className="cta-quiet-text">Book a consultation</span>
+          <ArrowRight
+            aria-hidden="true"
+            className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1"
+          />
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function CarePanel({ concernIndex }: { concernIndex: number }) {
+  if (concernIndex === NOT_SURE_INDEX) return <ConversationPanel />;
+  const c = concerns[concernIndex]!;
+  return (
+    <div>
+      <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
+        Care for this
+      </p>
+      <h3 className="mt-3 font-display-hero text-on-surface tracking-tight leading-tight text-[26px] lg:text-[34px]">
+        {c.heading}
+      </h3>
+      <div className="mt-7 lg:mt-8">
+        <TreatmentRows slugs={c.slugs} />
+      </div>
+      <ExploreAll />
+    </div>
+  );
+}
+
+export function CareDiscovery() {
+  const [active, setActive] = React.useState(0);
+  const items = [...concerns.map((c) => ({ ...c, kind: "care" as const })), {
+    index: "06",
+    title: "Not sure where to start",
+    // OWNER-PROVIDED direction.
+    support: "That's okay — start with a conversation.",
+    kind: "conversation" as const,
+  }];
+
+  return (
+    <section className="bg-background">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32">
+        <Reveal className="max-w-2xl">
+          <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
+            Start here
+          </p>
+          {/* One red curve accent — under the eyebrow, nowhere else. */}
+          <svg
+            width="72"
+            height="10"
+            viewBox="0 0 72 10"
+            fill="none"
+            aria-hidden="true"
+            className="mt-2 text-primary"
+          >
+            <path
+              d="M1 8 Q36 -1 71 6.5"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
+          <h2 className="mt-4 font-display-hero text-on-surface tracking-[-0.015em] leading-[1.05] text-[36px] sm:text-[44px] lg:text-[54px]">
+            Start with what you&apos;re experiencing.
+          </h2>
+          <p className="mt-4 text-[17px] lg:text-[18px] leading-relaxed text-on-surface-variant max-w-xl">
+            Tell us what brought you here and explore the areas of care that
+            may be relevant to you.
+          </p>
+        </Reveal>
+
+        <div className="mt-12 lg:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          {/* LEFT (~42%) — editorial concern index */}
+          <div className="lg:col-span-5">
+            <div className="border-y border-secondary/10 divide-y divide-secondary/10">
+              {items.map((item, i) => {
+                const isActive = i === active;
+                return (
+                  <div key={item.index}>
+                    <button
+                      type="button"
+                      onClick={() => setActive(i)}
+                      aria-expanded={isActive}
+                      aria-controls={
+                        "care-desktop care-mobile-" + item.index
+                      }
+                      className={
+                        "group relative w-full text-left flex items-start gap-4 py-5 min-h-[68px] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded-lg " +
+                        (isActive ? "bg-primary/[0.03]" : "")
+                      }
+                    >
+                      {/* Active tick — red line, never a filled card. */}
+                      <span
+                        aria-hidden="true"
+                        className={
+                          "absolute left-0 top-5 bottom-5 w-[2px] rounded-full bg-primary transition-all duration-200 " +
+                          (isActive
+                            ? "opacity-100 scale-y-100"
+                            : "opacity-0 scale-y-50")
+                        }
+                      />
+                      <span
+                        aria-hidden="true"
+                        className={
+                          "pl-4 pt-1 text-[12px] font-bold tracking-[0.16em] shrink-0 transition-colors duration-200 " +
+                          (isActive
+                            ? "text-primary"
+                            : "text-on-surface/35")
+                        }
+                      >
+                        {item.index}
+                      </span>
+                      <span className="flex-1 min-w-0">
+                        <span
+                          className={
+                            "block text-[17px] lg:text-[18px] transition-colors duration-200 " +
+                            (isActive
+                              ? "text-on-surface font-semibold"
+                              : "text-on-surface/55 font-medium group-hover:text-on-surface")
+                          }
+                        >
+                          {item.title}
+                        </span>
+                        {isActive && (
+                          <span className="mt-1 block text-[14px] leading-snug text-on-surface-variant animate-tab-in">
+                            {item.support}
+                          </span>
+                        )}
+                      </span>
+                      <ArrowRight
+                        aria-hidden="true"
+                        className={
+                          "mt-1 w-[18px] h-[18px] shrink-0 transition-all duration-200 " +
+                          (isActive
+                            ? "text-primary translate-x-0"
+                            : "text-on-surface/25 -translate-x-0.5 group-hover:text-on-surface/50")
+                        }
+                      />
+                    </button>
+                    {/* Mobile accordion panel — same care, inline. */}
+                    {isActive && (
+                      <div
+                        id={"care-mobile-" + item.index}
+                        className="lg:hidden pb-7 animate-tab-in"
+                      >
+                        <CarePanel concernIndex={i} />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* RIGHT (~58%) — relevant care for the active concern */}
+          <div className="hidden lg:block lg:col-span-7">
+            <div
+              key={active}
+              id="care-desktop"
+              className="animate-tab-in"
+            >
+              <CarePanel concernIndex={active} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -6,46 +6,47 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Brand palette from Mungale logo + clinical clean reference
-        "primary": "#c41e1e",
-        "primary-container": "#ffe5e3",
-        "primary-fixed": "#ed2225",
+        // Mungale "Warm Editorial" (design.md): cream + ink + red.
+        // Red is a signature (~5%), not a theme. Navy/teal families retired.
+        "primary": "#ED2225",
+        "primary-container": "#F9EAEA",
+        "primary-fixed": "#B9191C",
         "on-primary": "#ffffff",
         "on-primary-fixed": "#00201d",
         "on-primary-fixed-variant": "#00504a",
         "primary-fixed-dim": "#59dace",
-        // Secondary (deep navy/charcoal from logo #0c0607)
-        "secondary": "#0b1c30",
+        // Ink (near-black) — medical authority, dark bands, outline CTAs
+        "secondary": "#111112",
         "secondary-fixed": "#c2e8fa",
         "secondary-fixed-dim": "#a6ccdd",
         "on-secondary": "#ffffff",
         "on-secondary-fixed": "#001f29",
         "on-secondary-fixed-variant": "#264b5a",
-        // Background / surfaces
-        "background": "#f8f9ff",
-        "surface": "#f8f9ff",
-        "surface-canvas": "#F8FAFC",
-        "surface-warm": "#FAF7F1",
-        "surface-tint": "#E2F5F6",
+        // Background / surfaces — warm paper, not cold gray
+        "background": "#F8F7F3",
+        "surface": "#F8F7F3",
+        "surface-canvas": "#F1EFEA",
+        "surface-warm": "#F1EFEA",
+        "surface-tint": "#F1EFEA",
         "surface-ice": "#F0FDFA",
         "surface-dim": "#cbdbf5",
-        "surface-bright": "#f8f9ff",
+        "surface-bright": "#F8F7F3",
         // Cards
         "card-white": "#FFFFFF",
-        "surface-container": "#e5eeff",
+        "surface-container": "#F1EFEA",
         "surface-container-lowest": "#ffffff",
         "surface-container-low": "#eff4ff",
-        "surface-container-high": "#dce9ff",
+        "surface-container-high": "#E7E2D5",
         "surface-container-highest": "#d3e4fe",
         // Borders
-        "border-subtle": "#CCFBF1",
-        "border-light": "#E2E8F0",
+        "border-subtle": "#DDDAD3",
+        "border-light": "#DDDAD3",
         "outline": "#6c7a77",
-        "outline-variant": "#bbc9c7",
+        "outline-variant": "#A9AAAC",
         // Text
-        "on-background": "#0b1c30",
-        "on-surface": "#0b1c30",
-        "on-surface-variant": "#4a5a6a",
+        "on-background": "#111112",
+        "on-surface": "#111112",
+        "on-surface-variant": "#6E7072",
         "inverse-surface": "#213145",
         "inverse-on-surface": "#eaf1ff",
         // Utility

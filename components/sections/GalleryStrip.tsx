@@ -42,7 +42,7 @@ export function GalleryStrip({ items }: { items: GalleryStripItem[] }) {
         <div className="mt-8 text-center">
           <Link
             href="/gallery/"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-lg bg-surface-tint hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md transition-colors"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-lg bg-surface-tint hover:bg-primary-fixed hover:text-on-primary text-primary font-label-md text-label-md transition-colors"
           >
             <span>View Full Gallery</span>
             <ArrowRight className="w-[18px] h-[18px]" />

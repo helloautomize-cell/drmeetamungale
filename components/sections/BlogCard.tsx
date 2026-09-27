@@ -30,7 +30,7 @@ export function BlogCard({ post }: { post: BlogPostMeta }) {
         <div className="mt-auto pt-5">
           <Link
             href={post.url}
-            className="font-label-sm text-label-sm text-primary font-bold inline-flex items-center gap-1.5 hover:gap-2.5 transition-all"
+            className="font-label-sm text-label-sm text-primary-fixed font-bold inline-flex items-center gap-1.5 hover:gap-2.5 transition-all"
           >
             <span>Read article</span>
             <ArrowRight className="w-4 h-4" />

@@ -33,7 +33,7 @@ export function PageHero({
           ))}
         </nav>
         {eyebrow && (
-          <span className="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">
+          <span className="font-label-sm text-label-sm text-primary-fixed uppercase font-bold tracking-wider">
             {eyebrow}
           </span>
         )}

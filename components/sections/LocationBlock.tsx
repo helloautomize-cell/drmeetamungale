@@ -80,7 +80,7 @@ export function LocationBlock() {
                 href={mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primary-fixed hover:shadow-brand-glow text-on-primary font-label-md text-label-md rounded-full shadow-brand-md transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-fixed hover:shadow-brand-glow text-on-primary font-label-md text-label-md rounded-full shadow-brand-md transition-all"
               >
                 <CompassIcon className="w-[18px] h-[18px]" />
                 <span>Get Directions</span>
@@ -104,7 +104,7 @@ export function LocationBlock() {
               />
               {/* Floating place chip (non-interactive) + open-in-Maps action */}
               <span className="pointer-events-none absolute top-4 left-4 flex items-center gap-2 bg-card-white/95 backdrop-blur-md rounded-full pl-2 pr-4 py-1.5 shadow-brand-md ring-1 ring-border-light/60">
-                <span className="w-7 h-7 rounded-full bg-gradient-to-br from-primary to-primary-fixed flex items-center justify-center text-white">
+                <span className="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-white">
                   <PinIcon className="w-4 h-4" />
                 </span>
                 <span className="font-label-sm text-label-sm font-bold text-on-surface">

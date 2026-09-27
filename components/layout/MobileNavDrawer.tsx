@@ -2,9 +2,12 @@
 
 import React from "react";
 import Link from "next/link";
-import { X, ChevronRight } from "lucide-react";
+import { X } from "lucide-react";
 import { siteConfig } from "@/content/site";
 
+// Editorial mobile menu (owner spec): full-height warm off-white panel,
+// large links, generous whitespace, small red section labels, strong
+// red CTA pinned at the bottom — not a tiny generic dropdown.
 interface MobileNavDrawerProps {
   isOpen: boolean;
   onClose: () => void;
@@ -19,61 +22,79 @@ export function MobileNavDrawer({ isOpen, onClose }: MobileNavDrawerProps) {
     } else {
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
   React.useEffect(() => {
     if (!isOpen) return;
     closeRef.current?.focus();
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [isOpen, onClose]);
 
+  const items = siteConfig.navTree.filter((i) => i.href !== "/contact-us/");
+
   return (
-    <>
-      <div
-        className={`fixed inset-0 z-[60] lg:hidden transition-transform duration-300 ease-out ${
-          isOpen ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"
-        }`}
-        aria-modal="true"
-        role="dialog"
-      >
-        <div className="absolute inset-0 bg-on-surface/30 backdrop-blur-sm" onClick={onClose} />
+    <div
+      className={`fixed inset-0 z-[60] lg:hidden transition-transform duration-300 ease-out ${
+        isOpen
+          ? "translate-x-0 pointer-events-auto"
+          : "translate-x-full pointer-events-none"
+      }`}
+      aria-modal="true"
+      role="dialog"
+      aria-label="Menu"
+    >
+      <div className="absolute inset-0 bg-background flex flex-col">
+        {/* Panel header: logo + close */}
+        <div className="h-[76px] shrink-0 px-6 flex items-center justify-between border-b border-secondary/10">
+          <img
+            src="/images/hero/httpsmungaleeyehospital-logo.svg"
+            alt={siteConfig.name + " logo"}
+            className="h-[44px] w-auto object-contain"
+            width={196}
+            height={82}
+          />
+          <button
+            ref={closeRef}
+            onClick={onClose}
+            className="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"
+            aria-label="Close menu"
+          >
+            <X className="w-6 h-6" />
+          </button>
+        </div>
+
+        {/* Scrollable body — large links, lots of whitespace */}
         <nav
-          className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-card-white rounded-l-3xl shadow-2xl p-6 overflow-y-auto"
+          className="flex-1 overflow-y-auto px-6 pt-8 pb-6"
           aria-label="Mobile navigation"
         >
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="font-headline-md text-headline-md text-on-surface font-bold">Menu</h2>
-            <button ref={closeRef} onClick={onClose} className="p-2 hover:bg-surface-tint rounded-full" aria-label="Close menu">
-              <X className="w-5 h-5 text-on-surface" />
-            </button>
-          </div>
+          <p className="font-label-sm text-label-sm uppercase tracking-[0.18em] text-primary-fixed font-semibold mb-4">
+            Menu
+          </p>
           <ul className="space-y-1">
-            {/* Same single-CTA rule as desktop: the booking link lives only
-                in the gradient button below, not as a duplicate list row. */}
-            {siteConfig.navTree
-              .filter((item) => item.href !== "/contact-us/")
-              .map((item) => (
-              <li key={item.label}>
+            {items.map((item) => (
+              <li key={item.label} className="mb-3">
                 <Link
                   href={item.href}
-                  className="block px-4 py-3 rounded-xl font-label-md text-label-md text-on-surface hover:bg-surface-tint hover:text-primary transition-colors font-semibold"
+                  className="block py-2 font-display-hero text-[27px] leading-tight text-on-surface hover:text-primary transition-colors duration-200"
                   onClick={onClose}
                 >
-                  <span className="flex items-center justify-between">
-                    {item.label}
-                    {item.subItems?.length > 0 && <ChevronRight className="w-4 h-4 text-on-surface-variant" />}
-                  </span>
+                  {item.label}
                 </Link>
                 {item.subItems?.length > 0 && (
-                  <ul className="pl-4 space-y-0.5">
+                  <ul className="mt-1 mb-2 pl-1 space-y-0.5">
                     {item.subItems.map((sub) => (
                       <li key={sub.href}>
                         <Link
                           href={sub.href}
-                          className="block px-4 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-tint transition-colors"
+                          className="block py-2 pl-3 text-[15px] text-on-surface-variant hover:text-primary transition-colors duration-200 border-l border-border-subtle"
                           onClick={onClose}
                         >
                           {sub.label}
@@ -85,20 +106,38 @@ export function MobileNavDrawer({ isOpen, onClose }: MobileNavDrawerProps) {
               </li>
             ))}
           </ul>
-          <Link
-            href="/contact-us/"
-            className="block mt-6 px-5 py-3 bg-gradient-to-r from-primary to-primary-fixed text-on-primary font-label-md text-label-md rounded-full shadow-brand-md text-center hover:shadow-brand-glow transition-all"
-            onClick={onClose}
-          >
-            Book an Appointment
-          </Link>
-          <div className="mt-6 pt-6 border-t border-border-subtle text-center space-y-1">
-            <p className="font-label-sm text-label-sm text-on-surface-variant">{siteConfig.address}</p>
-            <p className="font-label-sm text-label-sm text-on-surface-variant">{siteConfig.phone}</p>
-            <p className="font-label-sm text-label-sm text-on-surface-variant">{siteConfig.hours.time} · {siteConfig.hours.sunday}</p>
+
+          {/* Direct contact block */}
+          <div className="mt-8 pt-7 border-t border-secondary/10">
+            <p className="font-label-sm text-label-sm uppercase tracking-[0.18em] text-primary-fixed font-semibold mb-3">
+              Contact
+            </p>
+            <p className="text-[15px] text-on-surface-variant leading-relaxed">
+              {siteConfig.address}
+            </p>
+            <a
+              href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+              className="block mt-2 text-[16px] font-medium text-on-surface hover:text-primary transition-colors"
+            >
+              {siteConfig.phone}
+            </a>
+            <p className="mt-2 text-[14px] text-on-surface-variant">
+              {siteConfig.hours.time} · {siteConfig.hours.sunday}
+            </p>
           </div>
         </nav>
+
+        {/* Strong CTA pinned at the bottom — single booking action */}
+        <div className="shrink-0 px-6 pt-4 pb-7 border-t border-secondary/10 bg-background">
+          <Link
+            href="/contact-us/"
+            className="flex items-center justify-center w-full h-[52px] bg-primary hover:bg-primary-fixed text-white text-[15px] font-semibold rounded-[13px] shadow-[0_1px_3px_rgba(17,17,18,0.18)] transition-colors duration-200"
+            onClick={onClose}
+          >
+            Book a Consultation
+          </Link>
+        </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -1,156 +1,183 @@
 import Image from "next/image";
-import type { ComponentType } from "react";
-import { BookingCard } from "@/components/sections/BookingCard";
-import { CountUp, Reveal } from "@/components/ui/motion";
-import {
-  ClockIcon,
-  ReferralIcon,
-  SurgeryIcon,
-  CareBellIcon,
-} from "@/components/icons/duotone";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/Button";
 
-// ─── Hero (Batch A photographic depth) ────────────────────────────────
-// Copy: VERBATIM from archive/content/pages/home.md + about-us.md (see notes
-// below). Visual changes only: real-hospital photographic backdrop
-// (slit-lamp exam underway at MEH — /images/IMG_21301-jpg.webp) under warm
-// legibility scrims + soft red glow with a slow idle drift; booking card
-// renders as glass over the photo (see BookingCard).
-// - H1: homepage H1 verbatim. NOTE: "Best Eye Hospital" is the site's own
-//   published wording — flagged for owner decision per medical-hygiene rule
-//   (docs/CONTENT_GAPS.md). Do not soften or strengthen it without approval.
-// - Stat chips: "20+" VERIFIED (est. 2007). "40,000+" / "15,000+" are the
-//   WEBSITE'S claimed numbers — kept per owner instruction, NOT independently
-//   verified (see docs/CONTENT_GAPS.md #1). Confirm exact counts later.
-// - "24/7 Service Facilities": VERIFIED highlight claim from the live site.
-// - Credential bar: "two accomplished ophthalmologists" verbatim (about-us).
-const stats: {
-  icon: ComponentType<{ className?: string }>;
-  value: number | null;
-  suffix: string;
-  label: string;
-  text?: string;
-  verified: boolean;
-}[] = [
-  { icon: ClockIcon, value: 20, suffix: "+", label: "Years of Service", verified: true },
-  { icon: ReferralIcon, value: 40000, suffix: "+", label: "Patients Treated", verified: false },
-  { icon: SurgeryIcon, value: 15000, suffix: "+", label: "Eye Surgeries", verified: false },
-  { icon: CareBellIcon, value: null, suffix: "", label: "Service Facilities", text: "24/7", verified: true },
-];
+// ─── Hero (editorial split — owner redesign spec + hero fix pass) ────
+// Owner: the hero must land three things in 5 seconds — Mungale Eye
+// Hospital, real experienced doctors, I will be cared for here. Editorial
+// split: quiet left column (eyebrow → short emotional headline → 2-line
+// support → doctor credit → CTA row → trust line), large real Mungale
+// photograph right, subtle proof row underneath. Calm, not a form-first
+// landing template.
+// Hero fix pass (owner review of screenshot): the "Plan your visit" card
+// is REMOVED from the hero entirely — it covered the doctor's face/hands
+// and dominated the composition. Booking above the fold is carried by the
+// red CTA + header CTA + floating pill, all → /contact-us/ (full form
+// lives there). The stray red arc motif is REMOVED (read as a rendering
+// bug in the gutter). Photo is re-framed on the faces/action via focal
+// crop. BookingCard.tsx is kept unused as a reusable block for the
+// contact section.
+// Copy provenance:
+// - Eyebrow, headline "You are seen here.", support copy, CTA labels,
+//   trust line, proof figures: OWNER-PROVIDED wording/direction (hero
+//   redesign prompt). Headline retires the old published "Best Eye
+//   Hospital in Kothi, Vadodara" H1 by explicit owner instruction
+//   (logged in docs/PROGRESS.md).
+// - Doctor credit: VERBATIM from about-us ("Led by Dr. Sachin & Dr.
+//   Meeta Mungale", "Two accomplished ophthalmologists — MS
+//   Ophthalmology, DNB").
+// - Proof: "20+" VERIFIED (est. 24 June 2007). "40,000+" / "15,000+" are
+//   the WEBSITE'S claimed numbers — kept per owner instruction, NOT
+//   independently verified (docs/CONTENT_GAPS.md #1).
+// Photo: REAL Mungale photograph (slit-lamp examination underway at MEH,
+// /images/IMG_21301-jpg.webp) — doctor, patient, staff, equipment, no
+// stock, no heavy wash.
 
 export function Hero() {
   return (
-    <section className="relative w-full bg-background pb-space-2xl overflow-hidden">
-      {/* Photographic backdrop — real slit-lamp examination underway at MEH.
-          Confined to the right of the layout (behind the glass booking
-          card): the headline column sits on clean background, the photo is
-          a sense-of-place accent, never a full-bleed takeover. Warm grade +
-          scrims keep everything legible; soft red glow drifts slowly (idle
-          motion, transform-only, reduced-motion disables it). */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute inset-y-0 right-0 w-full lg:w-[46%] overflow-hidden">
-          <Image
-            src="/images/IMG_21301-jpg.webp"
-            alt=""
-            fill
-            priority
-            sizes="(min-width: 1024px) 46vw, 100vw"
-            className="object-cover object-center"
-          />
-          {/* Warm clinical grade */}
-          <div className="absolute inset-0 bg-primary-container/25 mix-blend-multiply" />
-          {/* Fade the photo's left edge into the page background (desktop) */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/35 to-transparent hidden lg:block" />
-          {/* Mobile: heavy scrim so text stays readable over the photo */}
-          <div className="absolute inset-0 bg-background/80 lg:hidden" />
-          {/* Blend top into header, bottom into next section */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/70" />
-        </div>
-        {/* Idle glow */}
-        <div className="absolute top-16 right-[-6rem] w-[30rem] h-[30rem] rounded-full bg-primary/10 blur-3xl animate-hero-drift" />
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          {/* Left: headline + metrics */}
-          <div className="lg:col-span-7 space-y-7">
-            <Reveal>
-              <h1 className="font-display-hero text-display-hero text-on-surface tracking-tight leading-tight">
-                Welcome to Mungale Eye Hospital —{" "}
-                <span className="text-primary underline decoration-primary-container/40 underline-offset-8">
-                  Best Eye Hospital in Kothi, Vadodara
-                </span>
-              </h1>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
-                Mungale Eye Hospital (MEH), recognized as one of the best eye
-                hospitals in Vadodara, Gujarat, was established on 24th June,
-                2007. Presently, MEH is well-equipped with entire range of state
-                of art diagnostic, curative and latest technology surgical
-                equipment required to treat eye patients
+    <section className="relative w-full bg-background overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-4 lg:pt-6 pb-12 lg:pb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10 items-start">
+          {/* LEFT — quiet editorial column */}
+          <div className="lg:col-span-6 lg:pt-3">
+            {/* Eyebrow — single quiet line (arc motif removed: it read as
+                a stray mark in the gutter) */}
+            <div
+              className="hero-fade max-w-xl"
+              style={{ animationDelay: "60ms" }}
+            >
+              <p className="text-[11px] lg:text-[12px] font-semibold uppercase tracking-[0.16em] text-on-surface/70">
+                Mungale Eye Hospital · Kothi, Vadodara
               </p>
-            </Reveal>
-
-            {/* Stat tiles with icon chips + count-up */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-              {stats.map((s, i) => (
-                <Reveal key={s.label} delay={0.1 + i * 0.06}>
-                  {/* NOTE (owner to confirm) on unverified website-claimed numbers — docs/CONTENT_GAPS.md #1 */}
-                  <div className="p-4 bg-card-white rounded-2xl shadow-sm hover:shadow-brand-md hover:-translate-y-1 transition-all duration-200 flex flex-col gap-2 h-full">
-                    <span className="w-9 h-9 rounded-xl bg-surface-tint flex items-center justify-center text-primary">
-                      {s.icon && <s.icon className="w-5 h-5" />}
-                    </span>
-                    <span className="font-headline-md text-headline-md text-primary font-bold leading-none">
-                      {s.value !== null ? (
-                        <CountUp to={s.value} suffix={s.suffix} />
-                      ) : (
-                        s.text
-                      )}
-                    </span>
-                    <span className="font-label-sm text-label-sm text-on-surface-variant">
-                      {s.label}
-                    </span>
-                  </div>
-                </Reveal>
-              ))}
             </div>
 
-            {/* Doctor credential bar */}
-            <Reveal delay={0.2}>
-              <div className="flex items-center gap-4 pt-2">
-                <div className="flex -space-x-2">
-                  <Image
-                    className="w-10 h-10 rounded-full object-cover shadow-brand-sm ring-2 ring-card-white"
-                    src="/images/doctors/DrMeeta-2.webp"
-                    alt="Dr. Meeta Mungale, MS Ophthalmology, DNB"
-                    width={40}
-                    height={40}
+            {/* Headline — "seen" keeps the editorial serif italic + red
+                relationship, but in a slightly darker derived red
+                (text-primary-fixed #B9191C, ~15% deeper than official red;
+                logo + CTAs stay official #ED2225). One thin 1.5px curved
+                stroke beneath "seen" (logo's upper curve), 64% of the word
+                width, drawing in over 450ms. No glow, no boxes. */}
+            <h1
+              className="hero-rise mt-5 font-display-hero text-on-surface tracking-[-0.02em] text-[54px] sm:text-[66px] lg:text-[78px] xl:text-[88px] leading-[0.97]"
+              style={{ animationDelay: "120ms" }}
+            >
+              You are{" "}
+              <span className="relative inline-block">
+                <em className="italic text-primary-fixed">seen</em>
+                <svg
+                  className="seen-stroke absolute left-[18%] w-[64%] -bottom-[10px] h-[8px]"
+                  viewBox="0 0 100 10"
+                  preserveAspectRatio="none"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M2 7.5 Q50 1.5 98 6"
+                    stroke="#ED2225"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
                   />
-                  <Image
-                    className="w-10 h-10 rounded-full object-cover shadow-brand-sm ring-2 ring-card-white"
-                    src="/images/doctors/Dr-Sachin.jpg"
-                    alt="Dr. Sachin Mungale, MS Ophthalmology"
-                    width={40}
-                    height={40}
-                  />
-                </div>
-                <div>
-                  <p className="font-label-md text-label-md text-on-surface font-semibold">
-                    Led by Dr. Sachin &amp; Dr. Meeta Mungale
-                  </p>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant">
-                    Two accomplished ophthalmologists — MS Ophthalmology, DNB.
-                  </p>
-                </div>
+                </svg>
+              </span>{" "}
+              here.
+            </h1>
+
+            {/* Supporting copy — OWNER-PROVIDED direction (art-direction
+                refinement prompt): human, confident, concise */}
+            <p
+              className="hero-fade mt-6 text-[18px] lg:text-[19px] leading-[1.6] text-on-surface-variant max-w-xl"
+              style={{ animationDelay: "300ms" }}
+            >
+              Specialist eye care built around careful diagnosis, honest
+              conversations and knowing what comes next.
+            </p>
+
+            {/* Doctor credibility — quiet two-line block, never a card.
+                Wording OWNER-PROVIDED (refinement prompt); names strong,
+                credentials quiet. */}
+            <div
+              className="hero-fade mt-7 flex items-center gap-3"
+              style={{ animationDelay: "440ms" }}
+            >
+              <div className="flex -space-x-2.5">
+                <Image
+                  className="w-8 h-8 rounded-full object-cover ring-2 ring-background"
+                  src="/images/doctors/DrMeeta-2.webp"
+                  alt="Dr. Meeta Mungale, MS Ophthalmology, DNB"
+                  width={32}
+                  height={32}
+                />
+                <Image
+                  className="w-8 h-8 rounded-full object-cover ring-2 ring-background"
+                  src="/images/doctors/Dr-Sachin.jpg"
+                  alt="Dr. Sachin Mungale, MS Ophthalmology"
+                  width={32}
+                  height={32}
+                />
               </div>
-            </Reveal>
+              <div>
+                <p className="text-[14.5px] leading-snug text-on-surface-variant">
+                  Led by{" "}
+                  <span className="text-on-surface font-semibold">
+                    Dr. Sachin &amp; Dr. Meeta Mungale
+                  </span>
+                </p>
+                <p className="mt-0.5 text-[13px] leading-snug text-on-surface-variant">
+                  Specialist ophthalmologists · MS Ophthalmology · DNB
+                </p>
+              </div>
+            </div>
+
+            {/* CTA hierarchy — primary official red; secondary is a quiet
+                text link (no border): dark text + red arrow that nudges
+                4px right on hover, thin red underline appears. */}
+            <div
+              className="hero-fade mt-8 flex flex-wrap items-center gap-x-6 gap-y-3"
+              style={{ animationDelay: "620ms" }}
+            >
+              <Button
+                asChild
+                variant="primary"
+                className="h-12 px-7 rounded-[13px] shadow-[0_1px_3px_rgba(17,17,18,0.18)]"
+              >
+                <Link href="/contact-us/">Book a consultation</Link>
+              </Button>
+              <Link
+                href="/about-us/"
+                className="cta-quiet group inline-flex items-center gap-1.5 h-12 px-1 text-[15px] font-semibold text-on-surface"
+              >
+                <span className="cta-quiet-text">Meet the doctors</span>
+                <ArrowRight className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1" />
+              </Link>
+            </div>
+
+            {/* Quiet trust line — secondary, never a badge */}
+            <p
+              className="hero-fade mt-5 text-[13px] text-on-surface-variant"
+              style={{ animationDelay: "720ms" }}
+            >
+              Since 2007 · Kothi, Vadodara
+            </p>
           </div>
 
-          {/* Right: booking card (task 4.2) */}
-          <div className="lg:col-span-5">
-            <Reveal delay={0.15}>
-              <BookingCard />
-            </Reveal>
+          {/* RIGHT — dominant real photograph, re-framed on the
+              faces/action (focal crop, not dead-center). No card overlay:
+              the photo column stays 100% clean. */}
+          <div className="lg:col-span-6 relative">
+            <div
+              className="hero-sharpen h-[360px] sm:h-[440px] lg:h-[480px] xl:h-[500px] rounded-[20px] overflow-hidden ring-1 ring-border-subtle"
+              style={{ animationDelay: "180ms" }}
+            >
+              <Image
+                src="/images/IMG_21301-jpg.webp"
+                alt="A doctor performing a slit-lamp eye examination on a patient at Mungale Eye Hospital, assisted by a staff member."
+                priority
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover object-[65%_28%] contrast-[1.03]"
+              />
+            </div>
           </div>
         </div>
       </div>

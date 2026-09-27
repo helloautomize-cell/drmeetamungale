@@ -46,7 +46,7 @@ export function AboutHero({
                 </span>
               ))}
             </nav>
-            <span className="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">
+            <span className="font-label-sm text-label-sm text-primary-fixed uppercase font-bold tracking-wider">
               Our Story
             </span>
             <h1 className="font-headline-lg text-headline-lg text-on-surface font-bold mt-1">
@@ -58,7 +58,7 @@ export function AboutHero({
             <div className="mt-6 flex flex-wrap gap-4">
               <Link
                 href="/contact-us/"
-                className="px-6 py-3 bg-gradient-to-r from-primary to-primary-fixed text-on-primary font-label-md text-label-md rounded-full shadow-brand-md hover:shadow-brand-glow hover:-translate-y-0.5 transition-all inline-flex items-center gap-2"
+                className="px-6 py-3 bg-primary hover:bg-primary-fixed text-on-primary font-label-md text-label-md rounded-full shadow-brand-md hover:shadow-brand-glow hover:-translate-y-0.5 transition-all inline-flex items-center gap-2"
               >
                 <span>Book an Appointment</span>
                 <ChevronRight className="w-[18px] h-[18px]" />
@@ -143,7 +143,7 @@ export function StoryTimeline() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10">
         <Reveal className="lg:col-span-5">
           <div>
-            <span className="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">
+            <span className="font-label-sm text-label-sm text-primary-fixed uppercase font-bold tracking-wider">
               Our Story
             </span>
             <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold mt-1">
@@ -170,13 +170,13 @@ export function StoryTimeline() {
                     otherwise become its positioning context and slide it
                     over the text. */}
                 <span
-                  className="absolute left-0 top-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary-fixed text-white font-headline-sm text-headline-sm font-bold flex items-center justify-center shadow-brand-sm ring-4 ring-card-white"
+                  className="absolute left-0 top-0 w-14 h-14 rounded-2xl bg-primary text-white font-headline-sm text-headline-sm font-bold flex items-center justify-center shadow-brand-sm ring-4 ring-card-white"
                   aria-hidden="true"
                 >
                   {m.year === "Today" ? <CareBellIcon className="w-7 h-7" /> : m.year.slice(2)}
                 </span>
                 <Reveal delay={0.08 * i}>
-                  <p className="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">
+                  <p className="font-label-sm text-label-sm text-primary-fixed font-bold uppercase tracking-wider">
                     {m.year} · {m.title}
                   </p>
                   <p className="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed">

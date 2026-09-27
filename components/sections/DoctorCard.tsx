@@ -26,7 +26,7 @@ export function DoctorCard({ doctor }: { doctor: Doctor }) {
       </div>
       <div className="p-6">
         <h3 className="font-title-md text-title-md text-on-surface font-bold">{doctor.name}</h3>
-        <p className="font-label-sm text-label-sm text-primary font-semibold mt-1">{doctor.title}</p>
+        <p className="font-label-sm text-label-sm text-primary-fixed font-semibold mt-1">{doctor.title}</p>
         <p className="font-body-sm text-body-sm text-on-surface-variant mt-2">{doctor.description}</p>
       </div>
     </div>
