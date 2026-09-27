@@ -1,0 +1,1780 @@
+{
+  "project": "Mungale Eye Hospital Rebuild",
+  "reference": "reference_home.html (Oliva Clinic design system — brand references to purge after build)",
+  "sourceContent": "rebuild/ (captured from WordPress REST API + homepage HTML analysis)",
+  "totalAssets": 110,
+  "homepageAssets": 11,
+  "mediaLibraryAssets": 99,
+  "assets": [
+    {
+      "id": "logo-svg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/09/httpsmungaleeyehospital-logo.svg",
+      "localSource": "rebuild/assets/images/logo.svg",
+      "foundOn": [
+        "/",
+        "header"
+      ],
+      "section": "Header/Brand",
+      "originalAlt": "Mungale Eye Hospital logo",
+      "type": "logo/icon",
+      "width": 205,
+      "height": 85,
+      "quality": "good",
+      "proposedUse": "header/logo",
+      "newAlt": "Mungale Eye Hospital logo"
+    },
+    {
+      "id": "hero-logo-banner",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/11/cropped-logo-2-300x300.png",
+      "localSource": "rebuild/assets/images/logo-banner.png",
+      "foundOn": [
+        "/"
+      ],
+      "section": "Hero/Logo",
+      "originalAlt": "Hospital logo banner",
+      "type": "logo",
+      "width": 300,
+      "height": 300,
+      "quality": "good",
+      "proposedUse": "hero/logo",
+      "newAlt": "Mungale Eye Hospital logo"
+    },
+    {
+      "id": "service-cornea-eval",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/09/focus_6435747.webp",
+      "localSource": "rebuild/assets/images/focus_6435747.webp",
+      "foundOn": [
+        "/",
+        "treatments/cornea-evaluation/"
+      ],
+      "section": "Services/Cornea Evaluation",
+      "originalAlt": "Eye focus examination",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "service-card-1",
+      "newAlt": "Eye examination for cornea evaluation at Mungale Eye Hospital"
+    },
+    {
+      "id": "service-glaucoma-eval",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/09/checkup_750693.webp",
+      "localSource": "rebuild/assets/images/checkup_750693.webp",
+      "foundOn": [
+        "/",
+        "treatments/glaucoma-evaluation/"
+      ],
+      "section": "Services/Glaucoma Evaluation",
+      "originalAlt": "Eye checkup procedure",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "service-card-2",
+      "newAlt": "Comprehensive eye checkup for glaucoma evaluation"
+    },
+    {
+      "id": "service-corneal-treat",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/09/laser_4937053.webp",
+      "localSource": "rebuild/assets/images/laser_4937053.webp",
+      "foundOn": [
+        "/",
+        "treatments/corneal-treatments/"
+      ],
+      "section": "Services/Corneal Treatments",
+      "originalAlt": "Laser treatment",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "service-card-3",
+      "newAlt": "Advanced laser corneal treatment"
+    },
+    {
+      "id": "service-cataract",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/09/body-parts_1713560.webp",
+      "localSource": "rebuild/assets/images/body-parts_1713560.webp",
+      "foundOn": [
+        "/",
+        "treatments/cataract-surgery/"
+      ],
+      "section": "Services/Cataract Surgery",
+      "originalAlt": "Eye anatomy",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "service-card-4",
+      "newAlt": "Eye anatomy illustration for cataract surgery"
+    },
+    {
+      "id": "service-glaucoma-treat",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/09/eye-drops_3209118.webp",
+      "localSource": "rebuild/assets/images/eye-drops_3209118.webp",
+      "foundOn": [
+        "/",
+        "treatments/glaucoma-treatments/"
+      ],
+      "section": "Services/Glaucoma Treatments",
+      "originalAlt": "Eye drops medication",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "service-card-5",
+      "newAlt": "Eye drops medication for glaucoma treatment"
+    },
+    {
+      "id": "service-optical",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/09/ophthalmology_4892551.webp",
+      "localSource": "rebuild/assets/images/ophthalmology_4892551.webp",
+      "foundOn": [
+        "/",
+        "treatments/optical-contact-lenses/"
+      ],
+      "section": "Services/Optical & Contact Lenses",
+      "originalAlt": "Ophthalmology examination",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "service-card-6",
+      "newAlt": "Ophthalmology examination for optical and contact lenses"
+    },
+    {
+      "id": "doctor-meeta",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/09/DrMeeta-2.webp",
+      "localSource": "rebuild/assets/images/DrMeeta-2.webp",
+      "foundOn": [
+        "/",
+        "about-us/"
+      ],
+      "section": "Doctors/Leadership",
+      "originalAlt": "Dr. Meeta Mungale MS Ophthalmology",
+      "type": "photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "doctor-card/meeta",
+      "newAlt": "Dr. Meeta Mungale, MS Ophthalmology and DNB, senior eye specialist at Mungale Eye Hospital"
+    },
+    {
+      "id": "doctor-sachin",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/09/DrSachin.webp",
+      "localSource": "rebuild/assets/images/DrSachin.webp",
+      "foundOn": [
+        "/",
+        "about-us/"
+      ],
+      "section": "Doctors/Leadership",
+      "originalAlt": "Dr. Sachin Mungale MS Ophthalmology",
+      "type": "photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "doctor-card/sachin",
+      "newAlt": "Dr. Sachin Mungale, MS Ophthalmology, senior eye specialist and co-founder of Mungale Eye Hospital"
+    },
+    {
+      "id": "facility-photo",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/IMG_1146-1024x768.jpg",
+      "localSource": "rebuild/assets/images/IMG_1146-1024x768.jpg",
+      "foundOn": [
+        "/",
+        "about-us/"
+      ],
+      "section": "Welcome/Intro",
+      "originalAlt": "Mungale Eye Hospital facility interior",
+      "type": "photo",
+      "width": 1024,
+      "height": 768,
+      "quality": "good",
+      "proposedUse": "welcome-section-image",
+      "newAlt": "Interior view of Mungale Eye Hospital modern diagnostic and surgical facility in Vadodara"
+    },
+    {
+      "id": "What-Are-Progression-Measurement-Benchmarks-in-Eye-Care-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/05/What-Are-Progression-Measurement-Benchmarks-in-Eye-Care.jpg",
+      "localSource": "rebuild/assets/images/What-Are-Progression-Measurement-Benchmarks-in-Eye-Care.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "What Are Progression Measurement Benchmarks in Eye Care",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: What Are Progression Measurement Benchmarks in Eye Care"
+    },
+    {
+      "id": "What-Is-Involved-in-a-Routine-Eye-Examination-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/05/What-Is-Involved-in-a-Routine-Eye-Examination.jpg",
+      "localSource": "rebuild/assets/images/What-Is-Involved-in-a-Routine-Eye-Examination.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "What Is Involved in a Routine Eye Examination",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: What Is Involved in a Routine Eye Examination"
+    },
+    {
+      "id": "Untitled-1-7-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/05/Untitled-1-7.jpg",
+      "localSource": "rebuild/assets/images/Untitled-1-7.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "Disease Progression Velocity in Eye Care",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: Disease Progression Velocity in Eye Care"
+    },
+    {
+      "id": "What-is-the-recovery-process-like-after-corneal-treatment-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/05/What-is-the-recovery-process-like-after-corneal-treatment.jpg",
+      "localSource": "rebuild/assets/images/What-is-the-recovery-process-like-after-corneal-treatment.jpg",
+      "foundOn": [
+        "/treatments/"
+      ],
+      "section": "Content/Treatments",
+      "originalAlt": "What is the recovery process like after corneal treatment",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "treatment-illustration",
+      "newAlt": "Image: What is the recovery process like after corneal treatment"
+    },
+    {
+      "id": "How-is-glaucoma-typically-diagnosed-and-evaluated-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/05/How-is-glaucoma-typically-diagnosed-and-evaluated.jpg",
+      "localSource": "rebuild/assets/images/How-is-glaucoma-typically-diagnosed-and-evaluated.jpg",
+      "foundOn": [
+        "/treatments/"
+      ],
+      "section": "Content/Treatments",
+      "originalAlt": "How is glaucoma typically diagnosed and evaluated",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "treatment-illustration",
+      "newAlt": "Image: How is glaucoma typically diagnosed and evaluated"
+    },
+    {
+      "id": "Benefits-of-Cataract-Surgery-for-Better-Vision-in-Daily-Life-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/04/Benefits-of-Cataract-Surgery-for-Better-Vision-in-Daily-Life.jpg",
+      "localSource": "rebuild/assets/images/Benefits-of-Cataract-Surgery-for-Better-Vision-in-Daily-Life.jpg",
+      "foundOn": [
+        "/treatments/"
+      ],
+      "section": "Content/Treatments",
+      "originalAlt": "What are the risks and benefits of cataract surgery",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "treatment-illustration",
+      "newAlt": "Image: What are the risks and benefits of cataract surgery"
+    },
+    {
+      "id": "i1-png",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/04/i1.png",
+      "localSource": "rebuild/assets/images/i1.png",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "i1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: i1"
+    },
+    {
+      "id": "i2-png",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/04/i2.png",
+      "localSource": "rebuild/assets/images/i2.png",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "i2",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: i2"
+    },
+    {
+      "id": "i3-png",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/04/i3.png",
+      "localSource": "rebuild/assets/images/i3.png",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "i3",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: i3"
+    },
+    {
+      "id": "i4-png",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/04/i4.png",
+      "localSource": "rebuild/assets/images/i4.png",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "i4",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: i4"
+    },
+    {
+      "id": "eye-care-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/04/eye-care.jpg",
+      "localSource": "rebuild/assets/images/eye-care.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "eye-care",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: eye-care"
+    },
+    {
+      "id": "health-insurance-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/04/health-insurance.jpg",
+      "localSource": "rebuild/assets/images/health-insurance.jpg",
+      "foundOn": [
+        "/insurance-cashless/"
+      ],
+      "section": "Content/Insurance",
+      "originalAlt": "health-insurance",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "insurance-illustration",
+      "newAlt": "Image: health-insurance"
+    },
+    {
+      "id": "What-are-the-benefits-of-regular-eye-check-ups-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/04/What-are-the-benefits-of-regular-eye-check-ups.jpg",
+      "localSource": "rebuild/assets/images/What-are-the-benefits-of-regular-eye-check-ups.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "Benefits of Regular Eye Check-ups in Vadodara",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: Benefits of Regular Eye Check-ups in Vadodara"
+    },
+    {
+      "id": "Mungale-Eye-Hospital-Logo-png",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/09/Mungale-Eye-Hospital-Logo.png",
+      "localSource": "rebuild/assets/images/Mungale-Eye-Hospital-Logo.png",
+      "foundOn": [
+        "/"
+      ],
+      "section": "Header/Brand",
+      "originalAlt": "Mungale Eye Hospital &#8211; Logo",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "header/logo",
+      "newAlt": "Image: Mungale Eye Hospital &#8211; Logo"
+    },
+    {
+      "id": "mungale-eye-blog-copy-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/03/mungale-eye-blog-copy.jpg",
+      "localSource": "rebuild/assets/images/mungale-eye-blog-copy.jpg",
+      "foundOn": [
+        "/treatments/"
+      ],
+      "section": "Content/Treatments",
+      "originalAlt": "glaucoma-treatment-options-mungale-eye-hospital",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "treatment-illustration",
+      "newAlt": "Image: glaucoma-treatment-options-mungale-eye-hospital"
+    },
+    {
+      "id": "mungale-eye-blog-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/03/mungale-eye-blog.jpg",
+      "localSource": "rebuild/assets/images/mungale-eye-blog.jpg",
+      "foundOn": [
+        "/treatments/"
+      ],
+      "section": "Content/Treatments",
+      "originalAlt": "mungale eye hospital &#8211; benefits of cataract surgery",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "treatment-illustration",
+      "newAlt": "Image: mungale eye hospital &#8211; benefits of cataract surgery"
+    },
+    {
+      "id": "blog-copy-2-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/02/blog-copy-2.jpg",
+      "localSource": "rebuild/assets/images/blog-copy-2.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "Best Foods for Eye Health in Indian Diet",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: Best Foods for Eye Health in Indian Diet"
+    },
+    {
+      "id": "blog-3-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/02/blog-3.jpg",
+      "localSource": "rebuild/assets/images/blog-3.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "AI in Eye Care: How Artificial Intelligence is Revolutionising Eye Disease Detection in 2026",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: AI in Eye Care: How Artificial Intelligence is Revolutionising Eye Disease Detection in 2026"
+    },
+    {
+      "id": "New-Year-resulation-2026-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/01/New-Year-resulation-2026.jpg",
+      "localSource": "rebuild/assets/images/New-Year-resulation-2026.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "New Year Eye Health Resolutions 2026",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: New Year Eye Health Resolutions 2026"
+    },
+    {
+      "id": "Glaucoma-Awareness-Month-2026-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2026/01/Glaucoma-Awareness-Month-2026.jpg",
+      "localSource": "rebuild/assets/images/Glaucoma-Awareness-Month-2026.jpg",
+      "foundOn": [
+        "/treatments/"
+      ],
+      "section": "Content/Treatments",
+      "originalAlt": "Glaucoma-Awareness-Month-2026 &#8211; Glaucoma Surgery",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "treatment-illustration",
+      "newAlt": "Image: Glaucoma-Awareness-Month-2026 &#8211; Glaucoma Surgery"
+    },
+    {
+      "id": "blog-copy3-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/12/blog-copy3.jpg",
+      "localSource": "rebuild/assets/images/blog-copy3.jpg",
+      "foundOn": [
+        "/treatments/"
+      ],
+      "section": "Content/Treatments",
+      "originalAlt": "Eye Care Treatment in vadodara",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "treatment-illustration",
+      "newAlt": "Image: Eye Care Treatment in vadodara"
+    },
+    {
+      "id": "blog-2-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/12/blog-2.jpg",
+      "localSource": "rebuild/assets/images/blog-2.jpg",
+      "foundOn": [
+        "/treatments/"
+      ],
+      "section": "Content/Treatments",
+      "originalAlt": "Corneal Ulcer Treatment",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "treatment-illustration",
+      "newAlt": "Image: Corneal Ulcer Treatment"
+    },
+    {
+      "id": "mungale-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/11/mungale.jpg",
+      "localSource": "rebuild/assets/images/mungale.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "mungale",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: mungale"
+    },
+    {
+      "id": "mungale-blog-image-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/11/mungale-blog-image-1.jpg",
+      "localSource": "rebuild/assets/images/mungale-blog-image-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "When Should You See an Eye Doctor &#8211; Mungale Eye Hospital",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: When Should You See an Eye Doctor &#8211; Mungale Eye Hospital"
+    },
+    {
+      "id": "cropped-logo-2-png",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/11/cropped-logo-2.png",
+      "localSource": "rebuild/assets/images/cropped-logo-2.png",
+      "foundOn": [
+        "/"
+      ],
+      "section": "Header/Brand",
+      "originalAlt": "cropped-logo-2",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "header/logo",
+      "newAlt": "Image: cropped-logo-2"
+    },
+    {
+      "id": "cb1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/11/cb1.jpg",
+      "localSource": "rebuild/assets/images/cb1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "cb1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: cb1"
+    },
+    {
+      "id": "cb2-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/11/cb2.jpg",
+      "localSource": "rebuild/assets/images/cb2.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "cb2",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: cb2"
+    },
+    {
+      "id": "de1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/11/de1.jpg",
+      "localSource": "rebuild/assets/images/de1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "de1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: de1"
+    },
+    {
+      "id": "de2-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/11/de2.jpg",
+      "localSource": "rebuild/assets/images/de2.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "de2",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: de2"
+    },
+    {
+      "id": "de3-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/11/de3.jpg",
+      "localSource": "rebuild/assets/images/de3.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "de3",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: de3"
+    },
+    {
+      "id": "de4-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/11/de4.jpg",
+      "localSource": "rebuild/assets/images/de4.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "de4",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: de4"
+    },
+    {
+      "id": "de5-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/11/de5.jpg",
+      "localSource": "rebuild/assets/images/de5.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "de5",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: de5"
+    },
+    {
+      "id": "de6-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/11/de6.jpg",
+      "localSource": "rebuild/assets/images/de6.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "de6",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: de6"
+    },
+    {
+      "id": "sjs3-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/11/sjs3.jpg",
+      "localSource": "rebuild/assets/images/sjs3.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "sjs3",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: sjs3"
+    },
+    {
+      "id": "sjs2-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/11/sjs2.jpg",
+      "localSource": "rebuild/assets/images/sjs2.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "sjs2",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: sjs2"
+    },
+    {
+      "id": "sjs1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/11/sjs1.jpg",
+      "localSource": "rebuild/assets/images/sjs1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "sjs1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: sjs1"
+    },
+    {
+      "id": "infection-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/infection.jpg",
+      "localSource": "rebuild/assets/images/infection.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "infection",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: infection"
+    },
+    {
+      "id": "image1-png",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/image1.png",
+      "localSource": "rebuild/assets/images/image1.png",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "image1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: image1"
+    },
+    {
+      "id": "stevens-johnson-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/stevens-johnson.jpg",
+      "localSource": "rebuild/assets/images/stevens-johnson.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "stevens johnson",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: stevens johnson"
+    },
+    {
+      "id": "allergy-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/allergy.jpg",
+      "localSource": "rebuild/assets/images/allergy.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "allergy",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: allergy"
+    },
+    {
+      "id": "dry-eye-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/dry-eye.jpg",
+      "localSource": "rebuild/assets/images/dry-eye.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "dry eye",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: dry eye"
+    },
+    {
+      "id": "1-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/1-1.jpg",
+      "localSource": "rebuild/assets/images/1-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "1-1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 1-1"
+    },
+    {
+      "id": "3-1-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/3-1-1.jpg",
+      "localSource": "rebuild/assets/images/3-1-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "3-1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 3-1"
+    },
+    {
+      "id": "7-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/7-1.jpg",
+      "localSource": "rebuild/assets/images/7-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "7-1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 7-1"
+    },
+    {
+      "id": "2-1-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/2-1-1.jpg",
+      "localSource": "rebuild/assets/images/2-1-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "2-1 (1)",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 2-1 (1)"
+    },
+    {
+      "id": "4-1-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/4-1-1.jpg",
+      "localSource": "rebuild/assets/images/4-1-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "4-1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 4-1"
+    },
+    {
+      "id": "5-1-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/5-1-1.jpg",
+      "localSource": "rebuild/assets/images/5-1-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "5-1 (1)",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 5-1 (1)"
+    },
+    {
+      "id": "6-1-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/6-1-1.jpg",
+      "localSource": "rebuild/assets/images/6-1-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "6-1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 6-1"
+    },
+    {
+      "id": "6-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/6-1.jpg",
+      "localSource": "rebuild/assets/images/6-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "6 (1)",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 6 (1)"
+    },
+    {
+      "id": "9-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/9.jpg",
+      "localSource": "rebuild/assets/images/9.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "9",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 9"
+    },
+    {
+      "id": "4-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/4-1.jpg",
+      "localSource": "rebuild/assets/images/4-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "4 (1)",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 4 (1)"
+    },
+    {
+      "id": "8-1-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/8-1-1.jpg",
+      "localSource": "rebuild/assets/images/8-1-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "8 (1)",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 8 (1)"
+    },
+    {
+      "id": "7-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/7.jpg",
+      "localSource": "rebuild/assets/images/7.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "7",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 7"
+    },
+    {
+      "id": "3-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/3-1.jpg",
+      "localSource": "rebuild/assets/images/3-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "3 (1)",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 3 (1)"
+    },
+    {
+      "id": "2-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/2.jpg",
+      "localSource": "rebuild/assets/images/2.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "2",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 2"
+    },
+    {
+      "id": "11-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/11-1.jpg",
+      "localSource": "rebuild/assets/images/11-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "11-1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 11-1"
+    },
+    {
+      "id": "13-2-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/13-2.jpg",
+      "localSource": "rebuild/assets/images/13-2.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "13-2",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 13-2"
+    },
+    {
+      "id": "12-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/12-1.jpg",
+      "localSource": "rebuild/assets/images/12-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "12-1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 12-1"
+    },
+    {
+      "id": "8-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/8-1.jpg",
+      "localSource": "rebuild/assets/images/8-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "8-1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 8-1"
+    },
+    {
+      "id": "8-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/8.jpg",
+      "localSource": "rebuild/assets/images/8.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "8",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 8"
+    },
+    {
+      "id": "10-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/10.jpg",
+      "localSource": "rebuild/assets/images/10.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "10",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 10"
+    },
+    {
+      "id": "6-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/6.jpg",
+      "localSource": "rebuild/assets/images/6.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "6",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 6"
+    },
+    {
+      "id": "4-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/4.jpg",
+      "localSource": "rebuild/assets/images/4.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "4",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 4"
+    },
+    {
+      "id": "25-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/25.jpg",
+      "localSource": "rebuild/assets/images/25.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "25",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 25"
+    },
+    {
+      "id": "3-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/3.jpg",
+      "localSource": "rebuild/assets/images/3.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "3",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 3"
+    },
+    {
+      "id": "2-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/2-1.jpg",
+      "localSource": "rebuild/assets/images/2-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "2-1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 2-1"
+    },
+    {
+      "id": "16-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/16.jpg",
+      "localSource": "rebuild/assets/images/16.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "16",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 16"
+    },
+    {
+      "id": "13-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/13-1.jpg",
+      "localSource": "rebuild/assets/images/13-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "13-1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 13-1"
+    },
+    {
+      "id": "14-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/14.jpg",
+      "localSource": "rebuild/assets/images/14.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "14",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 14"
+    },
+    {
+      "id": "26-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/26.jpg",
+      "localSource": "rebuild/assets/images/26.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "26",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 26"
+    },
+    {
+      "id": "27-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/27.jpg",
+      "localSource": "rebuild/assets/images/27.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "27",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 27"
+    },
+    {
+      "id": "13-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/13.jpg",
+      "localSource": "rebuild/assets/images/13.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "13",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 13"
+    },
+    {
+      "id": "11-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/11.jpg",
+      "localSource": "rebuild/assets/images/11.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "11",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 11"
+    },
+    {
+      "id": "30-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/30.jpg",
+      "localSource": "rebuild/assets/images/30.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "30",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 30"
+    },
+    {
+      "id": "34-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/34.jpg",
+      "localSource": "rebuild/assets/images/34.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "34",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 34"
+    },
+    {
+      "id": "5-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/5-1.jpg",
+      "localSource": "rebuild/assets/images/5-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "5-1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: 5-1"
+    },
+    {
+      "id": "img_20180711_1655534667872308030169657-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/img_20180711_1655534667872308030169657.jpg",
+      "localSource": "rebuild/assets/images/img_20180711_1655534667872308030169657.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "img_20180711_1655534667872308030169657",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: img_20180711_1655534667872308030169657"
+    },
+    {
+      "id": "img_20180711_1633547304522265754847847-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/img_20180711_1633547304522265754847847.jpg",
+      "localSource": "rebuild/assets/images/img_20180711_1633547304522265754847847.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "img_20180711_1633547304522265754847847",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: img_20180711_1633547304522265754847847"
+    },
+    {
+      "id": "img-20180614-wa00058568750921881632404-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/img-20180614-wa00058568750921881632404.jpg",
+      "localSource": "rebuild/assets/images/img-20180614-wa00058568750921881632404.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "img-20180614-wa00058568750921881632404",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: img-20180614-wa00058568750921881632404"
+    },
+    {
+      "id": "img_20180613_1906366776077522172708470-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/img_20180613_1906366776077522172708470.jpg",
+      "localSource": "rebuild/assets/images/img_20180613_1906366776077522172708470.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "img_20180613_1906366776077522172708470",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: img_20180613_1906366776077522172708470"
+    },
+    {
+      "id": "img-20181011-wa00326100332606548081970-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/img-20181011-wa00326100332606548081970-1.jpg",
+      "localSource": "rebuild/assets/images/img-20181011-wa00326100332606548081970-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "img-20181011-wa00326100332606548081970-1",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: img-20181011-wa00326100332606548081970-1"
+    },
+    {
+      "id": "img-20180507-wa00101055036036182567047-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/img-20180507-wa00101055036036182567047.jpg",
+      "localSource": "rebuild/assets/images/img-20180507-wa00101055036036182567047.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "img-20180507-wa00101055036036182567047",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: img-20180507-wa00101055036036182567047"
+    },
+    {
+      "id": "img_20180506_1550108561997453658119955-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/img_20180506_1550108561997453658119955.jpg",
+      "localSource": "rebuild/assets/images/img_20180506_1550108561997453658119955.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "img_20180506_1550108561997453658119955",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: img_20180506_1550108561997453658119955"
+    },
+    {
+      "id": "img-20180510-wa00054372853603793817832-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/img-20180510-wa00054372853603793817832.jpg",
+      "localSource": "rebuild/assets/images/img-20180510-wa00054372853603793817832.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "img-20180510-wa00054372853603793817832",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: img-20180510-wa00054372853603793817832"
+    },
+    {
+      "id": "img-20180324-wa0004213398564331623335-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/img-20180324-wa0004213398564331623335.jpg",
+      "localSource": "rebuild/assets/images/img-20180324-wa0004213398564331623335.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "img-20180324-wa0004213398564331623335",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: img-20180324-wa0004213398564331623335"
+    },
+    {
+      "id": "img_20181202_1233177916420247438903797-scaled-1-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/img_20181202_1233177916420247438903797-scaled-1.jpg",
+      "localSource": "rebuild/assets/images/img_20181202_1233177916420247438903797-scaled-1.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "img_20181202_1233177916420247438903797-scaled",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: img_20181202_1233177916420247438903797-scaled"
+    },
+    {
+      "id": "img_20181202_1056516566501307038529350-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/img_20181202_1056516566501307038529350.jpg",
+      "localSource": "rebuild/assets/images/img_20181202_1056516566501307038529350.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "img_20181202_1056516566501307038529350",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: img_20181202_1056516566501307038529350"
+    },
+    {
+      "id": "img_20181202_110551376771198118862580-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/img_20181202_110551376771198118862580.jpg",
+      "localSource": "rebuild/assets/images/img_20181202_110551376771198118862580.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "img_20181202_110551376771198118862580",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: img_20181202_110551376771198118862580"
+    },
+    {
+      "id": "before-after-PK-Penetrating-keratoplasty-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/before-after-PK-Penetrating-keratoplasty.jpg",
+      "localSource": "rebuild/assets/images/before-after-PK-Penetrating-keratoplasty.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "Before &#038; After PK (Penetrating Keratoplasty)",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: Before &#038; After PK (Penetrating Keratoplasty)"
+    },
+    {
+      "id": "Before-After-DALK-Deep-anterior-lamellar-keratoplasty-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/Before-After-DALK-Deep-anterior-lamellar-keratoplasty.jpg",
+      "localSource": "rebuild/assets/images/Before-After-DALK-Deep-anterior-lamellar-keratoplasty.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "Before &#038; After DALK (Deep Anterior Lamellar Keratoplasty)",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: Before &#038; After DALK (Deep Anterior Lamellar Keratoplasty)"
+    },
+    {
+      "id": "before-After-Pterygium-Surgery-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/before-After-Pterygium-Surgery.jpg",
+      "localSource": "rebuild/assets/images/before-After-Pterygium-Surgery.jpg",
+      "foundOn": [
+        "/treatments/"
+      ],
+      "section": "Content/Treatments",
+      "originalAlt": "Before &#038; After Pterygium Surgery",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "treatment-illustration",
+      "newAlt": "Image: Before &#038; After Pterygium Surgery"
+    },
+    {
+      "id": "Before-After-DSEKDescemet_s-stripping-endothelial-keratoplasty-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/Before-After-DSEKDescemet_s-stripping-endothelial-keratoplasty.jpg",
+      "localSource": "rebuild/assets/images/Before-After-DSEKDescemet_s-stripping-endothelial-keratoplasty.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "Before &#038; After DSEK (Descemet Stripping Endothelial Keratoplasty)",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: Before &#038; After DSEK (Descemet Stripping Endothelial Keratoplasty)"
+    },
+    {
+      "id": "Before-After-Tattooing-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/Before-After-Tattooing.jpg",
+      "localSource": "rebuild/assets/images/Before-After-Tattooing.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "Before &#038; After Tattooing",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: Before &#038; After Tattooing"
+    },
+    {
+      "id": "IMG_0887-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/IMG_0887.jpg",
+      "localSource": "rebuild/assets/images/IMG_0887.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "IMG_0887",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: IMG_0887"
+    },
+    {
+      "id": "Dr-Sachin-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/Dr-Sachin.jpg",
+      "localSource": "rebuild/assets/images/Dr-Sachin.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "Dr-Sachin",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: Dr-Sachin"
+    },
+    {
+      "id": "IMG_21301-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/IMG_21301.jpg",
+      "localSource": "rebuild/assets/images/IMG_21301.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "IMG_2130(1)",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: IMG_2130(1)"
+    },
+    {
+      "id": "IMG_21191-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/IMG_21191.jpg",
+      "localSource": "rebuild/assets/images/IMG_21191.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "IMG_2119(1)",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: IMG_2119(1)"
+    },
+    {
+      "id": "IMG_2239-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/IMG_2239.jpg",
+      "localSource": "rebuild/assets/images/IMG_2239.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "IMG_2239",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: IMG_2239"
+    },
+    {
+      "id": "IMG_2223-jpg",
+      "originalUrl": "https://mungaleeyehospital.com/wp-content/uploads/2025/10/IMG_2223.jpg",
+      "localSource": "rebuild/assets/images/IMG_2223.jpg",
+      "foundOn": [
+        "/"
+      ],
+      "section": "General/Content",
+      "originalAlt": "IMG_2223",
+      "type": "illustration/photo",
+      "width": 512,
+      "height": 512,
+      "quality": "good",
+      "proposedUse": "content/page",
+      "newAlt": "Image: IMG_2223"
+    }
+  ]
+}

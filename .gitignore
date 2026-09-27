@@ -1,0 +1,24 @@
+# Build output
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Dependencies
+node_modules/
+
+# Source archive (kept locally, too large / not needed for the build)
+archive/
+
+# Logs and scratch verification files
+*.log
+preview*.html
+
+# Env / secrets
+.env*
+*.pem
+
+# OS / editor
+.DS_Store
+Thumbs.db
