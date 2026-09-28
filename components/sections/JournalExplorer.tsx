@@ -60,11 +60,11 @@ function FeaturedStory({ post }: { post: BlogPostMeta }) {
           <Image
             src={post.coverImage}
             alt=""
-            width={1000}
-            height={625}
+            width={post.coverWidth}
+            height={post.coverHeight}
             priority
             sizes="(min-width: 1024px) 55vw, 90vw"
-            className="w-full aspect-[16/10] object-cover transition-transform duration-700 motion-reduce:transition-none group-hover:scale-[1.02]"
+            className="w-full h-auto transition-transform duration-700 motion-reduce:transition-none group-hover:scale-[1.02]"
           />
         </span>
         <span className="block lg:col-span-5">
@@ -104,11 +104,11 @@ function StoryCard({ post, large }: { post: BlogPostMeta; large?: boolean }) {
         <Image
           src={post.coverImage}
           alt=""
-          width={large ? 900 : 600}
-          height={large ? 560 : 450}
+          width={post.coverWidth}
+          height={post.coverHeight}
           loading="lazy"
           sizes={large ? "(min-width: 1024px) 55vw, 90vw" : "(min-width: 1024px) 26vw, (min-width: 640px) 44vw, 90vw"}
-          className="w-full aspect-[4/3] object-cover transition-transform duration-700 motion-reduce:transition-none group-hover:scale-[1.02]"
+          className="w-full h-auto transition-transform duration-700 motion-reduce:transition-none group-hover:scale-[1.02]"
         />
       </span>
       <span className="mt-4 block">

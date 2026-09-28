@@ -7,15 +7,9 @@ import { blogPosts } from "@/content/blog";
 // ─── Health Insights — editorial health journal (owner rebuild) ───────
 // Replaces the 2×3 card grid: one large featured article (~58%) + a ruled
 // typographic index (~42%). No cards, no pills, no icons, no gradients.
-// Data rules (spec-mandated, existing model has NO excerpts/dates/
-// categories/featured flag — none invented):
-// - Featured = first post with a verified cover (no CMS featured field
-//   exists; "START HERE" label omitted — never claim medical priority).
-// - Index = next three posts with verified covers.
-// - No excerpts shown (none exist in data). No dates/reading time (REST
-//   exposes none — CONTENT_GAPS #11). No category filter nav (no
-//   tags exist — fake categories forbidden). Kicker stays the neutral
-//   "Article" (existing chrome). Thumbnails are the preserved real covers.
+// - Featured = newest post (date-ordered data); index = next three.
+// - Covers render at natural intrinsic ratios (coverWidth/coverHeight).
+// - Kicker stays the neutral "Article" (existing chrome).
 // - All links use existing article routes (/blog/[slug]/, /blog/).
 // Headline choice: "Understand your eyes." — "Know what comes next"
 // would repeat the hero's closing line.
@@ -53,13 +47,13 @@ export function HealthInsights() {
               >
                 <span className="block overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
                   <Image
-                    src={featured.coverImage!}
+                    src={featured.coverImage}
                     alt=""
-                    width={880}
-                    height={560}
+                    width={featured.coverWidth}
+                    height={featured.coverHeight}
                     loading="lazy"
                     sizes="(min-width: 1024px) 55vw, 90vw"
-                    className="w-full aspect-[16/10] object-cover transition-transform duration-200 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    className="w-full h-auto transition-transform duration-200 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                   />
                 </span>
                 <span className="mt-5 block text-[11px] font-bold uppercase tracking-[0.2em] text-primary-fixed">

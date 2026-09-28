@@ -133,8 +133,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <Image
                 src={post.coverImage}
                 alt={post.title}
-                width={960}
-                height={560}
+                width={post.coverWidth}
+                height={post.coverHeight}
                 className="w-full h-auto object-cover"
                 priority
               />
