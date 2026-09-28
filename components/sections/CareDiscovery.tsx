@@ -40,6 +40,11 @@ type CareConcern = {
   support: string;
   heading: string;
   slugs: string[];
+  // Singleton enrichment: description-derived bullets + details-derived
+  // supporting line so one-treatment states feel complete, never padded.
+  // Sources in comments per concern — nothing invented.
+  addresses?: string[];
+  note?: string;
 };
 
 const concerns: CareConcern[] = [
@@ -78,6 +83,10 @@ const concerns: CareConcern[] = [
     // DRAFT-COPY.
     heading: "When clarity starts to cloud.",
     slugs: ["cataract-surgery"],
+    // Bullet: verbatim treatments.ts wording. Note: condensed from
+    // treatment-details.ts cataract intro (phaco + IOL range) — meaning kept.
+    addresses: ["A clouded natural lens"],
+    note: "Advanced phacoemulsification, often completed in minutes, with all intraocular lens types offered.",
   },
   {
     index: "05",
@@ -87,6 +96,10 @@ const concerns: CareConcern[] = [
     // DRAFT-COPY.
     heading: "Seeing well, every day.",
     slugs: ["optical-contact-lenses"],
+    // Bullets: verbatim treatment description/intro wording. Note: condensed
+    // from treatment-details.ts optical body (range + custom fit) — kept.
+    addresses: ["Myopia", "Hyperopia", "Astigmatism"],
+    note: "Spectacles and contact lenses — rigid, soft, cosmetic and specialty keratoconus lenses, custom-fit for your eyes.",
   },
 ];
 
@@ -145,13 +158,16 @@ function TreatmentRows({ slugs }: { slugs: string[] }) {
   );
 }
 
-function ExploreAll() {
+function ExploreTreatments({ slugs }: { slugs: string[] }) {
+  const single = slugs.length === 1;
   return (
     <Link
-      href="/treatments/"
+      href={single ? "/treatments/" + slugs[0] + "/" : "/treatments/"}
       className="cta-quiet group mt-7 lg:mt-8 inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
     >
-      <span className="cta-quiet-text">Explore all treatments</span>
+      <span className="cta-quiet-text">
+        {single ? "Explore treatment" : "Explore all treatments"}
+      </span>
       <ArrowRight
         aria-hidden="true"
         className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1"
@@ -212,7 +228,33 @@ function CarePanel({ concernIndex }: { concernIndex: number }) {
       <div className="mt-7 lg:mt-8">
         <TreatmentRows slugs={c.slugs} />
       </div>
-      <ExploreAll />
+      {c.addresses && (
+        <div className="mt-7 border-t border-secondary/10 pt-6">
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">
+            What this addresses
+          </p>
+          <ul className="mt-3 space-y-2">
+            {c.addresses.map((a) => (
+              <li
+                key={a}
+                className="flex items-baseline gap-2.5 text-[15px] text-on-surface"
+              >
+                <span
+                  aria-hidden="true"
+                  className="w-1 h-1 rounded-full bg-primary shrink-0 translate-y-[-2px]"
+                />
+                <span>{a}</span>
+              </li>
+            ))}
+          </ul>
+          {c.note && (
+            <p className="mt-3 text-[14px] leading-relaxed text-on-surface-variant max-w-lg">
+              {c.note}
+            </p>
+          )}
+        </div>
+      )}
+      <ExploreTreatments slugs={c.slugs} />
     </div>
   );
 }
@@ -234,22 +276,6 @@ export function CareDiscovery() {
           <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
             Start here
           </p>
-          {/* One red curve accent — under the eyebrow, nowhere else. */}
-          <svg
-            width="72"
-            height="10"
-            viewBox="0 0 72 10"
-            fill="none"
-            aria-hidden="true"
-            className="mt-2 text-primary"
-          >
-            <path
-              d="M1 8 Q36 -1 71 6.5"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
           <h2 className="mt-4 font-display-hero text-on-surface tracking-[-0.015em] leading-[1.05] text-[36px] sm:text-[44px] lg:text-[54px]">
             Start with what you&apos;re experiencing.
           </h2>

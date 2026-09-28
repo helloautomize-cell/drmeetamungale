@@ -3,6 +3,28 @@ export interface Faq {
   answer: string;
 }
 
+export type FaqCategory = "appointments" | "eye-health" | "records" | "donation";
+
+export const faqCategories: { id: FaqCategory | "all"; label: string }[] = [
+  { id: "all", label: "All" },
+  { id: "appointments", label: "Appointments" },
+  { id: "eye-health", label: "Eye health" },
+  { id: "records", label: "Your records" },
+  { id: "donation", label: "Eye donation" },
+];
+
+// Category metadata only — questions/answers untouched (verbatim source).
+export const faqCategoryMap: Record<number, FaqCategory> = {
+  0: "appointments",
+  1: "eye-health",
+  2: "records",
+  3: "eye-health",
+  4: "donation",
+  5: "donation",
+  6: "donation",
+  7: "eye-health",
+};
+
 // VERBATIM FAQs from the live site
 // (archive/content/pages/faqs.md — page ID 4356, including FAQPage JSON-LD).
 // Wording preserved exactly as published.

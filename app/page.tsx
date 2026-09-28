@@ -1,12 +1,10 @@
-import { FirstVisit, DoctorQuestions } from "@/components/sections/patient-journey";
 import { CareDiscovery } from "@/components/sections/CareDiscovery";
 import { Hero } from "@/components/sections/Hero";
 import { TrustPillars } from "@/components/sections/TrustPillars";
-import { DoctorsGrid } from "@/components/sections/DoctorsGrid";
+import { DoctorsStory } from "@/components/sections/DoctorsStory";
 import { Reviews } from "@/components/sections/Reviews";
 import { HealthInsights } from "@/components/sections/HealthInsights";
 import { LocationBlock } from "@/components/sections/LocationBlock";
-import { CTABand } from "@/components/sections/CTABand";
 
 // Home page — section composition per docs/SECTION_MAP.md Part 2.
 // Built one section per Phase 4 task (4.1–4.12), master-prompt order.
@@ -19,16 +17,10 @@ export default function HomePage() {
       {/* TODO(content): patient-journey — no visit-process description exists in
           source (checked home/about/faqs/treatment pages). Do not invent steps.
           See docs/CONTENT_GAPS.md. */}
-      <DoctorsGrid />
-      <FirstVisit />
-      {/* TODO(content): gallery-strip — item-level photo→category mapping needs
-          MCP verification (docs/CONTENT_GAPS.md #10). GalleryStrip component
-          built for Phase 6 reuse; not rendered until mapping is verified. */}
+      <DoctorsStory />
       <Reviews />
       <HealthInsights />
       <LocationBlock />
-      <DoctorQuestions />
-      <CTABand />
     </>
   );
 }

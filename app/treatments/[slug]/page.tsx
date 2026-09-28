@@ -4,7 +4,12 @@ import { PageHero } from "@/components/sections/PageHero";
 import { ContentSection } from "@/components/sections/ContentSection";
 import { Card } from "@/components/ui/Card";
 import { RelatedTreatments } from "@/components/sections/RelatedTreatments";
-import { CTABand } from "@/components/sections/CTABand";
+import { TreatmentCorneal } from "@/components/sections/TreatmentCorneal";
+import { TreatmentCorneaEval } from "@/components/sections/TreatmentCorneaEval";
+import { TreatmentGlaucomaTreatments } from "@/components/sections/TreatmentGlaucomaTreatments";
+import { TreatmentCataract } from "@/components/sections/TreatmentCataract";
+import { TreatmentOptical } from "@/components/sections/TreatmentOptical";
+import { TreatmentGlaucomaEval } from "@/components/sections/TreatmentGlaucomaEval";
 import { treatments } from "@/content/treatments";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
@@ -32,7 +37,28 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export default async function TreatmentDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const detail = getTreatmentDetail((await params).slug);
+  const slug = (await params).slug;
+  // Rebuilt compositions (step-by-step rollout): corneal + eval live;
+  // remaining siblings keep the existing template until their step.
+  if (slug === "corneal-treatments") {
+    return <TreatmentCorneal />;
+  }
+  if (slug === "cornea-evaluation") {
+    return <TreatmentCorneaEval />;
+  }
+  if (slug === "glaucoma-treatments") {
+    return <TreatmentGlaucomaTreatments />;
+  }
+  if (slug === "cataract-surgery") {
+    return <TreatmentCataract />;
+  }
+  if (slug === "optical-contact-lenses") {
+    return <TreatmentOptical />;
+  }
+  if (slug === "glaucoma-evaluation") {
+    return <TreatmentGlaucomaEval />;
+  }
+  const detail = getTreatmentDetail(slug);
   if (!detail) notFound();
 
   return (
@@ -72,7 +98,6 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
       </ContentSection>
 
       <RelatedTreatments currentSlug={detail.slug} treatments={treatments} />
-      <CTABand />
     </>
   );
 }

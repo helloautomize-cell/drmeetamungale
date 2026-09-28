@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/sections/PageHero";
 import { ContentSection } from "@/components/sections/ContentSection";
-import { CTABand } from "@/components/sections/CTABand";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -32,7 +31,6 @@ export default function PrivacyPolicyPage() {
           the <Link href="/contact-us/" className="text-primary font-bold hover:underline">Contact Us</Link> page.
         </p>
       </ContentSection>
-      <CTABand />
     </>
   );
 }

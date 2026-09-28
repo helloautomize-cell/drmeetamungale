@@ -104,7 +104,7 @@ export function TrustPillars() {
   return (
     <section className="relative bg-secondary overflow-x-clip">
       {/* Intro — established eyebrow + headline, one quiet support line */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 lg:pt-24">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-12 lg:pt-16">
         <Reveal className="max-w-3xl">
           <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#ff8080]">
             Why Mungale
@@ -126,21 +126,6 @@ export function TrustPillars() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 items-center min-h-0">
               {/* LEFT — anchored statistic (crossfading stack) */}
               <div>
-                <svg
-                  width="104"
-                  height="14"
-                  viewBox="0 0 104 14"
-                  fill="none"
-                  aria-hidden="true"
-                  className="text-primary"
-                >
-                  <path
-                    d="M2 11 Q52 -3 102 8.5"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
                 <div className="relative mt-3 lg:mt-4 grid">
                   {states.map((s, i) => (
                     <div
@@ -161,6 +146,28 @@ export function TrustPillars() {
                         {s.label}
                       </p>
                     </div>
+                  ))}
+                </div>
+                {/* Progress — under the label, completing the left rhythm */}
+                <div
+                  className="mt-5 lg:mt-7 flex items-center gap-4"
+                  role="tablist"
+                  aria-label="Story progress"
+                >
+                  {states.map((s, i) => (
+                    <button
+                      key={s.index}
+                      role="tab"
+                      aria-selected={i === active}
+                      aria-label={"Go to moment " + s.index}
+                      onClick={() => goTo(i)}
+                      className={
+                        "text-[12px] font-bold tracking-[0.2em] transition-colors duration-300 " +
+                        (i === active ? "text-primary" : "text-white/30 hover:text-white/60")
+                      }
+                    >
+                      {s.index}
+                    </button>
                   ))}
                 </div>
               </div>
@@ -217,29 +224,6 @@ export function TrustPillars() {
                 ))}
               </div>
             </div>
-
-            {/* Progress — tiny indices, active red */}
-            <div
-              className="mt-4 lg:mt-8 flex items-center gap-4"
-              role="tablist"
-              aria-label="Story progress"
-            >
-              {states.map((s, i) => (
-                <button
-                  key={s.index}
-                  role="tab"
-                  aria-selected={i === active}
-                  aria-label={"Go to moment " + s.index}
-                  onClick={() => goTo(i)}
-                  className={
-                    "text-[12px] font-bold tracking-[0.2em] transition-colors duration-300 " +
-                    (i === active ? "text-primary" : "text-white/30 hover:text-white/60")
-                  }
-                >
-                  {s.index}
-                </button>
-              ))}
-            </div>
           </div>
         </div>
 
@@ -252,13 +236,13 @@ export function TrustPillars() {
             }}
             data-i={i}
             aria-hidden="true"
-            className="h-[70vh] lg:h-[80vh]"
+            className="h-[55vh] lg:h-[55vh]"
           />
         ))}
       </div>
 
       {/* Quiet release breathing before the next section */}
-      <div aria-hidden="true" className="h-20 lg:h-28" />
+      <div aria-hidden="true" className="h-16 lg:h-20" />
     </section>
   );
 }

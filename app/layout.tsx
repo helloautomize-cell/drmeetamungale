@@ -5,6 +5,7 @@ import { siteConfig } from "@/content/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingCTA } from "@/components/layout/FloatingCTA";
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { hospitalJsonLd } from "@/content/seo";
 
@@ -69,6 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-1" id="content">{children}</main>
         <Footer />
         <FloatingCTA />
+        <SmoothScroll />
       </body>
     </html>
   );

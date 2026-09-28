@@ -1,116 +1,105 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { Reveal, CountUp } from "@/components/ui/motion";
-import {
-  BadgeCheckIcon,
-  BuildingIcon,
-  ClockIcon,
-  ReferralIcon,
-  SurgeryIcon,
-  CareBellIcon,
-  MicroscopeIcon,
-} from "@/components/icons/duotone";
+import { ArrowRight } from "lucide-react";
+import { Reveal } from "@/components/ui/motion";
+import { DoctorsExperience } from "@/components/sections/DoctorsStory";
 
-// ─── About Us narrative sections ────────────────────────────────────────
-// All copy VERBATIM from archive/content/pages/about-us.md. Presentation
-// only: split hero with real photography, milestone timeline (2007 founded /
-// 2011 Kothi relocation / today referral center — all stated in the copy),
-// stats band with homepage-consistent figures, matched Mission/Expertise
-// cards, facility photo strip (visually verified real clinic photos), and a
-// referral-center callout (sentence duplicated from the on-page Mission
-// paragraph as an editorial pull-quote — words unchanged).
+// ─── About page — Mungale journey (art-direction redesign) ────────────
+// Same design system as the homepage (warm paper, ink, restrained red,
+// serif emotion + sans information, rules, real photography). Purpose:
+// who Mungale is, where it came from, what it believes, who is behind it.
+// Trust numbers live on the homepage story — NO stats strip here.
+// Copy provenance:
+// - Headlines/eyebrows/support lines: OWNER-PROVIDED (redesign brief).
+// - History, mission, expertise, facility: VERBATIM about-us source,
+//   condensed only for layout clarity (meaning preserved — see notes).
+// - Era photos: NO 2007/2011-era hospital photos exist (the old files are
+//   2018 conference/classroom shots — using them as "history" would be
+//   false). Timeline is typographic; the single photo beside TODAY is
+//   present-day and captioned honestly.
 
-// ── Split hero ─────────────────────────────────────────────────────────
+// ── 01 · Hero (80–90vh, 48/52) ────────────────────────────────────────
 export function AboutHero({
   breadcrumb,
 }: {
   breadcrumb: { label: string; href: string }[];
 }) {
   return (
-    <section className="relative w-full bg-background pt-10 pb-space-xl overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        <div className="lg:col-span-7">
+    <section className="relative w-full bg-background overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 min-h-[80vh] lg:min-h-[85vh] grid grid-cols-1 lg:grid-cols-12 gap-10 items-center py-12">
+        <div className="lg:col-span-6">
           <Reveal>
-            <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 mb-6">
+            <nav aria-label="Breadcrumb" className="flex items-center gap-2 mb-6">
               {breadcrumb.map((c, i) => (
-                <span key={c.href} className="flex items-center gap-1.5">
-                  {i > 0 && <ChevronRight className="w-3.5 h-3.5 text-outline-variant" />}
-                  <Link
-                    href={c.href}
-                    className="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors"
-                  >
-                    {c.label}
-                  </Link>
+                <span key={c.href} className="flex items-center gap-2">
+                  {i > 0 && (
+                    <span aria-hidden="true" className="text-[13px] text-on-surface/35">
+                      /
+                    </span>
+                  )}
+                  {i === breadcrumb.length - 1 ? (
+                    <span aria-current="page" className="text-[13px] text-on-surface/50">
+                      {c.label}
+                    </span>
+                  ) : (
+                    <Link
+                      href={c.href}
+                      className="text-[13px] text-on-surface-variant hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
+                    >
+                      {c.label}
+                    </Link>
+                  )}
                 </span>
               ))}
             </nav>
-            <span className="font-label-sm text-label-sm text-primary-fixed uppercase font-bold tracking-wider">
-              Our Story
-            </span>
-            <h1 className="font-headline-lg text-headline-lg text-on-surface font-bold mt-1">
-              About Our Eye Hospital in Vadodara
-            </h1>
-            <p className="font-body-md text-body-md text-on-surface-variant mt-2 max-w-2xl leading-relaxed">
-              Our Story as a Leading Eye Care Clinic
+            <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
+              Our story
             </p>
-            <div className="mt-6 flex flex-wrap gap-4">
+            <h1 className="font-display-hero text-on-surface tracking-[-0.015em] leading-[1.04] text-[40px] sm:text-[52px] lg:text-[62px] mt-4">
+              A practice built around people, precision and sight.
+            </h1>
+            {/* Condensed from the verified milestone copy — meaning kept. */}
+            <p className="text-[16.5px] lg:text-[17.5px] text-on-surface-variant mt-5 leading-relaxed max-w-xl">
+              Mungale Eye Hospital began in Vadodara in 2007 as a private
+              joint venture of two ophthalmologists — and grew into a
+              referral center for complex cornea and glaucoma care.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
               <Link
                 href="/contact-us/"
-                className="px-6 py-3 bg-primary hover:bg-primary-fixed text-on-primary font-label-md text-label-md rounded-full shadow-brand-md hover:shadow-brand-glow hover:-translate-y-0.5 transition-all inline-flex items-center gap-2"
+                className="inline-flex h-12 px-7 items-center justify-center bg-primary text-white text-[14.5px] font-semibold rounded-[13px] shadow-[0_1px_3px_rgba(17,17,18,0.18)] hover:bg-primary-fixed transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
               >
-                <span>Book an Appointment</span>
-                <ChevronRight className="w-[18px] h-[18px]" />
+                <span>Book a consultation</span>
               </Link>
               <Link
                 href="/treatments/"
-                className="px-6 py-3 bg-card-white ring-1 ring-border-light text-on-surface font-label-md text-label-md rounded-full hover:ring-primary/40 hover:shadow-brand-sm transition-all inline-flex items-center gap-2"
+                className="cta-quiet group inline-flex items-center gap-2 h-12 px-1 text-[15px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
               >
-                <span>Explore Treatments</span>
+                <span className="cta-quiet-text">Explore treatments</span>
+                <ArrowRight
+                  aria-hidden="true"
+                  className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
+                />
               </Link>
             </div>
           </Reveal>
         </div>
-        <div className="lg:col-span-5">
+        <div className="lg:col-span-6">
           <Reveal delay={0.12}>
-            <div className="relative">
-              <div
-                className="absolute -inset-2 rounded-[1.75rem] bg-gradient-to-br from-primary/15 via-transparent to-secondary/10 pointer-events-none"
-                aria-hidden="true"
+            <div className="overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
+              <Image
+                src="/images/welcome-img-1146-1024x768.jpg"
+                alt="The Mungale Eye Hospital team — doctors and staff at the Kothi, Vadodara hospital"
+                width={1024}
+                height={768}
+                priority
+                sizes="(min-width: 1024px) 45vw, 90vw"
+                className="w-full aspect-[4/3] object-cover"
               />
-              <div className="relative rounded-3xl overflow-hidden shadow-brand-lg ring-1 ring-secondary/10">
-                <Image
-                  src="/images/IMG_21191-jpg.webp"
-                  alt="Dr. Meeta Mungale consulting at Mungale Eye Hospital"
-                  width={512}
-                  height={640}
-                  className="w-full h-96 lg:h-[26rem] object-cover"
-                  priority
-                />
-                <div
-                  className="absolute inset-0 bg-primary-container/15 mix-blend-multiply pointer-events-none"
-                  aria-hidden="true"
-                />
-                <div
-                  className="absolute inset-0 bg-gradient-to-t from-secondary/60 via-transparent to-transparent pointer-events-none"
-                  aria-hidden="true"
-                />
-                <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2 text-white">
-                  <BadgeCheckIcon className="w-6 h-6 shrink-0" />
-                  <p className="font-label-md text-label-md font-bold">
-                    Led by two accomplished ophthalmologists
-                  </p>
-                </div>
-              </div>
-              <div className="absolute -top-5 right-4 sm:right-8 bg-secondary pl-3 pr-4 py-2.5 rounded-xl shadow-brand-md flex items-center gap-2">
-                <BuildingIcon className="w-6 h-6 text-white" />
-                <div>
-                  <p className="font-label-sm text-label-sm font-bold text-white">Since 2007</p>
-                  <p className="font-body-sm text-body-sm text-white/70">Kothi, Vadodara</p>
-                </div>
-              </div>
             </div>
+            <p className="mt-3 text-[11.5px] font-semibold uppercase tracking-[0.18em] text-on-surface/40">
+              Mungale Eye Hospital · Kothi · Vadodara · Since 2007
+            </p>
           </Reveal>
         </div>
       </div>
@@ -118,267 +107,387 @@ export function AboutHero({
   );
 }
 
-// ── Story + milestone timeline ─────────────────────────────────────────
-const milestones = [
+// ── 02 · Story eras — huge years, verbatim milestones ─────────────────
+const eras = [
   {
     year: "2007",
-    title: "Founded",
+    title: "Where the story began.",
     text: "Established on 24th June, 2007 in Vadodara — a private joint venture led by Dr. Meeta Mungale and Dr. Sachin Mungale.",
   },
   {
     year: "2011",
-    title: "Moved to Kothi",
+    title: "A new home in Kothi.",
     text: "Relocated to a new, state-of-the-art facility in Kothi, the heart of Baroda city.",
   },
   {
     year: "Today",
-    title: "Referral Center",
+    title: "A specialist referral centre.",
     text: "Serving referral patients from Gujarat, Madhya Pradesh and Rajasthan — a referral center for complex cornea and glaucoma cases.",
+    img: "/images/IMG_2223-jpg.webp",
+    imgAlt: "Dr. Meeta Mungale at work at Mungale Eye Hospital",
+    imgCaption: "Mungale Eye Hospital today",
   },
 ];
 
-export function StoryTimeline() {
+export function StoryEra() {
   return (
-    <section className="py-space-2xl bg-card-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10">
-        <Reveal className="lg:col-span-5">
-          <div>
-            <span className="font-label-sm text-label-sm text-primary-fixed uppercase font-bold tracking-wider">
-              Our Story
-            </span>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold mt-1">
-              Our Story
-            </h2>
-            <p className="font-body-md text-body-md text-on-surface-variant mt-4 leading-relaxed">
-              Mungale Eye Hospital (MEH) was established on 24th June, 2007 in
-              Vadodara, Gujarat, India. It is a private joint venture led by two
-              accomplished ophthalmologists, Dr. Meeta Mungale and Dr. Sachin
-              Mungale. MEH was relocated in 2011 to a new, state-of-the-art
-              facility in Kothi, the heart of Baroda city, marking a significant
-              milestone. The decision to move to this central location was
-              motivated by the hospital’s growing reputation and the referral
-              patients it serves from Gujarat and neighboring states like Madhya
-              Pradesh and Rajasthan.
-            </p>
+    <section id="story" className="bg-surface scroll-mt-28">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
+        <Reveal className="max-w-2xl">
+          <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
+            Our story
+          </p>
+          {/* Red arc signature — one of two on this page. */}
+          <svg
+            width="72"
+            height="10"
+            viewBox="0 0 72 10"
+            fill="none"
+            aria-hidden="true"
+            className="mt-2 text-primary"
+          >
+            <path
+              d="M1 8 Q36 -1 71 6.5"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
+          <h2 className="mt-4 font-display-hero text-on-surface tracking-[-0.015em] leading-[1.05] text-[32px] sm:text-[40px] lg:text-[48px]">
+            Where Mungale began.
+          </h2>
+        </Reveal>
+        <div className="mt-12 lg:mt-16 space-y-14 lg:space-y-20">
+          {eras.map((era, i) => (
+            <div
+              key={era.year}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start"
+            >
+              <Reveal className="lg:col-span-5">
+                <p
+                  aria-hidden="true"
+                  className="font-display-hero leading-[0.9] tracking-tight text-on-surface text-[88px] sm:text-[120px] lg:text-[150px]"
+                >
+                  {era.year}
+                </p>
+                <p className="mt-3 font-display-hero text-on-surface tracking-tight leading-snug text-[22px] lg:text-[26px]">
+                  {era.title}
+                </p>
+              </Reveal>
+              <Reveal delay={0.1} className="lg:col-span-7">
+                <div className="border-t border-secondary/10 pt-5">
+                  <p className="text-[16px] lg:text-[17.5px] leading-relaxed text-on-surface-variant max-w-xl">
+                    {era.text}
+                  </p>
+                  {era.img && (
+                    <figure className="mt-6 max-w-xl">
+                      <span className="block overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
+                        <Image
+                          src={era.img}
+                          alt={era.imgAlt ?? ""}
+                          width={800}
+                          height={500}
+                          loading="lazy"
+                          sizes="(min-width: 1024px) 40vw, 90vw"
+                          className="w-full aspect-[16/10] object-cover"
+                        />
+                      </span>
+                      {era.imgCaption && (
+                        <figcaption className="mt-2.5 text-[12.5px] text-on-surface-variant">
+                          {era.imgCaption}
+                        </figcaption>
+                      )}
+                    </figure>
+                  )}
+                </div>
+              </Reveal>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── 03 · Approach — statement + principle rows ────────────────────────
+const principles = ["Listen", "Examine", "Explain", "Plan"];
+
+export function OurApproach() {
+  return (
+    <section className="bg-background">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-24">
+        <Reveal className="max-w-2xl">
+          <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
+            Our approach
+          </p>
+          <h2 className="mt-4 font-display-hero text-on-surface tracking-[-0.015em] leading-[1.05] text-[32px] sm:text-[40px] lg:text-[48px]">
+            Care begins with understanding.
+          </h2>
+          {/* Condensed from the verified mission copy — meaning kept. */}
+          <p className="mt-4 text-[16px] lg:text-[17px] leading-relaxed text-on-surface-variant max-w-xl">
+            Mungale Eye Hospital is committed to the highest standard of eye
+            care — advanced diagnostics, expert intervention and cutting-edge
+            surgery, at affordable prices.
+          </p>
+        </Reveal>
+        <ol className="mt-10 lg:mt-12 max-w-3xl border-t border-secondary/10">
+          {principles.map((p, i) => (
+            <Reveal key={p} delay={0.05 * i}>
+              <li className="flex items-baseline gap-5 py-5 border-b border-secondary/10">
+                <span
+                  aria-hidden="true"
+                  className="text-[12px] font-bold tracking-[0.16em] text-on-surface/35 shrink-0"
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-display-hero text-on-surface tracking-tight leading-tight text-[26px] lg:text-[32px]">
+                  {p}
+                </span>
+              </li>
+            </Reveal>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+// ── 04 · Expertise index — specialties as quiet rows ──────────────────
+// Descriptors condensed from verified treatments.ts wording. Retina has no
+// dedicated page — it links to the treatments index (commented, honest).
+const specialties: { name: string; href: string; blurb: string }[] = [
+  {
+    name: "Cornea",
+    href: "/treatments/corneal-treatments/",
+    blurb: "Infections, injuries and conditions of the cornea.",
+  },
+  {
+    name: "Glaucoma",
+    href: "/treatments/glaucoma-treatments/",
+    blurb: "Care that lowers eye pressure and protects vision.",
+  },
+  {
+    name: "Cataract",
+    href: "/treatments/cataract-surgery/",
+    blurb: "Clouded-lens removal with lens replacement.",
+  },
+  {
+    name: "Retina",
+    href: "/treatments/",
+    blurb: "Retinal care within our subspecialty practice.",
+  },
+];
+
+export function ExpertiseIndex() {
+  return (
+    <section className="bg-surface">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-24">
+        <Reveal className="max-w-2xl">
+          <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
+            Our expertise
+          </p>
+          <h2 className="mt-4 font-display-hero text-on-surface tracking-[-0.015em] leading-[1.05] text-[32px] sm:text-[40px] lg:text-[48px]">
+            Specialist care, under one roof.
+          </h2>
+        </Reveal>
+        <ul className="mt-10 lg:mt-12 max-w-3xl border-t border-secondary/10">
+          {specialties.map((s) => (
+            <li key={s.name} className="border-b border-secondary/10">
+              <Reveal>
+                <Link
+                  href={s.href}
+                  className="group flex items-center justify-between gap-5 py-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded-lg"
+                >
+                  <span>
+                    <span className="block text-[13px] font-bold uppercase tracking-[0.2em] text-on-surface/40 group-hover:text-primary transition-colors duration-200">
+                      {s.name}
+                    </span>
+                    <span className="mt-1 block text-[14.5px] text-on-surface-variant">
+                      {s.blurb}
+                    </span>
+                  </span>
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="w-5 h-5 shrink-0 text-on-surface/30 group-hover:text-primary group-hover:translate-x-1 transition-all duration-200 motion-reduce:transition-none"
+                  />
+                </Link>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+// ── 05 · Facility — asymmetric real photography ───────────────────────
+export function FacilityPlace() {
+  return (
+    <section className="bg-background">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-24">
+        <Reveal className="max-w-2xl">
+          <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
+            The place
+          </p>
+          <h2 className="mt-4 font-display-hero text-on-surface tracking-[-0.015em] leading-[1.05] text-[32px] sm:text-[40px] lg:text-[48px]">
+            Inside Mungale.
+          </h2>
+        </Reveal>
+        <div className="mt-10 lg:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+          <Reveal className="lg:col-span-7">
+            <figure>
+              <span className="block overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
+                <Image
+                  src="/images/IMG_0887-jpg.webp"
+                  alt="YAG laser procedure at Mungale Eye Hospital"
+                  width={880}
+                  height={620}
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 55vw, 90vw"
+                  className="w-full h-[300px] sm:h-[380px] lg:h-[480px] object-cover transition-transform duration-200 hover:scale-[1.015] motion-reduce:transition-none motion-reduce:hover:scale-100"
+                />
+              </span>
+              <figcaption className="mt-2.5 text-[12.5px] text-on-surface-variant">
+                Surgical care
+              </figcaption>
+            </figure>
+          </Reveal>
+          <div className="lg:col-span-5 grid grid-cols-2 lg:grid-cols-1 gap-5">
+            <Reveal delay={0.08}>
+              <figure>
+                <span className="block overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
+                  <Image
+                    src="/images/11-jpg.webp"
+                    alt="Eye examination underway at Mungale Eye Hospital"
+                    width={640}
+                    height={420}
+                    loading="lazy"
+                    sizes="(min-width: 1024px) 35vw, 45vw"
+                    className="w-full h-[180px] sm:h-[220px] lg:h-[230px] object-cover transition-transform duration-200 hover:scale-[1.015] motion-reduce:transition-none motion-reduce:hover:scale-100"
+                  />
+                </span>
+                <figcaption className="mt-2.5 text-[12.5px] text-on-surface-variant">
+                  Consultation
+                </figcaption>
+              </figure>
+            </Reveal>
+            <Reveal delay={0.14}>
+              <figure>
+                <span className="block overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
+                  <Image
+                    src="/images/30-jpg.webp"
+                    alt="Computerised eye testing at Mungale Eye Hospital"
+                    width={640}
+                    height={420}
+                    loading="lazy"
+                    sizes="(min-width: 1024px) 35vw, 45vw"
+                    className="w-full h-[180px] sm:h-[220px] lg:h-[230px] object-cover transition-transform duration-200 hover:scale-[1.015] motion-reduce:transition-none motion-reduce:hover:scale-100"
+                  />
+                </span>
+                <figcaption className="mt-2.5 text-[12.5px] text-on-surface-variant">
+                  Diagnosis
+                </figcaption>
+              </figure>
+            </Reveal>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── 06 · Doctors teaser — SAME system as homepage, compact ────────────
+export function DoctorsTeaser() {
+  return (
+    <section className="bg-surface">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-24">
+        <Reveal className="max-w-2xl">
+          <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
+            The people behind Mungale
+          </p>
+          <h2 className="mt-4 font-display-hero text-on-surface tracking-[-0.015em] leading-[1.05] text-[32px] sm:text-[40px] lg:text-[48px]">
+            Meet the doctors who care for your vision.
+          </h2>
+        </Reveal>
+        <DoctorsExperience compact />
+        <Reveal className="mt-8">
+          <Link
+            href="/#doctors"
+            className="cta-quiet group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
+          >
+            <span className="cta-quiet-text">Meet the doctors</span>
+            <ArrowRight
+              aria-hidden="true"
+              className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
+            />
+          </Link>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+// ── 07 · Closing story — quiet emotional end ──────────────────────────
+export function ClosingStory() {
+  return (
+    <section className="bg-background">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20">
+        <Reveal className="max-w-2xl">
+          <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
+            Why we&apos;re here
+          </p>
+          {/* Red arc signature — second of two on this page. */}
+          <svg
+            width="72"
+            height="10"
+            viewBox="0 0 72 10"
+            fill="none"
+            aria-hidden="true"
+            className="mt-2 text-primary"
+          >
+            <path
+              d="M1 8 Q36 -1 71 6.5"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
+          <h2 className="mt-4 font-display-hero text-on-surface tracking-[-0.015em] leading-[1.08] text-[30px] sm:text-[36px] lg:text-[42px]">
+            The story continues with every patient we meet.
+          </h2>
+          <div className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-3">
+            <Link
+              href="/about-us/#story"
+              className="cta-quiet group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
+            >
+              <span className="cta-quiet-text">About Mungale</span>
+              <ArrowRight
+                aria-hidden="true"
+                className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
+              />
+            </Link>
+            <Link
+              href="/#doctors"
+              className="cta-quiet group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
+            >
+              <span className="cta-quiet-text">Meet the doctors</span>
+              <ArrowRight
+                aria-hidden="true"
+                className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
+              />
+            </Link>
+            <Link
+              href="/#visit"
+              className="cta-quiet group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
+            >
+              <span className="cta-quiet-text">Start your visit</span>
+              <ArrowRight
+                aria-hidden="true"
+                className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
+              />
+            </Link>
           </div>
         </Reveal>
-        <div className="lg:col-span-7">
-          <ol className="relative space-y-0 before:absolute before:left-[27px] before:top-3 before:bottom-3 before:w-px before:bg-gradient-to-b before:from-primary before:via-primary/40 before:to-transparent">
-            {milestones.map((m, i) => (
-              <li key={m.year} className="relative pl-20 pb-8 last:pb-0">
-                {/* Badge lives OUTSIDE Reveal: Reveal's transform would
-                    otherwise become its positioning context and slide it
-                    over the text. */}
-                <span
-                  className="absolute left-0 top-0 w-14 h-14 rounded-2xl bg-primary text-white font-headline-sm text-headline-sm font-bold flex items-center justify-center shadow-brand-sm ring-4 ring-card-white"
-                  aria-hidden="true"
-                >
-                  {m.year === "Today" ? <CareBellIcon className="w-7 h-7" /> : m.year.slice(2)}
-                </span>
-                <Reveal delay={0.08 * i}>
-                  <p className="font-label-sm text-label-sm text-primary-fixed font-bold uppercase tracking-wider">
-                    {m.year} · {m.title}
-                  </p>
-                  <p className="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed">
-                    {m.text}
-                  </p>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── Stats band (homepage-consistent figures) ───────────────────────────
-// 20+ VERIFIED (est. 2007). 40,000+ / 15,000+ are the WEBSITE'S claimed
-// numbers, kept identical to the homepage per the consistency mandate —
-// NOT independently verified (docs/CONTENT_GAPS.md #1). The prompt's
-// "14 Years / 25,000+" are stale figures from the old site and are NOT used.
-const stats = [
-  { icon: ClockIcon, value: 20, suffix: "+", label: "Years of Service" },
-  { icon: ReferralIcon, value: 40000, suffix: "+", label: "Patients Treated" },
-  { icon: SurgeryIcon, value: 15000, suffix: "+", label: "Eye Surgeries" },
-];
-
-export function AboutStats() {
-  return (
-    <section className="py-space-xl bg-surface-warm border-y border-border-light/60">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <dl className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6">
-          {stats.map((s, i) => (
-            <Reveal key={s.label} delay={0.07 * i}>
-              <div className="flex items-center gap-5 sm:justify-center sm:text-left">
-                <span className="w-14 h-14 rounded-2xl bg-card-white ring-1 ring-primary/20 shadow-brand-sm flex items-center justify-center text-primary shrink-0">
-                  <s.icon className="w-8 h-8" />
-                </span>
-                <div className="flex flex-col">
-                  <dt className="order-2 font-label-md text-label-md text-on-surface-variant font-semibold mt-1.5">
-                    {s.label}
-                  </dt>
-                  <dd className="order-1 font-display-hero text-display-hero text-primary leading-none">
-                    <CountUp to={s.value} suffix={s.suffix} />
-                  </dd>
-                </div>
-              </div>
-              {i < stats.length - 1 && (
-                <div className="sm:hidden h-px bg-border-light mt-8" aria-hidden="true" />
-              )}
-            </Reveal>
-          ))}
-        </dl>
-      </div>
-    </section>
-  );
-}
-
-// ── Mission / Expertise matched pair ───────────────────────────────────
-export function MissionExpertise() {
-  return (
-    <section className="py-space-2xl bg-surface-canvas">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <Reveal>
-          <SectionHeader
-            title="Our Mission & Expertise"
-          />
-        </Reveal>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-          <Reveal className="h-full">
-            <div className="h-full rounded-3xl overflow-hidden shadow-sm ring-1 ring-border-light/50 hover:shadow-brand-md hover:-translate-y-1 transition-all duration-200 bg-card-white flex flex-col">
-              <div className="relative h-52 overflow-hidden">
-                <Image
-                  src="/images/IMG_2223-jpg.webp"
-                  alt="Dr. Meeta Mungale at work at Mungale Eye Hospital"
-                  width={800}
-                  height={420}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div
-                  className="absolute inset-0 bg-primary-container/15 mix-blend-multiply pointer-events-none"
-                  aria-hidden="true"
-                />
-                <div
-                  className="absolute inset-0 bg-gradient-to-t from-card-white via-transparent to-transparent pointer-events-none"
-                  aria-hidden="true"
-                />
-              </div>
-              <div className="p-8 pt-4 flex-1">
-                <span className="w-14 h-14 rounded-2xl bg-surface-tint flex items-center justify-center text-primary mb-5 -mt-12 relative ring-4 ring-card-white shadow-brand-sm">
-                  <CareBellIcon className="w-8 h-8" />
-                </span>
-                <h3 className="font-headline-sm text-headline-sm text-on-surface font-bold">
-                  Our Mission
-                </h3>
-                <p className="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
-                  Mungale Eye Hospital is committed to providing the highest standard
-                  of eye care, ensuring that every patient, regardless of their
-                  background, receives world-class treatment. Our goal is to enhance
-                  the quality of life for all our patients through advanced
-                  diagnostics, expert medical intervention, and cutting-edge surgical
-                  procedures. MEH is a referral center for complex cases of cornea and
-                  glaucoma, providing quality eye care at affordable prices.
-                </p>
-              </div>
-            </div>
-          </Reveal>
-          <Reveal delay={0.08} className="h-full">
-            <div className="h-full rounded-3xl overflow-hidden shadow-sm ring-1 ring-border-light/50 hover:shadow-brand-md hover:-translate-y-1 transition-all duration-200 bg-card-white flex flex-col">
-              <div className="relative h-52 overflow-hidden">
-                <Image
-                  src="/images/IMG_2239-jpg.webp"
-                  alt="Advanced eye-scan diagnostics at Mungale Eye Hospital"
-                  width={800}
-                  height={420}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div
-                  className="absolute inset-0 bg-primary-container/15 mix-blend-multiply pointer-events-none"
-                  aria-hidden="true"
-                />
-                <div
-                  className="absolute inset-0 bg-gradient-to-t from-card-white via-transparent to-transparent pointer-events-none"
-                  aria-hidden="true"
-                />
-              </div>
-              <div className="p-8 pt-4 flex-1">
-                <span className="w-14 h-14 rounded-2xl bg-surface-tint flex items-center justify-center text-primary mb-5 -mt-12 relative ring-4 ring-card-white shadow-brand-sm">
-                  <MicroscopeIcon className="w-8 h-8" />
-                </span>
-                <h3 className="font-headline-sm text-headline-sm text-on-surface font-bold">
-                  Our Expertise
-                </h3>
-                <p className="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
-                  The hospital is equipped with a full range of state-of-the-art
-                  diagnostic, curative, and surgical equipment designed to treat a wide
-                  variety of eye diseases. We specialize in various ophthalmological
-                  fields, offering treatments in subspecialties such as cornea, retina,
-                  glaucoma, cataract. This approach of offering specialized eye care is
-                  a relatively new concept in India, and we pride ourselves on leading
-                  the way.
-                </p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── Facility strip (visually verified real clinic photos) ──────────────
-const facilityPhotos = [
-  {
-    src: "/images/11-jpg.webp",
-    alt: "Eye examination underway at Mungale Eye Hospital",
-  },
-  {
-    src: "/images/30-jpg.webp",
-    alt: "Computerised eye testing at Mungale Eye Hospital",
-  },
-  {
-    src: "/images/IMG_0887-jpg.webp",
-    alt: "YAG laser procedure at Mungale Eye Hospital",
-  },
-];
-
-export function FacilityStrip() {
-  return (
-    <section className="py-space-2xl bg-card-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <Reveal>
-          <SectionHeader
-            eyebrow="Our Facility"
-            title="Inside The Hospital"
-          />
-        </Reveal>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-          {facilityPhotos.map((p, i) => (
-            <Reveal key={p.src} delay={0.07 * i} className="h-full">
-              <div className="relative rounded-3xl overflow-hidden shadow-brand-sm ring-1 ring-secondary/10 h-72 sm:h-80 group">
-                <Image
-                  src={p.src}
-                  alt={p.alt}
-                  width={512}
-                  height={640}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div
-                  className="absolute inset-0 bg-primary-container/15 mix-blend-multiply pointer-events-none"
-                  aria-hidden="true"
-                />
-                <div
-                  className="absolute inset-0 bg-gradient-to-t from-secondary/45 via-transparent to-transparent pointer-events-none"
-                  aria-hidden="true"
-                />
-              </div>
-            </Reveal>
-          ))}
-        </div>
       </div>
     </section>
   );

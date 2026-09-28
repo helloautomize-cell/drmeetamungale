@@ -227,6 +227,13 @@ html {
   }
 }
 
+/* Fixed floating header is 76px + top offset: every present and future
+   anchor/fragment jump clears it with breathing room. No per-section
+   scroll-margin bookkeeping needed. */
+html {
+  scroll-padding-top: 120px;
+}
+
 .no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -242,5 +249,37 @@ html {
 @media (prefers-reduced-motion: no-preference) {
   .animate-tab-in {
     animation: tab-in 0.25s ease-out;
+  }
+}
+
+/* Doctor-story transitions: editorial fade + small rise (500ms) and a
+   barely-there photo settle (1% scale, 600ms). */
+@keyframes story-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes story-img-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-story-in {
+    animation: story-in 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .animate-story-img-in {
+    animation: story-img-in 0.6s ease-out;
   }
 }

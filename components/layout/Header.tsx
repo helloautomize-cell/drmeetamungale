@@ -83,7 +83,7 @@ export function Header() {
     if (mobileOpen) setHidden(false);
   }, [mobileOpen]);
 
-  // "Book an Appointment" appears once — as the CTA pill, not a nav row.
+  // "Book a consultation" appears once — as the CTA pill, not a nav row.
   const navItems = siteConfig.navTree.filter((item) => item.href !== "/contact-us/");
 
   const isActive = (item: (typeof navItems)[number]) => {
@@ -106,10 +106,10 @@ export function Header() {
         >
           <div
             className={
-              "relative flex items-center justify-between h-[76px] rounded-[26px] bg-background/70 backdrop-blur-xl border transition-shadow duration-200 " +
+              "relative flex items-center justify-between h-[76px] rounded-[20px] bg-background/70 backdrop-blur-xl border transition-shadow duration-200 " +
               (scrolled
-                ? "border-secondary/15 shadow-[0_8px_24px_rgba(17,17,18,0.08)]"
-                : "border-secondary/10 shadow-[0_2px_12px_rgba(17,17,18,0.05)]")
+                ? "border-secondary/15 shadow-[0_6px_20px_rgba(17,17,18,0.07)]"
+                : "border-secondary/10 shadow-[0_1px_8px_rgba(17,17,18,0.04)]")
             }
           >
             {/* Logo — official asset, restrained inside the pill */}
@@ -140,10 +140,19 @@ export function Header() {
                     item.subItems?.length > 0 && setOpenSub(item.label)
                   }
                   onMouseLeave={() => setOpenSub(null)}
+                  onFocus={() =>
+                    item.subItems?.length > 0 && setOpenSub(item.label)
+                  }
+                  onBlur={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget)) setOpenSub(null);
+                  }}
                 >
                   <Link
                     href={item.href}
                     data-active={isActive(item) || undefined}
+                    aria-expanded={
+                      item.subItems?.length > 0 ? openSub === item.label : undefined
+                    }
                     className={
                       "nav-item font-label-md text-[15px] font-medium px-3 py-2 inline-flex items-center gap-1.5 transition-colors duration-200 " +
                       (isActive(item)
@@ -154,7 +163,7 @@ export function Header() {
                   >
                     {item.label}
                     {item.subItems?.length > 0 && (
-                      <span className="text-on-surface/45">
+                      <span className="text-on-surface/45" aria-hidden="true">
                         <MicroChevron open={openSub === item.label} />
                       </span>
                     )}

@@ -26,7 +26,7 @@ export function FloatingCTA() {
     <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 mb-[env(safe-area-inset-bottom)]">
       <div className="bg-white/90 backdrop-blur-md rounded-full shadow-brand-sm ring-1 ring-secondary/10 px-2 py-2 flex items-center gap-1.5">
         <a
-          href={"tel:" + siteConfig.phone}
+          href={"tel:" + siteConfig.phone.replace(/[\s-]/g, "")}
           className={btn + " bg-primary"}
           aria-label="Call Mungale Eye Hospital"
           title="Call now"
@@ -48,9 +48,9 @@ export function FloatingCTA() {
           href="/contact-us/"
           className={btn + " bg-secondary"}
           aria-label="Book an Appointment"
-          title="Book appointment"
+          title="Book a consultation"
         >
-          <ActionLabel text="Book appointment" />
+          <ActionLabel text="Book a consultation" />
           <CalendarDays className="w-4 h-4" />
         </Link>
       </div>

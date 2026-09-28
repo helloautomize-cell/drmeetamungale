@@ -1,292 +1,371 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { Star, Phone, CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import { Reveal } from "@/components/ui/motion";
 import { GoogleBadge } from "@/components/icons/duotone";
 import { siteConfig } from "@/content/site";
 import { reviews, type Review } from "@/content/reviews";
 
-// ─── 4.9 Reviews + CTA band ─────────────────────────────────────────────
-// Reviews are VERBATIM Google reviews (content/reviews.ts) in their original
-// language (English, Marathi, Gujarati) with names as published. No
-// satisfaction percentages, no invented counts, no translated rewrites, no
-// invented titles/locations.
-// Layout follows the reference pattern: rating strip + treatment filter
-// pills + snap slider with prev/next arrows. Honesty rules enforced:
-// - Header shows NO aggregate score: third-party aggregates conflict
-//   (4.0–4.9 across directories, none of them Google), and Google's own
-//   aggregate is not publicly retrievable. Only the verifiable fact is
-//   shown: 6 Google-sourced reviews, all 5-star (Trustindex verifies the
-//   original source of each review is Google — verbatim live-site wording).
-// - Treatment pills exist ONLY for treatments named in review text:
-//   Cataract Surgery (motiya operation — Priti, Sjju), Corneal Treatments
-//   (C3R cross-linking + scleral lenses — Dhruv), Glaucoma Treatments
-//   (glaucoma care — Odhavji; area tag, see note below). Evaluations/optical
-//   have no pills because no review mentions them — empty filters omitted.
-// - "Reviewed for" renders ONLY when the review text names the treatment.
-//   "Location" renders ONLY when stated in the review (Dahod — Dhruv).
-// - Odhavji note: the review recommends the hospital for glaucoma and
-//   praises its guidance, without naming a received procedure; the
-//   Glaucoma Treatments tag marks the treatment AREA, not a claimed surgery.
-type TreatmentFilter = "All" | "Cataract Surgery" | "Corneal Treatments" | "Glaucoma Treatments";
+// ─── Patient Stories — editorial review experience (owner rebuild) ───
+// Replaces the widget-style pills + slider: story-driven composition where
+// real patient words carry the section. Data honesty (established rules,
+// kept verbatim):
+// - Reviews VERBATIM from content/reviews.ts (original languages, names as
+//   published). Excerpts truncate with "…" + inline expand — never rewritten.
+// - Category tags ONLY where review text supports them: Cataract Surgery
+//   (Priti, Sjju), Corneal Treatments (Dhruv), Glaucoma Treatments AREA tag
+//   (Odhavji — recommends for glaucoma, names no procedure). Pankaj/Kishor
+//   are untagged and appear under All with no metadata line.
+// - Location ONLY where stated (Dahod — Dhruv). All ratings are 5-star per
+//   source data. NO aggregate score (Google's own aggregate is not publicly
+//   retrievable; third-party scores conflict) — the trust line shows only
+//   verifiable facts. NO review URLs exist, so "Read full review" expands
+//   inline; "Read on Google / More stories" use a real Google search URL
+//   (never a fabricated link). The old Trustindex plugin sentence is retired
+//   from the UI per owner instruction.
+// - Counts are real: progress reads 01/06, 01/02, 01/01 from data lengths.
+type Category = "All" | "Cataract" | "Cornea" | "Glaucoma";
 
-const treatmentOf: Record<string, TreatmentFilter | null> = {
+const categories: { id: Category; label: string }[] = [
+  { id: "All", label: "All" },
+  { id: "Cataract", label: "Cataract" },
+  { id: "Cornea", label: "Cornea" },
+  { id: "Glaucoma", label: "Glaucoma" },
+];
+
+const tagOf: Record<string, Exclude<Category, "All"> | null> = {
   "Pankaj Makhijani": null,
   "Kishor Kini": null,
-  "Priti Pandit": "Cataract Surgery",
-  "Sjju Warrior": "Cataract Surgery",
-  "Odhavji Vasoya": "Glaucoma Treatments",
-  "Kadia Dhruv": "Corneal Treatments",
+  "Priti Pandit": "Cataract",
+  "Sjju Warrior": "Cataract",
+  "Odhavji Vasoya": "Glaucoma",
+  "Kadia Dhruv": "Cornea",
+};
+
+const tagLabel: Record<Exclude<Category, "All">, string> = {
+  Cataract: "Cataract Surgery",
+  Cornea: "Corneal Treatments",
+  Glaucoma: "Glaucoma Treatments",
 };
 
 const locationOf: Record<string, string | null> = {
   "Kadia Dhruv": "Dahod",
 };
 
-const filters: TreatmentFilter[] = ["All", "Cataract Surgery", "Corneal Treatments", "Glaucoma Treatments"];
+const GOOGLE_SEARCH_URL =
+  "https://www.google.com/search?q=Mungale+Eye+Hospital+Vadodara+reviews";
 
-function Stars() {
+const EXCERPT_LEN = 240;
+
+function excerptOf(text: string): { short: string; truncated: boolean } {
+  if (text.length <= EXCERPT_LEN) return { short: text, truncated: false };
+  const cut = text.lastIndexOf(" ", EXCERPT_LEN);
+  return { short: text.slice(0, cut > 0 ? cut : EXCERPT_LEN) + "…", truncated: true };
+}
+
+function SmallStars() {
   return (
-    <span className="flex items-center gap-1" aria-label="5 out of 5 stars">
+    <span className="inline-flex items-center gap-0.5" aria-label="Rated 5 out of 5 stars">
       {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} className="w-5 h-5 text-star-gold fill-star-gold" />
+        <Star key={i} className="w-3.5 h-3.5 text-star-gold fill-star-gold" aria-hidden="true" />
       ))}
     </span>
   );
 }
 
-function Avatar({ name, index }: { name: string; index: number }) {
+function Identity({ name, large = false }: { name: string; large?: boolean }) {
   const initial = name.trim().charAt(0).toUpperCase();
   return (
-    <span
-      className={
-        "w-12 h-12 rounded-full flex items-center justify-center font-headline-sm text-headline-sm text-white font-bold shrink-0 " +
-        (index % 2 === 0
-          ? "bg-primary"
-          : "bg-secondary")
-      }
-      aria-hidden="true"
-    >
-      {initial}
-    </span>
+    <div className="flex items-center gap-3">
+      <span
+        aria-hidden="true"
+        className={
+          "rounded-full bg-primary/10 text-primary-fixed font-bold flex items-center justify-center shrink-0 " +
+          (large ? "w-11 h-11 text-[17px]" : "w-9 h-9 text-[14px]")
+        }
+      >
+        {initial}
+      </span>
+      <div className="min-w-0">
+        <p
+          className={
+            "text-on-surface font-semibold truncate " +
+            (large ? "text-[16px]" : "text-[14.5px]")
+          }
+        >
+          {name}
+        </p>
+        <SmallStars />
+      </div>
+    </div>
   );
 }
 
-function ReviewSlide({ r, index }: { r: Review; index: number }) {
-  const [expanded, setExpanded] = React.useState(false);
-  const treatment = treatmentOf[r.reviewerName] ?? null;
-  const location = locationOf[r.reviewerName] ?? null;
+function Meta({ review }: { review: Review }) {
+  const tag = tagOf[review.reviewerName] ?? null;
+  const loc = locationOf[review.reviewerName] ?? null;
+  if (!tag && !loc) return null;
   return (
-    <article className="flex-none w-[86%] sm:w-[calc(50%-0.75rem)] snap-start bg-card-white rounded-3xl p-7 sm:p-8 shadow-sm ring-1 ring-border-light/50 hover:shadow-brand-md transition-shadow duration-200 flex flex-col">
-      <blockquote
-        className={
-          "font-body-md text-body-md text-on-surface leading-relaxed flex-1 " +
-          (expanded ? "" : "line-clamp-5")
-        }
+    <p className="mt-3 text-[11.5px] font-semibold uppercase tracking-[0.16em] text-on-surface-variant">
+      {tag ? tagLabel[tag] : ""}
+      {tag && loc ? " · " : ""}
+      {loc ?? ""}
+    </p>
+  );
+}
+
+function GoogleTrust() {
+  return (
+    <div>
+      <div className="flex items-center gap-2.5">
+        <GoogleBadge className="w-5 h-5" />
+        <p className="text-[13px] font-semibold text-on-surface">
+          Google Reviews
+        </p>
+        <SmallStars />
+      </div>
+      <p className="mt-2 text-[13.5px] leading-relaxed text-on-surface-variant">
+        {reviews.length} verified patient reviews, all five-star.
+      </p>
+      <a
+        href={GOOGLE_SEARCH_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="cta-quiet group mt-2.5 inline-flex items-center gap-1.5 text-[14px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
       >
-        {r.text}
+        <span className="cta-quiet-text">Read on Google</span>
+        <ArrowRight
+          aria-hidden="true"
+          className="w-3.5 h-3.5 text-primary transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
+        />
+      </a>
+    </div>
+  );
+}
+
+function Featured({ review }: { review: Review }) {
+  const [expanded, setExpanded] = React.useState(false);
+  const { short, truncated } = excerptOf(review.text);
+  return (
+    <article key={review.reviewerName}>
+      {/* Oversized decorative quote — pale brand red, extremely subtle. */}
+      <span
+        aria-hidden="true"
+        className="block font-display-hero leading-[0.6] text-primary/10 select-none text-[110px] lg:text-[150px]"
+      >
+        &ldquo;
+      </span>
+      <blockquote className="mt-2 text-on-surface leading-[1.35] font-normal text-[22px] sm:text-[26px] lg:text-[31px] tracking-[-0.005em]">
+        {expanded || !truncated ? review.text : short}
       </blockquote>
-      <button
-        type="button"
-        onClick={() => setExpanded((v) => !v)}
-        className="self-start mt-2 font-label-sm text-label-sm text-primary-fixed font-bold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded"
-        aria-expanded={expanded}
-      >
-        {expanded ? "Show Less" : "Read More"}
-      </button>
-      <div className="mt-5 flex items-center gap-3">
-        <Avatar name={r.reviewerName} index={index} />
-        <div className="min-w-0">
-          <p className="font-label-md text-label-md text-on-surface font-bold truncate">
-            {r.reviewerName}
-          </p>
-          <Stars />
-        </div>
+      {truncated && (
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+          className="mt-4 inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded group"
+        >
+          <span className="cta-quiet-text">{expanded ? "Show less" : "Read full review"}</span>
+          <ArrowRight
+            aria-hidden="true"
+            className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
+          />
+        </button>
+      )}
+      <div className="mt-6">
+        <Identity name={review.reviewerName} large />
       </div>
-      <div className="mt-4 space-y-1">
-        {treatment && (
-          <p className="font-body-sm text-body-sm text-on-surface-variant">
-            Reviewed for: <span className="font-bold text-on-surface">{treatment}</span>
-          </p>
-        )}
-        {location && (
-          <p className="font-body-sm text-body-sm text-on-surface-variant">
-            Location: <span className="font-bold text-on-surface">{location}</span>
-          </p>
-        )}
-      </div>
+      <Meta review={review} />
     </article>
   );
 }
 
+function Secondary({
+  review,
+  onSelect,
+}: {
+  review: Review;
+  onSelect: () => void;
+}) {
+  const { short } = excerptOf(review.text);
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      className="group w-full text-left py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded-lg"
+      aria-label={"Read story from " + review.reviewerName}
+    >
+      <p className="text-[15px] leading-relaxed text-on-surface-variant group-hover:text-on-surface transition-colors duration-200 line-clamp-3">
+        &ldquo;{short}&rdquo;
+      </p>
+      <div className="mt-3 flex items-center justify-between gap-3">
+        <p className="text-[13.5px] font-semibold text-on-surface truncate">
+          {review.reviewerName}
+        </p>
+        <span className="flex items-center gap-1.5 shrink-0">
+          <span
+            aria-hidden="true"
+            className="block h-px w-6 bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-200 motion-reduce:transition-none"
+          />
+          <ArrowRight
+            aria-hidden="true"
+            className="w-4 h-4 text-primary -translate-x-1 group-hover:translate-x-0 transition-transform duration-200 motion-reduce:transition-none"
+          />
+        </span>
+      </div>
+    </button>
+  );
+}
+
 export function Reviews() {
-  const [active, setActive] = React.useState<TreatmentFilter>("All");
-  const pillsRef = React.useRef<HTMLDivElement>(null);
-  const trackRef = React.useRef<HTMLDivElement>(null);
-  const [pillsProgress, setPillsProgress] = React.useState(0);
+  const [cat, setCat] = React.useState<Category>("All");
+  const [idx, setIdx] = React.useState(0);
 
   const filtered =
-    active === "All" ? reviews : reviews.filter((r) => treatmentOf[r.reviewerName] === active);
+    cat === "All" ? reviews : reviews.filter((r) => tagOf[r.reviewerName] === cat);
+  const featured = filtered[idx % filtered.length]!;
+  const pad = (n: number) => String(n).padStart(2, "0");
 
-  const onPillsScroll = () => {
-    const el = pillsRef.current;
-    if (!el) return;
-    const max = el.scrollWidth - el.clientWidth;
-    setPillsProgress(max > 0 ? el.scrollLeft / max : 0);
+  // Secondaries: same-category others first, then fill from all stories.
+  const others = [
+    ...filtered.filter((r) => r.reviewerName !== featured.reviewerName),
+    ...reviews.filter(
+      (r) =>
+        r.reviewerName !== featured.reviewerName &&
+        !filtered.some((f) => f.reviewerName === r.reviewerName)
+    ),
+  ].slice(0, 2);
+
+  const pick = (c: Category) => {
+    setCat(c);
+    setIdx(0);
   };
-
-  const scrollPills = (dir: 1 | -1) => {
-    pillsRef.current?.scrollBy({ left: dir * 220, behavior: "smooth" });
-  };
-
-  const scrollTrack = (dir: 1 | -1) => {
-    const el = trackRef.current;
-    if (!el) return;
-    const card = el.querySelector("article");
-    const step = card ? card.getBoundingClientRect().width + 24 : el.clientWidth * 0.8;
-    el.scrollBy({ left: dir * step, behavior: "smooth" });
-  };
-
-  const pick = (f: TreatmentFilter) => {
-    setActive(f);
-    trackRef.current?.scrollTo({ left: 0 });
+  const step = (dir: 1 | -1) =>
+    setIdx((v) => (v + dir + filtered.length) % filtered.length);
+  const jumpToReview = (name: string) => {
+    const i = reviews.findIndex((r) => r.reviewerName === name);
+    if (i >= 0) {
+      setCat("All");
+      setIdx(i);
+    }
   };
 
   return (
-    <section className="py-space-2xl bg-surface overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* CTA band — book / call, no invented metrics */}
-        <Reveal>
-          <div className="relative overflow-hidden bg-primary-fixed rounded-3xl p-8 lg:p-12 shadow-brand-lg text-center mb-14">
-            <h2 className="relative font-headline-lg text-headline-lg text-on-primary font-bold">
-              Ready for Clearer Vision?
-            </h2>
-            <p className="relative font-body-md text-body-md text-on-primary/90 mt-2 max-w-2xl mx-auto">
-              Book an appointment or call us — {siteConfig.hours.weekdays} {siteConfig.hours.time}.
-            </p>
-            <div className="relative flex flex-wrap justify-center gap-4 mt-6">
-              <Link
-                href="/contact-us/"
-                className="px-6 py-3 bg-card-white text-primary font-label-md text-label-md rounded-full shadow-md hover:shadow-lg hover:-translate-y-px transition-all inline-flex items-center gap-2"
-              >
-                <CalendarDays className="w-[18px] h-[18px]" />
-                <span>Book an Appointment</span>
-              </Link>
-              <a
-                href={"tel:" + siteConfig.phone.replace(/\s/g, "")}
-                className="px-6 py-3 border border-on-primary/40 text-on-primary font-label-md text-label-md rounded-full hover:bg-white/10 transition-colors inline-flex items-center gap-2"
-              >
-                <Phone className="w-[18px] h-[18px]" />
-                <span>{siteConfig.phone}</span>
-              </a>
-            </div>
-          </div>
+    <section className="bg-surface">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32 flex flex-col">
+        {/* 1 · Headline */}
+        <Reveal className="max-w-2xl order-1">
+          <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
+            Patient stories
+          </p>
+          <h2 className="mt-4 font-display-hero text-on-surface tracking-[-0.015em] leading-[1.05] text-[36px] sm:text-[44px] lg:text-[54px]">
+            What it feels like to be cared for here.
+          </h2>
+          <p className="mt-4 text-[17px] lg:text-[18px] leading-relaxed text-on-surface-variant">
+            Real experiences shared by Mungale patients.
+          </p>
         </Reveal>
 
-        <Reveal>
-          <SectionHeader
-            eyebrow="Patient Stories"
-            title="What Our Patients Say"
-            subtitle="Real Google reviews, published in the patients' own words and languages."
-          />
-        </Reveal>
+        {/* 5 · Google credibility (mobile: right after header; desktop: rail) */}
+        <div className="order-2 lg:hidden mt-8">
+          <GoogleTrust />
+        </div>
 
-        {/* Rating strip — verifiable facts only (no aggregate score invented) */}
-        <Reveal>
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <GoogleBadge className="w-8 h-8" />
-            <Stars />
-            <p className="font-label-md text-label-md text-on-surface">
-              <span className="font-bold">6 Verified Reviews</span>
-              <span className="text-on-surface-variant"> · Trustindex verifies that the original source of each review is Google.</span>
-            </p>
-          </div>
-        </Reveal>
-
-        {/* Treatment filter pills */}
-        <Reveal>
-          <div className="flex items-center gap-2 mb-2">
-            <div
-              ref={pillsRef}
-              onScroll={onPillsScroll}
-              className="flex-1 flex items-center gap-3 overflow-x-auto no-scrollbar snap-x py-1"
-              role="group"
-              aria-label="Filter reviews by treatment"
-            >
-              {filters.map((f) => (
-                <button
-                  key={f}
-                  type="button"
-                  onClick={() => pick(f)}
-                  aria-pressed={active === f}
-                  className={
-                    "snap-start shrink-0 px-5 py-2.5 rounded-full font-label-md text-label-md font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 " +
-                    (active === f
-                      ? "bg-primary hover:bg-primary-fixed text-white shadow-brand-sm"
-                      : "bg-card-white text-on-surface ring-1 ring-border-light hover:ring-primary/40 hover:text-primary")
-                  }
-                >
-                  {f === "All" ? "All Reviews" : f}
-                </button>
-              ))}
-            </div>
-            <button
-              type="button"
-              onClick={() => scrollPills(1)}
-              className="hidden sm:flex shrink-0 w-9 h-9 rounded-full ring-1 ring-primary/40 text-primary items-center justify-center hover:bg-primary hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-              aria-label="Scroll treatments"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-          <div
-            className="h-1 rounded-full bg-border-light overflow-hidden mb-8"
-            role="presentation"
-          >
-            <div
-              className="h-full w-1/3 rounded-full bg-primary hover:bg-primary-fixed transition-[margin] duration-200"
-              style={{ marginLeft: (pillsProgress * 66).toFixed(1) + "%" }}
-            />
-          </div>
-        </Reveal>
-
-        {/* Slider */}
+        {/* 6 · Category index — editorial text nav, scrollable on mobile */}
         <div
-          key={active}
-          ref={trackRef}
-          className="flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-2 animate-tab-in"
-          role="region"
-          aria-label={"Patient reviews" + (active === "All" ? "" : " for " + active)}
+          role="group"
+          aria-label="Filter stories by treatment area"
+          className="order-3 mt-8 lg:mt-10 flex items-center gap-7 lg:gap-9 overflow-x-auto no-scrollbar"
         >
-          {filtered.map((r, i) => (
-            <ReviewSlide key={r.reviewerName} r={r} index={i} />
-          ))}
-        </div>
-        <div className="mt-6 flex items-center justify-center gap-3">
-          <button
-            type="button"
-            onClick={() => scrollTrack(-1)}
-            className="w-10 h-10 rounded-full ring-1 ring-primary/40 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-            aria-label="Previous reviews"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            type="button"
-            onClick={() => scrollTrack(1)}
-            className="w-10 h-10 rounded-full ring-1 ring-primary/40 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-            aria-label="Next reviews"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
+          {categories.map((c) => {
+            const isActive = c.id === cat;
+            return (
+              <button
+                key={c.id}
+                type="button"
+                onClick={() => pick(c.id)}
+                aria-pressed={isActive}
+                className={
+                  "nav-item shrink-0 whitespace-nowrap px-1 py-3 text-[13px] font-bold uppercase tracking-[0.16em] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded " +
+                  (isActive ? "text-primary" : "text-on-surface/55 hover:text-on-surface")
+                }
+                data-active={isActive || undefined}
+              >
+                {c.label}
+              </button>
+            );
+          })}
         </div>
 
-        <p className="text-center mt-8 font-body-sm text-body-sm text-on-surface-variant">
-          Read all reviews on Google — search “{siteConfig.name}”.
-        </p>
+        {/* 2–4 · Featured + rail */}
+        <div className="order-4 mt-8 lg:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          <div className="lg:col-span-8">
+            <div key={featured.reviewerName + cat} className="animate-story-in">
+              <Featured review={featured} />
+            </div>
+            {/* Featured navigation — minimal arrows + real count */}
+            <div className="mt-8 pt-6 border-t border-secondary/10 flex items-center justify-between">
+              <p className="text-[13px] font-bold tracking-[0.2em] text-on-surface-variant tabular-nums" aria-live="polite">
+                {pad((idx % filtered.length) + 1)} / {pad(filtered.length)}
+              </p>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => step(-1)}
+                  aria-label="Previous story"
+                  className="w-11 h-11 inline-flex items-center justify-center text-on-surface/60 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded-full"
+                >
+                  <ArrowLeft className="w-[18px] h-[18px]" aria-hidden="true" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => step(1)}
+                  aria-label="Next story"
+                  className="w-11 h-11 inline-flex items-center justify-center text-on-surface/60 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded-full"
+                >
+                  <ArrowRight className="w-[18px] h-[18px]" aria-hidden="true" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <aside className="lg:col-span-4">
+            <div className="hidden lg:block">
+              <GoogleTrust />
+            </div>
+            <div className="mt-2 lg:mt-8 lg:pt-8 lg:border-t lg:border-secondary/10">
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">
+                More from patients
+              </p>
+              <div className="divide-y divide-secondary/10">
+                {others.map((r) => (
+                  <Secondary
+                    key={r.reviewerName}
+                    review={r}
+                    onSelect={() => jumpToReview(r.reviewerName)}
+                  />
+                ))}
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        {/* Section end — quiet link to real Google results */}
+        <div className="order-5 mt-12 lg:mt-16">
+          <a
+            href={GOOGLE_SEARCH_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-quiet group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
+          >
+            <span className="cta-quiet-text">More patient stories</span>
+            <ArrowRight
+              aria-hidden="true"
+              className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
+            />
+          </a>
+        </div>
       </div>
     </section>
   );
