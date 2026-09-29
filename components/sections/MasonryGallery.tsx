@@ -9,7 +9,6 @@ import {
   type GalleryPhoto,
 } from "@/content/gallery";
 import { ClinicalLightbox, type ClinicalImage } from "@/components/sections/ClinicalLightbox";
-import { Reveal } from "@/components/ui/motion";
 
 // ─── MasonryGallery ────────────────────────────────────────────────────────
 // Photo-journal masonry: true CSS columns, NATURAL intrinsic ratios

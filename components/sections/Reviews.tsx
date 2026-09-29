@@ -4,7 +4,6 @@ import React from "react";
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import { Reveal } from "@/components/ui/motion";
 import { GoogleBadge } from "@/components/icons/duotone";
-import { siteConfig } from "@/content/site";
 import { reviews, type Review } from "@/content/reviews";
 
 // ─── Patient Stories — editorial review experience (owner rebuild) ───
@@ -149,14 +148,14 @@ function Featured({ review }: { review: Review }) {
   const { short, truncated } = excerptOf(review.text);
   return (
     <article key={review.reviewerName}>
-      {/* Oversized decorative quote — pale brand red, extremely subtle. */}
+      {/* Decorative quote mark — 48px, 16px gap (quiet-luxury tighten). */}
       <span
         aria-hidden="true"
-        className="block font-display-hero leading-[0.6] text-primary/10 select-none text-[110px] lg:text-[150px]"
+        className="block font-display-hero leading-[0.6] text-primary/15 select-none text-[48px]"
       >
         &ldquo;
       </span>
-      <blockquote className="mt-2 text-on-surface leading-[1.35] font-normal text-[22px] sm:text-[26px] lg:text-[31px] tracking-[-0.005em]">
+      <blockquote className="mt-4 text-on-surface leading-[1.35] font-normal text-[clamp(1.5rem,2.2vw,2.25rem)] tracking-[-0.005em]">
         {expanded || !truncated ? review.text : short}
       </blockquote>
       {truncated && (

@@ -9,7 +9,6 @@ import Image from "next/image";
 import { siteConfig } from "@/content/site";
 import { treatments } from "@/content/treatments";
 import { MobileNavDrawer } from "@/components/layout/MobileNavDrawer";
-import { MagneticButton } from "@/components/ui/MagneticButton";
 
 // ─── Header (Phase 2 — flagship spec §4.1) ────────────────────────────
 // Ink-navy utility strip (phone · email · hours · emergency + text-size
@@ -133,7 +132,7 @@ export function Header() {
     const update = () => {
       ticking = false;
       const y = window.scrollY;
-      setScrolled(y > 8);
+      setScrolled(y > 24);
       setStripGone(y > 40);
       if (y > 160 && y > lastY + 4) setHidden(true);
       else if (y < lastY - 4 || y <= 160) setHidden(false);
@@ -229,18 +228,18 @@ export function Header() {
             </div>
           </div>
 
-          {/* Floating glass pill — shrinks on scroll, auto-hides on
-              scroll-down, returns on scroll-up */}
+          {/* Floating pill — solid porcelain-white (96%) so it reads crisp
+              over both dark and light sections; subtle shadow past 24px;
+              auto-hides on scroll-down, returns on scroll-up. */}
           <div className="mx-auto mt-3 lg:mt-4 w-[calc(100%-1.5rem)] lg:w-[calc(100%-3rem)] max-w-6xl">
             <div
               className={
-                "relative flex items-center justify-between rounded-[20px] bg-porcelain/70 backdrop-blur-[16px] backdrop-saturate-[140%] border transition-[height,box-shadow,border-color] duration-300 motion-reduce:transition-none " +
-                (scrolled
-                  ? "h-[64px] border-ink/15 shadow-[0_6px_20px_rgba(14,17,22,0.07)]"
-                  : "h-[76px] border-ink/10 shadow-[0_1px_8px_rgba(14,17,22,0.04)]")
+                "relative flex items-center justify-between rounded-full bg-white/95 backdrop-blur-[12px] border border-line h-[72px] transition-shadow duration-300 motion-reduce:transition-none " +
+                (scrolled ? "shadow-[0_6px_20px_rgba(14,17,22,0.08)]" : "shadow-none")
               }
             >
-              {/* Logo — official asset, scales down as the pill shrinks */}
+              {/* Logo — official SVG asset, rendered at 44px so the
+                  wordmark stays readable (vector, never upscaled). */}
               <Link
                 href="/"
                 className="flex items-center shrink-0 pl-6 lg:pl-8"
@@ -249,10 +248,7 @@ export function Header() {
                 <img
                   src="/images/hero/httpsmungaleeyehospital-logo.svg"
                   alt={siteConfig.name + " logo"}
-                  className={
-                    "w-auto object-contain transition-[height,transform] duration-300 motion-reduce:transition-none " +
-                    (scrolled ? "h-[38px] scale-[0.98]" : "h-[44px] lg:h-[46px]")
-                  }
+                  className="h-[44px] w-auto object-contain"
                   width={196}
                   height={82}
                 />
@@ -305,10 +301,10 @@ export function Header() {
                         {item.subItems?.length > 0 && openSub === item.label && (
                           <motion.div
                             key={item.label}
-                            initial={{ opacity: 0, y: 8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 6 }}
-                            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.15 }}
                             className={
                               mega
                                 ? "absolute left-1/2 -translate-x-1/2 top-full mt-3"
@@ -350,17 +346,15 @@ export function Header() {
                 >
                   <Phone className="w-4 h-4" />
                 </a>
-                <MagneticButton className="hidden lg:inline-block">
-                  <Link
-                    href="/contact-us/"
-                    className="inline-flex h-11 pl-5 pr-1.5 items-center gap-2.5 bg-primary text-white text-[14px] font-semibold rounded-[14px] shadow-[0_1px_2px_rgba(14,17,22,0.15)] hover:bg-primary-fixed transition-colors duration-200"
-                  >
-                    Book a Consultation
-                    <span className="w-7 h-7 rounded-full bg-white text-primary flex items-center justify-center shrink-0">
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </span>
-                  </Link>
-                </MagneticButton>
+                <Link
+                  href="/contact-us/"
+                  className="hidden lg:inline-flex h-11 pl-5 pr-1.5 items-center gap-2.5 bg-primary text-white text-[14px] font-semibold rounded-full shadow-[0_1px_2px_rgba(14,17,22,0.15)] hover:bg-primary-fixed transition-colors duration-200"
+                >
+                  Book a Consultation
+                  <span className="w-7 h-7 rounded-full bg-white text-primary flex items-center justify-center shrink-0">
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </span>
+                </Link>
 
                 {/* Mobile: booking icon + menu */}
                 <Link

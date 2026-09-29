@@ -22,7 +22,7 @@
 
   --gutter: clamp(20px, 5vw, 80px);
   --site-max: 1320px;
-  --section-y: clamp(96px, 12vw, 180px);
+  --section-y: clamp(88px, 10vw, 144px);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -85,39 +85,8 @@ p {
   }
 }
 
-/* Scroll-reveal primitive (used by Reveal): fade + slide-up, GPU-safe. */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-@keyframes hero-drift {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.55; }
-  50% { transform: translate3d(2rem, -1.5rem, 0) scale(1.08); opacity: 0.75; }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .animate-hero-drift {
-    animation: hero-drift 18s ease-in-out infinite;
-    will-change: transform, opacity;
-  }
-}
+/* Reveal is motion/react-driven now (opacity+y16/600ms). The classes are
+   kept on the wrapper so dependent selectors resolve to final states. */
 
 /* Mungale arc signature (design.md): the logo's eyelid curve as a
    restrained recurring motif — never large background art. */
@@ -134,13 +103,7 @@ p {
   background-size: 100% 2px;
 }
 
-/* Eyelid-inspired arch mask for portrait photography. */
-.mask-arch {
-  border-top-left-radius: 999px;
-  border-top-right-radius: 999px;
-}
-
-/* Header nav: thin Mungale red underline on hover / active, ~200ms,
+/* Header nav: thin Mungale red underline on hover / active, ~250ms,
    no pill backgrounds, no giant hover fills. */
 .nav-item {
   position: relative;
@@ -156,72 +119,14 @@ p {
   background: var(--brand-red-strong);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 200ms ease;
+  transition: transform 250ms ease;
 }
 .nav-item:hover::after,
 .nav-item[data-active="true"]::after {
   transform: scaleX(1);
 }
 
-/* Hero load sequence (owner spec): headline rises from a subtle clip,
-   support follows, image fades + sharpens, CTAs last. 600-800ms,
-   no cinematic intro. Delays set per element via animation-delay. */
-@keyframes hero-rise {
-  from {
-    opacity: 0;
-    transform: translateY(26px);
-    clip-path: inset(0 0 105% 0);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-    clip-path: inset(-15% -5% -20% -5%);
-  }
-}
-@keyframes hero-fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-@keyframes hero-sharpen {
-  from {
-    opacity: 0;
-    filter: blur(8px);
-    transform: scale(1.02);
-  }
-  to {
-    opacity: 1;
-    filter: none;
-    transform: none;
-  }
-}
-.hero-rise {
-  animation: hero-rise 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.hero-fade {
-  animation: hero-fade-up 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.hero-sharpen {
-  animation: hero-sharpen 800ms ease-out both;
-}
 
-/* "seen" underline stroke: thin red curve drawing 0 → full over 450ms,
-   starting once the headline has landed. */
-.seen-stroke {
-  transform: scaleX(0);
-  transform-origin: left center;
-  animation: seen-stroke-in 450ms cubic-bezier(0.22, 1, 0.36, 1) 750ms both;
-}
-@keyframes seen-stroke-in {
-  to {
-    transform: scaleX(1);
-  }
-}
 
 /* Quiet secondary CTA: thin red underline fades in on hover (200ms). */
 .cta-quiet-text {
@@ -240,22 +145,8 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-rise,
-  .hero-fade,
-  .hero-sharpen {
-    animation: none;
-  }
-  .seen-stroke {
-    animation: none;
-    transform: none;
-  }
   .cta-quiet-text {
     transition: none;
-  }
-  /* Sticky story: opacity-only transitions, no movement. */
-  .story-motion {
-    transition: opacity 200ms ease !important;
-    transform: none !important;
   }
 }
 
@@ -267,28 +158,12 @@ p {
     transition: none;
   }
 }
-/* Editorial proof rules: hairlines that draw 0 → full width once their
-   row's Reveal becomes visible. */
-.rule-grow {
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1) 150ms;
-}
-.reveal.is-visible .rule-grow {
-  transform: scaleX(1);
-}
-@media (prefers-reduced-motion: reduce) {
-  .rule-grow {
-    transition: none;
-    transform: none;
-  }
-}
-
-/* Fixed floating header is 76px + top offset: every present and future
-   anchor/fragment jump clears it with breathing room. No per-section
-   scroll-margin bookkeeping needed. */
+/* Section anchors clear the fixed nav (76px pill + margins). */
 html {
-  scroll-padding-top: 150px;
+  scroll-padding-top: 120px;
+}
+main section {
+  scroll-margin-top: 120px;
 }
 
 /* Room for the mobile bottom action bar (FloatingCTA): content must never
@@ -306,75 +181,15 @@ html {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+/* Panel/accordion switch — 250ms opacity crossfade only (§3). */
 @keyframes tab-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .animate-tab-in {
     animation: tab-in 0.25s ease-out;
-  }
-}
-
-/* ─── Phase 1 motion primitives ───────────────────────────────────────────
-   FocusReveal — the house reveal ("an eye coming into focus"):
-   opacity 0→1, y 24→0, blur 8px→0 over ~900ms expo-out. Use on text/small
-   elements only; never on large images on mobile (GPU cost). */
-.focus-reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  filter: blur(8px);
-  transition:
-    opacity 0.9s var(--ease-out-expo),
-    transform 0.9s var(--ease-out-expo),
-    filter 0.9s var(--ease-out-expo);
-}
-.focus-reveal.is-visible {
-  opacity: 1;
-  transform: none;
-  filter: blur(0);
-}
-@media (prefers-reduced-motion: reduce) {
-  .focus-reveal {
-    transform: none;
-    filter: none;
-    transition: opacity 0.2s ease;
-  }
-}
-
-/* ApertureImage — iris-like circular clip-path opening. Container keeps
-   its own border-radius; the mask expands past the box to clear corners. */
-.aperture-reveal {
-  clip-path: circle(18% at 50% 45%);
-  transition: clip-path 1s var(--ease-out-expo);
-}
-.aperture-reveal.is-visible {
-  clip-path: circle(120% at 50% 45%);
-}
-@media (prefers-reduced-motion: reduce) {
-  .aperture-reveal {
-    clip-path: none;
-    transition: none;
-  }
-}
-
-/* Marquee — slow infinite band; pauses on hover and under reduced motion. */
-@keyframes marquee-x {
-  to {
-    transform: translateX(-50%);
-  }
-}
-.marquee-track {
-  animation: marquee-x var(--marquee-duration, 40s) linear infinite;
-  will-change: transform;
-}
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
   }
 }
 
@@ -400,85 +215,18 @@ html {
   }
 }
 
-/* Vertical clip wipe — portrait/panel switch transition (§4.8). */
-@keyframes clip-wipe-y {
-  from {
-    clip-path: inset(0 0 100% 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .animate-clip-wipe {
-    animation: clip-wipe-y 0.65s var(--ease-out-expo) both;
-  }
-}
-
-/* Vertical variant of rule-grow — red quote rule draws top-to-bottom. */
-.rule-grow-y {
-  transform: scaleY(0);
-  transform-origin: top center;
-  transition: transform 0.8s var(--ease-out-expo) 0.2s;
-}
-.reveal.is-visible .rule-grow-y {
-  transform: scaleY(1);
-}
-@media (prefers-reduced-motion: reduce) {
-  .rule-grow-y {
-    transition: none;
-    transform: none;
-  }
-}
-
-/* Film grain overlay — applied on hover portraits (§4.8). Decorative. */
-.grain::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
-  transition: opacity 0.4s ease;
-}
-.grain:hover::after {
-  opacity: 0.12;
-}
-@media (prefers-reduced-motion: reduce) {
-  .grain::after {
-    transition: none;
-  }
-}
-
-/* Doctor-story transitions: editorial fade + small rise (500ms) and a
-   barely-there photo settle (1% scale, 600ms). */
+/* Doctor-story / reviews switch — 250ms crossfade only (§3). */
 @keyframes story-in {
   from {
     opacity: 0;
-    transform: translateY(14px);
   }
   to {
     opacity: 1;
-    transform: none;
-  }
-}
-@keyframes story-img-in {
-  from {
-    opacity: 0;
-    transform: scale(1.02);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .animate-story-in {
-    animation: story-in 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .animate-story-img-in {
-    animation: story-img-in 0.6s ease-out;
+    animation: story-in 0.25s ease-out;
   }
 }

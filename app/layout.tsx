@@ -5,7 +5,6 @@ import { siteConfig } from "@/content/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingCTA } from "@/components/layout/FloatingCTA";
-import { MotionProvider } from "@/components/providers/MotionProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { hospitalJsonLd } from "@/content/seo";
 
@@ -40,14 +39,18 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: "/images/hero/cropped-logo-2.png",
-        width: 300,
-        height: 300,
-        alt: siteConfig.name + " logo",
+        url: "/images/mungale/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name + " — eye hospital in Kothi, Vadodara",
       },
     ],
     locale: "en_IN",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/images/mungale/og-default.jpg"],
   },
   icons: {
     icon: "/images/hero/httpsmungaleeyehospital-logo.svg",
@@ -61,19 +64,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-IN" className={plusJakarta.variable + " " + fraunces.variable} suppressHydrationWarning>
       <head />
       <body className="font-sans bg-background text-on-surface min-h-screen flex flex-col overflow-x-clip">
-        <MotionProvider>
-          <JsonLd data={hospitalJsonLd()} />
-          <a
-            href="#content"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[80] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-primary focus:text-on-primary font-label-md text-label-md"
-          >
-            Skip to content
-          </a>
-          <Header />
-          <main className="flex-1" id="content">{children}</main>
-          <Footer />
-          <FloatingCTA />
-        </MotionProvider>
+        <JsonLd data={hospitalJsonLd()} />
+        <a
+          href="#content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[80] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-primary focus:text-on-primary font-label-md text-label-md"
+        >
+          Skip to content
+        </a>
+        <Header />
+        <main className="flex-1" id="content">{children}</main>
+        <Footer />
+        <FloatingCTA />
       </body>
     </html>
   );

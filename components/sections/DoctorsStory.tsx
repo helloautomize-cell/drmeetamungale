@@ -4,12 +4,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import gsap from "gsap";
-import { SplitText } from "gsap/SplitText";
-import { useGSAP } from "@gsap/react";
 import { doctors, type Doctor } from "@/content/doctors";
 import { Reveal } from "@/components/ui/motion";
-import { useReducedMotion } from "@/lib/useReducedMotion";
 
 // ─── Doctors story — editorial "people behind Mungale" (owner rebuild)
 // One composed scene — vertical doctor selector left (~35%), large
@@ -33,33 +29,10 @@ import { useReducedMotion } from "@/lib/useReducedMotion";
 // beyond reason (see docs/CONTENT_GAPS.md image quality).
 
 function DoctorPortrait({ doctor }: { doctor: Doctor }) {
-  const tiltRef = React.useRef<HTMLDivElement>(null);
-  const reduced = useReducedMotion();
-
-  // Subtle 3D tilt on hover — desktop pointers only, max 4° (§4.8).
-  const onMove = (e: React.PointerEvent) => {
-    if (reduced || e.pointerType !== "mouse") return;
-    const el = tiltRef.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    const px = (e.clientX - r.left) / r.width - 0.5;
-    const py = (e.clientY - r.top) / r.height - 0.5;
-    el.style.transform =
-      `perspective(900px) rotateX(${(-py * 4).toFixed(2)}deg) ` +
-      `rotateY(${(px * 4).toFixed(2)}deg)`;
-  };
-  const onLeave = () => {
-    const el = tiltRef.current;
-    if (el) el.style.transform = "";
-  };
-
   return (
     <div
       key={doctor.slug}
-      ref={tiltRef}
-      onPointerMove={onMove}
-      onPointerLeave={onLeave}
-      className="animate-clip-wipe grain overflow-hidden rounded-[20px] ring-1 ring-secondary/10 transition-transform duration-300 ease-out will-change-transform"
+      className="animate-story-in overflow-hidden rounded-[20px] ring-1 ring-secondary/10"
     >
       <Image
         src={doctor.imageUrl}
@@ -68,7 +41,7 @@ function DoctorPortrait({ doctor }: { doctor: Doctor }) {
         height={600}
         loading="lazy"
         sizes="(min-width: 1024px) 30vw, 90vw"
-        className="w-full aspect-[4/5] object-cover animate-story-img-in"
+        className="w-full aspect-[4/5] object-cover"
       />
     </div>
   );
@@ -83,14 +56,11 @@ function DoctorInfo({ doctor, index }: { doctor: Doctor; index: string }) {
     <div key={doctor.slug + "-info"} className="animate-story-in">
       <p
         aria-hidden="true"
-        className="font-display-hero leading-none text-on-surface/10 select-none text-[56px] lg:text-[72px]"
+        className="font-display-hero leading-none text-on-surface/30 select-none text-[64px]"
       >
         {index}
       </p>
-      <h3
-        data-doc-name
-        className="mt-2 font-display-hero text-on-surface tracking-tight leading-tight text-[30px] lg:text-[38px]"
-      >
+      <h3 className="mt-2 font-display-hero text-on-surface tracking-tight leading-tight text-[30px] lg:text-[38px]">
         {doctor.name}
       </h3>
       <ul
@@ -140,29 +110,7 @@ function DoctorInfo({ doctor, index }: { doctor: Doctor; index: string }) {
 
 export function DoctorsExperience({ compact = false }: { compact?: boolean }) {
   const [active, setActive] = React.useState(0);
-  const infoScope = React.useRef<HTMLDivElement>(null);
-  const reduced = useReducedMotion();
   const current = doctors[active]!;
-
-  // Name char-stagger on doctor switch (§4.8). DoctorInfo remounts via
-  // key — the SplitText runs on the freshly mounted [data-doc-name].
-  useGSAP(
-    () => {
-      if (reduced) return;
-      const el = infoScope.current?.querySelector("[data-doc-name]");
-      if (!el) return;
-      const split = new SplitText(el as HTMLElement, { type: "chars" });
-      gsap.from(split.chars, {
-        yPercent: 60,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.02,
-        ease: "expo.out",
-      });
-      return () => split.revert();
-    },
-    { scope: infoScope, dependencies: [active, reduced] }
-  );
 
   return (
     <>
@@ -247,12 +195,10 @@ export function DoctorsExperience({ compact = false }: { compact?: boolean }) {
               Mungale Eye Hospital · Kothi, Vadodara
             </p>
           </div>
-          <div ref={infoScope}>
-            <DoctorInfo
-              doctor={current}
-              index={active === 0 ? "01" : "02"}
-            />
-          </div>
+          <DoctorInfo
+            doctor={current}
+            index={active === 0 ? "01" : "02"}
+          />
         </div>
       </div>
 

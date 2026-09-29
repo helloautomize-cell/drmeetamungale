@@ -2,7 +2,6 @@
 
 import React from "react";
 import type { InsuranceFaq } from "@/content/insurance-faqs";
-import { Reveal } from "@/components/ui/motion";
 
 // ─── InsuranceFaq ──────────────────────────────────────────────────────────
 // Desktop: editorial two-column (question list left, selected answer right).

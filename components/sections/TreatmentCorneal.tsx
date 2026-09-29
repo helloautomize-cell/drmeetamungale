@@ -78,15 +78,7 @@ function ChapterMedia({
   );
 }
 
-function ChapterText({
-  section,
-  onFail,
-  failed,
-}: {
-  section: PageSection;
-  onFail: (src: string) => void;
-  failed: Set<string>;
-}) {
+function ChapterText({ section }: { section: PageSection }) {
   // Reserve anchor + heading even if media failed — layout is text-led then.
   const details = pageDetails(SLUG, section.bodyKeys);
   return (
@@ -132,13 +124,13 @@ function StandardChapter({
             <ChapterMedia section={section} onFail={onFail} failed={failed} />
           </Reveal>
           <Reveal delay={0.08} className={flip ? "lg:order-1" : ""}>
-            <ChapterText section={section} onFail={onFail} failed={failed} />
+            <ChapterText section={section} />
           </Reveal>
         </div>
       ) : (
         <Reveal>
           <div className="max-w-3xl">
-            <ChapterText section={section} onFail={onFail} failed={failed} />
+            <ChapterText section={section} />
           </div>
         </Reveal>
       )}

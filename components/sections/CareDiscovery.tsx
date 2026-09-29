@@ -1,11 +1,12 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import { ArtImage } from "@/components/ui/ArtImage";
 import { Reveal } from "@/components/ui/motion";
+import { IMG, type Img } from "@/lib/images";
 import { treatments } from "@/content/treatments";
 import { siteConfig } from "@/content/site";
 
@@ -121,34 +122,16 @@ const blurbs: Record<string, string> = {
     "Medication, surgery or specialised therapies for infections, injuries and conditions.",
 };
 
-// Real clinical photographs — the same verified assets each treatment page
-// opens with (content/treatment-pages.ts), alts VERBATIM from the atlas.
-// Shown per concern so expanded states carry visual evidence, not just type.
-const treatmentImages: Record<string, { src: string; alt: string }> = {
-  "cataract-surgery": {
-    src: "/images/treatments/ct2.jpg",
-    alt: "Oertli CataRhex 3 surgical platform for cataract surgery",
-  },
-  "optical-contact-lenses": {
-    src: "/images/treatments/op1.jpg",
-    alt: "Spectacle frames on display at the Mungale optical",
-  },
-  "glaucoma-evaluation": {
-    src: "/images/treatments/g1.jpg",
-    alt: "Handheld fundus camera displaying a retinal image",
-  },
-  "glaucoma-treatments": {
-    src: "/images/treatments/gt1.jpg",
-    alt: "YAG laser machine used for peripheral iridotomy",
-  },
-  "cornea-evaluation": {
-    src: "/images/treatments/c3.jpg",
-    alt: "LED CSO slit lamp with imaging, showing an eye on the monitor",
-  },
-  "corneal-treatments": {
-    src: "/images/treatments/cb1.jpg",
-    alt: "Clouded cornea photographed at Mungale Eye Hospital",
-  },
+// One generated image per symptom (quiet-luxury spec §5.3) — the same
+// artwork family as the specialty cards, so the navigator reads as one
+// coherent system. Alts describe the artwork, not a diagnosis.
+const concernArt: Record<number, { d: Img; m?: Img; alt: string }> = {
+  0: { d: IMG.cataract.d, alt: "Warm artwork representing cataract care" },
+  1: { d: IMG.glaucoma.d, alt: "Warm artwork representing glaucoma care" },
+  2: { d: IMG.cornea.d, alt: "Warm artwork representing cornea care" },
+  3: { d: IMG.cataract.d, alt: "Warm artwork representing cataract care" },
+  4: { d: IMG.optical.d, alt: "Warm artwork representing optical and contact lenses" },
+  5: { d: IMG.j1.d, m: IMG.j1.m, alt: "A calm consultation between doctor and patient" },
 };
 
 const NOT_SURE_INDEX = 5;
@@ -210,8 +193,21 @@ function ExploreTreatments({ slugs }: { slugs: string[] }) {
 
 function ConversationPanel() {
   const phone = siteConfig.phone.replace(/\s/g, "");
+  const art = concernArt[NOT_SURE_INDEX]!;
   return (
-    <div>
+    <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
+      <div className="w-full shrink-0 lg:w-[44%]">
+        <div className="aspect-[4/5] max-h-[360px] overflow-hidden rounded-[20px] ring-1 ring-secondary/10 lg:max-h-none">
+          <ArtImage
+            d={art.d}
+            m={art.m}
+            alt={art.alt}
+            className="h-full w-full"
+            imgClassName="h-full w-full object-cover object-[50%_68%]"
+          />
+        </div>
+      </div>
+      <div className="min-w-0 flex-1">
       {/* OWNER-PROVIDED wording — navigation to conversation, never a diagnosis. */}
       <h3 className="font-display-hero text-on-surface tracking-tight leading-tight text-[26px] lg:text-[34px]">
         That&apos;s okay. Start with a conversation.
@@ -242,6 +238,7 @@ function ConversationPanel() {
           />
         </Link>
       </div>
+      </div>
     </div>
   );
 }
@@ -249,77 +246,62 @@ function ConversationPanel() {
 function CarePanel({ concernIndex }: { concernIndex: number }) {
   if (concernIndex === NOT_SURE_INDEX) return <ConversationPanel />;
   const c = concerns[concernIndex]!;
+  const art = concernArt[concernIndex];
   return (
-    <div>
-      <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
-        Care for this
-      </p>
-      <h3 className="mt-3 font-display-hero text-on-surface tracking-tight leading-tight text-[26px] lg:text-[34px]">
-        {c.heading}
-      </h3>
-      {/* Visual evidence — real photos of the care offered, wiping in
-          from the right on every change (clip-path only). One wide frame
-          for a single treatment, two-up for a family. */}
-      <div
-        className={
-          "mt-5 grid gap-3 " +
-          (c.slugs.length > 1 ? "grid-cols-2" : "grid-cols-1 sm:max-w-md")
-        }
-      >
-        {c.slugs.map((slug) => {
-          const im = treatmentImages[slug];
-          if (!im) return null;
-          return (
-            <motion.div
-              key={slug}
-              initial={{ clipPath: "inset(0 0 0 100%)" }}
-              animate={{ clipPath: "inset(0 0 0 0%)" }}
-              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-              className="aspect-[4/3] overflow-hidden rounded-[14px] ring-1 ring-secondary/10"
-            >
-              <Image
-                src={im.src}
-                alt={im.alt}
-                width={640}
-                height={480}
-                loading="lazy"
-                sizes="(min-width: 1024px) 25vw, 45vw"
-                className="h-full w-full object-cover"
-              />
-            </motion.div>
-          );
-        })}
-      </div>
-      <div className="mt-7 lg:mt-8">
-        <TreatmentRows slugs={c.slugs} />
-      </div>
-      {c.addresses && (
-        <div className="mt-7 border-t border-secondary/10 pt-6">
-          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">
-            What this addresses
-          </p>
-          <ul className="mt-3 space-y-2">
-            {c.addresses.map((a) => (
-              <li
-                key={a}
-                className="flex items-baseline gap-2.5 text-[15px] text-on-surface"
-              >
-                <span
-                  aria-hidden="true"
-                  className="w-1 h-1 rounded-full bg-primary shrink-0 translate-y-[-2px]"
-                />
-                <span>{a}</span>
-              </li>
-            ))}
-          </ul>
-          {c.note && (
-            <p className="mt-3 text-[14px] leading-relaxed text-on-surface-variant max-w-lg">
-              {c.note}
-            </p>
-          )}
+    <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
+      {/* One image per symptom — 4:5 box at ~44% of the panel on
+          desktop, above the text on mobile (max-height 360px). */}
+      {art && (
+        <div className="w-full shrink-0 lg:w-[44%]">
+          <div className="aspect-[4/5] max-h-[360px] overflow-hidden rounded-[20px] ring-1 ring-secondary/10 lg:max-h-none">
+            <ArtImage
+              d={art.d}
+              m={art.m}
+              alt={art.alt}
+              className="h-full w-full"
+              imgClassName="h-full w-full object-cover object-[50%_68%]"
+            />
+          </div>
         </div>
       )}
-      <ExploreTreatments slugs={c.slugs} />
+      <div className="min-w-0 flex-1">
+        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
+          Care for this
+        </p>
+        <h3 className="mt-3 font-display-hero text-on-surface tracking-tight leading-tight text-[26px] lg:text-[34px]">
+          {c.heading}
+        </h3>
+        <div className="mt-6">
+          <TreatmentRows slugs={c.slugs} />
+        </div>
+        {c.addresses && (
+          <div className="mt-7 border-t border-secondary/10 pt-6">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">
+              What this addresses
+            </p>
+            <ul className="mt-3 space-y-2">
+              {c.addresses.map((a) => (
+                <li
+                  key={a}
+                  className="flex items-baseline gap-2.5 text-[15px] text-on-surface"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="w-1 h-1 rounded-full bg-primary shrink-0 translate-y-[-2px]"
+                  />
+                  <span>{a}</span>
+                </li>
+              ))}
+            </ul>
+            {c.note && (
+              <p className="mt-3 text-[14px] leading-relaxed text-on-surface-variant max-w-lg">
+                {c.note}
+              </p>
+            )}
+          </div>
+        )}
+        <ExploreTreatments slugs={c.slugs} />
+      </div>
     </div>
   );
 }
@@ -398,13 +380,10 @@ export function CareDiscovery() {
                         (isActive ? "bg-red-wash" : "")
                       }
                     >
-                      {/* Active tick — shared layout element slides between
-                          items (motion layoutId). */}
+                      {/* Active tick — thin red rule marking the row. */}
                       {isActive && (
-                        <motion.span
-                          layoutId="care-tick"
+                        <span
                           aria-hidden="true"
-                          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                           className="absolute left-0 top-5 bottom-5 w-[2px] rounded-full bg-primary"
                         />
                       )}
@@ -472,10 +451,10 @@ export function CareDiscovery() {
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={active}
-                initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
               >
                 <CarePanel concernIndex={active} />
               </motion.div>

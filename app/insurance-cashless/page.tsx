@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { siteConfig } from "@/content/site";
 import { insuranceFaqs } from "@/content/insurance-faqs";
 import {
   INSURANCE_DESK_DISPLAY,

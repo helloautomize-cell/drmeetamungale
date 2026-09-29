@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { CareDiscovery } from "@/components/sections/CareDiscovery";
 import { Hero } from "@/components/sections/Hero";
-import { SpecialtyMarquee } from "@/components/sections/SpecialtyMarquee";
 import { SpecialtiesShowcase } from "@/components/sections/SpecialtiesShowcase";
 import { PatientJourney } from "@/components/sections/PatientJourney";
 import { TrustPillars } from "@/components/sections/TrustPillars";
@@ -18,13 +17,12 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <SpecialtyMarquee />
-      <TrustPillars />
       <CareDiscovery />
+      <TrustPillars />
+      <SpecialtiesShowcase />
       {/* TODO(content): confirm exact visit sequence with the doctors —
           step copy is generic process language, no source doc exists.
           See docs/CONTENT_GAPS.md. */}
-      <SpecialtiesShowcase />
       <PatientJourney />
       <DoctorsStory />
       <Reviews />

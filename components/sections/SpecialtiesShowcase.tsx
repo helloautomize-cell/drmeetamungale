@@ -1,24 +1,17 @@
-"use client";
-
-import * as React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-import { Eyebrow } from "@/components/ui/Eyebrow";
+import { ArtImage } from "@/components/ui/ArtImage";
 import { Reveal } from "@/components/ui/motion";
-import { useReducedMotion } from "@/lib/useReducedMotion";
+import { IMG } from "@/lib/images";
 
-// ─── Specialties — horizontal pinned showcase (Phase 3, spec §4.6) ─────
-// Desktop ≥1024px: the section pins and scrubs sideways through four
-// large cards; a hairline progress bar fills red along the bottom.
-// Mobile: native snap-scroll carousel, no pin (per guardrails).
-// Content: titles/descriptions VERBATIM from content/treatments.ts;
-// tags are conservative condition lists derived from the same published
-// copy (no invented services). Links only to existing treatment routes.
-// Photos: each treatment page's own verified hero image.
+// ─── Specialties (quiet-luxury reset, spec §5.5) — static editorial
+// grid. The porcelain-arc artwork carries the header band (arc right,
+// heading on the empty ivory left; stacked on mobile). Cards: white,
+// 20px radius, hairline border, 4:5 generated imagery, small red index
+// eyebrow — no pinned scroll, no giant outline numerals, no clinical
+// equipment photos. Copy: titles/descriptions verbatim from
+// content/treatments.ts; tags derived from the same published copy.
+// Links only to existing treatment routes.
 
 const SPECIALTIES = [
   {
@@ -28,8 +21,8 @@ const SPECIALTIES = [
     description:
       "Removes the clouded lens with advanced phaco technology, replacing it with a suitable intraocular lens.",
     tags: ["Clouded lens", "Phacoemulsification", "Lens implants"],
-    img: "/images/treatments/ct2.jpg",
-    alt: "Oertli CataRhex 3 surgical platform for cataract surgery",
+    img: IMG.cataract.d,
+    alt: "Warm portrait-toned artwork representing cataract care",
   },
   {
     num: "02",
@@ -38,8 +31,8 @@ const SPECIALTIES = [
     description:
       "Medication, surgery or specialised therapies for infections, injuries and conditions.",
     tags: ["Infections", "Injuries", "Transplants"],
-    img: "/images/treatments/cb1.jpg",
-    alt: "Clouded cornea photographed at Mungale Eye Hospital",
+    img: IMG.cornea.d,
+    alt: "Warm portrait-toned artwork representing cornea care",
   },
   {
     num: "03",
@@ -48,8 +41,8 @@ const SPECIALTIES = [
     description:
       "Eye drops, medications, laser therapy and surgical options to lower eye pressure.",
     tags: ["Eye pressure", "Visual field", "Laser & surgery"],
-    img: "/images/treatments/gt1.jpg",
-    alt: "YAG laser machine used for peripheral iridotomy",
+    img: IMG.glaucoma.d,
+    alt: "Warm portrait-toned artwork representing glaucoma care",
   },
   {
     num: "04",
@@ -58,43 +51,37 @@ const SPECIALTIES = [
     description:
       "Glasses and contact lenses correcting myopia, hyperopia and astigmatism.",
     tags: ["Myopia", "Hyperopia", "Astigmatism"],
-    img: "/images/treatments/op1.jpg",
-    alt: "Spectacle frames on display at the Mungale optical",
+    img: IMG.optical.d,
+    alt: "Warm portrait-toned artwork representing optical and contact lenses",
   },
 ];
 
 function SpecialtyCard({ s }: { s: (typeof SPECIALTIES)[number] }) {
   return (
-    <article className="group w-[82vw] sm:w-[520px] lg:w-[560px] shrink-0 snap-center bg-paper rounded-media ring-1 ring-line overflow-hidden flex flex-col">
-      <div className="relative aspect-[16/9] overflow-hidden">
-        <Image
-          src={s.img}
+    <article className="group flex w-[82vw] shrink-0 snap-center flex-col overflow-hidden rounded-[20px] border border-line bg-paper md:w-auto">
+      <div className="aspect-[4/5] overflow-hidden">
+        <ArtImage
+          d={s.img}
           alt={s.alt}
-          width={1120}
-          height={630}
-          loading="lazy"
-          sizes="(min-width: 1024px) 560px, 82vw"
-          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          className="h-full w-full"
+          imgClassName="h-full w-full object-cover object-[50%_68%] transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
         />
-        <span
-          aria-hidden="true"
-          className="absolute top-4 left-5 font-display-hero leading-none text-[64px] lg:text-[72px] text-transparent [-webkit-text-stroke:1.5px_rgba(255,255,255,0.85)] select-none"
-        >
-          {s.num}
-        </span>
       </div>
-      <div className="flex flex-1 flex-col p-6 lg:p-8">
-        <h3 className="font-display-hero text-ink tracking-tight leading-tight text-[26px] lg:text-[30px]">
+      <div className="flex flex-1 flex-col p-6">
+        <p className="text-[12px] font-bold tracking-[0.2em] text-brand-red-strong tabular-nums">
+          {s.num}
+        </p>
+        <h3 className="mt-2 font-display-hero text-ink tracking-tight leading-tight text-[24px]">
           {s.title}
         </h3>
-        <p className="mt-2.5 text-[15px] leading-relaxed text-ink-soft">
+        <p className="mt-2 text-[14.5px] leading-relaxed text-ink-soft">
           {s.description}
         </p>
         <ul className="mt-4 flex flex-wrap gap-2" aria-label="What we treat">
           {s.tags.map((t) => (
             <li
               key={t}
-              className="rounded-full ring-1 ring-line bg-porcelain px-3 py-1 text-[12px] font-medium text-ink-soft"
+              className="rounded-full bg-porcelain px-3 py-1 text-[12px] font-medium text-ink-soft ring-1 ring-line"
             >
               {t}
             </li>
@@ -102,7 +89,7 @@ function SpecialtyCard({ s }: { s: (typeof SPECIALTIES)[number] }) {
         </ul>
         <Link
           href={"/treatments/" + s.slug + "/"}
-          className="cta-quiet group/link mt-6 inline-flex items-center gap-2 text-[15px] font-semibold text-ink w-fit"
+          className="cta-quiet group/link mt-5 inline-flex w-fit items-center gap-2 text-[15px] font-semibold text-ink"
         >
           <span className="cta-quiet-text">Explore</span>
           <ArrowRight
@@ -116,92 +103,49 @@ function SpecialtyCard({ s }: { s: (typeof SPECIALTIES)[number] }) {
 }
 
 export function SpecialtiesShowcase() {
-  const sectionRef = React.useRef<HTMLElement>(null);
-  const viewportRef = React.useRef<HTMLDivElement>(null);
-  const trackRef = React.useRef<HTMLDivElement>(null);
-  const barRef = React.useRef<HTMLDivElement>(null);
-  const reduced = useReducedMotion();
-
-  // Mobile progress: mirror native track scroll into the same hairline.
-  const onTrackScroll = () => {
-    const track = trackRef.current;
-    const bar = barRef.current;
-    if (!track || !bar) return;
-    const max = track.scrollWidth - track.clientWidth;
-    bar.style.transform = "scaleX(" + (max > 0 ? track.scrollLeft / max : 0) + ")";
-  };
-
-  useGSAP(
-    () => {
-      if (reduced) return;
-      const mm = gsap.matchMedia();
-      mm.add("(min-width: 1024px)", () => {
-        const track = trackRef.current;
-        const viewport = viewportRef.current;
-        if (!track || !viewport) return;
-        const amount = () =>
-          Math.max(0, track.scrollWidth - viewport.clientWidth);
-        gsap.to(track, {
-          x: () => -amount(),
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: () => "+=" + amount(),
-            scrub: 1,
-            pin: true,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-            onUpdate: (self) => {
-              if (barRef.current)
-                barRef.current.style.transform =
-                  "scaleX(" + self.progress + ")";
-            },
-          },
-        });
-      });
-      return () => mm.revert();
-    },
-    { scope: sectionRef, dependencies: [reduced] }
-  );
-
   return (
-    <section
-      ref={sectionRef}
-      className="bg-porcelain overflow-x-clip lg:h-[100svh] lg:min-h-[720px] lg:flex lg:flex-col lg:justify-center py-20 lg:py-0"
-    >
-      <div className="max-w-site mx-auto w-full px-6 lg:px-gutter">
-        <Reveal className="max-w-3xl">
-          <Eyebrow>Our specialties</Eyebrow>
-          <h2 className="mt-4 font-fluid-h2 text-fluid-h2 text-ink tracking-[-0.015em]">
-            Four areas of care. One careful approach.
-          </h2>
-        </Reveal>
-      </div>
-
-      <div ref={viewportRef} className="mt-10 lg:mt-14 lg:overflow-hidden">
-        <div
-          ref={trackRef}
-          onScroll={onTrackScroll}
-          className="flex w-max gap-5 lg:gap-8 px-6 lg:px-gutter overflow-x-auto snap-x snap-mandatory lg:overflow-visible no-scrollbar"
-        >
-          {SPECIALTIES.map((s) => (
-            <SpecialtyCard key={s.slug} s={s} />
-          ))}
-          {/* End spacer so the last card clears the right gutter */}
-          <li aria-hidden="true" className="w-2 lg:w-[10vw] shrink-0 list-none" />
-        </div>
-      </div>
-
-      {/* Scroll progress hairline — fills red with horizontal progress */}
-      <div className="max-w-site mx-auto w-full px-6 lg:px-gutter mt-10 lg:mt-14">
-        <div className="h-[2px] w-full bg-line overflow-hidden rounded-full">
-          <div
-            ref={barRef}
-            className="h-full w-full bg-brand-red-strong origin-left scale-x-0"
-            aria-hidden="true"
+    <section className="bg-porcelain">
+      {/* Header band — the porcelain arc artwork sits right; the heading
+          holds the empty ivory left on desktop. Mobile: heading first,
+          art below. */}
+      <div className="relative">
+        <div className="absolute inset-0 hidden lg:block" aria-hidden="true">
+          <ArtImage
+            d={IMG.arc.d}
+            alt=""
+            className="h-full w-full"
+            imgClassName="h-full w-full object-cover object-[right_center]"
           />
         </div>
+        <div className="relative z-10 mx-auto flex h-auto max-w-site flex-col justify-center px-6 pt-[88px] pb-10 lg:h-[clamp(320px,38vw,520px)] lg:px-gutter lg:py-0">
+          <Reveal className="max-w-2xl">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-brand-red-strong">
+              Our specialties
+            </p>
+            <h2 className="mt-4 font-display-hero text-ink tracking-[-0.015em] leading-[1.05] text-[36px] sm:text-[44px] lg:text-[54px]">
+              Four areas of care. One careful approach.
+            </h2>
+          </Reveal>
+        </div>
+        <div className="h-[300px] lg:hidden" aria-hidden="true">
+          <ArtImage
+            d={IMG.arc.m}
+            alt=""
+            className="h-full w-full"
+            imgClassName="h-full w-full object-cover object-[center_20%]"
+          />
+        </div>
+      </div>
+
+      {/* Cards — 4-col ≥1280px, 2×2 md–xl, snap-scroll row on mobile. */}
+      <div className="mx-auto max-w-site px-6 pb-[88px] lg:px-gutter lg:pb-24">
+        <Reveal>
+          <div className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 no-scrollbar md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 xl:grid-cols-4">
+            {SPECIALTIES.map((s) => (
+              <SpecialtyCard key={s.slug} s={s} />
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

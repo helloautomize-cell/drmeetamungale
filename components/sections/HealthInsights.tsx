@@ -1,7 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { ArtImage } from "@/components/ui/ArtImage";
 import { Reveal } from "@/components/ui/motion";
+import { IMG } from "@/lib/images";
 import { blogPosts } from "@/content/blog";
 
 // ─── Health Insights — editorial health journal (owner rebuild) ───────
@@ -45,15 +46,16 @@ export function HealthInsights() {
                 className="cta-quiet group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded-[20px]"
                 aria-label={"Read article: " + featured.title}
               >
-                <span className="block overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
-                  <Image
-                    src={featured.coverImage}
+                <span className="block overflow-hidden rounded-[20px] ring-1 ring-secondary/10 aspect-[16/10]">
+                  {/* Featured = newest post (the cataract guide). Its old
+                      cover mixed before/after eyes + a surgery scene +
+                      baked-in text — a compliance problem — so it renders
+                      the generated artwork instead (quiet-luxury §5.9). */}
+                  <ArtImage
+                    d={IMG.cataract.d}
                     alt=""
-                    width={featured.coverWidth}
-                    height={featured.coverHeight}
-                    loading="lazy"
-                    sizes="(min-width: 1024px) 55vw, 90vw"
-                    className="w-full h-auto transition-transform duration-200 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    className="h-full w-full"
+                    imgClassName="h-full w-full object-cover object-[50%_72%] transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                   />
                 </span>
                 <span className="mt-5 block text-[11px] font-bold uppercase tracking-[0.2em] text-primary-fixed">

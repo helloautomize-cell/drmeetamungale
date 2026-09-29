@@ -158,7 +158,7 @@ export function StoryEra() {
           </h2>
         </Reveal>
         <div className="mt-12 lg:mt-16 space-y-14 lg:space-y-20">
-          {eras.map((era, i) => (
+          {eras.map((era) => (
             <div
               key={era.year}
               className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start"

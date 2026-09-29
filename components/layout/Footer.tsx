@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArtImage } from "@/components/ui/ArtImage";
 import { Reveal } from "@/components/ui/motion";
+import { IMG } from "@/lib/images";
 import { siteConfig } from "@/content/site";
 
 // ─── Footer — two-layer editorial closing (owner rebuild) ────────────
@@ -39,9 +41,22 @@ const explore: { label: string; href: string; external?: boolean }[] = [
 export function Footer() {
   return (
     <footer>
-      {/* ── LAYER 01 · emotional closing on official red ─────────────── */}
-      <section className="bg-primary">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20">
+      {/* ── LAYER 01 · emotional closing — generated red artwork carries
+          the band (bokeh right on desktop, low on mobile); white copy on
+          the left. One red band on the page, per brand rules. ────────── */}
+      <section className="relative bg-primary overflow-hidden">
+        <ArtImage
+          d={IMG.ctaRed.d}
+          m={IMG.ctaRed.m}
+          alt=""
+          className="absolute inset-0"
+          imgClassName="h-full w-full object-cover object-[right_center] max-md:object-[center_bottom]"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(158,35,30,0.55)_0%,rgba(158,35,30,0.25)_60%,rgba(158,35,30,0)_100%)] md:bg-[linear-gradient(90deg,rgba(158,35,30,0.72)_0%,rgba(158,35,30,0.35)_55%,rgba(158,35,30,0)_85%)]"
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24">
           <Reveal className="max-w-3xl">
             <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-white/85">
               Your next step
@@ -64,7 +79,7 @@ export function Footer() {
                 strokeLinecap="round"
               />
             </svg>
-            <p className="mt-4 text-[17px] lg:text-[18px] leading-relaxed text-white/85">
+            <p className="mt-4 text-[17px] lg:text-[18px] leading-relaxed text-white/90">
               Start with a conversation.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
@@ -304,13 +319,11 @@ export function Footer() {
             treatment.
           </p>
 
-          {/* Signature watermark — decorative editorial moment */}
+          {/* Signature watermark — static, decorative (quiet-luxury). */}
           <div aria-hidden="true" className="select-none overflow-hidden">
-            <Reveal>
-              <p className="font-display-hero text-center leading-[0.85] tracking-tight text-[#242424] text-[110px] sm:text-[140px] lg:text-[170px] -mb-8 sm:-mb-10 lg:-mb-12 pt-6">
-                MUNGALE
-              </p>
-            </Reveal>
+            <p className="font-display-hero text-center leading-[0.85] tracking-tight text-[#242424] text-[110px] sm:text-[140px] lg:text-[170px] -mb-8 sm:-mb-10 lg:-mb-12 pt-6">
+              MUNGALE
+            </p>
           </div>
         </div>
       </section>
