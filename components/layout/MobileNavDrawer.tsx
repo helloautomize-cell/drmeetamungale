@@ -79,8 +79,16 @@ export function MobileNavDrawer({ isOpen, onClose }: MobileNavDrawerProps) {
             Menu
           </p>
           <ul className="space-y-1">
-            {items.map((item) => (
-              <li key={item.label} className="mb-3">
+            {items.map((item, i) => (
+              <li
+                key={item.label}
+                className="mb-3 transition-all duration-500 motion-reduce:transition-none"
+                style={{
+                  opacity: isOpen ? 1 : 0,
+                  transform: isOpen ? "translateY(0)" : "translateY(18px)",
+                  transitionDelay: isOpen ? `${120 + i * 55}ms` : "0ms",
+                }}
+              >
                 <Link
                   href={item.href}
                   className="block py-2 font-display-hero text-[27px] leading-tight text-on-surface hover:text-primary transition-colors duration-200"

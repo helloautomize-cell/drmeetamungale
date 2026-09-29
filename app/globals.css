@@ -1,12 +1,66 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
+/* ─── Brand tokens (Phase 1 — flagship rebuild spec §2.1) ────────────────
+   Derived from the logo: red brow arc, black iris, cool grey under-stroke
+   on warm porcelain. Red is a signature (~5% max), never wallpaper. */
+:root {
+  --porcelain: #f7f5f1; /* default page background — warm clinical ivory */
+  --paper: #ffffff; /* cards, elevated surfaces */
+  --mist: #eef1f4; /* cool alternate section tint */
+  --ink: #0e1116; /* primary text, dark sections */
+  --ink-navy: #101b2b; /* premium dark sections */
+  --ink-soft: #5b5f66; /* secondary text (AA on porcelain) */
+  --iris-grey: #a7a9ac; /* logo grey — decorative only, never body text */
+  --line: #e4e1db; /* hairlines on light */
+  --line-dark: rgba(255, 255, 255, 0.12); /* hairlines on dark */
+  --brand-red: #e03a33; /* logo red — display accents, arc, dots only */
+  --brand-red-strong: #c62f28; /* buttons, links, small red text (AA) */
+  --brand-red-deep: #9e231e; /* hover/pressed */
+  --red-wash: #fbedeb; /* active items, soft highlights */
+  --success: #2f7d5b; /* form success only */
+
+  --gutter: clamp(20px, 5vw, 80px);
+  --site-max: 1320px;
+  --section-y: clamp(96px, 12vw, 180px);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 html {
   scroll-behavior: smooth;
 }
 
+/* Older patients read this site — generous base size; explicit text-*
+   utilities still win wherever they're set. */
+body {
+  font-size: 17px;
+}
+@media (min-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/* Editorial line-breaking */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+
+/* Consistent focus ring: 2px brand-red-strong + 2px offset. Elements with
+   their own focus-visible:ring keep it (outline sits outside). */
+:focus-visible {
+  outline: 2px solid var(--brand-red-strong);
+  outline-offset: 2px;
+}
+
 ::selection {
-  background: rgba(237, 34, 37, 0.14);
+  background: rgba(224, 58, 51, 0.14);
 }
 
 /* Warm-neutral elevation (design.md: depth without red noise).
@@ -22,7 +76,7 @@ html {
   box-shadow: 0px 14px 34px rgba(17, 17, 18, 0.14);
 }
 .shadow-brand-glow {
-  box-shadow: 0px 0px 24px rgba(237, 34, 37, 0.28);
+  box-shadow: 0px 0px 24px rgba(198, 47, 40, 0.28);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -99,7 +153,7 @@ html {
   bottom: 2px;
   height: 2px;
   border-radius: 1px;
-  background: #ed2225;
+  background: var(--brand-red-strong);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 200ms ease;
@@ -171,7 +225,10 @@ html {
 
 /* Quiet secondary CTA: thin red underline fades in on hover (200ms). */
 .cta-quiet-text {
-  background-image: linear-gradient(#ed2225, #ed2225);
+  background-image: linear-gradient(
+    var(--brand-red-strong),
+    var(--brand-red-strong)
+  );
   background-size: 0% 1px;
   background-position: 0 100%;
   background-repeat: no-repeat;
@@ -231,7 +288,15 @@ html {
    anchor/fragment jump clears it with breathing room. No per-section
    scroll-margin bookkeeping needed. */
 html {
-  scroll-padding-top: 120px;
+  scroll-padding-top: 150px;
+}
+
+/* Room for the mobile bottom action bar (FloatingCTA): content must never
+   sit underneath the fixed call/WhatsApp/book bar. */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(62px + env(safe-area-inset-bottom));
+  }
 }
 
 .no-scrollbar {
@@ -249,6 +314,140 @@ html {
 @media (prefers-reduced-motion: no-preference) {
   .animate-tab-in {
     animation: tab-in 0.25s ease-out;
+  }
+}
+
+/* ─── Phase 1 motion primitives ───────────────────────────────────────────
+   FocusReveal — the house reveal ("an eye coming into focus"):
+   opacity 0→1, y 24→0, blur 8px→0 over ~900ms expo-out. Use on text/small
+   elements only; never on large images on mobile (GPU cost). */
+.focus-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(8px);
+  transition:
+    opacity 0.9s var(--ease-out-expo),
+    transform 0.9s var(--ease-out-expo),
+    filter 0.9s var(--ease-out-expo);
+}
+.focus-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .focus-reveal {
+    transform: none;
+    filter: none;
+    transition: opacity 0.2s ease;
+  }
+}
+
+/* ApertureImage — iris-like circular clip-path opening. Container keeps
+   its own border-radius; the mask expands past the box to clear corners. */
+.aperture-reveal {
+  clip-path: circle(18% at 50% 45%);
+  transition: clip-path 1s var(--ease-out-expo);
+}
+.aperture-reveal.is-visible {
+  clip-path: circle(120% at 50% 45%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .aperture-reveal {
+    clip-path: none;
+    transition: none;
+  }
+}
+
+/* Marquee — slow infinite band; pauses on hover and under reduced motion. */
+@keyframes marquee-x {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee-x var(--marquee-duration, 40s) linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Tertiary button / text link — underline draws in on hover. */
+.btn-link {
+  background-image: linear-gradient(
+    var(--brand-red-strong),
+    var(--brand-red-strong)
+  );
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
+  transition: background-size 0.25s var(--ease-out-expo);
+}
+.btn-link:hover,
+.group:hover .btn-link {
+  background-size: 100% 1.5px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-link {
+    transition: none;
+  }
+}
+
+/* Vertical clip wipe — portrait/panel switch transition (§4.8). */
+@keyframes clip-wipe-y {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .animate-clip-wipe {
+    animation: clip-wipe-y 0.65s var(--ease-out-expo) both;
+  }
+}
+
+/* Vertical variant of rule-grow — red quote rule draws top-to-bottom. */
+.rule-grow-y {
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 0.8s var(--ease-out-expo) 0.2s;
+}
+.reveal.is-visible .rule-grow-y {
+  transform: scaleY(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .rule-grow-y {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* Film grain overlay — applied on hover portraits (§4.8). Decorative. */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+  transition: opacity 0.4s ease;
+}
+.grain:hover::after {
+  opacity: 0.12;
+}
+@media (prefers-reduced-motion: reduce) {
+  .grain::after {
+    transition: none;
   }
 }
 

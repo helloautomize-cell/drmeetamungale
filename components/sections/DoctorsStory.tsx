@@ -4,8 +4,12 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import gsap from "gsap";
+import { SplitText } from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
 import { doctors, type Doctor } from "@/content/doctors";
 import { Reveal } from "@/components/ui/motion";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 
 // ─── Doctors story — editorial "people behind Mungale" (owner rebuild)
 // One composed scene — vertical doctor selector left (~35%), large
@@ -29,10 +33,33 @@ import { Reveal } from "@/components/ui/motion";
 // beyond reason (see docs/CONTENT_GAPS.md image quality).
 
 function DoctorPortrait({ doctor }: { doctor: Doctor }) {
+  const tiltRef = React.useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+
+  // Subtle 3D tilt on hover — desktop pointers only, max 4° (§4.8).
+  const onMove = (e: React.PointerEvent) => {
+    if (reduced || e.pointerType !== "mouse") return;
+    const el = tiltRef.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    el.style.transform =
+      `perspective(900px) rotateX(${(-py * 4).toFixed(2)}deg) ` +
+      `rotateY(${(px * 4).toFixed(2)}deg)`;
+  };
+  const onLeave = () => {
+    const el = tiltRef.current;
+    if (el) el.style.transform = "";
+  };
+
   return (
     <div
       key={doctor.slug}
-      className="animate-story-img-in overflow-hidden rounded-[20px] ring-1 ring-secondary/10"
+      ref={tiltRef}
+      onPointerMove={onMove}
+      onPointerLeave={onLeave}
+      className="animate-clip-wipe grain overflow-hidden rounded-[20px] ring-1 ring-secondary/10 transition-transform duration-300 ease-out will-change-transform"
     >
       <Image
         src={doctor.imageUrl}
@@ -41,7 +68,7 @@ function DoctorPortrait({ doctor }: { doctor: Doctor }) {
         height={600}
         loading="lazy"
         sizes="(min-width: 1024px) 30vw, 90vw"
-        className="w-full aspect-[4/5] object-cover"
+        className="w-full aspect-[4/5] object-cover animate-story-img-in"
       />
     </div>
   );
@@ -49,6 +76,9 @@ function DoctorPortrait({ doctor }: { doctor: Doctor }) {
 
 function DoctorInfo({ doctor, index }: { doctor: Doctor; index: string }) {
   const firstName = doctor.name.replace("Dr. ", "").split(" ")[0];
+  // Real qualifications only — split the verified credential string
+  // ("MS - Ophthalmology, DNB") into pill tags (§4.8).
+  const credentials = doctor.title.split(",").map((c) => c.trim());
   return (
     <div key={doctor.slug + "-info"} className="animate-story-in">
       <p
@@ -57,12 +87,25 @@ function DoctorInfo({ doctor, index }: { doctor: Doctor; index: string }) {
       >
         {index}
       </p>
-      <h3 className="mt-2 font-display-hero text-on-surface tracking-tight leading-tight text-[30px] lg:text-[38px]">
+      <h3
+        data-doc-name
+        className="mt-2 font-display-hero text-on-surface tracking-tight leading-tight text-[30px] lg:text-[38px]"
+      >
         {doctor.name}
       </h3>
-      <p className="mt-1.5 text-[14px] lg:text-[15px] font-medium text-on-surface-variant">
-        {doctor.title}
-      </p>
+      <ul
+        aria-label="Qualifications"
+        className="mt-3 flex flex-wrap gap-2"
+      >
+        {credentials.map((c) => (
+          <li
+            key={c}
+            className="rounded-full ring-1 ring-line bg-paper px-3 py-1 text-[12.5px] font-semibold text-ink-soft"
+          >
+            {c}
+          </li>
+        ))}
+      </ul>
       <p className="mt-4 text-[15.5px] lg:text-[17px] leading-relaxed text-on-surface-variant max-w-lg">
         {doctor.description}
       </p>
@@ -77,19 +120,19 @@ function DoctorInfo({ doctor, index }: { doctor: Doctor; index: string }) {
             className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1"
           />
         </Link>
-        <details className="group/cred max-w-lg">
-          <summary className="cursor-pointer list-none inline-flex items-center gap-2 text-[14px] font-medium text-on-surface-variant hover:text-on-surface transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded w-fit">
-            <span>Credentials &amp; expertise</span>
-            <ArrowRight
-              aria-hidden="true"
-              className="w-3.5 h-3.5 text-primary transition-transform duration-200 group-open/cred:rotate-90"
-            />
-          </summary>
-          <div className="mt-3 border-l-2 border-primary/60 pl-4 text-[14px] leading-relaxed text-on-surface-variant">
-            <p className="font-semibold text-on-surface">{doctor.title}</p>
-            <p className="mt-1">{doctor.description}</p>
-          </div>
-        </details>
+        {/* TODO: pre-select doctor on the booking form once the contact
+            form supports a ?doctor= param — link passes it harmlessly
+            today. */}
+        <Link
+          href={"/contact-us/?doctor=" + doctor.slug}
+          className="cta-quiet group inline-flex items-center gap-2 text-[14px] font-medium text-on-surface-variant w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
+        >
+          <span className="cta-quiet-text">Book with this doctor</span>
+          <ArrowRight
+            aria-hidden="true"
+            className="w-3.5 h-3.5 text-primary transition-transform duration-200 group-hover:translate-x-1"
+          />
+        </Link>
       </div>
     </div>
   );
@@ -97,7 +140,29 @@ function DoctorInfo({ doctor, index }: { doctor: Doctor; index: string }) {
 
 export function DoctorsExperience({ compact = false }: { compact?: boolean }) {
   const [active, setActive] = React.useState(0);
+  const infoScope = React.useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
   const current = doctors[active]!;
+
+  // Name char-stagger on doctor switch (§4.8). DoctorInfo remounts via
+  // key — the SplitText runs on the freshly mounted [data-doc-name].
+  useGSAP(
+    () => {
+      if (reduced) return;
+      const el = infoScope.current?.querySelector("[data-doc-name]");
+      if (!el) return;
+      const split = new SplitText(el as HTMLElement, { type: "chars" });
+      gsap.from(split.chars, {
+        yPercent: 60,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.02,
+        ease: "expo.out",
+      });
+      return () => split.revert();
+    },
+    { scope: infoScope, dependencies: [active, reduced] }
+  );
 
   return (
     <>
@@ -182,10 +247,12 @@ export function DoctorsExperience({ compact = false }: { compact?: boolean }) {
               Mungale Eye Hospital · Kothi, Vadodara
             </p>
           </div>
-          <DoctorInfo
-            doctor={current}
-            index={active === 0 ? "01" : "02"}
-          />
+          <div ref={infoScope}>
+            <DoctorInfo
+              doctor={current}
+              index={active === 0 ? "01" : "02"}
+            />
+          </div>
         </div>
       </div>
 

@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Phone, MessageCircle, CalendarDays } from "lucide-react";
 import { siteConfig } from "@/content/site";
+import { StickyMobileBar } from "@/components/ui/StickyMobileBar";
 
 // Floating contact actions (call / WhatsApp / book). Behavior unchanged —
 // art-direction refinement: deliberately quiet utility, not hero design.
@@ -23,37 +24,44 @@ const btn =
 
 export function FloatingCTA() {
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 mb-[env(safe-area-inset-bottom)]">
-      <div className="bg-white/90 backdrop-blur-md rounded-full shadow-brand-sm ring-1 ring-secondary/10 px-2 py-2 flex items-center gap-1.5">
-        <a
-          href={"tel:" + siteConfig.phone.replace(/[\s-]/g, "")}
-          className={btn + " bg-primary"}
-          aria-label="Call Mungale Eye Hospital"
-          title="Call now"
-        >
-          <ActionLabel text="Call now" />
-          <Phone className="w-4 h-4" />
-        </a>
-        <a
-          href="#"
-          className={btn + " bg-success-emerald"}
-          aria-label="WhatsApp Mungale Eye Hospital"
-          title="WhatsApp"
-          onClick={(e) => { e.preventDefault(); window.open("https://wa.me/" + siteConfig.whatsapp.replace(/\D/g, ""), "_blank"); }}
-        >
-          <ActionLabel text="WhatsApp us" />
-          <MessageCircle className="w-4 h-4" />
-        </a>
-        <Link
-          href="/contact-us/"
-          className={btn + " bg-secondary"}
-          aria-label="Book an Appointment"
-          title="Book a consultation"
-        >
-          <ActionLabel text="Book a consultation" />
-          <CalendarDays className="w-4 h-4" />
-        </Link>
+    <>
+      {/* Desktop/tablet — floating pill, unchanged */}
+      <div className="fixed bottom-6 right-6 z-40 mb-[env(safe-area-inset-bottom)] hidden md:block">
+        <div className="bg-white/90 backdrop-blur-md rounded-full shadow-brand-sm ring-1 ring-secondary/10 px-2 py-2 flex items-center gap-1.5">
+          <a
+            href={"tel:" + siteConfig.phone.replace(/[\s-]/g, "")}
+            className={btn + " bg-primary"}
+            aria-label="Call Mungale Eye Hospital"
+            title="Call now"
+          >
+            <ActionLabel text="Call now" />
+            <Phone className="w-4 h-4" />
+          </a>
+          <a
+            href="#"
+            className={btn + " bg-success-emerald"}
+            aria-label="WhatsApp Mungale Eye Hospital"
+            title="WhatsApp"
+            onClick={(e) => { e.preventDefault(); window.open("https://wa.me/" + siteConfig.whatsapp.replace(/\D/g, ""), "_blank"); }}
+          >
+            <ActionLabel text="WhatsApp us" />
+            <MessageCircle className="w-4 h-4" />
+          </a>
+          <Link
+            href="/contact-us/"
+            className={btn + " bg-secondary"}
+            aria-label="Book an Appointment"
+            title="Book a consultation"
+          >
+            <ActionLabel text="Book a consultation" />
+            <CalendarDays className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
-    </div>
+
+      {/* Mobile — sticky bottom action bar (extracted to shared
+          StickyMobileBar primitive; body padding lives in globals.css). */}
+      <StickyMobileBar />
+    </>
   );
 }

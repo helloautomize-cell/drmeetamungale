@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { cn } from "@/lib/utils";
 
 // Scroll-triggered fade + slide-up wrapper for cards and section headers.
 // Zero-dependency: IntersectionObserver + CSS transition (transform/opacity
@@ -107,7 +108,7 @@ export function CountUp({
   }, [to, suffix, duration, reduce]);
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={cn("tabular-nums", className)}>
       {display}
     </span>
   );

@@ -21,6 +21,10 @@ const buttonVariants = cva(
         tonal: "bg-primary-container text-primary hover:bg-primary/10",
         ghost:
           "bg-transparent text-primary hover:underline shadow-none px-2",
+        // §2.4 tertiary — text link with underline that draws on hover
+        // (.btn-link in globals.css). Compose inside a `group` parent.
+        tertiary:
+          "bg-transparent text-ink shadow-none px-1 py-1 h-auto rounded-none btn-link hover:text-brand-red-strong",
         cta: "bg-primary text-on-primary shadow-brand-md hover:bg-primary-fixed hover:shadow-brand-glow hover:-translate-y-0.5",
       },
     },

@@ -5,7 +5,7 @@ import { siteConfig } from "@/content/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingCTA } from "@/components/layout/FloatingCTA";
-import { SmoothScroll } from "@/components/layout/SmoothScroll";
+import { MotionProvider } from "@/components/providers/MotionProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { hospitalJsonLd } from "@/content/seo";
 
@@ -16,10 +16,12 @@ const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
 });
 
+// Full variable Fraunces — weight range + opsz (optical sizing), SOFT and
+// WONK axes loaded for the editorial display face (§2.2).
 const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
   style: ["normal", "italic"],
+  axes: ["opsz", "SOFT", "WONK"],
   display: "swap",
   variable: "--font-display",
 });
@@ -59,18 +61,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-IN" className={plusJakarta.variable + " " + fraunces.variable} suppressHydrationWarning>
       <head />
       <body className="font-sans bg-background text-on-surface min-h-screen flex flex-col overflow-x-clip">
-        <JsonLd data={hospitalJsonLd()} />
-        <a
-          href="#content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[80] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-primary focus:text-on-primary font-label-md text-label-md"
-        >
-          Skip to content
-        </a>
-        <Header />
-        <main className="flex-1" id="content">{children}</main>
-        <Footer />
-        <FloatingCTA />
-        <SmoothScroll />
+        <MotionProvider>
+          <JsonLd data={hospitalJsonLd()} />
+          <a
+            href="#content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[80] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-primary focus:text-on-primary font-label-md text-label-md"
+          >
+            Skip to content
+          </a>
+          <Header />
+          <main className="flex-1" id="content">{children}</main>
+          <Footer />
+          <FloatingCTA />
+        </MotionProvider>
       </body>
     </html>
   );

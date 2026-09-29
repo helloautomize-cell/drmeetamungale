@@ -1,31 +1,27 @@
 "use client";
 
-import React from "react";
+import * as React from "react";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
 import { Reveal } from "@/components/ui/motion";
+import { ApertureImage } from "@/components/ui/ApertureImage";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 
-// ─── Why Mungale — sticky scroll story (owner redesign) ─────────────
-// Replaces both the card grid AND the hero's separate stat row: one dark
-// immersive section (bg-secondary ink #111112) where the three website
-// statistics (20+ / 40,000+ / 15,000+) live as story moments, not a
-// showcase. Normal page scroll throughout — no scroll-jacking: a sticky
-// viewport (100vh minus header) holds the layout while three tall
-// sentinel spacers (~80vh each) drive the active state via
-// IntersectionObserver. Numbers crossfade with a gentle rise (450-600ms);
-// images crossfade with a 1% scale; text fades with a small rise.
-// Copy provenance:
-// - Eyebrow/headline/state headings + bodies: OWNER-PROVIDED direction
-//   (sticky-story prompt). Factual grounding from the live site:
-//   established 2007 (about-us), referral center for complex cornea and
-//   glaucoma cases (about-us), full-range diagnostic/surgical equipment
-//   (homepage). "40,000+" / "15,000+" are the WEBSITE'S claimed numbers —
-//   kept per owner instruction, NOT independently verified
-//   (docs/CONTENT_GAPS.md #1).
-// - Patient quote: VERBATIM excerpt from Pankaj Makhijani's Google review
-//   (content/reviews.ts) — original wording preserved, short excerpt only.
-// - Photos: real Mungale photography, no stock, no heavy grading.
-// Palette: warm paper white, charcoal, Mungale red (eyebrow, indices,
-// active progress, arc motif). Giant numbers stay warm white — never red.
+// ─── Why Mungale — dark story band (Phase 3 — flagship spec §4.4) ──────
+// Static three-column story, upgraded: the section's porcelain veil
+// dissolves to ink-navy as it scrolls in (scrubbed overlay), the heading
+// reveals by masked SplitText lines, each column carries index + the
+// website's figure at a smaller scale (the hero's pinned scene already
+// counted them up), and each photo opens with the aperture iris plus a
+// gentle scrub parallax. The pull-quote keeps its red rule — drawn
+// top-to-bottom on reveal.
+// Copy provenance (unchanged): eyebrow/headline/state headings + bodies
+// are OWNER-PROVIDED; the 20+/40,000+/15,000+ figures are the website's
+// claims (docs/CONTENT_GAPS.md #1); the quote is a VERBATIM excerpt of
+// Pankaj Makhijani's Google review. Photos: real Mungale photography.
 
 const states = [
   {
@@ -66,50 +62,84 @@ const states = [
   },
 ];
 
-const onCls =
-  "story-motion transition-all duration-500 ease-out opacity-100 translate-y-0";
-const offCls =
-  "story-motion transition-all duration-500 ease-out opacity-0 translate-y-7 pointer-events-none";
-
 export function TrustPillars() {
-  const [active, setActive] = React.useState(0);
-  const sentinels = React.useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRef = React.useRef<HTMLElement>(null);
+  const reduced = useReducedMotion();
 
-  React.useEffect(() => {
-    const els = sentinels.current.filter(Boolean) as HTMLDivElement[];
-    if (!els.length || typeof IntersectionObserver === "undefined") return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            setActive(Number((e.target as HTMLElement).dataset["i"] || 0));
+  useGSAP(
+    () => {
+      if (reduced || !sectionRef.current) return;
+
+      // Porcelain → ink-navy as the section enters (scrubbed veil fade).
+      gsap.to("[data-pillars-veil]", {
+        autoAlpha: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "top 45%",
+          scrub: true,
+        },
+      });
+
+      // Heading — masked line reveal (SplitText lines + yPercent slide).
+      const heading = sectionRef.current.querySelector("[data-pillars-h]");
+      if (heading) {
+        const split = new SplitText(heading, { type: "lines", mask: "lines" });
+        gsap.from(split.lines, {
+          yPercent: 110,
+          duration: 0.9,
+          stagger: 0.08,
+          ease: "expo.out",
+          scrollTrigger: { trigger: heading, start: "top 82%", once: true },
+        });
+      }
+
+      // Photos — gentle parallax drift inside their frames (scrubbed).
+      gsap.utils.toArray<HTMLElement>("[data-pillars-img]").forEach((img) => {
+        gsap.fromTo(
+          img,
+          { yPercent: -8 },
+          {
+            yPercent: 8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: img,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
           }
-        }
-      },
-      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-
-  const goTo = (i: number) => {
-    const el = sentinels.current.at(i);
-    if (!el) return;
-    const reduce = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
-  };
+        );
+      });
+    },
+    { scope: sectionRef, dependencies: [reduced] }
+  );
 
   return (
-    <section className="relative bg-secondary overflow-x-clip">
-      {/* Intro — established eyebrow + headline, one quiet support line */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-12 lg:pt-16">
+    <section
+      ref={sectionRef}
+      className="relative bg-ink-navy overflow-x-clip"
+    >
+      {/* Porcelain veil — covers the section and dissolves on entry,
+          producing the background transition without touching layout.
+          Skipped under reduced-motion so content is never covered. */}
+      {!reduced && (
+        <div
+          data-pillars-veil
+          className="absolute inset-0 bg-porcelain z-10 pointer-events-none"
+          aria-hidden="true"
+        />
+      )}
+      <div className="relative max-w-site mx-auto px-6 lg:px-gutter pt-16 lg:pt-24 pb-20 lg:pb-28">
         <Reveal className="max-w-3xl">
-          <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#ff8080]">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#ff8f8f]">
             Why Mungale
           </p>
-          <h2 className="mt-4 font-display-hero text-white tracking-[-0.015em] leading-[1.04] text-[36px] sm:text-[44px] lg:text-[54px]">
+          <h2
+            data-pillars-h
+            className="mt-4 font-display-hero text-white tracking-[-0.015em] leading-[1.04] text-[36px] sm:text-[44px] lg:text-[54px]"
+          >
             Specialist care, with the time to explain.
           </h2>
           {/* Structural microcopy, not a claim. */}
@@ -117,132 +147,67 @@ export function TrustPillars() {
             Three numbers. One story.
           </p>
         </Reveal>
-      </div>
 
-      {/* Sticky track: viewport + three sentinel spacers (~80vh each) */}
-      <div className="relative">
-        <div className="sticky top-[96px] lg:top-[104px] h-[calc(88vh-96px)] lg:h-[calc(100vh-104px)]">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 h-full flex flex-col justify-center">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 items-center min-h-0">
-              {/* LEFT — anchored statistic (crossfading stack) */}
-              <div>
-                <div className="relative mt-3 lg:mt-4 grid">
-                  {states.map((s, i) => (
-                    <div
-                      key={s.index}
-                      aria-hidden={i !== active}
-                      className={
-                        "col-start-1 row-start-1 " +
-                        (i === active ? onCls : offCls)
-                      }
-                    >
-                      <p className="text-[12px] lg:text-[13px] font-bold tracking-[0.22em] text-[#ff8080]">
-                        {s.index}
-                      </p>
-                      <p className="mt-1 font-display-hero text-background leading-[0.9] tracking-tight whitespace-nowrap text-[68px] sm:text-[96px] lg:text-[112px] xl:text-[128px]">
-                        {s.value}
-                      </p>
-                      <p className="mt-2 lg:mt-3 text-[14px] lg:text-[16px] text-white/65">
-                        {s.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                {/* Progress — under the label, completing the left rhythm */}
-                <div
-                  className="mt-5 lg:mt-7 flex items-center gap-4"
-                  role="tablist"
-                  aria-label="Story progress"
-                >
-                  {states.map((s, i) => (
-                    <button
-                      key={s.index}
-                      role="tab"
-                      aria-selected={i === active}
-                      aria-label={"Go to moment " + s.index}
-                      onClick={() => goTo(i)}
-                      className={
-                        "text-[12px] font-bold tracking-[0.2em] transition-colors duration-300 " +
-                        (i === active ? "text-primary" : "text-white/30 hover:text-white/60")
-                      }
-                    >
-                      {s.index}
-                    </button>
-                  ))}
-                </div>
-              </div>
+        <div className="mt-14 lg:mt-20 grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">
+          {states.map((s, i) => (
+            <Reveal key={s.index} delay={i * 0.1} className="min-w-0">
+              <article className="flex h-full flex-col">
+                <p className="text-[12px] font-bold tracking-[0.22em] text-[#ff8f8f]">
+                  {s.index}
+                </p>
+                {/* The figure stays — but smaller now; the hero scene owns
+                    the giant count-up moment. */}
+                <p className="mt-2 font-display-hero text-porcelain leading-[0.95] tracking-tight text-[40px] lg:text-[46px] whitespace-nowrap tabular-nums">
+                  {s.value}
+                </p>
+                <p className="mt-2 text-[15px] text-white/65">{s.label}</p>
 
-              {/* RIGHT — story content + photography (crossfading stack) */}
-              <div className="relative grid items-center">
-                {states.map((s, i) => (
-                  <article
-                    key={s.index}
-                    aria-hidden={i !== active}
-                    className={
-                      "col-start-1 row-start-1 " +
-                      (i === active ? onCls : offCls)
-                    }
-                  >
-                    <h3 className="font-display-hero text-white tracking-tight leading-tight text-[22px] sm:text-[26px] lg:text-[32px]">
-                      {s.heading}
-                    </h3>
-                    <p className="mt-2 lg:mt-3 text-[14.5px] lg:text-[16px] leading-relaxed text-white/65 max-w-lg">
-                      {s.body}
-                    </p>
-                    {s.quote && (
-                      <blockquote className="mt-3 lg:mt-4 border-l-2 border-primary pl-3 lg:pl-4 max-w-lg">
-                        <p className="text-[13px] lg:text-[15px] leading-relaxed text-white/85 italic">
-                          “{s.quote}”
-                        </p>
-                        <cite className="mt-1.5 block text-[12px] lg:text-[13px] not-italic text-white/50">
-                          — {s.quoteBy}
-                        </cite>
-                      </blockquote>
-                    )}
-                    <div className="mt-3 lg:mt-5">
-                      <div className="w-full overflow-hidden rounded-[20px] ring-1 ring-white/10 h-[132px] sm:h-[190px] lg:h-[300px] xl:h-[380px]">
-                        <Image
-                          src={s.img}
-                          alt={s.alt}
-                          width={880}
-                          height={660}
-                          loading={s.eager ? undefined : "lazy"}
-                          sizes="(min-width: 1024px) 45vw, 90vw"
-                          className={
-                            "story-motion h-full w-full object-cover transition-transform duration-700 ease-out " +
-                            (i === active ? "scale-100" : "scale-[1.01]")
-                          }
-                        />
-                      </div>
-                      {s.caption && (
-                        <p className="mt-2 text-[12px] lg:text-[13px] text-white/50">
-                          {s.caption}
-                        </p>
-                      )}
+                <div className="mt-6 border-t border-line-dark pt-6">
+                  <h3 className="font-display-hero text-white tracking-tight leading-tight text-[22px] lg:text-[25px]">
+                    {s.heading}
+                  </h3>
+                  <p className="mt-2.5 text-[15px] leading-relaxed text-white/65">
+                    {s.body}
+                  </p>
+                  {s.quote && (
+                    <blockquote className="relative mt-4 pl-4">
+                      <span
+                        aria-hidden="true"
+                        className="rule-grow-y absolute left-0 top-0 bottom-0 w-[2px] bg-primary"
+                      />
+                      <p className="text-[14px] leading-relaxed text-white/85 italic">
+                        “{s.quote}”
+                      </p>
+                      <cite className="mt-1.5 block text-[12.5px] not-italic text-white/50">
+                        — {s.quoteBy}
+                      </cite>
+                    </blockquote>
+                  )}
+                </div>
+
+                <div className="mt-6">
+                  <ApertureImage className="aspect-[4/3] w-full overflow-hidden rounded-[16px] ring-1 ring-white/10">
+                    <div data-pillars-img className="h-full w-full scale-[1.18]">
+                      <Image
+                        src={s.img}
+                        alt={s.alt}
+                        width={880}
+                        height={660}
+                        loading={s.eager ? undefined : "lazy"}
+                        sizes="(min-width: 1024px) 30vw, 90vw"
+                        className="h-full w-full object-cover"
+                      />
                     </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
+                  </ApertureImage>
+                  {s.caption && (
+                    <p className="mt-2 text-[13px] text-white/50">{s.caption}</p>
+                  )}
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
-
-        {/* Sentinel spacers — drive the active state, pure scroll length */}
-        {[0, 1, 2].map((i) => (
-          <div
-            key={i}
-            ref={(el) => {
-              sentinels.current[i] = el;
-            }}
-            data-i={i}
-            aria-hidden="true"
-            className="h-[55vh] lg:h-[55vh]"
-          />
-        ))}
       </div>
-
-      {/* Quiet release breathing before the next section */}
-      <div aria-hidden="true" className="h-16 lg:h-20" />
     </section>
   );
 }

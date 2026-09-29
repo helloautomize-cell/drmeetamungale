@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
+import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/motion";
 import { treatments } from "@/content/treatments";
@@ -119,6 +121,36 @@ const blurbs: Record<string, string> = {
     "Medication, surgery or specialised therapies for infections, injuries and conditions.",
 };
 
+// Real clinical photographs — the same verified assets each treatment page
+// opens with (content/treatment-pages.ts), alts VERBATIM from the atlas.
+// Shown per concern so expanded states carry visual evidence, not just type.
+const treatmentImages: Record<string, { src: string; alt: string }> = {
+  "cataract-surgery": {
+    src: "/images/treatments/ct2.jpg",
+    alt: "Oertli CataRhex 3 surgical platform for cataract surgery",
+  },
+  "optical-contact-lenses": {
+    src: "/images/treatments/op1.jpg",
+    alt: "Spectacle frames on display at the Mungale optical",
+  },
+  "glaucoma-evaluation": {
+    src: "/images/treatments/g1.jpg",
+    alt: "Handheld fundus camera displaying a retinal image",
+  },
+  "glaucoma-treatments": {
+    src: "/images/treatments/gt1.jpg",
+    alt: "YAG laser machine used for peripheral iridotomy",
+  },
+  "cornea-evaluation": {
+    src: "/images/treatments/c3.jpg",
+    alt: "LED CSO slit lamp with imaging, showing an eye on the monitor",
+  },
+  "corneal-treatments": {
+    src: "/images/treatments/cb1.jpg",
+    alt: "Clouded cornea photographed at Mungale Eye Hospital",
+  },
+};
+
 const NOT_SURE_INDEX = 5;
 
 function TreatmentRows({ slugs }: { slugs: string[] }) {
@@ -225,6 +257,39 @@ function CarePanel({ concernIndex }: { concernIndex: number }) {
       <h3 className="mt-3 font-display-hero text-on-surface tracking-tight leading-tight text-[26px] lg:text-[34px]">
         {c.heading}
       </h3>
+      {/* Visual evidence — real photos of the care offered, wiping in
+          from the right on every change (clip-path only). One wide frame
+          for a single treatment, two-up for a family. */}
+      <div
+        className={
+          "mt-5 grid gap-3 " +
+          (c.slugs.length > 1 ? "grid-cols-2" : "grid-cols-1 sm:max-w-md")
+        }
+      >
+        {c.slugs.map((slug) => {
+          const im = treatmentImages[slug];
+          if (!im) return null;
+          return (
+            <motion.div
+              key={slug}
+              initial={{ clipPath: "inset(0 0 0 100%)" }}
+              animate={{ clipPath: "inset(0 0 0 0%)" }}
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+              className="aspect-[4/3] overflow-hidden rounded-[14px] ring-1 ring-secondary/10"
+            >
+              <Image
+                src={im.src}
+                alt={im.alt}
+                width={640}
+                height={480}
+                loading="lazy"
+                sizes="(min-width: 1024px) 25vw, 45vw"
+                className="h-full w-full object-cover"
+              />
+            </motion.div>
+          );
+        })}
+      </div>
       <div className="mt-7 lg:mt-8">
         <TreatmentRows slugs={c.slugs} />
       </div>
@@ -261,6 +326,7 @@ function CarePanel({ concernIndex }: { concernIndex: number }) {
 
 export function CareDiscovery() {
   const [active, setActive] = React.useState(0);
+  const tabRefs = React.useRef<(HTMLButtonElement | null)[]>([]);
   const items = [...concerns.map((c) => ({ ...c, kind: "care" as const })), {
     index: "06",
     title: "Not sure where to start",
@@ -268,6 +334,22 @@ export function CareDiscovery() {
     support: "That's okay — start with a conversation.",
     kind: "conversation" as const,
   }];
+
+  // Roving tabindex + arrow-key navigation (spec §4.5 — works as tabs).
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    const last = items.length - 1;
+    let next: number | null = null;
+    if (e.key === "ArrowDown" || e.key === "ArrowRight")
+      next = active === last ? 0 : active + 1;
+    else if (e.key === "ArrowUp" || e.key === "ArrowLeft")
+      next = active === 0 ? last : active - 1;
+    else if (e.key === "Home") next = 0;
+    else if (e.key === "End") next = last;
+    if (next === null) return;
+    e.preventDefault();
+    setActive(next);
+    tabRefs.current[next]?.focus();
+  };
 
   return (
     <section className="bg-background">
@@ -286,35 +368,46 @@ export function CareDiscovery() {
         </Reveal>
 
         <div className="mt-12 lg:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-          {/* LEFT (~42%) — editorial concern index */}
-          <div className="lg:col-span-5">
-            <div className="border-y border-secondary/10 divide-y divide-secondary/10">
+          {/* LEFT (~42%) — editorial concern index, sticky on desktop */}
+          <div className="lg:col-span-5 lg:sticky lg:top-[140px]">
+            <div
+              role="tablist"
+              aria-label="What are you experiencing"
+              aria-orientation="vertical"
+              onKeyDown={onKeyDown}
+              className="border-y border-secondary/10 divide-y divide-secondary/10"
+            >
               {items.map((item, i) => {
                 const isActive = i === active;
                 return (
                   <div key={item.index}>
                     <button
+                      ref={(el) => {
+                        tabRefs.current[i] = el;
+                      }}
                       type="button"
+                      role="tab"
+                      tabIndex={isActive ? 0 : -1}
                       onClick={() => setActive(i)}
-                      aria-expanded={isActive}
+                      aria-selected={isActive}
                       aria-controls={
                         "care-desktop care-mobile-" + item.index
                       }
                       className={
                         "group relative w-full text-left flex items-start gap-4 py-5 min-h-[68px] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded-lg " +
-                        (isActive ? "bg-primary/[0.03]" : "")
+                        (isActive ? "bg-red-wash" : "")
                       }
                     >
-                      {/* Active tick — red line, never a filled card. */}
-                      <span
-                        aria-hidden="true"
-                        className={
-                          "absolute left-0 top-5 bottom-5 w-[2px] rounded-full bg-primary transition-all duration-200 " +
-                          (isActive
-                            ? "opacity-100 scale-y-100"
-                            : "opacity-0 scale-y-50")
-                        }
-                      />
+                      {/* Active tick — shared layout element slides between
+                          items (motion layoutId). */}
+                      {isActive && (
+                        <motion.span
+                          layoutId="care-tick"
+                          aria-hidden="true"
+                          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                          className="absolute left-0 top-5 bottom-5 w-[2px] rounded-full bg-primary"
+                        />
+                      )}
                       <span
                         aria-hidden="true"
                         className={
@@ -368,15 +461,25 @@ export function CareDiscovery() {
             </div>
           </div>
 
-          {/* RIGHT (~58%) — relevant care for the active concern */}
-          <div className="hidden lg:block lg:col-span-7">
-            <div
-              key={active}
-              id="care-desktop"
-              className="animate-tab-in"
-            >
-              <CarePanel concernIndex={active} />
-            </div>
+          {/* RIGHT (~58%) — relevant care for the active concern.
+              AnimatePresence crossfade: 12px rise + blur 4px→0. */}
+          <div
+            className="hidden lg:block lg:col-span-7"
+            role="tabpanel"
+            id="care-desktop"
+            aria-live="polite"
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={active}
+                initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <CarePanel concernIndex={active} />
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>
