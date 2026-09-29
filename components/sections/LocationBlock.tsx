@@ -1,9 +1,8 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/ui/motion";
+import { MapFacade } from "@/components/sections/MapFacade";
 import { siteConfig } from "@/content/site";
 
 // ─── Visit Mungale — "your visit starts here" (owner rebuild) ────────
@@ -17,46 +16,17 @@ import { siteConfig } from "@/content/site";
 // - "What to expect →" points to /faqs/ (the only remaining guidance
 //   resource — the old FirstVisit homepage section was removed per owner,
 //   so no first-visit anchor exists anymore).
-// - Copy-address uses the Clipboard API with a textarea fallback.
+// - Perf pass: the map iframe moved to a click-to-load facade
+//   (MapFacade.tsx — a small client island; this section stays a Server
+//   Component).
 const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=Mungale+Eye+Hospital+Kothi+Vadodara";
-const EMBED_URL =
-  "https://maps.google.com/maps?q=22.304108,73.193533&z=16&hl=en&output=embed";
-
-const ADDRESS_SINGLE =
-  "2nd Floor, Vinraj Plaza, opp. Government Press, Kothi Road, Anandpura, Vadodara, Gujarat 390001";
 
 function telHref(n: string) {
   return "tel:" + n.replace(/[\s-]/g, "");
 }
 
 export function LocationBlock() {
-  const [copied, setCopied] = React.useState(false);
-  const timer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  React.useEffect(
-    () => () => {
-      if (timer.current) clearTimeout(timer.current);
-    },
-    []
-  );
-
-  const copyAddress = async () => {
-    try {
-      await navigator.clipboard.writeText(ADDRESS_SINGLE);
-    } catch {
-      const ta = document.createElement("textarea");
-      ta.value = ADDRESS_SINGLE;
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand("copy");
-      document.body.removeChild(ta);
-    }
-    setCopied(true);
-    if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
     <section id="visit" className="bg-background scroll-mt-28">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-14">
@@ -146,58 +116,9 @@ export function LocationBlock() {
             </Reveal>
           </div>
 
-          {/* RIGHT (~58%) — the map as visual anchor */}
+          {/* RIGHT (~58%) — map facade; iframe loads only on click */}
           <Reveal delay={0.1} className="lg:col-span-7">
-            <div className="relative h-[300px] sm:h-[340px] lg:h-[430px] rounded-[20px] overflow-hidden ring-1 ring-secondary/10">
-              <iframe
-                title="Mungale Eye Hospital on Google Maps"
-                src={EMBED_URL}
-                className="absolute inset-0 w-full h-full border-0"
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-              {/* Floating place card — Google-style overlay: name + verbatim
-                  address + directions/copy actions. NO rating row: no
-                  verified aggregate rating exists (never fabricate one). */}
-              <div className="absolute top-4 left-4 max-w-[248px] sm:max-w-[288px] bg-white rounded-xl px-4 py-3 shadow-[0_2px_12px_rgba(17,17,18,0.12)] ring-1 ring-secondary/10">
-                <p className="text-[13.5px] font-bold text-on-surface leading-snug">
-                  Mungale Eye Hospital
-                </p>
-                <p className="mt-1 text-[12px] leading-snug text-on-surface-variant">
-                  {ADDRESS_SINGLE}
-                </p>
-                <div className="mt-2.5 flex items-center gap-2">
-                  <a
-                    href={MAPS_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Get directions to Mungale Eye Hospital"
-                    className="w-9 h-9 rounded-full bg-primary text-white inline-flex items-center justify-center hover:bg-primary-fixed transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
-                  >
-                    <ArrowUpRight aria-hidden="true" className="w-4 h-4" />
-                  </a>
-                  <button
-                    type="button"
-                    onClick={copyAddress}
-                    aria-live="polite"
-                    aria-label={copied ? "Address copied" : "Copy address"}
-                    className="h-9 px-3.5 rounded-full ring-1 ring-inset ring-secondary/20 text-[12.5px] font-semibold text-on-surface hover:ring-primary hover:text-primary transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
-                  >
-                    {copied ? "Copied ✓" : "Copy"}
-                  </button>
-                </div>
-              </div>
-              <a
-                href={MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute bottom-4 right-4 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-secondary text-white text-[13px] font-semibold shadow-[0_2px_12px_rgba(17,17,18,0.25)] hover:bg-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-              >
-                <span>Open live map</span>
-                <ArrowUpRight aria-hidden="true" className="w-3.5 h-3.5" />
-              </a>
-            </div>
+            <MapFacade />
           </Reveal>
         </div>
       </div>

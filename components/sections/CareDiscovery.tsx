@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { ArtImage } from "@/components/ui/ArtImage";
 import { Reveal } from "@/components/ui/motion";
@@ -441,24 +440,16 @@ export function CareDiscovery() {
           </div>
 
           {/* RIGHT (~58%) — relevant care for the active concern.
-              AnimatePresence crossfade: 12px rise + blur 4px→0. */}
+              Switch: 250ms opacity fade-in via .animate-tab-in (§3). */}
           <div
             className="hidden lg:block lg:col-span-7"
             role="tabpanel"
             id="care-desktop"
             aria-live="polite"
           >
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                key={active}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
-              >
-                <CarePanel concernIndex={active} />
-              </motion.div>
-            </AnimatePresence>
+            <div key={active} className="animate-tab-in">
+              <CarePanel concernIndex={active} />
+            </div>
           </div>
         </div>
       </div>

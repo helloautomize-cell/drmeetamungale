@@ -1,5 +1,3 @@
-"use client";
-
 import { StickyMobileBar } from "@/components/ui/StickyMobileBar";
 
 export function FloatingCTA() {

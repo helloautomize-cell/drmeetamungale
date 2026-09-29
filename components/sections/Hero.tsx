@@ -1,9 +1,6 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, Phone, Star } from "lucide-react";
 import { ArtImage } from "@/components/ui/ArtImage";
 import { BrandArc } from "@/components/ui/BrandArc";
@@ -24,7 +21,6 @@ const GOOGLE_URL =
   "https://www.google.com/search?q=Mungale+Eye+Hospital+Vadodara+reviews";
 
 export function Hero() {
-  const reduced = useReducedMotion();
   const googleAvg =
     reviews.reduce((s, r) => s + r.rating, 0) / Math.max(reviews.length, 1);
 
@@ -46,14 +42,12 @@ export function Hero() {
       {/* Full-bleed generated iris artwork — pre-optimised multi-format,
           priority for LCP. Desktop: iris right, dark field left for the
           text; mobile: iris low, dark field on top. */}
-      {/* bottom-px keeps the image from being exactly viewport-sized, so
-          Chrome counts it as an LCP candidate instead of a background. */}
-      <motion.div
+      {/* bottom-[4%] keeps the image from being exactly viewport-sized, so
+          Chrome counts it as an LCP candidate instead of a background.
+          The shave lands in the dark vignette — invisible. */}
+      <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 bottom-[4%]"
-        initial={reduced ? false : { opacity: 0.001, scale: 1.03 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute inset-x-0 top-0 bottom-[4%] animate-hero-img"
       >
         <ArtImage
           d={IMG.heroIris.d}
@@ -63,7 +57,7 @@ export function Hero() {
           className="h-full w-full"
           imgClassName="h-full w-full object-cover object-[center_bottom] md:object-[right_center]"
         />
-      </motion.div>
+      </div>
 
       {/* Legibility gradient — heavy ink on the text side, clearing to
           the artwork. */}
@@ -74,11 +68,8 @@ export function Hero() {
 
       {/* Text — top-anchored on mobile (iris sits below), vertically
           centred on desktop, clearing the fixed nav. */}
-      <motion.div
-        className="relative z-10 mx-auto max-w-site px-6 lg:px-gutter min-h-[100svh] lg:min-h-[760px] lg:max-h-[1040px] flex flex-col justify-start pt-[132px] md:justify-center md:pt-[140px] md:pb-16"
-        initial={reduced ? false : { opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      <div
+        className="animate-hero-copy relative z-10 mx-auto max-w-site px-6 lg:px-gutter min-h-[100svh] lg:min-h-[760px] lg:max-h-[1040px] flex flex-col justify-start pt-[132px] md:justify-center md:pt-[140px] md:pb-16"
       >
         <div className="max-w-[620px]">
           <p className="text-[11.5px] lg:text-[12.5px] font-semibold uppercase tracking-[0.16em] text-porcelain/70">
@@ -191,7 +182,7 @@ export function Hero() {
             </span>
           </a>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

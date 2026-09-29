@@ -85,8 +85,8 @@ p {
   }
 }
 
-/* Reveal is motion/react-driven now (opacity+y16/600ms). The classes are
-   kept on the wrapper so dependent selectors resolve to final states. */
+/* Section reveal styles live at the bottom of this file (html.js .reveal)
+   — a single IntersectionObserver drives them, no animation library. */
 
 /* Mungale arc signature (design.md): the logo's eyelid curve as a
    restrained recurring motif — never large background art. */
@@ -228,5 +228,48 @@ main section {
 @media (prefers-reduced-motion: no-preference) {
   .animate-story-in {
     animation: story-in 0.25s ease-out;
+  }
+}
+
+/* ─── Section reveal — zero-JS-motion version (perf pass) ────────────────
+   Server-rendered .reveal divs start hidden ONLY when JS is on (html.js);
+   one IntersectionObserver adds .is-visible at 20% and unobserves.
+   600ms, ease cubic-bezier(.22,1,.36,1), translateY 16px — spec §3. */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ─── Hero load — CSS keyframes replace motion/react (perf pass).
+   Text block fades up once (700ms); image fades from 0.001 with a slow
+   1.03→1 settle (1600ms). Reduced motion: static, end state. */
+@keyframes hero-copy-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes hero-img-in {
+  from { opacity: 0.001; transform: scale(1.03); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .animate-hero-copy {
+    animation: hero-copy-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .animate-hero-img {
+    animation: hero-img-in 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 }

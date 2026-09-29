@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingCTA } from "@/components/layout/FloatingCTA";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { RevealObserver } from "@/components/ui/RevealObserver";
 import { hospitalJsonLd } from "@/content/seo";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -62,7 +63,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-IN" className={plusJakarta.variable + " " + fraunces.variable} suppressHydrationWarning>
-      <head />
+      <head>
+        {/* Adds .js to <html> before first paint — .reveal content is only
+            hidden when JS is on, so nothing stays invisible if JS fails. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
+      </head>
       <body className="font-sans bg-background text-on-surface min-h-screen flex flex-col overflow-x-clip">
         <JsonLd data={hospitalJsonLd()} />
         <a
@@ -75,6 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-1" id="content">{children}</main>
         <Footer />
         <FloatingCTA />
+        <RevealObserver />
       </body>
     </html>
   );

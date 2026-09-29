@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "motion/react";
+
 import { Menu, X, CalendarDays, ArrowUpRight, Phone, Mail, Clock, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { siteConfig } from "@/content/site";
@@ -297,20 +297,18 @@ export function Header() {
                           </span>
                         )}
                       </Link>
-                      <AnimatePresence>
-                        {item.subItems?.length > 0 && openSub === item.label && (
-                          <motion.div
-                            key={item.label}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.15 }}
-                            className={
-                              mega
-                                ? "absolute left-1/2 -translate-x-1/2 top-full mt-3"
-                                : "absolute top-full left-1/2 -translate-x-1/2 mt-3"
-                            }
-                          >
+                      {/* Dropdown — always mounted; CSS fade/slide 150ms.
+                          `invisible` keeps closed panels unfocusable. */}
+                      {item.subItems?.length > 0 && (
+                        <div
+                          aria-hidden={openSub !== item.label}
+                          className={
+                            "absolute top-full left-1/2 mt-3 -translate-x-1/2 transition-[opacity,transform] duration-150 motion-reduce:transition-none " +
+                            (openSub === item.label
+                              ? "visible opacity-100 translate-y-0"
+                              : "invisible -translate-y-1 opacity-0 pointer-events-none")
+                          }
+                        >
                             {mega ? (
                               <TreatmentsMegaMenu onNavigate={() => setOpenSub(null)} />
                             ) : (
@@ -329,9 +327,8 @@ export function Header() {
                                 </div>
                               </div>
                             )}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                        </div>
+                      )}
                     </div>
                   );
                 })}
