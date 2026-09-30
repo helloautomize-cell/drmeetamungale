@@ -37,6 +37,13 @@ export function hospitalJsonLd() {
       },
     ],
     medicalSpecialty: "Ophthalmologic",
+    image: BASE + "/images/mungale/og-default.jpg",
+    logo: BASE + "/images/hero/httpsmungaleeyehospital-logo.svg",
+    foundingDate: "2007",
+    areaServed: [
+      { "@type": "City", name: "Vadodara" },
+      { "@type": "State", name: "Gujarat" },
+    ],
     sameAs: [siteConfig.social.facebook, siteConfig.social.instagram, siteConfig.social.youtube],
   };
 }

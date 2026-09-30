@@ -313,7 +313,7 @@ export function Footer() {
               </Link>
             </p>
           </div>
-          <p className="mt-4 max-w-2xl text-[12px] leading-relaxed text-white/35">
+          <p className="mt-4 max-w-2xl text-[12px] leading-relaxed text-white/60">
             The information on this site is for general guidance only and is
             not a substitute for professional medical advice, diagnosis or
             treatment.
@@ -321,7 +321,7 @@ export function Footer() {
 
           {/* Signature watermark — static, decorative (quiet-luxury). */}
           <div aria-hidden="true" className="select-none overflow-hidden">
-            <p className="font-display-hero text-center leading-[0.85] tracking-tight text-[#242424] text-[110px] sm:text-[140px] lg:text-[170px] -mb-8 sm:-mb-10 lg:-mb-12 pt-6">
+            <p className="font-display-hero text-center leading-[0.85] tracking-tight text-white/40 text-[110px] sm:text-[140px] lg:text-[170px] -mb-8 sm:-mb-10 lg:-mb-12 pt-6">
               MUNGALE
             </p>
           </div>

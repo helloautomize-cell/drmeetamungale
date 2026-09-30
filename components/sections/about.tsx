@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Reveal } from "@/components/ui/motion";
+import { Reveal, RevealNow } from "@/components/ui/motion";
 import { DoctorsExperience } from "@/components/sections/DoctorsExperience";
 
 // ─── About page — Mungale journey (art-direction redesign) ────────────
@@ -28,17 +28,17 @@ export function AboutHero({
     <section className="relative w-full bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 min-h-[80vh] lg:min-h-[85vh] grid grid-cols-1 lg:grid-cols-12 gap-10 items-center py-12">
         <div className="lg:col-span-6">
-          <Reveal>
+          <RevealNow>
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 mb-6">
               {breadcrumb.map((c, i) => (
                 <span key={c.href} className="flex items-center gap-2">
                   {i > 0 && (
-                    <span aria-hidden="true" className="text-[13px] text-on-surface/35">
+                    <span aria-hidden="true" className="text-[13px] text-on-surface-variant">
                       /
                     </span>
                   )}
                   {i === breadcrumb.length - 1 ? (
-                    <span aria-current="page" className="text-[13px] text-on-surface/50">
+                    <span aria-current="page" className="text-[13px] text-on-surface-variant">
                       {c.label}
                     </span>
                   ) : (
@@ -82,10 +82,10 @@ export function AboutHero({
                 />
               </Link>
             </div>
-          </Reveal>
+          </RevealNow>
         </div>
         <div className="lg:col-span-6">
-          <Reveal delay={0.12}>
+          <RevealNow delay={0.12}>
             <div className="overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
               <Image
                 src="/images/welcome-img-1146-1024x768.jpg"
@@ -97,10 +97,10 @@ export function AboutHero({
                 className="w-full aspect-[4/3] object-cover"
               />
             </div>
-            <p className="mt-3 text-[11.5px] font-semibold uppercase tracking-[0.18em] text-on-surface/40">
+            <p className="mt-3 text-[11.5px] font-semibold uppercase tracking-[0.18em] text-on-surface-variant">
               Mungale Eye Hospital · Kothi · Vadodara · Since 2007
             </p>
-          </Reveal>
+          </RevealNow>
         </div>
       </div>
     </section>
@@ -232,11 +232,10 @@ export function OurApproach() {
         </Reveal>
         <ol className="mt-10 lg:mt-12 max-w-3xl border-t border-secondary/10">
           {principles.map((p, i) => (
-            <Reveal key={p} delay={0.05 * i}>
-              <li className="flex items-baseline gap-5 py-5 border-b border-secondary/10">
+              <li key={p} className="reveal flex items-baseline gap-5 py-5 border-b border-secondary/10" style={{ transitionDelay: `${0.05 * i * 1000}ms` }}>
                 <span
                   aria-hidden="true"
-                  className="text-[12px] font-bold tracking-[0.16em] text-on-surface/35 shrink-0"
+                  className="text-[12px] font-bold tracking-[0.16em] text-on-surface-variant shrink-0"
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -244,7 +243,6 @@ export function OurApproach() {
                   {p}
                 </span>
               </li>
-            </Reveal>
           ))}
         </ol>
       </div>
@@ -299,7 +297,7 @@ export function ExpertiseIndex() {
                   className="group flex items-center justify-between gap-5 py-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded-lg"
                 >
                   <span>
-                    <span className="block text-[13px] font-bold uppercase tracking-[0.2em] text-on-surface/40 group-hover:text-primary transition-colors duration-200">
+                    <span className="block text-[13px] font-bold uppercase tracking-[0.2em] text-on-surface-variant group-hover:text-primary transition-colors duration-200">
                       {s.name}
                     </span>
                     <span className="mt-1 block text-[14.5px] text-on-surface-variant">

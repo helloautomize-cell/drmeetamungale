@@ -63,7 +63,7 @@ function CategoryNavigator({
                 <span
                   className={
                     "block font-display-hero tracking-tight text-[26px] sm:text-[32px] leading-tight transition-colors " +
-                    (selected ? "text-on-surface" : "text-on-surface/70 group-hover:text-on-surface")
+                    (selected ? "text-on-surface" : "text-on-surface-variant group-hover:text-on-surface")
                   }
                 >
                   {cat.id}

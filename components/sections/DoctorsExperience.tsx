@@ -145,7 +145,7 @@ export function DoctorsExperience({ compact = false }: { compact?: boolean }) {
                       aria-hidden="true"
                       className={
                         "text-[13px] font-bold tracking-[0.16em] transition-colors duration-200 " +
-                        (isActive ? "text-primary" : "text-on-surface/35")
+                        (isActive ? "text-primary" : "text-on-surface-variant")
                       }
                     >
                       {i === 0 ? "01" : "02"}
@@ -157,7 +157,7 @@ export function DoctorsExperience({ compact = false }: { compact?: boolean }) {
                         "block text-[19px] transition-colors duration-200 " +
                         (isActive
                           ? "text-on-surface font-semibold"
-                          : "text-on-surface/50 font-medium group-hover:text-on-surface")
+                          : "text-on-surface-variant font-medium group-hover:text-on-surface")
                       }
                     >
                       {d.name}
@@ -167,7 +167,7 @@ export function DoctorsExperience({ compact = false }: { compact?: boolean }) {
                         "mt-0.5 block text-[13.5px] transition-colors duration-200 " +
                         (isActive
                           ? "text-on-surface-variant"
-                          : "text-on-surface/40")
+                          : "text-on-surface-variant")
                       }
                     >
                       {d.title}
@@ -192,7 +192,7 @@ export function DoctorsExperience({ compact = false }: { compact?: boolean }) {
         <div className="lg:col-span-8 grid sm:grid-cols-2 gap-8 lg:gap-10 items-start">
           <div>
             <DoctorPortrait doctor={current} />
-            <p className="mt-3 text-[11.5px] font-semibold uppercase tracking-[0.18em] text-on-surface/40">
+            <p className="mt-3 text-[11.5px] font-semibold uppercase tracking-[0.18em] text-on-surface-variant">
               Mungale Eye Hospital · Kothi, Vadodara
             </p>
           </div>

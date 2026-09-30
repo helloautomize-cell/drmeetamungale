@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { CareDiscovery } from "@/components/sections/CareDiscovery";
@@ -12,6 +13,25 @@ import { LocationBlock } from "@/components/sections/LocationBlock";
 import { InsideMungale } from "@/components/sections/InsideMungale";
 import { TeamBand } from "@/components/sections/TeamBand";
 import { siteConfig } from "@/content/site";
+
+export const metadata: Metadata = {
+  // Absolute title — the "%s | Mungale Eye Hospital" template would
+  // double-append the site name on the homepage.
+  title: {
+    absolute:
+      "Mungale Eye Hospital — Specialist Eye Care in Kothi, Vadodara",
+  },
+  description:
+    "Mungale Eye Hospital, Kothi, Vadodara — cataract, cornea, glaucoma and optical care by specialist ophthalmologists Dr. Sachin and Dr. Meeta Mungale. Open Mon–Sat, 9 AM–8 PM.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Mungale Eye Hospital — Specialist Eye Care in Kothi, Vadodara",
+    description:
+      "Cataract, cornea, glaucoma and optical care by specialist ophthalmologists in Kothi, Vadodara.",
+    url: siteConfig.url,
+    type: "website",
+  },
+};
 
 // Home page — human-touch order. Rhythm: dark hero → photo band → light
 // (symptoms) → dark (why) → light (specialties) → light (journey) → light

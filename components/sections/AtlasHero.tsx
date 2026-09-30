@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Reveal } from "@/components/ui/motion";
+import { RevealNow } from "@/components/ui/motion";
 
 // ─── AtlasHero (/treatments/) ──────────────────────────────────────────────
 // Editorial split hero: breadcrumb + OUR CARE + serif headline on the left;
@@ -12,7 +12,7 @@ export function AtlasHero() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12 pt-2 lg:pt-4 pb-10 lg:pb-14">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-end">
           <div className="lg:col-span-7">
-            <Reveal>
+            <RevealNow>
               <nav aria-label="Breadcrumb">
                 <p className="font-body-md text-body-md text-on-surface-variant">
                   <Link href="/" className="hover:text-on-surface transition-colors">
@@ -56,11 +56,11 @@ export function AtlasHero() {
                   <span aria-hidden="true" className="text-primary-fixed">&rarr;</span>
                 </Link>
               </div>
-            </Reveal>
+            </RevealNow>
           </div>
 
           <div className="lg:col-span-5">
-            <Reveal delay={0.12} className="relative">
+            <RevealNow delay={0.12} className="relative">
               <div className="overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
                 <Image
                   src="/images/treatments/c3.jpg"
@@ -85,7 +85,7 @@ export function AtlasHero() {
               <p className="mt-12 text-[13px] text-on-surface-variant sm:pl-[52%]">
                 LED slit-lamp imaging &amp; YAG laser — diagnosis to treatment.
               </p>
-            </Reveal>
+            </RevealNow>
           </div>
         </div>
       </div>

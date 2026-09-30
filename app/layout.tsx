@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Fraunces } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/content/site";
@@ -16,12 +16,12 @@ const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
 });
 
-// Full variable Fraunces — weight range + opsz (optical sizing), SOFT and
-// WONK axes loaded for the editorial display face (§2.2).
+// Variable Fraunces — weight range + opsz (optical sizing) only; the
+// SOFT/WONK axes were unused and each extra axis inflates the woff2.
 const fraunces = Fraunces({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  axes: ["opsz", "SOFT", "WONK"],
+  axes: ["opsz"],
   display: "swap",
   variable: "--font-display",
 });
@@ -60,6 +60,15 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#faf7f2" },
+    { media: "(prefers-color-scheme: dark)", color: "#111723" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-IN" className={plusJakarta.variable + " " + fraunces.variable} suppressHydrationWarning>
@@ -68,7 +77,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             hidden when JS is on, so nothing stays invisible if JS fails. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: "document.documentElement.classList.add('js')",
+            __html: [
+              "document.documentElement.classList.add('js');",
+              // Reveal .reveal elements already in the viewport at parse
+              // time — before hydration — so they aren't hydration-gated
+              // (LCP). Instant, no transition: nothing to reveal "from".
+              "if('IntersectionObserver' in window){addEventListener('DOMContentLoaded',function(){",
+              "var io=new IntersectionObserver(function(es){es.forEach(function(e){",
+              "if(e.isIntersecting){e.target.classList.add('is-visible','reveal-instant');io.unobserve(e.target);}});",
+              "},{rootMargin:'0px 0px -5% 0px',threshold:0});",
+              "document.querySelectorAll('.reveal').forEach(function(n){io.observe(n);});});}",
+            ].join(""),
           }}
         />
       </head>

@@ -4,7 +4,7 @@ import { MasonryGallery } from "@/components/sections/MasonryGallery";
 import { galleryPrograms } from "@/content/gallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, canonical } from "@/content/seo";
-import { Reveal } from "@/components/ui/motion";
+import { Reveal, RevealNow } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -30,7 +30,7 @@ export default function GalleryPage() {
       {/* ── Compact hero ── */}
       <section className="bg-background">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12 pt-4 lg:pt-6 pb-6 lg:pb-8">
-          <Reveal>
+          <RevealNow>
             <nav aria-label="Breadcrumb">
               <p className="font-body-md text-body-md text-on-surface-variant">
                 <Link href="/" className="hover:text-on-surface transition-colors">Home</Link>
@@ -50,7 +50,7 @@ export default function GalleryPage() {
             <p className="mt-2 max-w-[58ch] font-body-md text-body-md text-on-surface-variant leading-relaxed">
               People, practice, teaching and moments from the hospital.
             </p>
-          </Reveal>
+          </RevealNow>
         </div>
       </section>
 

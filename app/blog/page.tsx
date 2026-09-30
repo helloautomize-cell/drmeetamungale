@@ -3,7 +3,7 @@ import Link from "next/link";
 import { JournalExplorer } from "@/components/sections/JournalExplorer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, canonical } from "@/content/seo";
-import { Reveal } from "@/components/ui/motion";
+import { RevealNow } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -29,7 +29,7 @@ export default function BlogPage() {
 
       <section className="bg-background">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12 pt-4 lg:pt-6 pb-6 lg:pb-8">
-          <Reveal>
+          <RevealNow>
             <nav aria-label="Breadcrumb">
               <p className="font-body-md text-body-md text-on-surface-variant">
                 <Link href="/" className="hover:text-on-surface transition-colors">Home</Link>
@@ -46,7 +46,7 @@ export default function BlogPage() {
             <p className="mt-4 max-w-[60ch] font-body-md text-body-md text-on-surface-variant leading-relaxed">
               Clear, practical guidance from Mungale Eye Hospital.
             </p>
-          </Reveal>
+          </RevealNow>
         </div>
       </section>
 

@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Mungale Eye Hospital",
   shortName: "MEH",
-  tagline: "Best Eye Hospital in Kothi, Vadodara",
+  tagline: "Specialist eye hospital in Kothi, Vadodara",
   url: "https://mungaleeyehospital.com",
   address: "2nd Floor, Vinraj Plaza, opp. Government Press, Kothi Road, Anandpura, Vadodara, Gujarat 390001",
   // Contact numbers per owner decision (contact page kept dummy for now).

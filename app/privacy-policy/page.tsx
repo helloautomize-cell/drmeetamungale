@@ -6,6 +6,7 @@ import { ContentSection } from "@/components/sections/ContentSection";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Privacy policy of Mungale Eye Hospital.",
+  alternates: { canonical: "/privacy-policy/" },
 };
 
 // ─── /privacy-policy/ — PLACEHOLDER (owner content pending) ─────────────

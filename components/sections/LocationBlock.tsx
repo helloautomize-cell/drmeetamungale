@@ -134,7 +134,7 @@ export function LocationBlock() {
                 </div>
                 <figcaption className="text-[13.5px] leading-snug text-on-surface-variant">
                   2nd Floor, Vinraj Plaza
-                  <span className="block text-[12.5px] text-on-surface/50">opp. Government Press, Kothi Road</span>
+                  <span className="block text-[12.5px] text-on-surface-variant">opp. Government Press, Kothi Road</span>
                 </figcaption>
               </figure>
             </Reveal>

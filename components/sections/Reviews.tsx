@@ -61,7 +61,7 @@ function excerptOf(text: string): { short: string; truncated: boolean } {
 
 function SmallStars() {
   return (
-    <span className="inline-flex items-center gap-0.5" aria-label="Rated 5 out of 5 stars">
+    <span role="img" className="inline-flex items-center gap-0.5" aria-label="Rated 5 out of 5 stars">
       {Array.from({ length: 5 }).map((_, i) => (
         <Star key={i} className="w-3.5 h-3.5 text-star-gold fill-star-gold" aria-hidden="true" />
       ))}
@@ -170,7 +170,7 @@ function StoryCard({ review, active }: { review: Review; active: boolean }) {
 export function Reviews() {
   const [cat, setCat] = React.useState<Category>("All");
   const [active, setActive] = React.useState(0);
-  const trackRef = React.useRef<HTMLDivElement>(null);
+  const trackRef = React.useRef<HTMLUListElement>(null);
   const slideRefs = React.useRef<(HTMLLIElement | null)[]>([]);
 
   const filtered = React.useMemo(
@@ -261,7 +261,7 @@ export function Reviews() {
                 aria-pressed={isActive}
                 className={
                   "nav-item shrink-0 whitespace-nowrap px-1 py-3 text-[13px] font-bold uppercase tracking-[0.16em] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded " +
-                  (isActive ? "text-primary" : "text-on-surface/55 hover:text-on-surface")
+                  (isActive ? "text-primary" : "text-on-surface-variant hover:text-on-surface")
                 }
                 data-active={isActive || undefined}
               >
@@ -272,13 +272,12 @@ export function Reviews() {
         </div>
       </div>
 
-      {/* Focus carousel — full-bleed track so neighbours peek at the edges */}
-      <div className="relative">
-        <div
+      {/* Focus carousel — full-bleed track so neighbours peek at the edges.
+          Carousel semantics sit on the wrapper so the <ul> keeps its native
+          list role for the <li> slides (a11y: listitem). */}
+      <div className="relative" role="region" aria-roledescription="carousel" aria-label="Patient stories">
+        <ul
           ref={trackRef}
-          role="region"
-          aria-roledescription="carousel"
-          aria-label="Patient stories"
           tabIndex={0}
           onKeyDown={onKeyDown}
           className="focus-track flex snap-x snap-mandatory gap-5 lg:gap-8 overflow-x-auto no-scrollbar px-[calc(50vw-min(320px,39vw))] pb-6 pt-2 focus-visible:outline-none"
@@ -301,7 +300,7 @@ export function Reviews() {
               </li>
             );
           })}
-        </div>
+        </ul>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-24 lg:pb-32">

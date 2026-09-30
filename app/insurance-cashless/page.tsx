@@ -16,7 +16,7 @@ import {
 import { InsuranceFaq } from "@/components/sections/InsuranceFaq";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqJsonLd, breadcrumbJsonLd, canonical } from "@/content/seo";
-import { Reveal } from "@/components/ui/motion";
+import { Reveal, RevealNow } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
   title: "Insurance & Cashless",
@@ -53,7 +53,7 @@ export default function InsuranceCashlessPage() {
             </p>
           </nav>
           <div className="mt-6 lg:mt-8 grid gap-10 lg:gap-14 lg:grid-cols-12 items-center">
-            <Reveal className="lg:col-span-6">
+            <RevealNow className="lg:col-span-6">
               <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
                 Insurance & Cashless
               </p>
@@ -82,8 +82,8 @@ export default function InsuranceCashlessPage() {
                   <span aria-hidden="true" className="text-primary-fixed">&rarr;</span>
                 </a>
               </div>
-            </Reveal>
-            <Reveal delay={0.1} className="lg:col-span-6">
+            </RevealNow>
+            <RevealNow delay={0.1} className="lg:col-span-6">
               <div className="overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
                 <Image
                   src="/images/insurance/eye-care.jpg"
@@ -103,7 +103,7 @@ export default function InsuranceCashlessPage() {
                   Subject to insurer / TPA approval
                 </p>
               </div>
-            </Reveal>
+            </RevealNow>
           </div>
         </div>
       </section>
@@ -162,8 +162,7 @@ export default function InsuranceCashlessPage() {
           </Reveal>
           <ol className="mt-10 grid sm:grid-cols-2 gap-x-12 gap-y-10">
             {insurancePartners.map((p, i) => (
-              <Reveal key={p.name} delay={Math.min(i * 0.06, 0.18)}>
-                <li className="flex items-center gap-6">
+                <li key={p.name} className="reveal flex items-center gap-6" style={{ transitionDelay: `${Math.min(i * 0.06, 0.18) * 1000}ms` }}>
                   <span aria-hidden="true" className="font-display-hero text-[15px] text-primary-fixed w-7 shrink-0">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -186,7 +185,6 @@ export default function InsuranceCashlessPage() {
                     </span>
                   </span>
                 </li>
-              </Reveal>
             ))}
           </ol>
           <Reveal>
@@ -223,8 +221,7 @@ export default function InsuranceCashlessPage() {
           </Reveal>
           <ol className="mt-10 lg:mt-12 grid gap-10 lg:grid-cols-4 lg:gap-0">
             {cashlessSteps.map((s, i) => (
-              <Reveal key={s.index} delay={Math.min(i * 0.06, 0.18)}>
-                <li className="group relative lg:px-8 first:pl-0 last:pr-0">
+                <li key={s.index} className="reveal group relative lg:px-8 first:pl-0 last:pr-0" style={{ transitionDelay: `${Math.min(i * 0.06, 0.18) * 1000}ms` }}>
                   <span aria-hidden="true" className="hidden lg:block absolute top-[26px] left-0 right-0 h-px bg-secondary/15" />
                   <span aria-hidden="true" className="hidden lg:block absolute top-[26px] left-0 h-px w-0 bg-primary transition-all duration-500 group-hover:w-full" />
                   <span
@@ -240,7 +237,6 @@ export default function InsuranceCashlessPage() {
                     {s.body}
                   </p>
                 </li>
-              </Reveal>
             ))}
           </ol>
         </div>

@@ -246,6 +246,11 @@ html.js .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
+/* Elements already visible at load get .reveal-instant from the inline
+   pre-hydration script — paint immediately, no transition. */
+html.js .reveal.reveal-instant {
+  transition: none;
+}
 @media (prefers-reduced-motion: reduce) {
   html.js .reveal {
     opacity: 1;
@@ -299,8 +304,8 @@ html.js .focus-slide[data-active] {
   to { opacity: 1; transform: none; }
 }
 @keyframes hero-img-in {
-  from { opacity: 0.001; transform: scale(1.03); }
-  to { opacity: 1; transform: none; }
+  from { transform: scale(1.03); }
+  to { transform: none; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .animate-hero-copy {
@@ -308,5 +313,19 @@ html.js .focus-slide[data-active] {
   }
   .animate-hero-img {
     animation: hero-img-in 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+/* ─── RevealNow — the reveal motion for above-the-fold content.
+   Same curve/duration as .reveal but runs as a CSS animation on paint:
+   no hydration wait, so first-viewport content can't gate LCP. JS-off
+   and reduced-motion render it statically. */
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-now {
+    animation: reveal-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 }

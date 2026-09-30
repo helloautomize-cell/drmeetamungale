@@ -12,7 +12,7 @@ import { ContactBookingForm } from "@/components/sections/ContactBookingForm";
 import { LocationBlock } from "@/components/sections/LocationBlock";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, canonical } from "@/content/seo";
-import { Reveal } from "@/components/ui/motion";
+import { Reveal, RevealNow } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -47,7 +47,7 @@ export default function ContactPage() {
             </p>
           </nav>
           <div className="mt-6 lg:mt-8 grid gap-10 lg:gap-14 lg:grid-cols-12 items-center">
-            <Reveal className="lg:col-span-6">
+            <RevealNow className="lg:col-span-6">
               <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
                 Get in touch
               </p>
@@ -87,8 +87,8 @@ export default function ContactPage() {
                   <span aria-hidden="true" className="text-primary-fixed">↗</span>
                 </a>
               </div>
-            </Reveal>
-            <Reveal delay={0.1} className="lg:col-span-6">
+            </RevealNow>
+            <RevealNow delay={0.1} className="lg:col-span-6">
               <div className="overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
                 <Image
                   src={CONTACT_HERO_SRC}
@@ -108,7 +108,7 @@ export default function ContactPage() {
                   Kothi · Vadodara
                 </p>
               </div>
-            </Reveal>
+            </RevealNow>
           </div>
         </div>
       </section>

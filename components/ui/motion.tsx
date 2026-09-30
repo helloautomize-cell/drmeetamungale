@@ -28,3 +28,27 @@ export function Reveal({
     </div>
   );
 }
+
+// ─── RevealNow — same motion, but plays on PAINT, not on the observer.
+// For above-the-fold content only: an IO-gated .reveal waits for
+// hydration before it can show, which delays LCP. This variant is a pure
+// CSS animation (globals.css .reveal-now) — it starts with the first
+// paint and needs no JS at all.
+export function RevealNow({
+  children,
+  delay = 0,
+  className,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  return (
+    <div
+      className={cn("reveal-now", className)}
+      style={delay ? { animationDelay: `${delay * 1000}ms` } : undefined}
+    >
+      {children}
+    </div>
+  );
+}

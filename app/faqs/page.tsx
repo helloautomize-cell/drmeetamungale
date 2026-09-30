@@ -4,7 +4,7 @@ import { FaqExplorer } from "@/components/sections/FaqExplorer";
 import { faqs, faqCategoryMap } from "@/content/faqs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqJsonLd, breadcrumbJsonLd, canonical } from "@/content/seo";
-import { Reveal } from "@/components/ui/motion";
+import { Reveal, RevealNow } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
   title: "FAQs",
@@ -31,7 +31,7 @@ export default function FaqsPage() {
       {/* ── Compact hero ── */}
       <section className="bg-background">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12 pt-4 lg:pt-6 pb-8 lg:pb-10">
-          <Reveal>
+          <RevealNow>
             <nav aria-label="Breadcrumb">
               <p className="font-body-md text-body-md text-on-surface-variant">
                 <Link href="/" className="hover:text-on-surface transition-colors">Home</Link>
@@ -52,7 +52,7 @@ export default function FaqsPage() {
             <p className="mt-2 text-[14px] font-semibold text-on-surface">
               Find the answer you&rsquo;re looking for.
             </p>
-          </Reveal>
+          </RevealNow>
         </div>
       </section>
 

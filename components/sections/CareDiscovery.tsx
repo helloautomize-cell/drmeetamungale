@@ -169,7 +169,7 @@ function TreatmentRows({ slugs }: { slugs: string[] }) {
             >
               <span
                 aria-hidden="true"
-                className="pt-1 text-[13px] font-bold tracking-[0.12em] text-on-surface/35 shrink-0"
+                className="pt-1 text-[13px] font-bold tracking-[0.12em] text-on-surface-variant shrink-0"
               >
                 {String(i + 1).padStart(2, "0")}
               </span>
@@ -361,8 +361,8 @@ export function CareDiscovery() {
               {items.map((item, i) => {
                 const isActive = i === active;
                 return (
-                  <div key={item.index}>
                     <button
+                      key={item.index}
                       ref={(el) => {
                         tabRefs.current[i] = el;
                       }}
@@ -371,9 +371,7 @@ export function CareDiscovery() {
                       tabIndex={isActive ? 0 : -1}
                       onClick={() => setActive(i)}
                       aria-selected={isActive}
-                      aria-controls={
-                        "care-desktop care-mobile-" + item.index
-                      }
+                      aria-controls="care-desktop care-mobile"
                       className={
                         "group relative w-full text-left flex items-start gap-4 py-5 min-h-[68px] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded-lg " +
                         (isActive ? "bg-red-wash" : "")
@@ -392,7 +390,7 @@ export function CareDiscovery() {
                           "pl-4 pt-1 text-[12px] font-bold tracking-[0.16em] shrink-0 transition-colors duration-200 " +
                           (isActive
                             ? "text-primary"
-                            : "text-on-surface/35")
+                            : "text-on-surface-variant")
                         }
                       >
                         {item.index}
@@ -403,7 +401,7 @@ export function CareDiscovery() {
                             "block text-[17px] lg:text-[18px] transition-colors duration-200 " +
                             (isActive
                               ? "text-on-surface font-semibold"
-                              : "text-on-surface/55 font-medium group-hover:text-on-surface")
+                              : "text-on-surface-variant font-medium group-hover:text-on-surface")
                           }
                         >
                           {item.title}
@@ -424,18 +422,16 @@ export function CareDiscovery() {
                         }
                       />
                     </button>
-                    {/* Mobile accordion panel — same care, inline. */}
-                    {isActive && (
-                      <div
-                        id={"care-mobile-" + item.index}
-                        className="lg:hidden pb-7 animate-tab-in"
-                      >
-                        <CarePanel concernIndex={i} />
-                      </div>
-                    )}
-                  </div>
                 );
               })}
+            </div>
+            {/* Mobile panel — outside the tablist so tablist children are
+                tabs only (aria-required-children). Shared panel for whichever
+                concern is active. */}
+            <div id="care-mobile" className="lg:hidden pb-7 pt-6" role="tabpanel" aria-live="polite">
+              <div key={active} className="animate-tab-in">
+                <CarePanel concernIndex={active} />
+              </div>
             </div>
           </div>
 
