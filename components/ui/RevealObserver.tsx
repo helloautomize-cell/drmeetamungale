@@ -33,15 +33,45 @@ export function RevealObserver() {
       { threshold: 0.2 }
     );
 
-    // useEffect runs after hydration, so every SSR-rendered .reveal is
-    // already in the DOM — a MutationObserver isn't needed.
-    document.querySelectorAll(".reveal:not(.is-visible)").forEach((el) => {
+    const attach = (el: Element) => {
       const r = el.getBoundingClientRect();
       if (r.height === 0 || r.bottom < 0) show(el);
       else io.observe(el);
-    });
+    };
 
-    return () => io.disconnect();
+    const scan = (root: ParentNode) => {
+      root.querySelectorAll(".reveal:not(.is-visible)").forEach(attach);
+    };
+
+    scan(document);
+
+    // Client-side navigation swaps <main> without remounting this layout —
+    // without this watcher those fresh .reveal nodes stay opacity:0
+    // (white-screen-until-refresh bug). Mutations are batched into one rAF
+    // and only the added subtrees are scanned.
+    let pending: Node[] = [];
+    let raf = 0;
+    const mo = new MutationObserver((mutations) => {
+      for (const m of mutations) pending.push(...m.addedNodes);
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const nodes = pending;
+        pending = [];
+        for (const n of nodes) {
+          if (!(n instanceof Element)) continue;
+          if (n.matches(".reveal:not(.is-visible)")) attach(n);
+          scan(n);
+        }
+      });
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   return null;
