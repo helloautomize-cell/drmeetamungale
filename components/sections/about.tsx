@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/motion";
-import { DoctorsExperience } from "@/components/sections/DoctorsStory";
+import { DoctorsExperience } from "@/components/sections/DoctorsExperience";
 
 // ─── About page — Mungale journey (art-direction redesign) ────────────
 // Same design system as the homepage (warm paper, ink, restrained red,

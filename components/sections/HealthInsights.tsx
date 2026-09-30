@@ -46,6 +46,8 @@ export function HealthInsights() {
                 className="cta-quiet group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded-[20px]"
                 aria-label={"Read article: " + featured.title}
               >
+                {/* 16:10 + object-position 50% 82% — the source's subject
+                    sits low; a wide frame crops the empty sky (bug 7). */}
                 <span className="block overflow-hidden rounded-[20px] ring-1 ring-secondary/10 aspect-[16/10]">
                   {/* Featured = newest post (the cataract guide). Its old
                       cover mixed before/after eyes + a surgery scene +
@@ -55,7 +57,7 @@ export function HealthInsights() {
                     d={IMG.cataract.d}
                     alt=""
                     className="h-full w-full"
-                    imgClassName="h-full w-full object-cover object-[50%_72%] transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    imgClassName="h-full w-full object-cover object-[50%_82%] transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                   />
                 </span>
                 <span className="mt-5 block text-[11px] font-bold uppercase tracking-[0.2em] text-primary-fixed">

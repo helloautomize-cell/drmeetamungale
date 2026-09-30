@@ -154,6 +154,26 @@ export function Header() {
     if (mobileOpen) setHidden(false);
   }, [mobileOpen]);
 
+  // Dropdowns open on CLICK (hover-opened panels collapsed when the
+  // cursor crossed the gap between the nav item and the panel). Close on
+  // outside pointerdown and Escape.
+  const navRef = React.useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!openSub) return;
+    const onDown = (e: PointerEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) setOpenSub(null);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenSub(null);
+    };
+    document.addEventListener("pointerdown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [openSub]);
+
   // "Book a consultation" appears once — as the CTA pill, not a nav row.
   const navItems = siteConfig.navTree.filter((item) => item.href !== "/contact-us/");
 
@@ -169,17 +189,21 @@ export function Header() {
   return (
     <>
       <header className="fixed top-0 inset-x-0 z-50">
+        {/* When scrolled, the whole band gets a solid backdrop so page
+            content can't peek through the transparent gap above the
+            floating pill (the "announcement bar bleed" bug). */}
         <div
           className={
-            "transition-transform duration-300 motion-reduce:transition-none " +
+            "transition-[transform,background-color] duration-300 motion-reduce:transition-none " +
+            (scrolled ? "bg-paper/95 backdrop-blur-[8px] shadow-[0_1px_0_rgba(14,17,22,0.06)] " : "") +
             (hidden ? "-translate-y-[130%] pointer-events-none " : "")
           }
         >
           {/* Utility strip — ink-navy, collapses after 40px scroll */}
           <div
             className={
-              "hidden lg:block bg-ink-navy overflow-hidden transition-[height] duration-300 motion-reduce:transition-none " +
-              (stripGone ? "h-0" : "h-9")
+              "hidden lg:block bg-ink-navy overflow-hidden transition-[height,opacity] duration-300 motion-reduce:transition-none " +
+              (stripGone ? "h-0 opacity-0 invisible" : "h-9 opacity-100")
             }
           >
             <div className="max-w-site mx-auto px-12 h-9 flex items-center justify-between text-[12.5px]">
@@ -256,47 +280,71 @@ export function Header() {
 
               {/* Desktop nav — absolutely centered, flat editorial links */}
               <nav
+                ref={navRef}
                 className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2"
                 aria-label="Main navigation"
               >
                 {navItems.map((item) => {
                   const mega = item.label === "Treatments";
+                  const hasSub = item.subItems?.length > 0;
+                  const open = openSub === item.label;
+                  const itemCls =
+                    "nav-item font-label-md text-[15px] font-medium inline-flex items-center gap-1.5 transition-colors duration-200 " +
+                    (isActive(item) ? "text-ink" : "text-ink/85 hover:text-ink");
                   return (
                     <div
                       key={item.label}
                       className={mega ? "static" : "relative"}
-                      onMouseEnter={() =>
-                        item.subItems?.length > 0 && setOpenSub(item.label)
-                      }
-                      onMouseLeave={() => setOpenSub(null)}
-                      onFocus={() =>
-                        item.subItems?.length > 0 && setOpenSub(item.label)
-                      }
                       onBlur={(e) => {
                         if (!e.currentTarget.contains(e.relatedTarget)) setOpenSub(null);
                       }}
                     >
-                      <Link
-                        href={item.href}
-                        data-active={isActive(item) || undefined}
-                        aria-expanded={
-                          item.subItems?.length > 0 ? openSub === item.label : undefined
-                        }
-                        className={
-                          "nav-item font-label-md text-[15px] font-medium px-3 py-2 inline-flex items-center gap-1.5 transition-colors duration-200 " +
-                          (isActive(item)
-                            ? "text-ink"
-                            : "text-ink/85 hover:text-ink")
-                        }
-                        aria-current={isActive(item) ? "page" : undefined}
-                      >
-                        {item.label}
-                        {item.subItems?.length > 0 && (
+                      {hasSub && item.href === "#" ? (
+                        /* Pure dropdown (Resources) — a button, not a link */
+                        <button
+                          type="button"
+                          onClick={() => setOpenSub(open ? null : item.label)}
+                          aria-expanded={open}
+                          aria-haspopup="true"
+                          className={itemCls + " px-3 py-2"}
+                        >
+                          {item.label}
                           <span className="text-ink/45" aria-hidden="true">
-                            <MicroChevron open={openSub === item.label} />
+                            <MicroChevron open={open} />
                           </span>
-                        )}
-                      </Link>
+                        </button>
+                      ) : hasSub ? (
+                        /* Real link + separate chevron toggle (Treatments) */
+                        <span className="inline-flex items-center">
+                          <Link
+                            href={item.href}
+                            data-active={isActive(item) || undefined}
+                            aria-current={isActive(item) ? "page" : undefined}
+                            className={itemCls + " pl-3 py-2 pr-1"}
+                          >
+                            {item.label}
+                          </Link>
+                          <button
+                            type="button"
+                            onClick={() => setOpenSub(open ? null : item.label)}
+                            aria-expanded={open}
+                            aria-haspopup="true"
+                            aria-label={"Toggle " + item.label + " menu"}
+                            className="text-ink/45 hover:text-ink p-1.5 transition-colors duration-200"
+                          >
+                            <MicroChevron open={open} />
+                          </button>
+                        </span>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          data-active={isActive(item) || undefined}
+                          aria-current={isActive(item) ? "page" : undefined}
+                          className={itemCls + " px-3 py-2"}
+                        >
+                          {item.label}
+                        </Link>
+                      )}
                       {/* Dropdown — always mounted; CSS fade/slide 150ms.
                           `invisible` keeps closed panels unfocusable. */}
                       {item.subItems?.length > 0 && (

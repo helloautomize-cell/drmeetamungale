@@ -2,30 +2,36 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ArtImage } from "@/components/ui/ArtImage";
 import { Reveal } from "@/components/ui/motion";
-import { IMG } from "@/lib/images";
+import { IMG, REAL, gated } from "@/lib/images";
+import { JourneySticky, type JourneyStep } from "@/components/sections/JourneySticky";
 
-// ─── Patient journey (quiet-luxury reset, spec §5.6) — static cards.
-// "What happens when you come in." — four generated images in a calm
-// grid (4-up ≥1280px, 2×2 md, snap row mobile), a hairline timeline
-// with red nodes above the cards, and the existing "What to expect"
-// link to /faqs/. No pinning, no step swapping, no blue-cast photos.
+// ─── Patient journey — "What happens when you come in." ────────────────
+// Desktop (≥1024px): Pattern B sticky step list (JourneySticky — a small
+// client island; native scrolling, no pinning). Mobile: stacked cards.
+// Images: step 1 = real consultation-desk photo; step 2 = real slit-lamp
+// exam (CONSENT-GATED → falls back to the diagnostics still-life);
+// steps 3–4 = still-lifes. Copy unchanged.
 // TODO(content): confirm the exact visit sequence with the doctors —
 // copy is generic process language, no source document exists.
 
-const STEPS = [
+const STEPS: JourneyStep[] = [
   {
     num: "01",
     title: "Consultation",
     body: "You sit with one of the doctors. They listen first — symptoms, history, concerns — before anything is examined.",
-    img: IMG.j1,
-    alt: "A calm consultation between doctor and patient",
+    img: REAL.consultDesk,
+    alt: "Dr. Meeta Mungale in consultation at her desk",
+    pos: "object-[50%_40%]",
   },
   {
     num: "02",
     title: "Detailed diagnostics",
     body: "Tests are done in-house — vision measurement, corneal scans, eye pressure and retinal imaging as needed.",
-    img: IMG.j2,
-    alt: "Diagnostic imaging being performed",
+    img: gated(REAL.examSlit, IMG.j2),
+    alt: gated(REAL.examSlit, IMG.j2) === REAL.examSlit
+      ? "A slit-lamp examination at Mungale Eye Hospital"
+      : "Diagnostic imaging being performed",
+    pos: "object-[50%_45%]",
   },
   {
     num: "03",
@@ -56,39 +62,24 @@ export function PatientJourney() {
           </h2>
         </Reveal>
 
-        {/* Quiet timeline — hairline + four red nodes aligned to the
-            four card columns (desktop only, where alignment is real). */}
-        <div
-          aria-hidden="true"
-          className="relative mt-12 mb-8 hidden xl:block"
-        >
-          <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-line" />
-          <div className="relative grid grid-cols-4 gap-8">
-            {STEPS.map((s) => (
-              <span key={s.num} className="flex justify-center">
-                <span className="h-2.5 w-2.5 rounded-full bg-brand-red-strong ring-4 ring-porcelain" />
-              </span>
-            ))}
-          </div>
+        {/* DESKTOP — Pattern B */}
+        <div className="mt-12 hidden lg:block">
+          <JourneySticky steps={STEPS} />
         </div>
 
-        <Reveal className="mt-12 xl:mt-0">
-          {/* Cards — 4/2/snap-row. Desktop images 4:3, mobile 4:5. */}
-          <ol className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 no-scrollbar md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:gap-8 xl:grid-cols-4">
+        {/* MOBILE / TABLET — stacked cards, same images */}
+        <Reveal className="mt-12 lg:hidden">
+          <ol className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 no-scrollbar md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:gap-8">
             {STEPS.map((s) => (
-              <li
-                key={s.num}
-                className="w-[82vw] shrink-0 snap-center md:w-auto"
-              >
+              <li key={s.num} className="w-[82vw] shrink-0 snap-center md:w-auto">
                 <div className="aspect-[4/5] overflow-hidden rounded-[20px] border border-line bg-paper md:aspect-[4/3]">
-                  {/* Desktop ratio from .d artwork; mobile ratio from .m —
-                      <picture> source picks the right file per width. */}
                   <ArtImage
                     d={s.img.d}
                     m={s.img.m}
                     alt={s.alt}
+                    sizes="(min-width: 768px) 45vw, 82vw"
                     className="h-full w-full"
-                    imgClassName="h-full w-full object-cover"
+                    imgClassName={"h-full w-full object-cover " + (s.pos ?? "")}
                   />
                 </div>
                 <div className="mt-4">
@@ -107,7 +98,7 @@ export function PatientJourney() {
           </ol>
         </Reveal>
 
-        <div className="mt-10">
+        <div className="mt-10 lg:mt-6">
           <Link
             href="/faqs/"
             className="cta-quiet group inline-flex w-fit items-center gap-2 text-[15px] font-semibold text-ink"

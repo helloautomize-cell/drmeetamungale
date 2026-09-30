@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ArtImage } from "@/components/ui/ArtImage";
 import { Reveal } from "@/components/ui/motion";
-import { IMG, type Img } from "@/lib/images";
+import { IMG, REAL, type Img } from "@/lib/images";
 import { treatments } from "@/content/treatments";
 import { siteConfig } from "@/content/site";
 
@@ -121,17 +121,38 @@ const blurbs: Record<string, string> = {
     "Medication, surgery or specialised therapies for infections, injuries and conditions.",
 };
 
-// One generated image per symptom (quiet-luxury spec §5.3) — the same
-// artwork family as the specialty cards, so the navigator reads as one
-// coherent system. Alts describe the artwork, not a diagnosis.
-const concernArt: Record<number, { d: Img; m?: Img; alt: string }> = {
-  0: { d: IMG.cataract.d, alt: "Warm artwork representing cataract care" },
-  1: { d: IMG.glaucoma.d, alt: "Warm artwork representing glaucoma care" },
-  2: { d: IMG.cornea.d, alt: "Warm artwork representing cornea care" },
-  3: { d: IMG.cataract.d, alt: "Warm artwork representing cataract care" },
-  4: { d: IMG.optical.d, alt: "Warm artwork representing optical and contact lenses" },
-  5: { d: IMG.j1.d, m: IMG.j1.m, alt: "A calm consultation between doctor and patient" },
+// One image per symptom (quiet-luxury spec §5.3). The still-lifes have
+// their subject low in the frame (~83%), so the mobile box is a shorter
+// landscape crop anchored near the bottom and the desktop box is square
+// at 82% — either way the subject isn't a sliver at the edge (bug 4).
+// "Not sure" uses the real consultation-desk photo — a person, not an
+// object. Alts describe the image, not a diagnosis.
+type ConcernArt = { d: Img; m?: Img; alt: string; pos: string; mPos?: string };
+const concernArt: Record<number, ConcernArt> = {
+  0: { d: IMG.cataract.d, alt: "Warm artwork representing cataract care", pos: "object-[50%_82%]", mPos: "object-[50%_96%]" },
+  1: { d: IMG.glaucoma.d, alt: "Warm artwork representing glaucoma care", pos: "object-[50%_82%]", mPos: "object-[50%_96%]" },
+  2: { d: IMG.cornea.d, alt: "Warm artwork representing cornea care", pos: "object-[50%_82%]", mPos: "object-[50%_96%]" },
+  3: { d: IMG.cataract.d, alt: "Warm artwork representing cataract care", pos: "object-[50%_82%]", mPos: "object-[50%_96%]" },
+  4: { d: IMG.optical.d, alt: "Warm artwork representing optical and contact lenses", pos: "object-[50%_82%]", mPos: "object-[50%_96%]" },
+  5: { d: REAL.consultDesk.d, alt: "Dr. Meeta Mungale in consultation at her desk", pos: "object-[50%_35%]", mPos: "object-[50%_25%]" },
 };
+
+function ConcernImage({ art }: { art: ConcernArt }) {
+  return (
+    <div className="w-full shrink-0 lg:w-[38%]">
+      <div className="h-[200px] sm:h-[240px] overflow-hidden rounded-[20px] ring-1 ring-secondary/10 lg:aspect-square lg:h-auto">
+        <ArtImage
+          d={art.d}
+          m={art.m}
+          alt={art.alt}
+          sizes="(min-width: 1024px) 300px, 90vw"
+          className="h-full w-full"
+          imgClassName={"h-full w-full object-cover " + (art.mPos ?? art.pos) + " lg:" + art.pos}
+        />
+      </div>
+    </div>
+  );
+}
 
 const NOT_SURE_INDEX = 5;
 
@@ -194,18 +215,8 @@ function ConversationPanel() {
   const phone = siteConfig.phone.replace(/\s/g, "");
   const art = concernArt[NOT_SURE_INDEX]!;
   return (
-    <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
-      <div className="w-full shrink-0 lg:w-[44%]">
-        <div className="aspect-[4/5] max-h-[360px] overflow-hidden rounded-[20px] ring-1 ring-secondary/10 lg:max-h-none">
-          <ArtImage
-            d={art.d}
-            m={art.m}
-            alt={art.alt}
-            className="h-full w-full"
-            imgClassName="h-full w-full object-cover object-[50%_68%]"
-          />
-        </div>
-      </div>
+    <div className="flex flex-col gap-6 lg:flex-row lg:gap-12">
+      <ConcernImage art={art} />
       <div className="min-w-0 flex-1">
       {/* OWNER-PROVIDED wording — navigation to conversation, never a diagnosis. */}
       <h3 className="font-display-hero text-on-surface tracking-tight leading-tight text-[26px] lg:text-[34px]">
@@ -247,22 +258,10 @@ function CarePanel({ concernIndex }: { concernIndex: number }) {
   const c = concerns[concernIndex]!;
   const art = concernArt[concernIndex];
   return (
-    <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
-      {/* One image per symptom — 4:5 box at ~44% of the panel on
-          desktop, above the text on mobile (max-height 360px). */}
-      {art && (
-        <div className="w-full shrink-0 lg:w-[44%]">
-          <div className="aspect-[4/5] max-h-[360px] overflow-hidden rounded-[20px] ring-1 ring-secondary/10 lg:max-h-none">
-            <ArtImage
-              d={art.d}
-              m={art.m}
-              alt={art.alt}
-              className="h-full w-full"
-              imgClassName="h-full w-full object-cover object-[50%_68%]"
-            />
-          </div>
-        </div>
-      )}
+    <div className="flex flex-col gap-6 lg:flex-row lg:gap-12">
+      {/* One image per symptom — square at ~38% of the panel on desktop,
+          above the text on mobile. */}
+      {art && <ConcernImage art={art} />}
       <div className="min-w-0 flex-1">
         <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
           Care for this
@@ -349,8 +348,9 @@ export function CareDiscovery() {
         </Reveal>
 
         <div className="mt-12 lg:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-          {/* LEFT (~42%) — editorial concern index, sticky on desktop */}
-          <div className="lg:col-span-5 lg:sticky lg:top-[140px]">
+          {/* LEFT (~33%) — editorial concern index, sticky on desktop.
+              Rebalanced 5/7 → 4/8 so the panel's image + text breathe. */}
+          <div className="lg:col-span-4 lg:sticky lg:top-[140px]">
             <div
               role="tablist"
               aria-label="What are you experiencing"
@@ -442,7 +442,7 @@ export function CareDiscovery() {
           {/* RIGHT (~58%) — relevant care for the active concern.
               Switch: 250ms opacity fade-in via .animate-tab-in (§3). */}
           <div
-            className="hidden lg:block lg:col-span-7"
+            className="hidden lg:block lg:col-span-8"
             role="tabpanel"
             id="care-desktop"
             aria-live="polite"

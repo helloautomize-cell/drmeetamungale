@@ -1,25 +1,32 @@
 import type { Img } from '@/lib/images';
-const BASE = '/images/mungale/';
+const ROOT = '/images/mungale/';
+
+// Path resolves from the Img's own `base` — generated artwork sits at the
+// root, real photographs under real/. Callers never build paths.
+const src = (img: Img, ext: 'avif' | 'webp' | 'jpg') =>
+  `${ROOT}${img.base ? img.base + '/' : ''}${img.name}.${ext}`;
 
 type Props = {
   d: Img; m?: Img; alt: string;
   className?: string;       // on <picture> (give it the size / aspect-ratio)
   imgClassName?: string;    // e.g. "h-full w-full object-cover"
   priority?: boolean;       // true ONLY for the hero
+  sizes?: string;           // for real photos: keeps the browser from over-fetching
 };
 
-export function ArtImage({ d, m, alt, className, imgClassName, priority }: Props) {
+export function ArtImage({ d, m, alt, className, imgClassName, priority, sizes }: Props) {
   return (
     <picture className={className} style={{ display: 'block' }}>
-      {m && <source media="(max-width: 767px)" type="image/avif" srcSet={`${BASE}${m.name}.avif`} />}
-      {m && <source media="(max-width: 767px)" type="image/webp" srcSet={`${BASE}${m.name}.webp`} />}
-      <source type="image/avif" srcSet={`${BASE}${d.name}.avif`} />
-      <source type="image/webp" srcSet={`${BASE}${d.name}.webp`} />
+      {m && <source media="(max-width: 767px)" type="image/avif" srcSet={src(m, 'avif')} sizes={sizes} />}
+      {m && <source media="(max-width: 767px)" type="image/webp" srcSet={src(m, 'webp')} sizes={sizes} />}
+      <source type="image/avif" srcSet={src(d, 'avif')} sizes={sizes} />
+      <source type="image/webp" srcSet={src(d, 'webp')} sizes={sizes} />
       <img
-        src={`${BASE}${d.name}.jpg`} width={d.w} height={d.h} alt={alt}
+        src={src(d, 'jpg')} width={d.w} height={d.h} alt={alt}
         className={imgClassName} decoding="async"
         loading={priority ? 'eager' : 'lazy'}
-        fetchPriority={priority ? 'high' : 'auto'}
+        fetchPriority={priority ? 'high' : 'low'}
+        sizes={sizes}
       />
     </picture>
   );

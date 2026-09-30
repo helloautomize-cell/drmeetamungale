@@ -58,13 +58,16 @@ const SPECIALTIES = [
 
 function SpecialtyCard({ s }: { s: (typeof SPECIALTIES)[number] }) {
   return (
-    <article className="group flex w-[82vw] shrink-0 snap-center flex-col overflow-hidden rounded-[20px] border border-line bg-paper md:w-auto">
-      <div className="aspect-[4/5] overflow-hidden">
+    <article className="group flex h-full w-[82vw] shrink-0 snap-center flex-col overflow-hidden rounded-[20px] border border-line bg-paper md:w-auto">
+      {/* 3:2 bottom-anchored crop — the artwork's subject sits ~83% down
+          the source, so a full 4:5 frame reads as empty grey (bug 5 fix
+          for the image, plus equal-height cards below). */}
+      <div className="aspect-[3/2] overflow-hidden">
         <ArtImage
           d={s.img}
           alt={s.alt}
           className="h-full w-full"
-          imgClassName="h-full w-full object-cover object-[50%_68%] transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
+          imgClassName="h-full w-full object-cover object-[50%_100%] transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
         />
       </div>
       <div className="flex flex-1 flex-col p-6">
@@ -77,11 +80,13 @@ function SpecialtyCard({ s }: { s: (typeof SPECIALTIES)[number] }) {
         <p className="mt-2 text-[14.5px] leading-relaxed text-ink-soft">
           {s.description}
         </p>
-        <ul className="mt-4 flex flex-wrap gap-2" aria-label="What we treat">
+        {/* Tags — tighter pills so three sit on one or two tidy rows;
+            Explore is pinned to the card's bottom via mt-auto. */}
+        <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="What we treat">
           {s.tags.map((t) => (
             <li
               key={t}
-              className="rounded-full bg-porcelain px-3 py-1 text-[12px] font-medium text-ink-soft ring-1 ring-line"
+              className="whitespace-nowrap rounded-full bg-porcelain px-2.5 py-[3px] text-[11.5px] font-medium text-ink-soft ring-1 ring-line"
             >
               {t}
             </li>
@@ -89,7 +94,7 @@ function SpecialtyCard({ s }: { s: (typeof SPECIALTIES)[number] }) {
         </ul>
         <Link
           href={"/treatments/" + s.slug + "/"}
-          className="cta-quiet group/link mt-5 inline-flex w-fit items-center gap-2 text-[15px] font-semibold text-ink"
+          className="cta-quiet group/link mt-auto pt-5 inline-flex w-fit items-center gap-2 text-[15px] font-semibold text-ink"
         >
           <span className="cta-quiet-text">Explore</span>
           <ArrowRight
@@ -140,7 +145,7 @@ export function SpecialtiesShowcase() {
       {/* Cards — 4-col ≥1280px, 2×2 md–xl, snap-scroll row on mobile. */}
       <div className="mx-auto max-w-site px-6 pb-[88px] lg:px-gutter lg:pb-24">
         <Reveal>
-          <div className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 no-scrollbar md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 xl:grid-cols-4">
+          <div className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 no-scrollbar md:mx-0 md:grid md:grid-cols-2 md:items-stretch md:overflow-visible md:px-0 xl:grid-cols-4">
             {SPECIALTIES.map((s) => (
               <SpecialtyCard key={s.slug} s={s} />
             ))}

@@ -9,14 +9,21 @@ import { DoctorsStory } from "@/components/sections/DoctorsStory";
 import { Reviews } from "@/components/sections/Reviews";
 import { HealthInsights } from "@/components/sections/HealthInsights";
 import { LocationBlock } from "@/components/sections/LocationBlock";
+import { InsideMungale } from "@/components/sections/InsideMungale";
+import { TeamBand } from "@/components/sections/TeamBand";
 import { siteConfig } from "@/content/site";
 
-// Home page — section composition per docs/SECTION_MAP.md Part 2.
-// Built one section per Phase 4 task (4.1–4.12), master-prompt order.
+// Home page — human-touch order. Rhythm: dark hero → photo band → light
+// (symptoms) → dark (why) → light (specialties) → light (journey) → light
+// (doctors) → photo/team → light (stories) → light (insights) → strip →
+// visit → red CTA → dark footer. Team sits between Doctors and Stories
+// (not before Visit as briefed) so the big photo breaks three consecutive
+// light text sections and reads "the people → their patients' words".
 export default function HomePage() {
   return (
     <>
       <Hero />
+      <InsideMungale />
       <CareDiscovery />
       <TrustPillars />
       <SpecialtiesShowcase />
@@ -25,6 +32,7 @@ export default function HomePage() {
           See docs/CONTENT_GAPS.md. */}
       <PatientJourney />
       <DoctorsStory />
+      <TeamBand />
       <Reviews />
       <HealthInsights />
       {/* Practical assurance strip (UI/UX audit): emergency line +

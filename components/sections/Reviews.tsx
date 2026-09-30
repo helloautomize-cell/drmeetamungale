@@ -6,24 +6,20 @@ import { Reveal } from "@/components/ui/motion";
 import { GoogleBadge } from "@/components/icons/duotone";
 import { reviews, type Review } from "@/content/reviews";
 
-// ─── Patient Stories — editorial review experience (owner rebuild) ───
-// Replaces the widget-style pills + slider: story-driven composition where
-// real patient words carry the section. Data honesty (established rules,
-// kept verbatim):
-// - Reviews VERBATIM from content/reviews.ts (original languages, names as
-//   published). Excerpts truncate with "…" + inline expand — never rewritten.
-// - Category tags ONLY where review text supports them: Cataract Surgery
-//   (Priti, Sjju), Corneal Treatments (Dhruv), Glaucoma Treatments AREA tag
-//   (Odhavji — recommends for glaucoma, names no procedure). Pankaj/Kishor
-//   are untagged and appear under All with no metadata line.
-// - Location ONLY where stated (Dahod — Dhruv). All ratings are 5-star per
-//   source data. NO aggregate score (Google's own aggregate is not publicly
-//   retrievable; third-party scores conflict) — the trust line shows only
-//   verifiable facts. NO review URLs exist, so "Read full review" expands
-//   inline; "Read on Google / More stories" use a real Google search URL
-//   (never a fabricated link). The old Trustindex plugin sentence is retired
-//   from the UI per owner instruction.
-// - Counts are real: progress reads 01/06, 01/02, 01/01 from data lengths.
+// ─── Patient Stories — focus carousel (Pattern A, human-touch pass) ─────
+// One paper card sits centred and fully legible; its neighbours sit at
+// scale(.92) / opacity .45 / rotateY(±4deg), partly visible either side.
+// Base is CSS scroll-snap (works with JS off — all cards render at full
+// opacity, see globals.css `.focus-track`), enhanced with:
+//   • active-card detection via IntersectionObserver on the track,
+//   • arrow buttons + pill indicator (wide = active),
+//   • ←/→ keyboard on the track, native swipe on touch,
+//   • aria-live="polite" announcing the active reviewer.
+// Transition 450ms cubic-bezier(.22,1,.36,1); no autoplay.
+// Data honesty unchanged: reviews VERBATIM from content/reviews.ts, tags
+// only where the text supports them, real counts, Google search link only
+// (no fabricated review URLs). Lead quote sized clamp(1.375rem,1.9vw,
+// 1.875rem) in the serif (bug 8).
 type Category = "All" | "Cataract" | "Cornea" | "Glaucoma";
 
 const categories: { id: Category; label: string }[] = [
@@ -73,28 +69,18 @@ function SmallStars() {
   );
 }
 
-function Identity({ name, large = false }: { name: string; large?: boolean }) {
+function Identity({ name }: { name: string }) {
   const initial = name.trim().charAt(0).toUpperCase();
   return (
     <div className="flex items-center gap-3">
       <span
         aria-hidden="true"
-        className={
-          "rounded-full bg-primary/10 text-primary-fixed font-bold flex items-center justify-center shrink-0 " +
-          (large ? "w-11 h-11 text-[17px]" : "w-9 h-9 text-[14px]")
-        }
+        className="w-10 h-10 rounded-full bg-primary/10 text-primary-fixed font-bold text-[15px] flex items-center justify-center shrink-0"
       >
         {initial}
       </span>
       <div className="min-w-0">
-        <p
-          className={
-            "text-on-surface font-semibold truncate " +
-            (large ? "text-[16px]" : "text-[14.5px]")
-          }
-        >
-          {name}
-        </p>
+        <p className="text-[15px] font-semibold text-on-surface truncate">{name}</p>
         <SmallStars />
       </div>
     </div>
@@ -106,7 +92,7 @@ function Meta({ review }: { review: Review }) {
   const loc = locationOf[review.reviewerName] ?? null;
   if (!tag && !loc) return null;
   return (
-    <p className="mt-3 text-[11.5px] font-semibold uppercase tracking-[0.16em] text-on-surface-variant">
+    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-on-surface-variant">
       {tag ? tagLabel[tag] : ""}
       {tag && loc ? " · " : ""}
       {loc ?? ""}
@@ -119,9 +105,7 @@ function GoogleTrust() {
     <div>
       <div className="flex items-center gap-2.5">
         <GoogleBadge className="w-5 h-5" />
-        <p className="text-[13px] font-semibold text-on-surface">
-          Google Reviews
-        </p>
+        <p className="text-[13px] font-semibold text-on-surface">Google Reviews</p>
         <SmallStars />
       </div>
       <p className="mt-2 text-[13.5px] leading-relaxed text-on-surface-variant">
@@ -143,19 +127,21 @@ function GoogleTrust() {
   );
 }
 
-function Featured({ review }: { review: Review }) {
+function StoryCard({ review, active }: { review: Review; active: boolean }) {
   const [expanded, setExpanded] = React.useState(false);
   const { short, truncated } = excerptOf(review.text);
   return (
-    <article key={review.reviewerName}>
-      {/* Decorative quote mark — 48px, 16px gap (quiet-luxury tighten). */}
+    <article
+      className="focus-card flex h-full flex-col rounded-[20px] bg-paper p-7 lg:p-9 ring-1 ring-secondary/[0.06] shadow-[0_12px_40px_-16px_rgba(14,17,22,0.18)]"
+      aria-hidden={!active}
+    >
       <span
         aria-hidden="true"
-        className="block font-display-hero leading-[0.6] text-primary/15 select-none text-[48px]"
+        className="block font-display-hero leading-[0.6] text-primary/20 select-none text-[48px]"
       >
         &ldquo;
       </span>
-      <blockquote className="mt-4 text-on-surface leading-[1.35] font-normal text-[clamp(1.5rem,2.2vw,2.25rem)] tracking-[-0.005em]">
+      <blockquote className="mt-4 font-display-hero text-on-surface leading-[1.35] text-[clamp(1.375rem,1.9vw,1.875rem)] tracking-[-0.005em]">
         {expanded || !truncated ? review.text : short}
       </blockquote>
       {truncated && (
@@ -163,7 +149,8 @@ function Featured({ review }: { review: Review }) {
           type="button"
           onClick={() => setExpanded((v) => !v)}
           aria-expanded={expanded}
-          className="mt-4 inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded group"
+          tabIndex={active ? 0 : -1}
+          className="mt-4 inline-flex items-center gap-1.5 text-[14px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded group w-fit"
         >
           <span className="cta-quiet-text">{expanded ? "Show less" : "Read full review"}</span>
           <ArrowRight
@@ -172,110 +159,97 @@ function Featured({ review }: { review: Review }) {
           />
         </button>
       )}
-      <div className="mt-6">
-        <Identity name={review.reviewerName} large />
+      <div className="mt-auto pt-7 flex flex-wrap items-end justify-between gap-3">
+        <Identity name={review.reviewerName} />
+        <Meta review={review} />
       </div>
-      <Meta review={review} />
     </article>
-  );
-}
-
-function Secondary({
-  review,
-  onSelect,
-}: {
-  review: Review;
-  onSelect: () => void;
-}) {
-  const { short } = excerptOf(review.text);
-  return (
-    <button
-      type="button"
-      onClick={onSelect}
-      className="group w-full text-left py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded-lg"
-      aria-label={"Read story from " + review.reviewerName}
-    >
-      <p className="text-[15px] leading-relaxed text-on-surface-variant group-hover:text-on-surface transition-colors duration-200 line-clamp-3">
-        &ldquo;{short}&rdquo;
-      </p>
-      <div className="mt-3 flex items-center justify-between gap-3">
-        <p className="text-[13.5px] font-semibold text-on-surface truncate">
-          {review.reviewerName}
-        </p>
-        <span className="flex items-center gap-1.5 shrink-0">
-          <span
-            aria-hidden="true"
-            className="block h-px w-6 bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-200 motion-reduce:transition-none"
-          />
-          <ArrowRight
-            aria-hidden="true"
-            className="w-4 h-4 text-primary -translate-x-1 group-hover:translate-x-0 transition-transform duration-200 motion-reduce:transition-none"
-          />
-        </span>
-      </div>
-    </button>
   );
 }
 
 export function Reviews() {
   const [cat, setCat] = React.useState<Category>("All");
-  const [idx, setIdx] = React.useState(0);
+  const [active, setActive] = React.useState(0);
+  const trackRef = React.useRef<HTMLDivElement>(null);
+  const slideRefs = React.useRef<(HTMLLIElement | null)[]>([]);
 
-  const filtered =
-    cat === "All" ? reviews : reviews.filter((r) => tagOf[r.reviewerName] === cat);
-  const featured = filtered[idx % filtered.length]!;
-  const pad = (n: number) => String(n).padStart(2, "0");
+  const filtered = React.useMemo(
+    () => (cat === "All" ? reviews : reviews.filter((r) => tagOf[r.reviewerName] === cat)),
+    [cat]
+  );
 
-  // Secondaries: same-category others first, then fill from all stories.
-  const others = [
-    ...filtered.filter((r) => r.reviewerName !== featured.reviewerName),
-    ...reviews.filter(
-      (r) =>
-        r.reviewerName !== featured.reviewerName &&
-        !filtered.some((f) => f.reviewerName === r.reviewerName)
-    ),
-  ].slice(0, 2);
+  // Active slide = the one whose centre is nearest the track centre.
+  React.useEffect(() => {
+    const track = trackRef.current;
+    if (!track || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            const i = Number((e.target as HTMLElement).dataset["index"]);
+            if (!Number.isNaN(i)) setActive(i);
+          }
+        }
+      },
+      // Centre band is 20% of track width; threshold must be 0 — a 640px
+      // slide can never be ≥50% inside a 288px band.
+      { root: track, rootMargin: "0px -40% 0px -40%", threshold: 0 }
+    );
+    slideRefs.current.forEach((el) => el && io.observe(el));
+    return () => io.disconnect();
+  }, [filtered]);
+
+  const goTo = React.useCallback((i: number) => {
+    const el = slideRefs.current[i];
+    el?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  }, []);
+
+  const step = (dir: 1 | -1) => {
+    const n = filtered.length;
+    goTo((active + dir + n) % n);
+  };
 
   const pick = (c: Category) => {
     setCat(c);
-    setIdx(0);
+    setActive(0);
+    requestAnimationFrame(() => trackRef.current?.scrollTo({ left: 0 }));
   };
-  const step = (dir: 1 | -1) =>
-    setIdx((v) => (v + dir + filtered.length) % filtered.length);
-  const jumpToReview = (name: string) => {
-    const i = reviews.findIndex((r) => r.reviewerName === name);
-    if (i >= 0) {
-      setCat("All");
-      setIdx(i);
-    }
+
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+    else if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+    else if (e.key === "Home") { e.preventDefault(); goTo(0); }
+    else if (e.key === "End") { e.preventDefault(); goTo(filtered.length - 1); }
   };
+
+  const pad = (n: number) => String(n).padStart(2, "0");
+  const current = filtered[active] ?? filtered[0]!;
 
   return (
-    <section className="bg-surface">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32 flex flex-col">
-        {/* 1 · Headline */}
-        <Reveal className="max-w-2xl order-1">
-          <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
-            Patient stories
-          </p>
-          <h2 className="mt-4 font-display-hero text-on-surface tracking-[-0.015em] leading-[1.05] text-[36px] sm:text-[44px] lg:text-[54px]">
-            What it feels like to be cared for here.
-          </h2>
-          <p className="mt-4 text-[17px] lg:text-[18px] leading-relaxed text-on-surface-variant">
-            Real experiences shared by Mungale patients.
-          </p>
-        </Reveal>
-
-        {/* 5 · Google credibility (mobile: right after header; desktop: rail) */}
-        <div className="order-2 lg:hidden mt-8">
-          <GoogleTrust />
+    <section className="bg-surface overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-24 lg:pt-32 pb-20 lg:pb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-end">
+          <Reveal className="lg:col-span-8 max-w-2xl">
+            <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
+              Patient stories
+            </p>
+            <h2 className="mt-4 font-display-hero text-on-surface tracking-[-0.015em] leading-[1.05] text-[36px] sm:text-[44px] lg:text-[54px]">
+              What it feels like to be cared for here.
+            </h2>
+            <p className="mt-4 text-[17px] lg:text-[18px] leading-relaxed text-on-surface-variant">
+              Real experiences shared by Mungale patients.
+            </p>
+          </Reveal>
+          <Reveal delay={0.08} className="lg:col-span-4">
+            <GoogleTrust />
+          </Reveal>
         </div>
 
-        {/* 6 · Category index — editorial text nav, scrollable on mobile */}
+        {/* Category index */}
         <div
           role="group"
           aria-label="Filter stories by treatment area"
-          className="order-3 mt-8 lg:mt-10 flex items-center gap-7 lg:gap-9 overflow-x-auto no-scrollbar"
+          className="mt-10 flex items-center gap-7 lg:gap-9 overflow-x-auto no-scrollbar"
         >
           {categories.map((c) => {
             const isActive = c.id === cat;
@@ -296,62 +270,86 @@ export function Reviews() {
             );
           })}
         </div>
+      </div>
 
-        {/* 2–4 · Featured + rail */}
-        <div className="order-4 mt-8 lg:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-          <div className="lg:col-span-8">
-            <div key={featured.reviewerName + cat} className="animate-story-in">
-              <Featured review={featured} />
-            </div>
-            {/* Featured navigation — minimal arrows + real count */}
-            <div className="mt-8 pt-6 border-t border-secondary/10 flex items-center justify-between">
-              <p className="text-[13px] font-bold tracking-[0.2em] text-on-surface-variant tabular-nums" aria-live="polite">
-                {pad((idx % filtered.length) + 1)} / {pad(filtered.length)}
-              </p>
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => step(-1)}
-                  aria-label="Previous story"
-                  className="w-11 h-11 inline-flex items-center justify-center text-on-surface/60 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded-full"
-                >
-                  <ArrowLeft className="w-[18px] h-[18px]" aria-hidden="true" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => step(1)}
-                  aria-label="Next story"
-                  className="w-11 h-11 inline-flex items-center justify-center text-on-surface/60 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded-full"
-                >
-                  <ArrowRight className="w-[18px] h-[18px]" aria-hidden="true" />
-                </button>
-              </div>
-            </div>
+      {/* Focus carousel — full-bleed track so neighbours peek at the edges */}
+      <div className="relative">
+        <div
+          ref={trackRef}
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Patient stories"
+          tabIndex={0}
+          onKeyDown={onKeyDown}
+          className="focus-track flex snap-x snap-mandatory gap-5 lg:gap-8 overflow-x-auto no-scrollbar px-[calc(50vw-min(320px,39vw))] pb-6 pt-2 focus-visible:outline-none"
+          style={{ perspective: "1200px" }}
+        >
+          {filtered.map((r, i) => {
+            const isActive = i === active;
+            return (
+              <li
+                key={r.reviewerName}
+                ref={(el) => {
+                  slideRefs.current[i] = el;
+                }}
+                data-index={i}
+                data-active={isActive || undefined}
+                className="focus-slide list-none w-[min(640px,78vw)] shrink-0 snap-center"
+                onClick={() => !isActive && goTo(i)}
+              >
+                <StoryCard review={r} active={isActive} />
+              </li>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-24 lg:pb-32">
+        {/* Controls — arrows, pill indicator, count */}
+        <div className="mt-2 flex items-center justify-between gap-6">
+          <p className="text-[13px] font-bold tracking-[0.2em] text-on-surface-variant tabular-nums">
+            {pad(active + 1)} / {pad(filtered.length)}
+          </p>
+          <div className="flex items-center gap-1.5" aria-hidden="true">
+            {filtered.map((r, i) => (
+              <button
+                key={r.reviewerName}
+                type="button"
+                tabIndex={-1}
+                onClick={() => goTo(i)}
+                className={
+                  "h-2 rounded-full transition-all duration-[450ms] ease-[cubic-bezier(.22,1,.36,1)] motion-reduce:transition-none " +
+                  (i === active ? "w-7 bg-primary" : "w-2 bg-on-surface/20 hover:bg-on-surface/40")
+                }
+              />
+            ))}
           </div>
-
-          <aside className="lg:col-span-4">
-            <div className="hidden lg:block">
-              <GoogleTrust />
-            </div>
-            <div className="mt-2 lg:mt-8 lg:pt-8 lg:border-t lg:border-secondary/10">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">
-                More from patients
-              </p>
-              <div className="divide-y divide-secondary/10">
-                {others.map((r) => (
-                  <Secondary
-                    key={r.reviewerName}
-                    review={r}
-                    onSelect={() => jumpToReview(r.reviewerName)}
-                  />
-                ))}
-              </div>
-            </div>
-          </aside>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => step(-1)}
+              aria-label="Previous story"
+              className="w-11 h-11 inline-flex items-center justify-center rounded-full ring-1 ring-secondary/15 text-on-surface/70 hover:text-primary hover:ring-primary/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+            >
+              <ArrowLeft className="w-[18px] h-[18px]" aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              onClick={() => step(1)}
+              aria-label="Next story"
+              className="w-11 h-11 inline-flex items-center justify-center rounded-full ring-1 ring-secondary/15 text-on-surface/70 hover:text-primary hover:ring-primary/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+            >
+              <ArrowRight className="w-[18px] h-[18px]" aria-hidden="true" />
+            </button>
+          </div>
         </div>
 
-        {/* Section end — quiet link to real Google results */}
-        <div className="order-5 mt-12 lg:mt-16">
+        {/* Screen-reader announcement of the active review */}
+        <p className="sr-only" aria-live="polite">
+          Story {active + 1} of {filtered.length}: {current.reviewerName}
+        </p>
+
+        <div className="mt-12 lg:mt-14">
           <a
             href={GOOGLE_SEARCH_URL}
             target="_blank"

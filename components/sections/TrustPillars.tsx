@@ -1,6 +1,6 @@
 import { ArtImage } from "@/components/ui/ArtImage";
 import { Reveal } from "@/components/ui/motion";
-import { IMG } from "@/lib/images";
+import { IMG, REAL, canShow } from "@/lib/images";
 
 // ─── Why Mungale (quiet-luxury reset, spec §5.4) — dark ink-navy band.
 // A generated lens artwork carries the header band and melts into navy;
@@ -105,6 +105,38 @@ export function TrustPillars() {
                         — {s.quoteBy}
                       </cite>
                     </blockquote>
+                  )}
+                  {/* Laser suite — facility/equipment imagery only, no
+                      outcome claim (NMC). CONSENT-GATED: the patient's
+                      eye is visible, so until consent is on file the
+                      slot shows a tight crop of the lens artwork. */}
+                  {s.index === "03" && (
+                    <figure className="mt-6">
+                      <div className="aspect-[4/5] max-h-[360px] lg:max-h-none overflow-hidden rounded-[20px] ring-1 ring-white/10">
+                        {canShow(REAL.theatre) ? (
+                          <ArtImage
+                            d={REAL.theatre.d}
+                            m={REAL.theatre.m}
+                            alt="Mungale Eye Hospital laser suite, guide lines projected during a procedure"
+                            sizes="(min-width: 1024px) 400px, 90vw"
+                            className="h-full w-full"
+                            imgClassName="h-full w-full object-cover object-[50%_60%]"
+                          />
+                        ) : (
+                          <ArtImage
+                            d={IMG.whyLens.d}
+                            m={IMG.whyLens.m}
+                            alt=""
+                            sizes="(min-width: 1024px) 400px, 90vw"
+                            className="h-full w-full"
+                            imgClassName="h-full w-full object-cover object-[70%_50%]"
+                          />
+                        )}
+                      </div>
+                      <figcaption className="mt-2.5 text-[12.5px] text-white/50">
+                        Our laser suite
+                      </figcaption>
+                    </figure>
                   )}
                 </div>
               </article>

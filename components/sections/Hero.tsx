@@ -25,7 +25,7 @@ export function Hero() {
     reviews.reduce((s, r) => s + r.rating, 0) / Math.max(reviews.length, 1);
 
   return (
-    <section className="relative bg-ink overflow-hidden -mt-[100px] lg:-mt-[136px]">
+    <section className="relative overflow-hidden -mt-[100px] lg:-mt-[136px] bg-[#111723]">
       {/* Preload the LCP artwork — React hoists these links into <head>. */}
       <link
         rel="preload" as="image" type="image/avif"
@@ -64,6 +64,19 @@ export function Hero() {
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,17,22,0.9)_0%,rgba(14,17,22,0.4)_55%,rgba(14,17,22,0)_80%)] md:bg-[linear-gradient(90deg,rgba(14,17,22,0.92)_0%,rgba(14,17,22,0.55)_42%,rgba(14,17,22,0)_68%)]"
+      />
+      {/* Top 140px darkening — keeps the iris's red arc from peeking out
+          behind the nav pill. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-[140px] bg-[linear-gradient(180deg,rgba(14,17,22,0.85)_0%,rgba(14,17,22,0)_100%)]"
+      />
+      {/* Bottom seam — 120px fade from the image into the section bg
+          (#111723 = the artwork's own bottom colour) so the 4% LCP shave
+          is invisible. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-[120px] bg-[linear-gradient(180deg,rgba(17,23,35,0)_0%,#111723_100%)]"
       />
 
       {/* Text — top-anchored on mobile (iris sits below), vertically
@@ -108,19 +121,24 @@ export function Hero() {
           {/* Doctor credibility — quiet two-line block on dark */}
           <div className="mt-7 flex items-center gap-3">
             <div className="flex -space-x-2.5">
+              {/* Avatars — tight face crops from the new real portraits.
+                  next/image resizes these (real photos are otherwise
+                  served pre-optimised via ArtImage). */}
               <Image
-                className="w-9 h-9 rounded-full object-cover ring-2 ring-ink"
-                src="/images/doctors/DrMeeta-2.webp"
+                className="w-9 h-9 rounded-full object-cover object-[50%_22%] ring-2 ring-ink"
+                src="/images/mungale/real/doctor-meeta-desk.jpg"
                 alt="Dr. Meeta Mungale, MS Ophthalmology, DNB"
-                width={36}
-                height={36}
+                width={72}
+                height={72}
+                sizes="36px"
               />
               <Image
-                className="w-9 h-9 rounded-full object-cover ring-2 ring-ink"
-                src="/images/doctors/Dr-Sachin.jpg"
+                className="w-9 h-9 rounded-full object-cover object-[50%_30%] ring-2 ring-ink"
+                src="/images/mungale/real/doctor-sachin-portrait.jpg"
                 alt="Dr. Sachin Mungale, MS Ophthalmology"
-                width={36}
-                height={36}
+                width={72}
+                height={72}
+                sizes="36px"
               />
             </div>
             <div>

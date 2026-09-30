@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/ui/motion";
 import { MapFacade } from "@/components/sections/MapFacade";
+import { ArtImage } from "@/components/ui/ArtImage";
+import { REAL } from "@/lib/images";
 import { siteConfig } from "@/content/site";
 
 // ─── Visit Mungale — "your visit starts here" (owner rebuild) ────────
@@ -113,6 +115,28 @@ export function LocationBlock() {
                   <ArrowUpRight aria-hidden="true" className="w-4 h-4" />
                 </Link>
               </div>
+            </Reveal>
+
+            {/* Thumbnail — the consultation room, captioned with the
+                floor/building so it doubles as a wayfinding cue.
+                TODO(photo wanted): building exterior / signage + reception
+                would replace this. */}
+            <Reveal delay={0.14}>
+              <figure className="mt-8 flex items-center gap-4">
+                <div className="h-[72px] w-[96px] shrink-0 overflow-hidden rounded-[12px] ring-1 ring-secondary/10">
+                  <ArtImage
+                    d={REAL.consultDesk.d}
+                    alt="Consultation room at Mungale Eye Hospital"
+                    sizes="96px"
+                    className="h-full w-full"
+                    imgClassName="h-full w-full object-cover object-[50%_40%]"
+                  />
+                </div>
+                <figcaption className="text-[13.5px] leading-snug text-on-surface-variant">
+                  2nd Floor, Vinraj Plaza
+                  <span className="block text-[12.5px] text-on-surface/50">opp. Government Press, Kothi Road</span>
+                </figcaption>
+              </figure>
             </Reveal>
           </div>
 

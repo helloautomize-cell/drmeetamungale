@@ -254,6 +254,43 @@ html.js .reveal.is-visible {
   }
 }
 
+/* ─── Focus carousel (Pattern A) ─────────────────────────────────────────
+   Base is scroll-snap. Neighbour styling only applies with JS on (html.js
+   — the active slide is marked by the island); without JS every card is
+   fully legible. Reduced motion: no transforms, no transition. */
+html.js .focus-slide {
+  transform: scale(0.92) rotateY(4deg);
+  opacity: 0.45;
+  transform-origin: center;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+html.js .focus-slide[data-active] ~ .focus-slide {
+  transform: scale(0.92) rotateY(-4deg);
+}
+html.js .focus-slide[data-active] {
+  transform: scale(1) rotateY(0);
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js .focus-slide {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ─── Map pin pulse (Visit facade) — CSS only, static under reduced motion. */
+@keyframes pin-pulse {
+  0% { transform: scale(0.6); opacity: 0.55; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pin-pulse {
+    animation: pin-pulse 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+}
+
 /* ─── Hero load — CSS keyframes replace motion/react (perf pass).
    Text block fades up once (700ms); image fades from 0.001 with a slow
    1.03→1 settle (1600ms). Reduced motion: static, end state. */
