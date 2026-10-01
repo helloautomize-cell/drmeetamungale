@@ -1,15 +1,20 @@
 import Link from "next/link";
+import { getTreatmentDetail } from "@/content/treatment-details";
+import { MedicalReviewByline } from "@/components/seo/MedicalReviewByline";
 
 // ─── TreatmentShell ────────────────────────────────────────────────────────
 // Shared child-page frame: warm paper, 1280px container, quiet breadcrumb
 // (Home / Treatments / Current). Sections compose inside.
 export function TreatmentShell({
   current,
+  slug,
   children,
 }: {
   current: string;
+  slug?: string;
   children: React.ReactNode;
 }) {
+  const detail = slug ? getTreatmentDetail(slug) : undefined;
   return (
     <div className="bg-background">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12 pt-2 lg:pt-4">
@@ -26,6 +31,7 @@ export function TreatmentShell({
             <span aria-current="page" className="text-on-surface">{current}</span>
           </p>
         </nav>
+        <MedicalReviewByline reviewedBy={detail?.reviewedBy} reviewedOn={detail?.reviewedOn} />
       </div>
       {children}
     </div>

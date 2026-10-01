@@ -212,7 +212,7 @@ export function TreatmentCorneaEval() {
   const overlapOk = Boolean(page.heroImage.overlapSrc && !failed.has(page.heroImage.overlapSrc!));
 
   return (
-    <TreatmentShell current={page.title}>
+    <TreatmentShell current={page.title} slug="cornea-evaluation">
       {/* ── Compact split hero ── */}
       <section className="overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12 pt-4 lg:pt-6 pb-10 lg:pb-14">

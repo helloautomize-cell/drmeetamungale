@@ -158,7 +158,7 @@ export function TreatmentOptical() {
   const verificationOk = Boolean(verificationImage && !failed.has(verificationImage.src));
 
   return (
-    <TreatmentShell current={page.title}>
+    <TreatmentShell current={page.title} slug="optical-contact-lenses">
       <section className="overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12 pt-4 lg:pt-6 pb-10 lg:pb-14">
           <div className={"grid gap-8 lg:gap-12 items-center w-full " + (heroOk ? "lg:grid-cols-2" : "max-w-3xl")}>

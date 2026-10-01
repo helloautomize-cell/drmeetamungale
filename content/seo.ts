@@ -23,6 +23,11 @@ const PHYSICIAN_CREDENTIALS: Record<string, string[]> = {
 };
 // Build date — stamped once at SSG build time.
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
+// reviewedBy keys in content files -> Physician @ids.
+const REVIEWER_PHYSICIAN_IDS: Record<string, string> = {
+  sachin: PHYSICIAN_IDS["dr-sachin-mungale"]!,
+  meeta: PHYSICIAN_IDS["dr-meeta-mungale"]!,
+};
 
 export function hospitalJsonLd() {
   return {
@@ -164,7 +169,7 @@ export function medicalWebPageJsonLd(slug: string) {
   const c = TREATMENT_CONDITIONS[slug];
   if (!d || !c) return null;
   const url = BASE + "/treatments/" + slug + "/";
-  return {
+  const page: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "MedicalWebPage",
     "@id": url + "#webpage",
@@ -181,6 +186,11 @@ export function medicalWebPageJsonLd(slug: string) {
       description: c.description,
     },
   };
+  if (d.reviewedBy && d.reviewedOn) {
+    page["reviewedBy"] = { "@id": REVIEWER_PHYSICIAN_IDS[d.reviewedBy] };
+    page["lastReviewed"] = d.reviewedOn;
+  }
+  return page;
 }
 
 export function blogPostingJsonLd(slug: string) {
@@ -209,6 +219,10 @@ export function blogPostingJsonLd(slug: string) {
     },
   };
   if (p.coverImage) payload["image"] = BASE + p.coverImage;
+  if (p.reviewedBy && p.reviewedOn) {
+    payload["reviewedBy"] = { "@id": REVIEWER_PHYSICIAN_IDS[p.reviewedBy] };
+    payload["lastReviewed"] = p.reviewedOn;
+  }
   return payload;
 }
 

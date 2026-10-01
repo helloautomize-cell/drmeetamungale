@@ -11,6 +11,9 @@ export interface BlogPostMeta {
   excerpt: string;
   readMinutes: number;
   topics: BlogTopic[];
+  // Set per post only after the named doctor has reviewed it.
+  reviewedBy?: "sachin" | "meeta";
+  reviewedOn?: string;
 }
 
 // All 31 posts — 26 live (slugs/titles/URLs VERBATIM from the WordPress

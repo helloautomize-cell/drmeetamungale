@@ -489,7 +489,7 @@ export function TreatmentCorneal() {
 
   return (
     <>
-      <TreatmentShell current={page.title}>
+      <TreatmentShell current={page.title} slug="corneal-treatments">
         {/* ── Hero: real clinical image, ~75vh, vertically centred ── */}
         <section className="overflow-hidden">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-12 pt-4 lg:pt-6 pb-10 lg:pb-14">

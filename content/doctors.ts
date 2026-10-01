@@ -37,3 +37,12 @@ export const doctors: Doctor[] = [
 export function getDoctorBySlug(slug: string): Doctor | undefined {
   return doctors.find((d) => d.slug === slug);
 }
+
+// Medical-review bylines — display strings only; a page shows the byline
+// when its content entry sets reviewedBy/reviewedOn (all unset for now).
+export type ReviewerKey = "sachin" | "meeta";
+
+export const medicalReviewers: Record<ReviewerKey, { name: string; credentials: string }> = {
+  sachin: { name: "Dr. Sachin Mungale", credentials: "MS (Ophthalmology)" },
+  meeta: { name: "Dr. Meeta Mungale", credentials: "MS (Ophthalmology), DNB" },
+};

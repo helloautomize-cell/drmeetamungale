@@ -8,6 +8,9 @@ export interface TreatmentDetail {
   title: string;
   intro: string;
   sections: TreatmentDetailSection[];
+  // Set per page only after the named doctor has reviewed it.
+  reviewedBy?: "sachin" | "meeta";
+  reviewedOn?: string;
 }
 
 // ─── 6.3 treatment detail bodies ────────────────────────────────────────
