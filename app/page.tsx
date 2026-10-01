@@ -32,6 +32,14 @@ export const metadata: Metadata = {
       "Cataract, cornea, glaucoma and optical care by specialist ophthalmologists in Kothi, Vadodara.",
     url: siteConfig.url,
     type: "website",
+    images: [
+      {
+        url: "/images/mungale/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name + " — eye hospital in Kothi, Vadodara",
+      },
+    ],
   },
 };
 

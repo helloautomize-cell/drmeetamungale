@@ -18,6 +18,7 @@ import {
   getTreatmentDetailSlugs,
 } from "@/content/treatment-details";
 import { procedureJsonLd, medicalWebPageJsonLd, breadcrumbJsonLd, canonical } from "@/content/seo";
+import { siteConfig } from "@/content/site";
 
 // ─── 6.3 /treatments/[slug]/ ×6 ─────────────────────────────────────────
 // Bodies VERBATIM from archive/content/pages/<slug>.md (equipment names kept
@@ -27,13 +28,34 @@ export function generateStaticParams() {
   return getTreatmentDetailSlugs().map((slug) => ({ slug }));
 }
 
+// Per-page OG images — specialty photography per service line.
+const TREATMENT_OG_IMAGES: Record<string, string> = {
+  "cataract-surgery": "/images/mungale/specialty-cataract.jpg",
+  "cornea-evaluation": "/images/mungale/specialty-cornea.jpg",
+  "corneal-treatments": "/images/mungale/specialty-cornea.jpg",
+  "glaucoma-evaluation": "/images/mungale/specialty-glaucoma.jpg",
+  "glaucoma-treatments": "/images/mungale/specialty-glaucoma.jpg",
+  "optical-contact-lenses": "/images/mungale/specialty-optical.jpg",
+};
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const detail = getTreatmentDetail((await params).slug);
   if (!detail) return { title: "Treatments" };
+  const ogImage = TREATMENT_OG_IMAGES[detail.slug];
   return {
     title: detail.title,
     description: detail.intro,
     alternates: { canonical: canonical("/treatments/" + detail.slug + "/") },
+    openGraph: ogImage
+      ? {
+          title: detail.title,
+          description: detail.intro,
+          url: canonical("/treatments/" + detail.slug + "/"),
+          siteName: siteConfig.name,
+          type: "website",
+          images: [{ url: ogImage, width: 1600, height: 2000, alt: detail.title }],
+        }
+      : undefined,
   };
 }
 
