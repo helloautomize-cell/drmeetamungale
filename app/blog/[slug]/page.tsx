@@ -93,7 +93,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return { title: "Blog" };
   return {
     title: post.title,
-    description: post.title,
+    description: post.excerpt,
     alternates: { canonical: canonical(post.url) },
   };
 }
