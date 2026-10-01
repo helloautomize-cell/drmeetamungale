@@ -13,6 +13,8 @@ import { LocationBlock } from "@/components/sections/LocationBlock";
 import { InsideMungale } from "@/components/sections/InsideMungale";
 import { TeamBand } from "@/components/sections/TeamBand";
 import { siteConfig } from "@/content/site";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { websiteJsonLd } from "@/content/seo";
 
 export const metadata: Metadata = {
   // Absolute title — the "%s | Mungale Eye Hospital" template would
@@ -42,6 +44,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={websiteJsonLd()} />
       <Hero />
       <InsideMungale />
       <CareDiscovery />

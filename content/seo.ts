@@ -3,6 +3,7 @@ import { doctors } from "@/content/doctors";
 import { treatments } from "@/content/treatments";
 import { faqs } from "@/content/faqs";
 import { blogPosts } from "@/content/blog";
+import { getTreatmentDetail } from "@/content/treatment-details";
 
 // ─── SEO structured-data builders ───────────────────────────────────────
 // Every value traces to verified source (site.ts, archive MDs, or the live
@@ -10,11 +11,24 @@ import { blogPosts } from "@/content/blog";
 // BlogPosting omits datePublished (REST exposes no dates).
 
 const BASE = siteConfig.url.replace(/\/$/, "");
+const CLINIC_ID = BASE + "/#clinic";
+const PHYSICIAN_IDS: Record<string, string> = {
+  "dr-sachin-mungale": BASE + "/about-us/#dr-sachin-mungale",
+  "dr-meeta-mungale": BASE + "/about-us/#dr-meeta-mungale",
+};
+// Degrees per doctor, verbatim from content/doctors.ts titles.
+const PHYSICIAN_CREDENTIALS: Record<string, string[]> = {
+  "dr-sachin-mungale": ["MS (Ophthalmology)"],
+  "dr-meeta-mungale": ["MS (Ophthalmology)", "DNB"],
+};
+// Build date — stamped once at SSG build time.
+const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
 export function hospitalJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "MedicalClinic",
+    "@type": ["MedicalClinic", "MedicalOrganization"],
+    "@id": CLINIC_ID,
     name: siteConfig.name,
     url: siteConfig.url,
     telephone: siteConfig.phone,
@@ -40,23 +54,49 @@ export function hospitalJsonLd() {
     image: BASE + "/images/mungale/og-default.jpg",
     logo: BASE + "/images/hero/httpsmungaleeyehospital-logo.svg",
     foundingDate: "2007",
+    founder: Object.values(PHYSICIAN_IDS).map((id) => ({ "@id": id })),
     areaServed: [
       { "@type": "City", name: "Vadodara" },
       { "@type": "State", name: "Gujarat" },
+      { "@type": "State", name: "Madhya Pradesh" },
+      { "@type": "State", name: "Rajasthan" },
     ],
     sameAs: [siteConfig.social.facebook, siteConfig.social.instagram, siteConfig.social.youtube],
   };
 }
 
-export function physiciansJsonLd() {
-  return doctors.map((d) => ({
+export function websiteJsonLd() {
+  return {
     "@context": "https://schema.org",
-    "@type": "Physician",
-    name: d.name,
-    medicalSpecialty: "Ophthalmologic",
-    description: d.title,
-    url: BASE + "/about-us/",
-  }));
+    "@type": "WebSite",
+    "@id": BASE + "/#website",
+    name: siteConfig.name,
+    url: BASE + "/",
+    inLanguage: "en-IN",
+    publisher: { "@id": CLINIC_ID },
+  };
+}
+
+export function physiciansJsonLd() {
+  return doctors.map((d) => {
+    const degrees = PHYSICIAN_CREDENTIALS[d.slug] ?? [];
+    return {
+      "@context": "https://schema.org",
+      "@type": "Physician",
+      "@id": PHYSICIAN_IDS[d.slug],
+      name: d.name,
+      honorificSuffix: degrees.join(", "),
+      hasCredential: degrees.map((degree) => ({
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "degree",
+        name: degree,
+      })),
+      medicalSpecialty: "Ophthalmology",
+      description: d.title,
+      url: BASE + "/about-us/",
+      worksFor: { "@id": CLINIC_ID },
+    };
+  });
 }
 
 export function procedureJsonLd(slug: string) {
@@ -83,14 +123,90 @@ export function faqJsonLd(items: { question: string; answer: string }[]) {
   };
 }
 
+// MedicalCondition per treatment page — name + description taken only
+// from that page's existing copy (treatment-details intro / treatments
+// card description).
+const TREATMENT_CONDITIONS: Record<string, { name: string; description: string }> = {
+  "cataract-surgery": {
+    name: "Cataract",
+    description:
+      "A clouding of the eye's natural lens, removed with phacoemulsification and replaced with a suitable intraocular lens.",
+  },
+  "cornea-evaluation": {
+    name: "Corneal conditions",
+    description:
+      "Cornea evaluation assesses corneal shape, thickness, and clarity, essential for diagnosing eye conditions.",
+  },
+  "corneal-treatments": {
+    name: "Corneal infections, injuries and conditions",
+    description:
+      "Corneal treatments address infections, injuries, or conditions through medication, surgeries, or specialized therapies.",
+  },
+  "glaucoma-evaluation": {
+    name: "Glaucoma",
+    description:
+      "Glaucoma evaluation measures eye pressure, optic nerve health, and visual field to detect vision loss.",
+  },
+  "glaucoma-treatments": {
+    name: "Glaucoma",
+    description:
+      "Glaucoma treatments include eye drops, oral medications, laser therapy, and surgical options to lower eye pressure.",
+  },
+  "optical-contact-lenses": {
+    name: "Refractive errors (myopia, hyperopia, astigmatism)",
+    description:
+      "Optical and contact lenses correct vision by refracting light, providing options for myopia, hyperopia, and astigmatism.",
+  },
+};
+
+export function medicalWebPageJsonLd(slug: string) {
+  const d = getTreatmentDetail(slug);
+  const c = TREATMENT_CONDITIONS[slug];
+  if (!d || !c) return null;
+  const url = BASE + "/treatments/" + slug + "/";
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "@id": url + "#webpage",
+    url,
+    name: d.title,
+    description: d.intro,
+    inLanguage: "en-IN",
+    specialty: "Ophthalmology",
+    lastReviewed: BUILD_DATE,
+    mainEntityOfPage: url,
+    about: {
+      "@type": "MedicalCondition",
+      name: c.name,
+      description: c.description,
+    },
+  };
+}
+
 export function blogPostingJsonLd(slug: string) {
   const p = blogPosts.find((x) => x.slug === slug);
   if (!p) return null;
+  const url = BASE + p.url;
   const payload: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: p.title,
-    url: BASE + p.url,
+    description: p.excerpt,
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    inLanguage: "en-IN",
+    datePublished: p.date,
+    dateModified: p.date,
+    author: { "@type": "Organization", "@id": CLINIC_ID, name: siteConfig.name },
+    publisher: {
+      "@type": "Organization",
+      "@id": CLINIC_ID,
+      name: siteConfig.name,
+      logo: {
+        "@type": "ImageObject",
+        url: BASE + "/images/hero/httpsmungaleeyehospital-logo.svg",
+      },
+    },
   };
   if (p.coverImage) payload["image"] = BASE + p.coverImage;
   return payload;

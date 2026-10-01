@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ComponentType } from "react";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/sections/PageHero";
 import { ContentSection } from "@/components/sections/ContentSection";
@@ -16,7 +17,7 @@ import {
   getTreatmentDetail,
   getTreatmentDetailSlugs,
 } from "@/content/treatment-details";
-import { procedureJsonLd, breadcrumbJsonLd, canonical } from "@/content/seo";
+import { procedureJsonLd, medicalWebPageJsonLd, breadcrumbJsonLd, canonical } from "@/content/seo";
 
 // ─── 6.3 /treatments/[slug]/ ×6 ─────────────────────────────────────────
 // Bodies VERBATIM from archive/content/pages/<slug>.md (equipment names kept
@@ -36,30 +37,34 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+const TREATMENT_COMPONENTS: Record<string, ComponentType> = {
+  "corneal-treatments": TreatmentCorneal,
+  "cornea-evaluation": TreatmentCorneaEval,
+  "glaucoma-treatments": TreatmentGlaucomaTreatments,
+  "cataract-surgery": TreatmentCataract,
+  "optical-contact-lenses": TreatmentOptical,
+  "glaucoma-evaluation": TreatmentGlaucomaEval,
+};
+
 export default async function TreatmentDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const slug = (await params).slug;
-  // Rebuilt compositions (step-by-step rollout): corneal + eval live;
-  // remaining siblings keep the existing template until their step.
-  if (slug === "corneal-treatments") {
-    return <TreatmentCorneal />;
-  }
-  if (slug === "cornea-evaluation") {
-    return <TreatmentCorneaEval />;
-  }
-  if (slug === "glaucoma-treatments") {
-    return <TreatmentGlaucomaTreatments />;
-  }
-  if (slug === "cataract-surgery") {
-    return <TreatmentCataract />;
-  }
-  if (slug === "optical-contact-lenses") {
-    return <TreatmentOptical />;
-  }
-  if (slug === "glaucoma-evaluation") {
-    return <TreatmentGlaucomaEval />;
-  }
   const detail = getTreatmentDetail(slug);
   if (!detail) notFound();
+  const crumbs = [
+    { label: "Home", href: "/" },
+    { label: "Treatments", href: "/treatments/" },
+    { label: detail.title, href: "/treatments/" + detail.slug + "/" },
+  ];
+  const Custom = TREATMENT_COMPONENTS[slug];
+  if (Custom) {
+    return (
+      <>
+        <JsonLd data={medicalWebPageJsonLd(slug)} />
+        <JsonLd data={breadcrumbJsonLd(crumbs)} />
+        <Custom />
+      </>
+    );
+  }
 
   return (
     <>
