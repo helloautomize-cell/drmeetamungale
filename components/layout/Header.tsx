@@ -421,7 +421,12 @@ export function Header() {
             </div>
           </div>
         </div>
-        <MobileNavDrawer isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
+        <MobileNavDrawer
+          isOpen={mobileOpen}
+          onClose={() => setMobileOpen(false)}
+          textSizeLarge={large}
+          onToggleTextSize={toggle}
+        />
       </header>
       {/* Flow spacer — fixed strip (36px desktop) + pill preserve page
           layout (hero and everything below shift nothing). */}

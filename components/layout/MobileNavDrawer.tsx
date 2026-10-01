@@ -11,9 +11,11 @@ import { siteConfig } from "@/content/site";
 interface MobileNavDrawerProps {
   isOpen: boolean;
   onClose: () => void;
+  textSizeLarge: boolean;
+  onToggleTextSize: () => void;
 }
 
-export function MobileNavDrawer({ isOpen, onClose }: MobileNavDrawerProps) {
+export function MobileNavDrawer({ isOpen, onClose, textSizeLarge, onToggleTextSize }: MobileNavDrawerProps) {
   const closeRef = React.useRef<HTMLButtonElement>(null);
 
   React.useEffect(() => {
@@ -132,6 +134,26 @@ export function MobileNavDrawer({ isOpen, onClose }: MobileNavDrawerProps) {
             <p className="mt-2 text-[14px] text-on-surface-variant">
               {siteConfig.hours.time} · {siteConfig.hours.sunday}
             </p>
+          </div>
+
+          {/* Text size — same control as the desktop utility strip,
+              sharing its state and localStorage key */}
+          <div className="mt-6 pt-6 border-t border-secondary/10 flex items-center justify-between">
+            <p className="font-label-sm text-label-sm uppercase tracking-[0.18em] text-primary-fixed font-semibold">
+              Text size
+            </p>
+            <button
+              type="button"
+              onClick={onToggleTextSize}
+              aria-pressed={textSizeLarge}
+              aria-label="Toggle larger text"
+              className="flex min-h-[44px] items-baseline gap-1 px-2 rounded text-on-surface-variant hover:text-on-surface transition-colors"
+            >
+              <span className="text-[13px] leading-none">A</span>
+              <span className={"text-[16px] font-bold leading-none " + (textSizeLarge ? "text-primary-fixed" : "")}>
+                A+
+              </span>
+            </button>
           </div>
         </nav>
 
