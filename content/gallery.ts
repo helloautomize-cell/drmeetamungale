@@ -1,3 +1,5 @@
+import { SHOW_BEFORE_AFTER } from "@/lib/site-config";
+
 // ─── Gallery data (/gallery/) ─────────────────────────────────────────────
 // SOURCE OF TRUTH: live WordPress gallery page ID 4352, read via WPVibe/REST.
 // 22/22 images mirrored to /images/gallery/ with INTRINSIC dimensions from
@@ -28,7 +30,7 @@ export interface GalleryPhoto {
 
 const G = "/images/gallery/";
 
-export const galleryPhotos: GalleryPhoto[] = [
+const allGalleryPhotos: GalleryPhoto[] = [
   { src: G + "IMG_2179-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
   { src: G + "IMG_2131-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
   { src: G + "IMG_2098-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
@@ -92,10 +94,21 @@ export const galleryPrograms: string[] = [
   "MEH proud Organiser of CME for Women Ophthalmologists of Vadodara",
 ];
 
+// Before/after result photographs are hidden while SHOW_BEFORE_AFTER is
+// false — they are the whole "clinical" group today.
+const isBeforeAfter = (p: GalleryPhoto) =>
+  p.group === "clinical" && /before/i.test(p.caption ?? p.alt);
+
+export const galleryPhotos: GalleryPhoto[] = allGalleryPhotos.filter(
+  (p) => SHOW_BEFORE_AFTER || !isBeforeAfter(p)
+);
+
 export type GalleryFilter = "all" | GalleryGroup;
 
 export const galleryFilters: { id: GalleryFilter; label: string }[] = [
   { id: "all", label: "All" },
   { id: "moments", label: "Moments" },
-  { id: "clinical", label: "Clinical" },
+  ...(galleryPhotos.some((p) => p.group === "clinical")
+    ? [{ id: "clinical" as const, label: "Clinical" }]
+    : []),
 ];

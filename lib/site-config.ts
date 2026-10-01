@@ -15,3 +15,13 @@
  * consents are archived. Nothing else needs to change.
  */
 export const PATIENT_PHOTO_CONSENT_CONFIRMED = false;
+
+/**
+ * BEFORE/AFTER RESULTS GATE
+ *
+ * The five before-and-after result photographs in /gallery/ (ocular
+ * tattooing, DSEK, pterygium, DALK, PK) stay hidden while `false`,
+ * pending the doctors' approval to publish outcome imagery.
+ * Flip to `true` once they approve; nothing else needs to change.
+ */
+export const SHOW_BEFORE_AFTER = false;

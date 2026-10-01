@@ -9,6 +9,7 @@ import {
   type GalleryPhoto,
 } from "@/content/gallery";
 import { ClinicalLightbox, type ClinicalImage } from "@/components/sections/ClinicalLightbox";
+import { ClinicalPhoto } from "@/components/ui/ClinicalPhoto";
 
 // ─── MasonryGallery ────────────────────────────────────────────────────────
 // Photo-journal masonry: true CSS columns, NATURAL intrinsic ratios
@@ -97,35 +98,53 @@ export function MasonryGallery() {
         </p>
       ) : (
         <div className="mt-8 columns-2 md:columns-3 xl:columns-4 gap-5 [column-fill:_balance]">
-          {shown.map((p, i) => (
-            <button
-              key={p.src}
-              type="button"
-              onClick={() => openAt(p.src)}
-              aria-label={"Open photograph in viewer" + (p.caption ? ": " + p.caption : "")}
-              className="group relative mb-5 block w-full break-inside-avoid overflow-hidden rounded-[10px] bg-surface-canvas text-left"
-            >
-              <Image
-                src={p.src}
-                alt={p.alt}
-                width={p.width}
-                height={p.height}
-                sizes="(min-width: 1280px) 22vw, (min-width: 768px) 30vw, 44vw"
-                loading={i < 4 ? "eager" : "lazy"}
-                onError={() => markFailed(p.src)}
-                className="w-full h-auto object-contain transition-transform duration-500 motion-reduce:transition-none group-hover:scale-[1.015]"
-              />
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between px-3.5 pb-3 pt-10 bg-gradient-to-t from-secondary/55 to-transparent opacity-0 transition-opacity duration-300 motion-reduce:transition-none group-hover:opacity-100 group-focus-visible:opacity-100"
-              >
-                <span className="text-[12px] font-semibold uppercase tracking-[0.12em] text-white">
-                  {p.group === "clinical" ? "Clinical" : "Moments"}
+          {shown.map((p, i) => {
+            const tile = (
+              <>
+                <Image
+                  src={p.src}
+                  alt={p.alt}
+                  width={p.width}
+                  height={p.height}
+                  sizes="(min-width: 1280px) 22vw, (min-width: 768px) 30vw, 44vw"
+                  loading={i < 4 ? "eager" : "lazy"}
+                  onError={() => markFailed(p.src)}
+                  className="w-full h-auto object-contain transition-transform duration-500 motion-reduce:transition-none group-hover:scale-[1.015]"
+                />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between px-3.5 pb-3 pt-10 bg-gradient-to-t from-secondary/55 to-transparent opacity-0 transition-opacity duration-300 motion-reduce:transition-none group-hover:opacity-100 group-focus-visible:opacity-100"
+                >
+                  <span className="text-[12px] font-semibold uppercase tracking-[0.12em] text-white">
+                    {p.group === "clinical" ? "Clinical" : "Moments"}
+                  </span>
+                  <span className="text-white text-[16px]">↗</span>
                 </span>
-                <span className="text-white text-[16px]">↗</span>
-              </span>
-            </button>
-          ))}
+              </>
+            );
+            const frame =
+              "group relative mb-5 block w-full break-inside-avoid overflow-hidden rounded-[10px] bg-surface-canvas text-left";
+            return p.group === "clinical" ? (
+              <ClinicalPhoto
+                key={p.src}
+                frame={frame}
+                onView={() => openAt(p.src)}
+                viewLabel={"Open photograph in viewer" + (p.caption ? ": " + p.caption : "")}
+              >
+                {tile}
+              </ClinicalPhoto>
+            ) : (
+              <button
+                key={p.src}
+                type="button"
+                onClick={() => openAt(p.src)}
+                aria-label={"Open photograph in viewer" + (p.caption ? ": " + p.caption : "")}
+                className={frame}
+              >
+                {tile}
+              </button>
+            );
+          })}
         </div>
       )}
 

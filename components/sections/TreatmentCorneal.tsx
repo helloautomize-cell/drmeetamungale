@@ -7,6 +7,7 @@ import { TreatmentSelectorBar, TreatmentRail, treatmentNavOrder } from "@/compon
 import { ClinicalAccordion } from "@/components/sections/ClinicalAccordion";
 import { ClinicalLightbox, type ClinicalImage } from "@/components/sections/ClinicalLightbox";
 import { SafeImage } from "@/components/sections/SafeImage";
+import { ClinicalPhoto, isClinicalPhoto } from "@/components/ui/ClinicalPhoto";
 import {
   getTreatmentPage,
   pageDetails,
@@ -62,16 +63,19 @@ function ChapterMedia({
   const cls = section.contain
     ? "w-full " + aspect + " object-contain bg-white"
     : "w-full " + aspect + " object-cover";
+  const media = (
+    <SafeImage
+      src={img.src}
+      alt={img.alt}
+      sizes={sizes}
+      className={cls}
+      onFail={onFail}
+    />
+  );
   return (
     <figure>
       <div className="overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
-        <SafeImage
-          src={img.src}
-          alt={img.alt}
-          sizes={sizes}
-          className={cls}
-          onFail={onFail}
-        />
+        {isClinicalPhoto(img) ? <ClinicalPhoto>{media}</ClinicalPhoto> : media}
       </div>
       <Caption text={img.caption} />
     </figure>
@@ -166,15 +170,29 @@ function LargeChapter({
         <Reveal>
           <figure className="mt-8">
             <div className="overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
-              <SafeImage
-                src={section.image!.src}
-                alt={section.image!.alt}
-                width={1200}
-                height={570}
-                sizes="(min-width: 1024px) 75vw, 90vw"
-                className="w-full aspect-[21/10] object-cover"
-                onFail={onFail}
-              />
+              {isClinicalPhoto(section.image!) ? (
+                <ClinicalPhoto>
+                  <SafeImage
+                    src={section.image!.src}
+                    alt={section.image!.alt}
+                    width={1200}
+                    height={570}
+                    sizes="(min-width: 1024px) 75vw, 90vw"
+                    className="w-full aspect-[21/10] object-cover"
+                    onFail={onFail}
+                  />
+                </ClinicalPhoto>
+              ) : (
+                <SafeImage
+                  src={section.image!.src}
+                  alt={section.image!.alt}
+                  width={1200}
+                  height={570}
+                  sizes="(min-width: 1024px) 75vw, 90vw"
+                  className="w-full aspect-[21/10] object-cover"
+                  onFail={onFail}
+                />
+              )}
             </div>
             <Caption text={section.image!.caption} />
           </figure>
@@ -248,15 +266,29 @@ function TextLedChapter({
               {live.map((s) => (
                 <figure key={s.src}>
                   <div className="overflow-hidden rounded-[14px] ring-1 ring-secondary/10">
-                    <SafeImage
-                      src={s.src}
-                      alt={s.alt}
-                      width={300}
-                      height={300}
-                      sizes="(min-width: 1024px) 12vw, 28vw"
-                      className="w-full aspect-square object-cover"
-                      onFail={onFail}
-                    />
+                    {isClinicalPhoto(s) ? (
+                      <ClinicalPhoto>
+                        <SafeImage
+                          src={s.src}
+                          alt={s.alt}
+                          width={300}
+                          height={300}
+                          sizes="(min-width: 1024px) 12vw, 28vw"
+                          className="w-full aspect-square object-cover"
+                          onFail={onFail}
+                        />
+                      </ClinicalPhoto>
+                    ) : (
+                      <SafeImage
+                        src={s.src}
+                        alt={s.alt}
+                        width={300}
+                        height={300}
+                        sizes="(min-width: 1024px) 12vw, 28vw"
+                        className="w-full aspect-square object-cover"
+                        onFail={onFail}
+                      />
+                    )}
                   </div>
                   <Caption text={s.caption} />
                 </figure>
@@ -353,25 +385,39 @@ function Gallery() {
               }
             >
               <Reveal delay={Math.min(i * 0.04, 0.2)}>
-                <button
-                  type="button"
-                  onClick={() => openAt(img.src)}
-                  aria-label={"Open image in viewer: " + img.caption}
-                  className="block w-full overflow-hidden rounded-[16px] ring-1 ring-secondary/10"
-                >
-                  <SafeImage
-                    src={img.src}
-                    alt={img.alt}
-                    width={600}
-                    height={600}
-                    sizes="(min-width: 1024px) 25vw, 44vw"
-                    className={
-                      "w-full object-cover transition-transform duration-700 motion-reduce:transition-none hover:scale-[1.03] " +
-                      (!expanded && (i % 4 === 0 || i % 4 === 3) ? "aspect-[16/10]" : "aspect-square")
-                    }
-                    onFail={markFailed}
-                  />
-                </button>
+                {(() => {
+                  const tile = (
+                    <SafeImage
+                      src={img.src}
+                      alt={img.alt}
+                      width={600}
+                      height={600}
+                      sizes="(min-width: 1024px) 25vw, 44vw"
+                      className={
+                        "w-full object-cover transition-transform duration-700 motion-reduce:transition-none hover:scale-[1.03] " +
+                        (!expanded && (i % 4 === 0 || i % 4 === 3) ? "aspect-[16/10]" : "aspect-square")
+                      }
+                      onFail={markFailed}
+                    />
+                  );
+                  return isClinicalPhoto(img) ? (
+                    <ClinicalPhoto
+                      onView={() => openAt(img.src)}
+                      viewLabel={"Open image in viewer: " + img.caption}
+                    >
+                      {tile}
+                    </ClinicalPhoto>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => openAt(img.src)}
+                      aria-label={"Open image in viewer: " + img.caption}
+                      className="block w-full overflow-hidden rounded-[16px] ring-1 ring-secondary/10"
+                    >
+                      {tile}
+                    </button>
+                  );
+                })()}
                 <Caption text={img.caption} />
               </Reveal>
             </div>
@@ -526,16 +572,31 @@ export function TreatmentCorneal() {
               {heroOk && (
                 <Reveal delay={0.1}>
                   <div className="overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
-                    <SafeImage
-                      src={page.heroImage.src}
-                      alt={page.heroImage.alt}
-                      width={800}
-                      height={1000}
-                      sizes="(min-width: 1024px) 44vw, 90vw"
-                      className="w-full h-[300px] sm:h-[400px] lg:h-[400px] object-cover"
-                      onFail={markFailed}
-                      eager
-                    />
+                    {isClinicalPhoto(page.heroImage) ? (
+                      <ClinicalPhoto>
+                        <SafeImage
+                          src={page.heroImage.src}
+                          alt={page.heroImage.alt}
+                          width={800}
+                          height={1000}
+                          sizes="(min-width: 1024px) 44vw, 90vw"
+                          className="w-full h-[300px] sm:h-[400px] lg:h-[400px] object-cover"
+                          onFail={markFailed}
+                          eager
+                        />
+                      </ClinicalPhoto>
+                    ) : (
+                      <SafeImage
+                        src={page.heroImage.src}
+                        alt={page.heroImage.alt}
+                        width={800}
+                        height={1000}
+                        sizes="(min-width: 1024px) 44vw, 90vw"
+                        className="w-full h-[300px] sm:h-[400px] lg:h-[400px] object-cover"
+                        onFail={markFailed}
+                        eager
+                      />
+                    )}
                   </div>
                   <div className="mt-3 flex items-baseline justify-between">
                     <Caption text={page.heroImage.caption} />
