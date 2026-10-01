@@ -8,12 +8,12 @@ import { RevealNow } from "@/components/ui/motion";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Understand your eyes — clear, practical eye-health guidance from Mungale Eye Hospital, Vadodara. Search 26 articles on cataract, glaucoma, cornea and everyday eye care.",
+    "Understand your eyes — clear, practical eye-health guidance from Mungale Eye Hospital, Vadodara. Search 36 articles on cataract, glaucoma, cornea and everyday eye care.",
   alternates: { canonical: canonical("/blog/") },
 };
 
 // ─── /blog/ — editorial eye-health journal ────────────────────────────────
-// All 26 live posts (newest first) with covers, source excerpts and
+// All 36 posts (newest first) with covers, source excerpts and
 // word-count read times. Magazine cover story + rhythm grid + concern
 // browser + load-more. Trust copy says "from Mungale Eye Hospital" —
 // author data does not prove doctor authorship, so no byline claims.

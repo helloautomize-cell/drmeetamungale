@@ -11,6 +11,10 @@ export interface BlogLink {
   text: string;
   href: string;
   external: boolean;
+  // For links inside a "faq" block: items[item].q (sub === -1) or
+  // items[item].a[sub].
+  item?: number;
+  sub?: number;
 }
 
 export const blogLinks: Record<string, BlogLink[]> = {
@@ -157,11 +161,13 @@ export const blogLinks: Record<string, BlogLink[]> = {
       "external": false
     },
     {
-      "block": 33,
+      "block": 23,
       "nth": 0,
       "text": "immediate laser or surgical intervention",
       "href": "/treatments/",
-      "external": false
+      "external": false,
+      "item": 4,
+      "sub": 0
     }
   ],
   "risks-benefits-of-cataract-surgery": [
@@ -472,7 +478,7 @@ export const blogLinks: Record<string, BlogLink[]> = {
       "external": true
     },
     {
-      "block": 39,
+      "block": 35,
       "nth": 0,
       "text": "Cataract treatment",
       "href": "/",
@@ -534,11 +540,13 @@ export const blogLinks: Record<string, BlogLink[]> = {
       "external": true
     },
     {
-      "block": 36,
+      "block": 33,
       "nth": 0,
       "text": "Mungale Eye Hospital",
       "href": "/",
-      "external": false
+      "external": false,
+      "item": 2,
+      "sub": 0
     }
   ],
   "best-eye-hospital-in-vadodara": [

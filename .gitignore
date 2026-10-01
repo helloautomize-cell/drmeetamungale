@@ -22,3 +22,7 @@ preview*.html
 # OS / editor
 .DS_Store
 Thumbs.db
+
+# Working backups / scratch
+*.bak
+nul
