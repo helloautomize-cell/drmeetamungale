@@ -16,17 +16,78 @@ export interface BlogPostMeta {
   reviewedOn?: string;
 }
 
-// All 31 posts — 26 live (slugs/titles/URLs VERBATIM from the WordPress
-// REST API; titles entity-decoded for display) + 5 hospital-authored docs
+// All 36 posts — 26 live (slugs/titles/URLs VERBATIM from the WordPress
+// REST API; titles entity-decoded for display) + 10 hospital-authored docs
 // from new_blog/ (titles/slugs/excerpts per doc front-matter, verbatim).
 // coverImage = each post's own featured media, mirrored to
-// public/images/blog-covers/ (26 JPG originals + 5 optimized WebP copies;
+// public/images/blog-covers/ (26 JPG originals + 10 optimized WebP copies;
 // PNG originals retained in new_blog/). date = WP publish date, or
-// 2026-09-28 author date for the 5 new posts. excerpt = source-text
+// 2026-09-28/29/30 author dates for the 10 new posts. excerpt = source-text
 // truncation (first sentence-ish, never rewritten). readMinutes = ceil from
-// live word count. topics = keyword-derived buckets (26) or doc CATEGORY
-// mapping (5) for journal filtering (source taxonomy untouched).
+// live word count, or doc READ TIME. topics = keyword-derived buckets (26)
+// or doc CATEGORY mapping (10) for journal filtering (source taxonomy
+// untouched).
 export const blogPosts: BlogPostMeta[] = [
+  {
+    slug: "lasik-eye-surgery-types-cost-benefits-candidacy",
+    title: "LASIK Eye Surgery Types, Cost, Benefits and Who Qualifies",
+    url: "/blog/lasik-eye-surgery-types-cost-benefits-candidacy/",
+    coverImage: "/images/blog-covers/lasik-eye-surgery-types-cost-benefits-candidacy.webp",
+    coverWidth: 1280,
+    coverHeight: 720,
+    date: "2026-09-30",
+    excerpt: "A plain guide to LASIK eye surgery in India, covering Femto-LASIK, Contoura, SMILE and PRK, indicative costs, recovery, and who makes a good candidate.",
+    readMinutes: 16,
+    topics: ["surgery"],
+  },
+  {
+    slug: "diabetic-retinopathy-symptoms-screening-stages-treatment",
+    title: "Diabetic Retinopathy: Symptoms, Screening, Stages & Treatment",
+    url: "/blog/diabetic-retinopathy-symptoms-screening-stages-treatment/",
+    coverImage: "/images/blog-covers/diabetic-retinopathy-symptoms-screening-stages-treatment.webp",
+    coverWidth: 1280,
+    coverHeight: 720,
+    date: "2026-09-30",
+    excerpt: "Diabetic retinopathy can develop without symptoms. Learn about its stages, screening, diabetic macular edema, treatment options and ways to protect vision.",
+    readMinutes: 14,
+    topics: ["eye-health"],
+  },
+  {
+    slug: "eye-checkup-after-forty-tests-frequency-warning-signs",
+    title: "Eye Check-Up After 40: Tests, Frequency & Warning Signs",
+    url: "/blog/eye-checkup-after-forty-tests-frequency-warning-signs/",
+    coverImage: "/images/blog-covers/eye-checkup-after-forty-tests-frequency-warning-signs.webp",
+    coverWidth: 1280,
+    coverHeight: 720,
+    date: "2026-09-30",
+    excerpt: "An eye check-up after 40 can pick up glaucoma, cataract and retinal changes before you notice them. Here's what the tests involve and how often you should go.",
+    readMinutes: 16,
+    topics: ["eye-health"],
+  },
+  {
+    slug: "pterygium-causes-symptoms-stages-treatment-surgery",
+    title: "Pterygium: Causes, Symptoms, Stages, Treatment & Surgery",
+    url: "/blog/pterygium-causes-symptoms-stages-treatment-surgery/",
+    coverImage: "/images/blog-covers/pterygium-causes-symptoms-stages-treatment-surgery.webp",
+    coverWidth: 1280,
+    coverHeight: 720,
+    date: "2026-09-29",
+    excerpt: "Pterygium is a non-cancerous growth on the white of the eye. Learn what causes it, how it is graded, when surgery helps, what recovery is like and how to prevent regrowth.",
+    readMinutes: 15,
+    topics: ["cornea", "surgery"],
+  },
+  {
+    slug: "corneal-ulcer-keratitis-symptoms-treatment",
+    title: "Corneal Ulcer & Keratitis: Symptoms & Treatment",
+    url: "/blog/corneal-ulcer-keratitis-symptoms-treatment/",
+    coverImage: "/images/blog-covers/corneal-ulcer-keratitis-symptoms-treatment.webp",
+    coverWidth: 1280,
+    coverHeight: 720,
+    date: "2026-09-29",
+    excerpt: "Corneal ulcers and keratitis can cause eye pain, redness and blurred vision. Learn the causes, symptoms, diagnosis, treatment and when urgent care is needed.",
+    readMinutes: 15,
+    topics: ["cornea"],
+  },
   {
     slug: "cataract-surgery-guide",
     title: "Cataract Surgery: Symptoms, When Surgery Is Needed, Lens Options, Procedure & Recovery",

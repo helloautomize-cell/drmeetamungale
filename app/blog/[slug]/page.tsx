@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
+import { BlogFaqItem } from "@/components/sections/BlogFaqItem";
 import { getPostBySlug, blogPosts } from "@/content/blog";
 import { getBlogBody } from "@/content/blog-bodies";
 import { blogLinks, type BlogLink } from "@/content/blog-links";
@@ -145,6 +146,47 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="space-y-5">
             {body.blocks.map((b, i) => {
               const bl = (blogLinks[slug] ?? []).filter((l) => l.block === i);
+              if (b.type === "faq") {
+                return (
+                  <section key={i} className="pt-4">
+                    {b.text && (
+                      <h2 className="font-headline-sm text-headline-sm text-on-surface font-bold pb-2">
+                        {renderRich(
+                          b.text,
+                          bl.filter((l) => l.item === undefined)
+                        )}
+                      </h2>
+                    )}
+                    <div className="border-t border-secondary/10">
+                      {(b.items ?? []).map((it, qi) => (
+                        <BlogFaqItem
+                          key={qi}
+                          title={renderRich(
+                            it.q,
+                            bl.filter((l) => l.item === qi && l.sub === -1)
+                          )}
+                        >
+                          {(it.a ?? []).map((ab, si) => {
+                            const alinks = bl.filter(
+                              (l) => l.item === qi && l.sub === si
+                            );
+                            if (ab.type === "item") {
+                              return (
+                                <li key={si} className="ml-5 list-disc">
+                                  {renderRich(ab.text, alinks)}
+                                </li>
+                              );
+                            }
+                            return (
+                              <p key={si}>{renderRich(ab.text, alinks)}</p>
+                            );
+                          })}
+                        </BlogFaqItem>
+                      ))}
+                    </div>
+                  </section>
+                );
+              }
               if (b.type === "heading") {
                 return (
                   <h2
