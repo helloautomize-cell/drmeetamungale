@@ -205,7 +205,7 @@ export const blogBodies: BlogBody[] = [
     "blocks": [
       {
             "type": "para",
-            "text": "The best routine eye examination is a comprehensive evaluation because it tests both visual acuity and physical eye structures to detect underlying conditions early . A routine eye examination involves a step-by-step breakdown starting with patient history, followed by visual acuity tests, refraction assessments using a phoropter, and intraocular pressure measurements with a tonometer. This process screens for refractive errors and specific eye diseases like glaucoma and macular degeneration, typically requiring 30 to 45 minutes to complete."
+            "text": "A thorough routine eye examination is a comprehensive evaluation because it tests both visual acuity and physical eye structures to detect underlying conditions early . A routine eye examination involves a step-by-step breakdown starting with patient history, followed by visual acuity tests, refraction assessments using a phoropter, and intraocular pressure measurements with a tonometer. This process screens for refractive errors and specific eye diseases like glaucoma and macular degeneration, typically requiring 30 to 45 minutes to complete."
       },
       {
             "type": "heading",
@@ -213,7 +213,7 @@ export const blogBodies: BlogBody[] = [
       },
       {
             "type": "para",
-            "text": "A step-by-step breakdown of what happens during a routine eye check-up begins with a medical history review and visual acuity testing using a Snellen chart. Optometrists measure refractive error by explaining the different machines used in an eye exam like the phoropter and tonometer. The phoropter determines the exact lens prescription needed for corrective eyewear by switching multiple lenses in front of the eyes to isolate the clearest focal point. The tonometer measures intraocular pressure by releasing a brief puff of air onto the cornea. Patients frequently ask, are the tests during an eye exam uncomfortable or painful? These diagnostic procedures are entirely non-invasive and painless, designed strictly to measure eye function and fluid pressure without direct contact."
+            "text": "A step-by-step breakdown of what happens during a routine eye check-up begins with a medical history review and visual acuity testing using a Snellen chart. Optometrists measure refractive error by explaining the different machines used in an eye exam like the phoropter and tonometer. The phoropter determines the exact lens prescription needed for corrective eyewear by switching multiple lenses in front of the eyes to isolate the clearest focal point. The tonometer measures intraocular pressure by releasing a brief puff of air onto the cornea. Patients frequently ask, are the tests during an eye exam uncomfortable or painful? These diagnostic procedures are entirely non-invasive and comfortable, designed strictly to measure eye function and fluid pressure without direct contact."
       },
       {
             "type": "item",
@@ -300,7 +300,7 @@ export const blogBodies: BlogBody[] = [
       },
       {
             "type": "para",
-            "text": "Patients seeking an eye test in Vadodara, Gujarat, India, can expect costs ranging from ₹500 to ₹2,000 depending on the facility&#8217;s diagnostic equipment. When evaluating an eye care hospital in Vadodara , verify that the clinic utilizes digital phoropters and non-contact tonometers. For advanced eye care in Vadodara, patients typically consult an eye specialist Vadodara who provides full retinal imaging and dilation services. Facilities like Mungale Eye Hospital in Vadodara, Gujarat, offer these standardized diagnostic protocols. Selecting the best eye doctor in Vadodara ensures accurate prescriptions and early disease detection."
+            "text": "Patients seeking an eye test in Vadodara, Gujarat, India, can expect costs ranging from ₹500 to ₹2,000 depending on the facility&#8217;s diagnostic equipment. When evaluating an eye care hospital in Vadodara , verify that the clinic utilizes digital phoropters and non-contact tonometers. For advanced eye care in Vadodara, patients typically consult an eye specialist Vadodara who provides full retinal imaging and dilation services. Facilities like Mungale Eye Hospital in Vadodara, Gujarat, offer these standardized diagnostic protocols. Selecting an experienced eye doctor in Vadodara supports accurate prescriptions and early disease detection."
       },
       {
             "type": "para",
@@ -332,7 +332,7 @@ export const blogBodies: BlogBody[] = [
       },
       {
             "type": "para",
-            "text": "A non-contact tonometer emits a rapid, painless puff of air onto the cornea. The machine calculates intraocular pressure by measuring the eye&#8217;s physical resistance to the air puff. This specific measurement identifies potential fluid buildup and risks for glaucoma."
+            "text": "A non-contact tonometer emits a rapid, gentle puff of air onto the cornea. The machine calculates intraocular pressure by measuring the eye&#8217;s physical resistance to the air puff. This specific measurement identifies potential fluid buildup and risks for glaucoma."
       },
       {
             "type": "heading",
@@ -742,7 +742,7 @@ export const blogBodies: BlogBody[] = [
       },
       {
             "type": "para",
-            "text": "A comprehensive glaucoma evaluation involves a series of painless, non-invasive procedures designed to measure eye pressure and map the physical structures of the eye. Patients typically experience minimal discomfort, as numbing drops are applied before any instruments touch the eye surface during an eye pressure test for glaucoma. The process takes roughly 45 to 60 minutes, providing immediate insights into ocular health without requiring significant recovery time or causing prolonged blurry vision."
+            "text": "A comprehensive glaucoma evaluation involves a series of non-invasive, comfortable procedures designed to measure eye pressure and map the physical structures of the eye. Patients typically experience minimal discomfort, as numbing drops are applied before any instruments touch the eye surface during an eye pressure test for glaucoma. The process takes roughly 45 to 60 minutes, providing immediate insights into ocular health without requiring significant recovery time or causing prolonged blurry vision."
       },
       {
             "type": "heading",
@@ -919,7 +919,7 @@ export const blogBodies: BlogBody[] = [
       },
       {
         "type": "para",
-        "text": "A cataract is a clouding of the eye&#8217;s natural lens, which can significantly impair vision and affect daily activities. Fortunately, cataract surgery is a safe and highly effective procedure that can restore clear sight. At Mungale Eye Hospital, we are dedicated to providing exceptional care and ensuring the best possible outcomes for our patients."
+        "text": "A cataract is a clouding of the eye&#8217;s natural lens, which can significantly impair vision and affect daily activities. Fortunately, cataract surgery is a safe and highly effective procedure that can restore clear sight. At Mungale Eye Hospital, we are dedicated to providing exceptional care and working toward strong outcomes for our patients."
       },
       {
         "type": "heading",
@@ -1079,7 +1079,7 @@ export const blogBodies: BlogBody[] = [
       },
       {
         "type": "para",
-        "text": "At Mungale Eye Hospital, we pride ourselves on personalized patient care. Our expert ophthalmologists utilize the latest surgical techniques and advanced diagnostic tools to provide precise and effective cataract removal. We believe in thorough pre-operative consultations to understand each patient&#8217;s unique needs and lifestyle, ensuring the best possible visual outcome tailored specifically for them."
+        "text": "At Mungale Eye Hospital, we pride ourselves on personalized patient care. Our expert ophthalmologists utilize the latest surgical techniques and advanced diagnostic tools to provide precise and effective cataract removal. We believe in thorough pre-operative consultations to understand each patient&#8217;s unique needs and lifestyle, aimed at a strong visual outcome tailored to each patient."
       }
     ]
   },
@@ -1197,7 +1197,7 @@ export const blogBodies: BlogBody[] = [
       },
       {
         "type": "para",
-        "text": "The primary goal of glaucoma treatment is to lower eye pressure to prevent further damage to the optic nerve. Treatment strategies typically fall into three main categories: medical treatment (eye drops), laser treatment, and surgical treatment. The best approach for you will depend on the type and severity of your glaucoma, your overall health, and your individual needs. Experts at Mungale Eye Hospital will carefully assess your condition to recommend the most suitable treatment plan."
+        "text": "The primary goal of glaucoma treatment is to lower eye pressure to prevent further damage to the optic nerve. Treatment strategies typically fall into three main categories: medical treatment (eye drops), laser treatment, and surgical treatment. The right approach for you will depend on the type and severity of your glaucoma, your overall health, and your individual needs. Experts at Mungale Eye Hospital will carefully assess your condition to recommend the most suitable treatment plan."
       },
       {
         "type": "heading",
@@ -1289,7 +1289,7 @@ export const blogBodies: BlogBody[] = [
       },
       {
         "type": "para",
-        "text": "At Mungale Eye Hospital, we understand that a glaucoma diagnosis can be concerning. Our experienced ophthalmologists are committed to providing personalized care, utilizing the most advanced diagnostic tools and treatment modalities available. We strive to ensure you receive the best possible outcome, preserving your vision and quality of life."
+        "text": "At Mungale Eye Hospital, we understand that a glaucoma diagnosis can be concerning. Our experienced ophthalmologists are committed to providing personalized care, utilizing the most advanced diagnostic tools and treatment modalities available. We strive to support a strong outcome, preserving your vision and quality of life."
       },
       {
         "type": "para",
@@ -1951,7 +1951,7 @@ export const blogBodies: BlogBody[] = [
       },
       {
         "type": "para",
-        "text": "Want a personalised eye-health diet plan based on your specific eye condition? Our expert ophthalmology team at Mungale Eye Hospital,provides comprehensive eye care along with customised dietary guidance best foods for eye health conditions such as diabetic retinopathy, dry eyes, age-related macular degeneration (AMD), glaucoma, and cataract."
+        "text": "Want a personalised eye-health diet plan based on your specific eye condition? Our expert ophthalmology team at Mungale Eye Hospital,provides comprehensive eye care along with customised dietary guidance on foods that support eye health in conditions such as diabetic retinopathy, dry eyes, age-related macular degeneration (AMD), glaucoma, and cataract."
       },
       {
         "type": "para",
@@ -3718,7 +3718,7 @@ export const blogBodies: BlogBody[] = [
       },
       {
         "type": "para",
-        "text": "LASIK can bring clear and comfortable vision for many people in Vadodara Ahmedabad and across Gujarat. People from Maharashtra Madhya Pradesh and Rajasthan often visit Vadodara because they want reliable medical advice. The best results come from centers that look at the full picture and keep the patient interest first."
+        "text": "LASIK can bring clear and comfortable vision for many people in Vadodara Ahmedabad and across Gujarat. People from Maharashtra Madhya Pradesh and Rajasthan often visit Vadodara because they want reliable medical advice. Good results come from centers that look at the full picture and keep the patient interest first."
       },
       {
         "type": "para",
@@ -3765,7 +3765,7 @@ export const blogBodies: BlogBody[] = [
       },
       {
         "type": "heading",
-        "text": "Best Eye Hospital in Vadodara for Complete Eye Care"
+        "text": "Eye Hospital Care in Vadodara: A Complete Guide"
       },
       {
         "type": "para",
@@ -3875,7 +3875,7 @@ export const blogBodies: BlogBody[] = [
   },
   {
     "slug": "best-eye-hospital-near-me",
-    "title": "Where to Find the Right Eye Hospital Near Me in Vadodara: A Local’s Complete Guide to Healthy Vision",
+    "title": "Finding an Eye Hospital Near You: A Practical Checklist",
     "url": "/blog/best-eye-hospital-near-me/",
     "blocks": [
       {
@@ -4032,7 +4032,7 @@ export const blogBodies: BlogBody[] = [
       },
       {
         "type": "item",
-        "text": "Cataracts Seen mostly after age 50 but rising earlier due to diabetes and sunlight exposure. Surgery today is quick and painless, with recovery in days."
+        "text": "Cataracts Seen mostly after age 50 but rising earlier due to diabetes and sunlight exposure. Surgery today is quick, most patients feel little discomfort, and recovery is measured in days."
       },
       {
         "type": "item",
@@ -4108,7 +4108,7 @@ export const blogBodies: BlogBody[] = [
       },
       {
         "type": "heading",
-        "text": "8. How to Find the Best Eye Hospital Near Me (Without Getting Lost Online)"
+        "text": "8. How to Find an Eye Hospital Near You (Without Getting Lost Online)"
       },
       {
         "type": "para",
@@ -4224,7 +4224,7 @@ export const blogBodies: BlogBody[] = [
       },
       {
         "type": "para",
-        "text": "Q3. Is cataract surgery painful? A. No. It’s a painless, 10–15-minute procedure with local anesthesia. You can go home the same day."
+        "text": "Q3. Is cataract surgery painful? A. No. It’s a 10–15-minute procedure under local anesthesia; most patients feel little discomfort. You can go home the same day."
       },
       {
         "type": "para",
@@ -4274,7 +4274,7 @@ export const blogBodies: BlogBody[] = [
   },
   {
     "slug": "best-eye-hospital-for-corneal-transplant",
-    "title": "Best Eye Hospital for Corneal Transplant - Munagle Eye Hospital",
+    "title": "Corneal Transplant in Vadodara: What to Expect",
     "url": "/blog/best-eye-hospital-for-corneal-transplant/",
     "blocks": [
       {
@@ -4283,11 +4283,11 @@ export const blogBodies: BlogBody[] = [
       },
       {
         "type": "para",
-        "text": "This article is not a medical textbook. Think of it as a guide you might hear from your trusted eye doctor- straightforward, practical, and focused on what really matters. Best eye hospital for corneal transplant evaluation is important, which diseases to watch out for, when a transplant becomes necessary, and how modern surgeries and careful follow-up can restore confidence in your sight."
+        "text": "This article is not a medical textbook. Think of it as a guide you might hear from your trusted eye doctor- straightforward, practical, and focused on what really matters. Careful evaluation before a corneal transplant is important, which diseases to watch out for, when a transplant becomes necessary, and how modern surgeries and careful follow-up can restore confidence in your sight."
       },
       {
         "type": "heading",
-        "text": "Best Eye Hospital for Corneal Transplant"
+        "text": "Corneal Transplant Care at Mungale Eye Hospital"
       },
       {
         "type": "heading",
@@ -4323,7 +4323,7 @@ export const blogBodies: BlogBody[] = [
       },
       {
         "type": "heading",
-        "text": "Common Corneal Diseases that you can diagnose at our Best Eye Hospital for Corneal Transplant"
+        "text": "Common Corneal Diseases that can be diagnosed at Mungale Eye Hospital"
       },
       {
         "type": "para",
@@ -4816,7 +4816,8 @@ export const blogBodies: BlogBody[] = [
         "text": "Early evaluation and timely treatment remain the foundation of healthy vision at every stage of life."
       }
     ]
-  },
+  }
+,
     {
     "slug": "ahmed-glaucoma-valve-surgery",
     "title": "Ahmed Glaucoma Valve Surgery: How This Drainage Device Can Save Your Vision",
@@ -5249,16 +5250,16 @@ export const blogBodies: BlogBody[] = [
   },
   {
     "slug": "best-eye-hospital-in-vadodara",
-    "title": "Best Eye Hospital in Vadodara – A Complete Guide to Choosing the Right Eye Care Provider",
+    "title": "Choosing an Eye Hospital in Vadodara: What to Look For",
     "url": "/blog/best-eye-hospital-in-vadodara/",
     "blocks": [
           {
                 "type": "para",
-                "text": "Best eye hospital in Vadodara &#8211; What issues may come to your mind when you search for an “Eye Hospital near Me?” Blurry vision? Sudden change in eyesight? Pain in the eye?"
+                "text": "Choosing an eye hospital in Vadodara &#8211; What issues may come to your mind when you search for an “Eye Hospital near Me?” Blurry vision? Sudden change in eyesight? Pain in the eye?"
           },
           {
                 "type": "para",
-                "text": "If you live in Vadodara, Gujarat, and you are in a village or in a city, you might have thought: What are the steps I should keep in mind so that I get the best doctors and professionals for my eyes without being rushed?"
+                "text": "If you live in Vadodara, Gujarat, and you are in a village or in a city, you might have thought: What are the steps I should keep in mind so that I get the right doctors and professionals for my eyes without being rushed?"
           },
           {
                 "type": "para",
@@ -5298,7 +5299,7 @@ export const blogBodies: BlogBody[] = [
           },
           {
                 "type": "heading",
-                "text": "Which to Consider in the Best Eye Hospital in Vadodara"
+                "text": "What to Consider When Choosing an Eye Hospital in Vadodara"
           },
           {
                 "type": "para",
@@ -5434,15 +5435,15 @@ export const blogBodies: BlogBody[] = [
           },
           {
                 "type": "heading",
-                "text": "Frequently Asked Questions for the Best Eye Hospital in Vadodara (People Also Ask)"
+                "text": "Frequently Asked Questions When Choosing an Eye Hospital in Vadodara (People Also Ask)"
           },
           {
                 "type": "heading",
-                "text": "Q1. Who is the best eye doctor in Vadodara?"
+                "text": "Q1. How do I choose an eye doctor in Vadodara?"
           },
           {
                 "type": "para",
-                "text": "A. For corneal treatment, Dr. Meeta Mungale is very reliable. For glaucoma operations like trabeculectomy or AGV and GATT, Dr. Sachin Mungale is one of the best experts in Gujarat."
+                "text": "A. For corneal treatment, Dr. Meeta Mungale is very reliable. For glaucoma operations like trabeculectomy or AGV and GATT, Dr. Sachin Mungale performs glaucoma procedures including trabeculectomy, AGV and GATT."
           },
           {
                 "type": "heading",
@@ -5556,7 +5557,7 @@ export const blogBodies: BlogBody[] = [
     "blocks": [
           {
                 "type": "para",
-                "text": "Taking care of your eyes is good as giving importance to your overall health. Here are tips for choosing an eye care doctor is considered as an important health care decision. Remember that you will trust your sense of sight to this professional to help you maintain a clear vision for life. Here are some tips to remember so you can choose the best eye doctor in vadodara"
+                "text": "Taking care of your eyes is good as giving importance to your overall health. Here are tips for choosing an eye care doctor is considered as an important health care decision. Remember that you will trust your sense of sight to this professional to help you maintain a clear vision for life. Here are some tips to remember so you can choose the right eye doctor in Vadodara"
           },
           {
                 "type": "heading",
@@ -5612,7 +5613,7 @@ export const blogBodies: BlogBody[] = [
           },
           {
                 "type": "para",
-                "text": "These are just some of the important tips for choosing an eye care doctor that you should consider when selecting the right specialist to care for your vision. It may take weeks or even months to find the right doctor, and that’s perfectly fine. Remember, this professional will play a crucial role in maintaining your eye health for years to come, so it’s important to choose carefully and settle for the best eye care practitioner available in your area."
+                "text": "These are just some of the important tips for choosing an eye care doctor that you should consider when selecting the right specialist to care for your vision. It may take weeks or even months to find the right doctor, and that’s perfectly fine. Remember, this professional will play a crucial role in maintaining your eye health for years to come, so it’s important to choose carefully and choose an eye care practitioner you trust in your area."
           }
     ]
   },
@@ -5639,7 +5640,7 @@ export const blogBodies: BlogBody[] = [
           },
           {
                 "type": "para",
-                "text": "Follow the below cure to reduce dark circles:"
+                "text": "Follow the steps below to reduce dark circles:"
           },
           {
                 "type": "item",

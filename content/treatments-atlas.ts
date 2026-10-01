@@ -517,7 +517,7 @@ export const atlasFacilities = [
   },
   {
     title: "Well-equipped operation theatre",
-    body: "MEH has one of the largest eye operation theatres in Baroda city. It has two OT tables and 2 LED microscopes. Eye surgeries can be performed under General anesthesia which makes us equipped to perform pediatric eye surgeries, corneal tears, and emergency cases. We also have the class B sterilizer which allows us to autoclave all hollow tubings required for eye surgeries with best safety and quality. In addition, an ETO sealing machine for ethylene oxide sterilization is also available. No compromise in ensuring sterility and safety for eye surgeries!",
+    body: "MEH has one of the largest eye operation theatres in Baroda city. It has two OT tables and 2 LED microscopes. Eye surgeries can be performed under General anesthesia which makes us equipped to perform pediatric eye surgeries, corneal tears, and emergency cases. We also have the class B sterilizer which allows us to autoclave all hollow tubings required for eye surgeries under strict safety and quality controls. In addition, an ETO sealing machine for ethylene oxide sterilization is also available. No compromise in ensuring sterility and safety for eye surgeries!",
   },
 ];
 

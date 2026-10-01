@@ -545,14 +545,14 @@ export const blogLinks: Record<string, BlogLink[]> = {
     {
       "block": 0,
       "nth": 0,
-      "text": "Best eye hospital in Vadodara",
+      "text": "Choosing an eye hospital in Vadodara",
       "href": "/",
       "external": false
     },
     {
       "block": 11,
       "nth": 0,
-      "text": "Best Eye Hospital in Vadodara",
+      "text": "Choosing an Eye Hospital in Vadodara",
       "href": "/",
       "external": false
     }
@@ -577,7 +577,7 @@ export const blogLinks: Record<string, BlogLink[]> = {
     {
       "block": 0,
       "nth": 0,
-      "text": "best eye doctor in vadodara",
+      "text": "right eye doctor in Vadodara",
       "href": "/",
       "external": false
     },
