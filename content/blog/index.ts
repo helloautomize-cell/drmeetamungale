@@ -1,3 +1,5 @@
+import type { ReviewerKey } from "@/content/doctors";
+
 export type BlogTopic = "cataract" | "glaucoma" | "cornea" | "surgery" | "eye-health";
 
 export interface BlogPostMeta {
@@ -11,8 +13,8 @@ export interface BlogPostMeta {
   excerpt: string;
   readMinutes: number;
   topics: BlogTopic[];
-  // Set per post only after the named doctor has reviewed it.
-  reviewedBy?: "sachin" | "meeta";
+  // Reviewer mapping confirmed by both doctors (Oct 2026).
+  reviewedBy?: ReviewerKey | ReviewerKey[];
   reviewedOn?: string;
 }
 
@@ -30,6 +32,7 @@ export interface BlogPostMeta {
 export const blogPosts: BlogPostMeta[] = [
   {
     slug: "lasik-eye-surgery-types-cost-benefits-candidacy",
+    reviewedBy: "meeta",
     title: "LASIK Eye Surgery Types, Cost, Benefits and Who Qualifies",
     url: "/blog/lasik-eye-surgery-types-cost-benefits-candidacy/",
     coverImage: "/images/blog-covers/lasik-eye-surgery-types-cost-benefits-candidacy.webp",
@@ -42,6 +45,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "diabetic-retinopathy-symptoms-screening-stages-treatment",
+    reviewedBy: "meeta",
     title: "Diabetic Retinopathy: Symptoms, Screening, Stages & Treatment",
     url: "/blog/diabetic-retinopathy-symptoms-screening-stages-treatment/",
     coverImage: "/images/blog-covers/diabetic-retinopathy-symptoms-screening-stages-treatment.webp",
@@ -54,6 +58,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "eye-checkup-after-forty-tests-frequency-warning-signs",
+    reviewedBy: ["sachin", "meeta"],
     title: "Eye Check-Up After 40: Tests, Frequency & Warning Signs",
     url: "/blog/eye-checkup-after-forty-tests-frequency-warning-signs/",
     coverImage: "/images/blog-covers/eye-checkup-after-forty-tests-frequency-warning-signs.webp",
@@ -66,6 +71,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "pterygium-causes-symptoms-stages-treatment-surgery",
+    reviewedBy: "meeta",
     title: "Pterygium: Causes, Symptoms, Stages, Treatment & Surgery",
     url: "/blog/pterygium-causes-symptoms-stages-treatment-surgery/",
     coverImage: "/images/blog-covers/pterygium-causes-symptoms-stages-treatment-surgery.webp",
@@ -78,6 +84,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "corneal-ulcer-keratitis-symptoms-treatment",
+    reviewedBy: "meeta",
     title: "Corneal Ulcer & Keratitis: Symptoms & Treatment",
     url: "/blog/corneal-ulcer-keratitis-symptoms-treatment/",
     coverImage: "/images/blog-covers/corneal-ulcer-keratitis-symptoms-treatment.webp",
@@ -90,6 +97,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "cataract-surgery-guide",
+    reviewedBy: ["sachin", "meeta"],
     title: "Cataract Surgery: Symptoms, When Surgery Is Needed, Lens Options, Procedure & Recovery",
     url: "/blog/cataract-surgery-guide/",
     coverImage: "/images/mungale/specialty-cataract.jpg",
@@ -102,6 +110,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "corneal-transplant-surgery",
+    reviewedBy: "meeta",
     title: "Corneal Transplant Surgery: When It Is Needed, Types, Recovery & Risks",
     url: "/blog/corneal-transplant-surgery/",
     coverImage: "/images/mungale/specialty-cornea.jpg",
@@ -114,6 +123,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "dry-eye-disease-causes-symptoms-treatment",
+    reviewedBy: "meeta",
     title: "Dry Eye Disease: Causes, Symptoms, Diagnosis & Treatment",
     url: "/blog/dry-eye-disease-causes-symptoms-treatment/",
     coverImage: "/images/mungale/blog-dry-eye-desktop.jpg",
@@ -126,6 +136,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "glaucoma-symptoms-causes-treatment",
+    reviewedBy: "sachin",
     title: "Glaucoma: Symptoms, Causes, Eye Pressure Tests & Treatment",
     url: "/blog/glaucoma-symptoms-causes-treatment/",
     coverImage: "/images/mungale/specialty-glaucoma.jpg",
@@ -138,6 +149,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "keratoconus-symptoms-causes-diagnosis-treatment",
+    reviewedBy: "meeta",
     title: "Keratoconus: Symptoms, Causes, Diagnosis & Treatment",
     url: "/blog/keratoconus-symptoms-causes-diagnosis-treatment/",
     coverImage: "/images/blog-covers/keratoconus.webp",
@@ -150,6 +162,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "benchmarks-in-eye-care",
+    reviewedBy: "sachin",
     title: "What Are Progression Measurement Benchmarks in Eye Care?",
     url: "/blog/benchmarks-in-eye-care/",
     coverImage: "/images/blog-covers/What-Are-Progression-Measurement-Benchmarks-in-Eye-Care.jpg",
@@ -162,6 +175,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "routine-eye-examination",
+    reviewedBy: ["sachin", "meeta"],
     title: "What Is Involved in a Routine Eye Examination?",
     url: "/blog/routine-eye-examination/",
     coverImage: "/images/blog-covers/What-Is-Involved-in-a-Routine-Eye-Examination.jpg",
@@ -174,6 +188,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "disease-progression-velocity-in-eye-care",
+    reviewedBy: "sachin",
     title: "How to Calculate Disease Progression Velocity in Eye Care",
     url: "/blog/disease-progression-velocity-in-eye-care/",
     coverImage: "/images/blog-covers/Untitled-1-7.jpg",
@@ -186,6 +201,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "corneal-treatment-recovery-process",
+    reviewedBy: "meeta",
     title: "What is the recovery process like after corneal treatment?",
     url: "/blog/corneal-treatment-recovery-process/",
     coverImage: "/images/blog-covers/What-is-the-recovery-process-like-after-corneal-treatment.jpg",
@@ -198,6 +214,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "how-is-glaucoma-diagnosed-evaluated",
+    reviewedBy: "sachin",
     title: "How is Glaucoma Typically Diagnosed and Evaluated?",
     url: "/blog/how-is-glaucoma-diagnosed-evaluated/",
     coverImage: "/images/blog-covers/How-is-glaucoma-typically-diagnosed-and-evaluated.jpg",
@@ -210,6 +227,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "risks-benefits-of-cataract-surgery",
+    reviewedBy: ["sachin", "meeta"],
     title: "What are the risks and benefits of cataract surgery?",
     url: "/blog/risks-benefits-of-cataract-surgery/",
     coverImage: "/images/blog-covers/Benefits-of-Cataract-Surgery-for-Better-Vision-in-Daily-Life.jpg",
@@ -222,6 +240,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "the-benefits-of-regular-eye-check-ups",
+    reviewedBy: "meeta",
     title: "What are the benefits of regular eye check-ups?",
     url: "/blog/the-benefits-of-regular-eye-check-ups/",
     coverImage: "/images/blog-covers/What-are-the-benefits-of-regular-eye-check-ups.jpg",
@@ -234,6 +253,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "glaucoma-treatment-options",
+    reviewedBy: "sachin",
     title: "What are the different treatment options for glaucoma?",
     url: "/blog/glaucoma-treatment-options/",
     coverImage: "/images/blog-covers/mungale-eye-blog-copy.jpg",
@@ -246,6 +266,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "benefits-of-cataract-surgery",
+    reviewedBy: ["sachin", "meeta"],
     title: "Benefits of Cataract Surgery for Better Vision in Daily Life",
     url: "/blog/benefits-of-cataract-surgery/",
     coverImage: "/images/blog-covers/mungale-eye-blog.jpg",
@@ -258,6 +279,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "best-foods-for-eye-health",
+    reviewedBy: "meeta",
     title: "Best Foods for Eye Health: 15 Superfoods to Improve Your Vision Naturally",
     url: "/blog/best-foods-for-eye-health/",
     coverImage: "/images/blog-covers/blog-copy-2.jpg",
@@ -270,6 +292,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "ai-in-eye-care-in-2026",
+    reviewedBy: ["sachin", "meeta"],
     title: "AI in Eye Care: How Artificial Intelligence is Revolutionising Eye Disease Detection in 2026",
     url: "/blog/ai-in-eye-care-in-2026/",
     coverImage: "/images/blog-covers/blog-3.jpg",
@@ -282,6 +305,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "new-year-eye-health-resolutions-2026",
+    reviewedBy: "meeta",
     title: "7 Habit for New Year Eye Health Resolutions 2026",
     url: "/blog/new-year-eye-health-resolutions-2026/",
     coverImage: "/images/blog-covers/New-Year-resulation-2026.jpg",
@@ -294,6 +318,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "glaucoma-awareness-month-2026",
+    reviewedBy: "sachin",
     title: "Glaucoma Awareness Month 2026: Early Detection Is Key to Stopping the Silent Thief of Sight",
     url: "/blog/glaucoma-awareness-month-2026/",
     coverImage: "/images/blog-covers/Glaucoma-Awareness-Month-2026.jpg",
@@ -306,6 +331,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "corneal-ulcer-treatment",
+    reviewedBy: "meeta",
     title: "Corneal Ulcer Treatment: Causes, Early Warning Signs, and the Importance of Timely Cornea Evaluation at Mungale Eye Hospital",
     url: "/blog/corneal-ulcer-treatment/",
     coverImage: "/images/blog-covers/blog-2.jpg",
@@ -318,6 +344,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "thinking-of-lasik-surgery",
+    reviewedBy: "meeta",
     title: "Thinking of LASIK Read This Before You Book Your Surgery",
     url: "/blog/thinking-of-lasik-surgery/",
     coverImage: "/images/blog-covers/mungale.jpg",
@@ -330,6 +357,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "when-should-you-see-an-eye-doctor",
+    reviewedBy: ["sachin", "meeta"],
     title: "When Should You See an Eye Doctor? Let’s Talk About It Honestly",
     url: "/blog/when-should-you-see-an-eye-doctor/",
     coverImage: "/images/blog-covers/mungale-blog-image-1.jpg",
@@ -342,6 +370,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "best-eye-hospital-near-me",
+    reviewedBy: ["sachin", "meeta"],
     title: "Finding an Eye Hospital Near You: A Practical Checklist",
     url: "/blog/best-eye-hospital-near-me/",
     coverImage: "/images/blog-covers/2241257-e1726640314227.jpg",
@@ -354,6 +383,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "best-eye-hospital-for-corneal-transplant",
+    reviewedBy: "meeta",
     title: "Corneal Transplant in Vadodara: What to Expect",
     url: "/blog/best-eye-hospital-for-corneal-transplant/",
     coverImage: "/images/blog-covers/Corneal-Health-Demystified.jpg",
@@ -366,6 +396,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "cataract-surgery-vadodara-gujarat",
+    reviewedBy: ["sachin", "meeta"],
     title: "Cataract Surgery Vadodara Gujarat: From Subtle Symptoms to Clear Vision",
     url: "/blog/cataract-surgery-vadodara-gujarat/",
     coverImage: "/images/blog-covers/Cataract-Surgery.jpg",
@@ -378,6 +409,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "advanced-eye-care-treatment",
+    reviewedBy: ["sachin", "meeta"],
     title: "Advanced Eye Care Treatment in Raopura Vadodara",
     url: "/blog/advanced-eye-care-treatment/",
     coverImage: "/images/blog-covers/blog-copy3.jpg",
@@ -390,6 +422,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "ahmed-glaucoma-valve-surgery",
+    reviewedBy: "sachin",
     title: "Ahmed Glaucoma Valve Surgery: How This Drainage Device Can Save Your Vision",
     url: "/blog/ahmed-glaucoma-valve-surgery/",
     coverImage: "/images/blog-covers/Ahmed-Glaucoma-Valve-Surgery-How-This-Drainage-Device-Can-Save-Your-Vision.jpg",
@@ -402,6 +435,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "best-eye-hospital-in-vadodara",
+    reviewedBy: ["sachin", "meeta"],
     title: "Choosing an Eye Hospital in Vadodara: What to Look For",
     url: "/blog/best-eye-hospital-in-vadodara/",
     coverImage: "/images/blog-covers/How-to-Choose-the-Right-Eye-Hospital-A-Complete-Guide-for-Vadodara-Residents.jpg",
@@ -414,6 +448,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "advanced-eye-care-in-vadodara",
+    reviewedBy: "meeta",
     title: "Breakthrough Treatments: How Specialists Are Advancing Eye Care in Vadodara, Gujarat",
     url: "/blog/advanced-eye-care-in-vadodara/",
     coverImage: "/images/blog-covers/Breakthrough-Treatments-How-Specialists-Are-Advancing-Eye-Care-in-Vadodara-Gujarat.jpg",
@@ -426,6 +461,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "5-easy-eye-care-tips-for-computer-geeks",
+    reviewedBy: "meeta",
     title: "5 Easy Eye Care Tips For Computer Geeks",
     url: "/blog/5-easy-eye-care-tips-for-computer-geeks/",
     coverImage: "/images/blog-covers/232.jpg",
@@ -438,6 +474,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "7-eye-care-tips-never-ignore",
+    reviewedBy: "meeta",
     title: "7 Eye Care Helpful tips That You Need to Never Sacrifice On",
     url: "/blog/7-eye-care-tips-never-ignore/",
     coverImage: "/images/blog-covers/2-scaled-1.jpg",
@@ -450,6 +487,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "tips-for-choosing-an-eye-care-doctor",
+    reviewedBy: "meeta",
     title: "Tips For Choosing an Eye Care Doctor",
     url: "/blog/tips-for-choosing-an-eye-care-doctor/",
     coverImage: "/images/blog-covers/Varun-Eye-Care-Slider-img.jpg",

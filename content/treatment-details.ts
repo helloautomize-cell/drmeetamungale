@@ -1,3 +1,5 @@
+import type { ReviewerKey } from "@/content/doctors";
+
 export interface TreatmentDetailSection {
   heading: string;
   body: string;
@@ -8,8 +10,8 @@ export interface TreatmentDetail {
   title: string;
   intro: string;
   sections: TreatmentDetailSection[];
-  // Set per page only after the named doctor has reviewed it.
-  reviewedBy?: "sachin" | "meeta";
+  // Reviewer mapping confirmed by both doctors (Oct 2026).
+  reviewedBy?: ReviewerKey | ReviewerKey[];
   reviewedOn?: string;
 }
 
@@ -20,6 +22,7 @@ export interface TreatmentDetail {
 export const treatmentDetails: TreatmentDetail[] = [
   {
     slug: "cataract-surgery",
+    reviewedBy: ["sachin", "meeta"],
     title: "Cataract Surgery",
     intro:
       "MEH boasts of one of the advanced systems for phacoemulsification which helps remove cataract with high efficiency in matter of minutes. Additionally all types of intraocular lenses are offered at very reasonable prices.",
@@ -36,6 +39,7 @@ export const treatmentDetails: TreatmentDetail[] = [
   },
   {
     slug: "cornea-evaluation",
+    reviewedBy: "meeta",
     title: "Cornea Evaluation",
     intro:
       "Slit lamp with brilliant LED illumination which allows simultaneous visualisation by both doctors and relatives of the patient. It is the gold standard for eye examination.",
@@ -72,6 +76,7 @@ export const treatmentDetails: TreatmentDetail[] = [
   },
   {
     slug: "corneal-treatments",
+    reviewedBy: "meeta",
     title: "Corneal Treatments",
     intro:
       "Corneal treatments address infections, injuries, or conditions through medication, surgeries, or specialized therapies.",
@@ -108,6 +113,7 @@ export const treatmentDetails: TreatmentDetail[] = [
   },
   {
     slug: "glaucoma-evaluation",
+    reviewedBy: "sachin",
     title: "Glaucoma Evaluation",
     intro:
       "Glaucoma evaluation measures eye pressure, optic nerve health, and visual field to detect vision loss.",
@@ -160,6 +166,7 @@ export const treatmentDetails: TreatmentDetail[] = [
   },
   {
     slug: "glaucoma-treatments",
+    reviewedBy: "sachin",
     title: "Glaucoma Treatments",
     intro:
       "Glaucoma treatments include eye drops, oral medications, laser therapy, and surgical options to lower eye pressure.",
@@ -184,6 +191,7 @@ export const treatmentDetails: TreatmentDetail[] = [
   },
   {
     slug: "optical-contact-lenses",
+    reviewedBy: "meeta",
     title: "Optical & Contact Lenses",
     intro:
       "Optical and contact lenses correct vision by refracting light, providing options for myopia, hyperopia, and astigmatism.",

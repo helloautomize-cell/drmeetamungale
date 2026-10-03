@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal, RevealNow } from "@/components/ui/motion";
 import { DoctorsExperience } from "@/components/sections/DoctorsExperience";
+import { MedicalReviewByline } from "@/components/seo/MedicalReviewByline";
 
 // ─── About page — Mungale journey (art-direction redesign) ────────────
 // Same design system as the homepage (warm paper, ink, restrained red,
@@ -64,6 +65,7 @@ export function AboutHero({
               joint venture of two ophthalmologists — and grew into a
               referral center for complex cornea and glaucoma care.
             </p>
+            <MedicalReviewByline reviewedBy={["sachin", "meeta"]} />
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
               <Link
                 href="/contact-us/"
@@ -410,7 +412,7 @@ export function DoctorsTeaser() {
         <DoctorsExperience compact />
         <Reveal className="mt-8">
           <Link
-            href="/#doctors"
+            href="/doctors/"
             className="cta-quiet group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
           >
             <span className="cta-quiet-text">Meet the doctors</span>
@@ -465,7 +467,7 @@ export function ClosingStory() {
               />
             </Link>
             <Link
-              href="/#doctors"
+              href="/doctors/"
               className="cta-quiet group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
             >
               <span className="cta-quiet-text">Meet the doctors</span>

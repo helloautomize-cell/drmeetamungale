@@ -9,7 +9,7 @@ import { getPostBySlug, blogPosts } from "@/content/blog";
 import { getBlogBody } from "@/content/blog-bodies";
 import { blogLinks, type BlogLink } from "@/content/blog-links";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { MedicalReviewByline } from "@/components/seo/MedicalReviewByline";
+import { MedicalReviewByline, formatReviewDate } from "@/components/seo/MedicalReviewByline";
 import { blogPostingJsonLd, breadcrumbJsonLd, canonical } from "@/content/seo";
 
 // ─── 6.6 /blog/[slug]/ ×26 ─────────────────────────────────────────────
@@ -131,6 +131,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <article className="py-space-xl bg-surface">
         <div className="max-w-3xl mx-auto px-6 lg:px-12">
           <MedicalReviewByline reviewedBy={post.reviewedBy} reviewedOn={post.reviewedOn} />
+          <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Published {formatReviewDate(post.date)} · Updated {formatReviewDate(post.date)}
+          </p>
           {post.coverImage && (
             <div className="rounded-2xl overflow-hidden shadow-md mb-10">
               <Image

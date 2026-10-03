@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FaqExplorer } from "@/components/sections/FaqExplorer";
+import { MedicalReviewByline } from "@/components/seo/MedicalReviewByline";
 import { faqs, faqCategoryMap } from "@/content/faqs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqJsonLd, breadcrumbJsonLd, canonical } from "@/content/seo";
@@ -52,6 +53,7 @@ export default function FaqsPage() {
             <p className="mt-2 text-[14px] font-semibold text-on-surface">
               Find the answer you&rsquo;re looking for.
             </p>
+            <MedicalReviewByline reviewedBy={["sachin", "meeta"]} />
           </RevealNow>
         </div>
       </section>

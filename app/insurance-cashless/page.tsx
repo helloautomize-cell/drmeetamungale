@@ -14,6 +14,7 @@ import {
   fallbackBody,
 } from "@/content/insurance";
 import { InsuranceFaq } from "@/components/sections/InsuranceFaq";
+import { MedicalReviewByline } from "@/components/seo/MedicalReviewByline";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqJsonLd, breadcrumbJsonLd, canonical } from "@/content/seo";
 import { Reveal, RevealNow } from "@/components/ui/motion";
@@ -64,6 +65,7 @@ export default function InsuranceCashlessPage() {
                 Understand cashless treatment, current empanelment and what to
                 prepare before your visit.
               </p>
+              <MedicalReviewByline reviewedBy={["sachin", "meeta"]} />
               <div className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-3">
                 <a
                   href="#cashless-process"
