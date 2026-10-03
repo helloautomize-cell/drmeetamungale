@@ -16,12 +16,12 @@ import { REAL, type ImgSet } from "@/lib/images";
 // swap `REAL.meeta` for the proper portrait when it arrives
 // (TODO: photo wanted from hospital).
 const PORTRAIT: Record<string, { img: ImgSet; pos: string; alt: string }> = {
-  "dr-sachin-mungale": {
+  "sachin-mungale": {
     img: REAL.sachin,
     pos: "object-[50%_30%]",
     alt: "Dr. Sachin Mungale at the slit lamp",
   },
-  "dr-meeta-mungale": {
+  "meeta-mungale": {
     img: REAL.meeta,
     pos: "object-[50%_20%]",
     alt: "Dr. Meeta Mungale writing at her desk",
@@ -30,7 +30,6 @@ const PORTRAIT: Record<string, { img: ImgSet; pos: string; alt: string }> = {
 
 function DoctorCard({ doctor, delay }: { doctor: Doctor; delay: number }) {
   const firstName = doctor.name.replace("Dr. ", "").split(" ")[0];
-  const credentials = doctor.title.split(",").map((c) => c.trim());
   const portrait = PORTRAIT[doctor.slug]!;
   return (
     <Reveal delay={delay} className="min-w-0">
@@ -50,22 +49,17 @@ function DoctorCard({ doctor, delay }: { doctor: Doctor; delay: number }) {
         <h3 className="mt-6 font-display-hero text-on-surface tracking-tight leading-tight text-[28px] lg:text-[34px]">
           {doctor.name}
         </h3>
-        <ul aria-label="Qualifications" className="mt-3 flex flex-wrap gap-2">
-          {credentials.map((c) => (
-            <li
-              key={c}
-              className="rounded-full ring-1 ring-line bg-paper px-3 py-1 text-[12.5px] font-semibold text-ink-soft"
-            >
-              {c}
-            </li>
-          ))}
-        </ul>
+        <p className="mt-2 text-[14px] font-semibold text-on-surface">{doctor.title}</p>
+        <p className="mt-1 text-[13.5px] text-on-surface-variant">{doctor.credentialLine}</p>
+        <p className="mt-1 text-[13px] text-on-surface-variant">
+          {doctor.registration} · {doctor.experience}
+        </p>
         <p className="mt-4 text-[15.5px] lg:text-[16.5px] leading-relaxed text-on-surface-variant line-clamp-2 max-w-[46ch]">
           {doctor.description}
         </p>
         <div className="mt-auto pt-6 flex flex-wrap items-center gap-x-7 gap-y-3">
           <Link
-            href="/about-us/"
+            href={"/doctors/" + doctor.slug + "/"}
             className="cta-quiet group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
           >
             <span className="cta-quiet-text">Meet Dr. {firstName}</span>

@@ -8,7 +8,8 @@ import {
   DoctorsTeaser,
 } from "@/components/sections/about";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { physiciansJsonLd, breadcrumbJsonLd, canonical } from "@/content/seo";
+import { physiciansJsonLd } from "@/content/doctor-schema";
+import { breadcrumbJsonLd, canonical } from "@/content/seo";
 
 export const metadata: Metadata = {
   title: "About Us",

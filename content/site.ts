@@ -4,11 +4,11 @@ export const siteConfig = {
   tagline: "Specialist eye hospital in Kothi, Vadodara",
   url: "https://mungaleeyehospital.com",
   address: "2nd Floor, Vinraj Plaza, opp. Government Press, Kothi Road, Anandpura, Vadodara, Gujarat 390001",
-  // Contact numbers per owner decision (contact page kept dummy for now).
+  // Contact numbers per owner decision.
 // Normal contact: +91 8140050055, +91 0265-2430101.
 // Emergency: +91 8140250055, +91 9723311209. WhatsApp: +91 8140250055.
-// (Source discrepancy noted: homepage shows +91 8140250055 as main phone;
-// contact page shows +91 8140050055 + 0265-2430101. Owner canonicalized above.)
+// (+91 8140050055 is CONFIRMED as the main number — it is printed on
+// Dr. Meeta Mungale's letterhead.)
   phone: "+91 8140050055",
   landline: "+91 0265-2430101",
   emergencyPhone: "+91 9723311209",
@@ -22,8 +22,8 @@ export const siteConfig = {
     youtube: "https://www.youtube.com/@mungaleeyehospital",
   },
   doctors: [
-    { name: "Dr. Sachin Mungale", title: "MS - Ophthalmology", slug: "dr-sachin-mungale" },
-    { name: "Dr. Meeta Mungale", title: "MS - Ophthalmology, DNB", slug: "dr-meeta-mungale" },
+    { name: "Dr. Sachin Mungale", title: "MS (Ophthalmology) · Glaucoma Fellowship, LVPEI", slug: "sachin-mungale" },
+    { name: "Dr. Meeta Mungale", title: "MS (Ophthalmology), DNB · Cornea Fellowship, LVPEI", slug: "meeta-mungale" },
   ],
   treatments: [
     { title: "Cornea Evaluation", slug: "cornea-evaluation" },
@@ -43,6 +43,7 @@ export const siteConfig = {
   },
   navTree: [
     { label: "About Us", href: "/about-us/", subItems: [] },
+    { label: "Our Doctors", href: "/doctors/", subItems: [] },
     { label: "Treatments", href: "/treatments/", subItems: [
       { label: "Cornea Evaluation", href: "/treatments/cornea-evaluation/" },
       { label: "Corneal Treatments", href: "/treatments/corneal-treatments/" },

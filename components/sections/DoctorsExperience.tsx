@@ -50,9 +50,6 @@ function DoctorPortrait({ doctor }: { doctor: Doctor }) {
 
 function DoctorInfo({ doctor, index }: { doctor: Doctor; index: string }) {
   const firstName = doctor.name.replace("Dr. ", "").split(" ")[0];
-  // Real qualifications only — split the verified credential string
-  // ("MS - Ophthalmology, DNB") into pill tags (§4.8).
-  const credentials = doctor.title.split(",").map((c) => c.trim());
   return (
     <div key={doctor.slug + "-info"} className="animate-story-in">
       <p
@@ -64,25 +61,17 @@ function DoctorInfo({ doctor, index }: { doctor: Doctor; index: string }) {
       <h3 className="mt-2 font-display-hero text-on-surface tracking-tight leading-tight text-[30px] lg:text-[38px]">
         {doctor.name}
       </h3>
-      <ul
-        aria-label="Qualifications"
-        className="mt-3 flex flex-wrap gap-2"
-      >
-        {credentials.map((c) => (
-          <li
-            key={c}
-            className="rounded-full ring-1 ring-line bg-paper px-3 py-1 text-[12.5px] font-semibold text-ink-soft"
-          >
-            {c}
-          </li>
-        ))}
-      </ul>
+      <p className="mt-2 text-[14px] font-semibold text-on-surface">{doctor.title}</p>
+      <p className="mt-1 text-[13.5px] text-on-surface-variant">{doctor.credentialLine}</p>
+      <p className="mt-1 text-[13px] text-on-surface-variant">
+        {doctor.registration} · {doctor.experience}
+      </p>
       <p className="mt-4 text-[15.5px] lg:text-[17px] leading-relaxed text-on-surface-variant max-w-lg">
         {doctor.description}
       </p>
       <div className="mt-6 flex flex-col gap-4">
         <Link
-          href="/about-us/"
+          href={"/doctors/" + doctor.slug + "/"}
           className="cta-quiet group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
         >
           <span className="cta-quiet-text">Meet Dr. {firstName}</span>
@@ -111,7 +100,6 @@ function DoctorInfo({ doctor, index }: { doctor: Doctor; index: string }) {
 
 export function DoctorsExperience({ compact = false }: { compact?: boolean }) {
   const [active, setActive] = React.useState(0);
-  const current = doctors[active]!;
 
   return (
     <>
@@ -170,7 +158,7 @@ export function DoctorsExperience({ compact = false }: { compact?: boolean }) {
                           : "text-on-surface-variant")
                       }
                     >
-                      {d.title}
+                      {d.credentialLine}
                     </span>
                   </span>
                   <ArrowRight
@@ -188,18 +176,22 @@ export function DoctorsExperience({ compact = false }: { compact?: boolean }) {
           </div>
         </div>
 
-        {/* RIGHT (~65%) — portrait + story */}
+        {/* RIGHT (~65%) — portrait + story. Both doctors render in the
+            DOM (indexability); the inactive pair is hidden. */}
         <div className="lg:col-span-8 grid sm:grid-cols-2 gap-8 lg:gap-10 items-start">
-          <div>
-            <DoctorPortrait doctor={current} />
-            <p className="mt-3 text-[11.5px] font-semibold uppercase tracking-[0.18em] text-on-surface-variant">
-              Mungale Eye Hospital · Kothi, Vadodara
-            </p>
-          </div>
-          <DoctorInfo
-            doctor={current}
-            index={active === 0 ? "01" : "02"}
-          />
+          {doctors.map((d, i) => (
+            <React.Fragment key={d.slug}>
+              <div hidden={i !== active} role="tabpanel">
+                <DoctorPortrait doctor={d} />
+                <p className="mt-3 text-[11.5px] font-semibold uppercase tracking-[0.18em] text-on-surface-variant">
+                  Mungale Eye Hospital · Kothi, Vadodara
+                </p>
+              </div>
+              <div hidden={i !== active} role="tabpanel">
+                <DoctorInfo doctor={d} index={i === 0 ? "01" : "02"} />
+              </div>
+            </React.Fragment>
+          ))}
         </div>
       </div>
 

@@ -1,4 +1,5 @@
 import { siteConfig } from "@/content/site";
+import { doctors } from "@/content/doctors";
 
 // ─── Contact data (/contact-us/) ───────────────────────────────────────────
 // SOURCE OF TRUTH: live WordPress /contact-us/, re-read via WPVibe/REST.
@@ -46,10 +47,10 @@ export const contactPhones = {
   email: siteConfig.email,
 };
 
-export const contactDoctors = [
-  { name: "Dr. Meeta Mungale", value: "dr-meeta-mungale" },
-  { name: "Dr. Sachin Mungale", value: "dr-sachin-mungale" },
-];
+export const contactDoctors = [doctors[1]!, doctors[0]!].map((d) => ({
+  name: d.name,
+  value: d.slug,
+}));
 
 // Before-visit items VERBATIM from the live insurance documents answer —
 // the only verified preparation list on the site.
