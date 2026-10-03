@@ -1,33 +1,24 @@
 import { siteConfig } from "@/content/site";
-import { doctors } from "@/content/doctors";
+import { MEDICAL_REVIEW_DATE } from "@/content/doctors";
+import {
+  BASE,
+  CLINIC_ID,
+  physicianId,
+  physicianRefs,
+  reviewersOf,
+} from "@/content/doctor-schema";
 import { treatments } from "@/content/treatments";
 import { faqs } from "@/content/faqs";
 import { blogPosts } from "@/content/blog";
 import { getTreatmentDetail } from "@/content/treatment-details";
 
 // ─── SEO structured-data builders ───────────────────────────────────────
-// Every value traces to verified source (site.ts, archive MDs, or the live
-// homepage JSON-LD geo block: 22.304108, 73.193533). Nothing invented:
-// BlogPosting omits datePublished (REST exposes no dates).
+// Physician entities live in content/doctor-schema.ts (built from
+// verified CV data). Everything here traces to a verified source —
+// nothing invented.
 
-const BASE = siteConfig.url.replace(/\/$/, "");
-const CLINIC_ID = BASE + "/#clinic";
-const PHYSICIAN_IDS: Record<string, string> = {
-  "dr-sachin-mungale": BASE + "/about-us/#dr-sachin-mungale",
-  "dr-meeta-mungale": BASE + "/about-us/#dr-meeta-mungale",
-};
-// Degrees per doctor, verbatim from content/doctors.ts titles.
-const PHYSICIAN_CREDENTIALS: Record<string, string[]> = {
-  "dr-sachin-mungale": ["MS (Ophthalmology)"],
-  "dr-meeta-mungale": ["MS (Ophthalmology)", "DNB"],
-};
 // Build date — stamped once at SSG build time.
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
-// reviewedBy keys in content files -> Physician @ids.
-const REVIEWER_PHYSICIAN_IDS: Record<string, string> = {
-  sachin: PHYSICIAN_IDS["dr-sachin-mungale"]!,
-  meeta: PHYSICIAN_IDS["dr-meeta-mungale"]!,
-};
 
 export function hospitalJsonLd() {
   return {
@@ -59,7 +50,7 @@ export function hospitalJsonLd() {
     image: BASE + "/images/mungale/og-default.jpg",
     logo: BASE + "/images/hero/httpsmungaleeyehospital-logo.svg",
     foundingDate: "2007",
-    founder: Object.values(PHYSICIAN_IDS).map((id) => ({ "@id": id })),
+    founder: physicianRefs(["sachin", "meeta"]),
     areaServed: [
       { "@type": "City", name: "Vadodara" },
       { "@type": "State", name: "Gujarat" },
@@ -80,28 +71,6 @@ export function websiteJsonLd() {
     inLanguage: "en-IN",
     publisher: { "@id": CLINIC_ID },
   };
-}
-
-export function physiciansJsonLd() {
-  return doctors.map((d) => {
-    const degrees = PHYSICIAN_CREDENTIALS[d.slug] ?? [];
-    return {
-      "@context": "https://schema.org",
-      "@type": "Physician",
-      "@id": PHYSICIAN_IDS[d.slug],
-      name: d.name,
-      honorificSuffix: degrees.join(", "),
-      hasCredential: degrees.map((degree) => ({
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "degree",
-        name: degree,
-      })),
-      medicalSpecialty: "Ophthalmology",
-      description: d.title,
-      url: BASE + "/about-us/",
-      worksFor: { "@id": CLINIC_ID },
-    };
-  });
 }
 
 export function procedureJsonLd(slug: string) {
@@ -169,6 +138,7 @@ export function medicalWebPageJsonLd(slug: string) {
   const c = TREATMENT_CONDITIONS[slug];
   if (!d || !c) return null;
   const url = BASE + "/treatments/" + slug + "/";
+  const reviewers = reviewersOf(d.reviewedBy);
   const page: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "MedicalWebPage",
@@ -178,7 +148,7 @@ export function medicalWebPageJsonLd(slug: string) {
     description: d.intro,
     inLanguage: "en-IN",
     specialty: "Ophthalmology",
-    lastReviewed: BUILD_DATE,
+    lastReviewed: d.reviewedOn ?? (reviewers.length ? MEDICAL_REVIEW_DATE : BUILD_DATE),
     mainEntityOfPage: url,
     about: {
       "@type": "MedicalCondition",
@@ -186,9 +156,9 @@ export function medicalWebPageJsonLd(slug: string) {
       description: c.description,
     },
   };
-  if (d.reviewedBy && d.reviewedOn) {
-    page["reviewedBy"] = { "@id": REVIEWER_PHYSICIAN_IDS[d.reviewedBy] };
-    page["lastReviewed"] = d.reviewedOn;
+  if (reviewers.length > 0) {
+    page["reviewedBy"] =
+      reviewers.length === 1 ? { "@id": physicianId(reviewers[0]!) } : physicianRefs(reviewers);
   }
   return page;
 }
@@ -197,6 +167,7 @@ export function blogPostingJsonLd(slug: string) {
   const p = blogPosts.find((x) => x.slug === slug);
   if (!p) return null;
   const url = BASE + p.url;
+  const reviewers = reviewersOf(p.reviewedBy);
   const payload: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -207,7 +178,12 @@ export function blogPostingJsonLd(slug: string) {
     inLanguage: "en-IN",
     datePublished: p.date,
     dateModified: p.date,
-    author: { "@type": "Organization", "@id": CLINIC_ID, name: siteConfig.name },
+    author:
+      reviewers.length > 0
+        ? reviewers.length === 1
+          ? { "@id": physicianId(reviewers[0]!) }
+          : physicianRefs(reviewers)
+        : { "@type": "Organization", "@id": CLINIC_ID, name: siteConfig.name },
     publisher: {
       "@type": "Organization",
       "@id": CLINIC_ID,
@@ -219,9 +195,10 @@ export function blogPostingJsonLd(slug: string) {
     },
   };
   if (p.coverImage) payload["image"] = BASE + p.coverImage;
-  if (p.reviewedBy && p.reviewedOn) {
-    payload["reviewedBy"] = { "@id": REVIEWER_PHYSICIAN_IDS[p.reviewedBy] };
-    payload["lastReviewed"] = p.reviewedOn;
+  if (reviewers.length > 0) {
+    payload["reviewedBy"] =
+      reviewers.length === 1 ? { "@id": physicianId(reviewers[0]!) } : physicianRefs(reviewers);
+    payload["lastReviewed"] = p.reviewedOn ?? MEDICAL_REVIEW_DATE;
   }
   return payload;
 }
