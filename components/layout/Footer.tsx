@@ -31,7 +31,7 @@ function telHref(n: string) {
 
 const explore: { label: string; href: string; external?: boolean }[] = [
   { label: "About", href: "/about-us/" },
-  { label: "Doctors", href: "/about-us/" },
+  { label: "Doctors", href: "/doctors/" },
   { label: "Treatments", href: "/treatments/" },
   { label: "Patient Stories", href: GOOGLE_REVIEWS_URL, external: true },
   { label: "Health Insights", href: "/blog/" },
@@ -317,6 +317,17 @@ export function Footer() {
             The information on this site is for general guidance only and is
             not a substitute for professional medical advice, diagnosis or
             treatment.
+          </p>
+          <p className="mt-4 text-[12.5px] text-white/45">
+            Built &amp; marketed by{" "}
+            <a
+              href="https://www.automizemedialabs.com/"
+              target="_blank"
+              rel="noopener"
+              className="text-white/60 underline decoration-white/25 underline-offset-4 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
+            >
+              Automize Media Labs
+            </a>
           </p>
 
           {/* Signature watermark — static, decorative (quiet-luxury). */}
