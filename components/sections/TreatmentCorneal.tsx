@@ -315,8 +315,7 @@ function Gallery() {
   );
   const valid = all.filter((g) => !failed.includes(g.src));
   const visible = match ? valid.filter((g) => g.caption.startsWith(match)) : valid;
-  const featured = visible.slice(0, 4);
-  const shown = expanded ? visible : featured;
+  const shown = visible;
   const active = filters.find((f) => f.match === match) ?? filters[0];
   const nav = React.useCallback(
     (dir: 1 | -1) => {
@@ -374,6 +373,7 @@ function Gallery() {
           {shown.map((img, i) => (
             <div
               key={img.src}
+              hidden={!expanded && i >= 4}
               className={
                 !expanded && i < 4
                   ? i % 4 === 0

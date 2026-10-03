@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { CareDiscovery } from "@/components/sections/CareDiscovery";
+import { CarePanel, careItems } from "@/components/sections/CarePanels";
 import { Hero } from "@/components/sections/Hero";
 import { SpecialtiesShowcase } from "@/components/sections/SpecialtiesShowcase";
 import { PatientJourney } from "@/components/sections/PatientJourney";
@@ -55,7 +56,11 @@ export default function HomePage() {
       <JsonLd data={websiteJsonLd()} />
       <Hero />
       <InsideMungale />
-      <CareDiscovery />
+      <CareDiscovery
+        panels={careItems.map((item, i) => (
+          <CarePanel key={item.index} concernIndex={i} />
+        ))}
+      />
       <TrustPillars />
       <SpecialtiesShowcase />
       {/* TODO(content): confirm exact visit sequence with the doctors —

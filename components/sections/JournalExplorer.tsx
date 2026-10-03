@@ -92,10 +92,11 @@ function FeaturedStory({ post }: { post: BlogPostMeta }) {
   );
 }
 
-function StoryCard({ post, large }: { post: BlogPostMeta; large?: boolean }) {
+function StoryCard({ post, large, hidden }: { post: BlogPostMeta; large?: boolean; hidden?: boolean }) {
   return (
     <Link
       href={post.url}
+      hidden={hidden}
       className={
         "group flex flex-col " + (large ? "sm:col-span-2" : "")
       }
@@ -154,7 +155,6 @@ export function JournalExplorer() {
   }, [topic, query]);
 
   const [featured, ...rest] = results;
-  const shown = rest.slice(0, count);
 
   const apply = (t: TopicFilter, q: string, scroll = false) => {
     setTopic(t);
@@ -250,14 +250,16 @@ export function JournalExplorer() {
             </div>
           )}
 
-          {shown.length > 0 && (
+          {rest.length > 0 && (
             <div className="mt-12">
               <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">
                 Latest from Mungale
               </p>
+              {/* Every article renders in the DOM (indexability); entries
+                  beyond the load-more count stay hidden until expanded. */}
               <div className="mt-6 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-                {shown.map((p, i) => (
-                  <StoryCard key={p.slug} post={p} large={i % 7 === 6} />
+                {rest.map((p, i) => (
+                  <StoryCard key={p.slug} post={p} large={i % 7 === 6} hidden={i >= count} />
                 ))}
               </div>
               {rest.length > count && (

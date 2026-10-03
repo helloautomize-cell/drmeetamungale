@@ -1,9 +1,10 @@
 # Mungale Eye Hospital
 
 > Specialist eye hospital in Kothi, Vadodara, Gujarat, India. Founded 2007.
-> Led by ophthalmologists Dr. Sachin Mungale (MS — Ophthalmology) and
-> Dr. Meeta Mungale (MS — Ophthalmology, DNB). Referral centre for cornea
-> and glaucoma care.
+> Led by ophthalmologists Dr. Sachin Mungale (MS — Ophthalmology,
+> Glaucoma Fellowship, LVPEI) and Dr. Meeta Mungale (MS — Ophthalmology,
+> DNB, Cornea Fellowship, LVPEI). Referral centre for cornea and glaucoma
+> care.
 
 ## Contact
 
@@ -14,6 +15,12 @@
 - Email: mungaleeyehospital@gmail.com
 - Hours: Monday–Saturday 9:00 AM–8:00 PM; Sunday closed
 - Website: https://mungaleeyehospital.com
+
+## Doctors
+
+- [Dr. Sachin Mungale](https://mungaleeyehospital.com/doctors/sachin-mungale/): Ophthalmic Surgeon · Glaucoma Specialist. MS (Ophthalmology) · Glaucoma Fellowship, LVPEI. Gujarat Medical Council Reg. No. G-12281. 19+ years; heads the hospital's glaucoma department since 2007.
+- [Dr. Meeta Mungale](https://mungaleeyehospital.com/doctors/meeta-mungale/): Ophthalmic Surgeon · Cornea Specialist. MS (Ophthalmology), DNB · Cornea Fellowship, LVPEI. Gujarat Medical Council Reg. No. G-39262. 19+ years; more than 500 corneal transplants.
+- All medical content on this site is reviewed by the doctors. The reviewer of each page is listed in llms-full.txt.
 
 ## Services
 
@@ -26,6 +33,7 @@
 
 - [Home](https://mungaleeyehospital.com/): hospital overview, specialties, doctors, reviews
 - [About us](https://mungaleeyehospital.com/about-us/): the doctors and the hospital's approach
+- [Our doctors](https://mungaleeyehospital.com/doctors/): profiles, credentials and verified CVs
 - [Treatments](https://mungaleeyehospital.com/treatments/): cataract, cornea, glaucoma, optical services
 - [Insurance & cashless](https://mungaleeyehospital.com/insurance-cashless/): cashless hospitalisation and claims support
 - [FAQs](https://mungaleeyehospital.com/faqs/): common patient questions

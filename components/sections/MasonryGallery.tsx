@@ -40,7 +40,7 @@ export function MasonryGallery() {
     () => (filter === "all" ? valid : valid.filter((p) => p.group === filter)),
     [valid, filter]
   );
-  const shown = expanded ? visible : visible.slice(0, INITIAL_COUNT);
+  const shown = visible;
 
   const markFailed = React.useCallback(
     (src: string) => setFailed((f) => (f.includes(src) ? f : [...f, src])),
@@ -98,6 +98,8 @@ export function MasonryGallery() {
         </p>
       ) : (
         <div className="mt-8 columns-2 md:columns-3 xl:columns-4 gap-5 [column-fill:_balance]">
+          {/* All items render in the DOM (indexability); those past the
+              initial set stay hidden until "View more moments". */}
           {shown.map((p, i) => {
             const tile = (
               <>
@@ -124,25 +126,27 @@ export function MasonryGallery() {
             );
             const frame =
               "group relative mb-5 block w-full break-inside-avoid overflow-hidden rounded-[10px] bg-surface-canvas text-left";
-            return p.group === "clinical" ? (
-              <ClinicalPhoto
-                key={p.src}
-                frame={frame}
-                onView={() => openAt(p.src)}
-                viewLabel={"Open photograph in viewer" + (p.caption ? ": " + p.caption : "")}
-              >
-                {tile}
-              </ClinicalPhoto>
-            ) : (
-              <button
-                key={p.src}
-                type="button"
-                onClick={() => openAt(p.src)}
-                aria-label={"Open photograph in viewer" + (p.caption ? ": " + p.caption : "")}
-                className={frame}
-              >
-                {tile}
-              </button>
+            return (
+              <div key={p.src} hidden={!expanded && i >= INITIAL_COUNT} className="break-inside-avoid">
+                {p.group === "clinical" ? (
+                  <ClinicalPhoto
+                    frame={frame}
+                    onView={() => openAt(p.src)}
+                    viewLabel={"Open photograph in viewer" + (p.caption ? ": " + p.caption : "")}
+                  >
+                    {tile}
+                  </ClinicalPhoto>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => openAt(p.src)}
+                    aria-label={"Open photograph in viewer" + (p.caption ? ": " + p.caption : "")}
+                    className={frame}
+                  >
+                    {tile}
+                  </button>
+                )}
+              </div>
             );
           })}
         </div>
