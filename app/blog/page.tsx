@@ -8,8 +8,14 @@ import { RevealNow } from "@/components/ui/motion";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Understand your eyes — clear, practical eye-health guidance from Mungale Eye Hospital, Vadodara. Search 36 articles on cataract, glaucoma, cornea and everyday eye care.",
+    "Eye health articles from Mungale Eye Hospital, Vadodara — clear guidance on cataract, glaucoma, cornea and more. Book a consultation today.",
   alternates: { canonical: canonical("/blog/") },
+  openGraph: {
+    title: "Blog | Mungale Eye Hospital",
+    description:
+      "Eye health articles from Mungale Eye Hospital, Vadodara — clear guidance on cataract, glaucoma, cornea and more. Book a consultation today.",
+    url: canonical("/blog/"),
+  },
 };
 
 // ─── /blog/ — editorial eye-health journal ────────────────────────────────

@@ -36,7 +36,7 @@ const CONCERNS: { topic: string; line: string; filter?: TopicFilter; query?: str
   { topic: "Glaucoma", line: "Pressure, diagnosis and treatment paths.", filter: "glaucoma" },
   { topic: "Cornea", line: "Transplants, ulcers and corneal care.", filter: "cornea" },
   { topic: "Eye examinations", line: "Check-ups, what to expect, when to go.", query: "examination" },
-  { topic: "Vision correction", line: "LASIK and sharper sight.", query: "lasik" },
+  { topic: "Vision correction", line: "Laser-Assisted In Situ Keratomileusis (LASIK) and sharper sight.", query: "lasik" },
   { topic: "Eye health", line: "Everyday habits for lasting vision.", filter: "eye-health" },
 ];
 
@@ -188,7 +188,7 @@ export function JournalExplorer() {
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search eye health, treatments, symptoms…"
               autoComplete="off"
-              className="mt-2 w-full bg-surface-canvas text-on-surface font-body-md text-body-md rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:text-outline-variant"
+              className="mt-2 w-full bg-surface-canvas text-on-surface font-body-md text-body-md rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:text-on-surface-variant"
             />
           </div>
           <div

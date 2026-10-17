@@ -235,7 +235,7 @@ export const blogLinks: Record<string, BlogLink[]> = {
       "block": 29,
       "nth": 0,
       "text": "schedule a consultation",
-      "href": "/contact-us/",
+      "href": "/contact-us/#book",
       "external": false
     }
   ],
@@ -374,7 +374,7 @@ export const blogLinks: Record<string, BlogLink[]> = {
     {
       "block": 28,
       "nth": 0,
-      "text": "LASIK Surgery",
+      "text": "Laser-Assisted In Situ Keratomileusis (LASIK) surgery",
       "href": "/",
       "external": false
     },
