@@ -451,7 +451,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
             {/* Below 1200px the rail cards follow the article inline. */}
             <div className="min-[1200px]:hidden mt-10 space-y-6">
-              <BlogDoctorCards reviewedBy={post.reviewedBy} />
+              <BlogDoctorCards reviewedBy={post.reviewedBy} reviewConfirmed={post.reviewConfirmed} />
               <BlogContactCard />
             </div>
           </div>
@@ -461,7 +461,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <aside className="hidden min-[1200px]:block">
             <div className="space-y-6">
               <div className="sticky top-28">
-                <BlogDoctorCards reviewedBy={post.reviewedBy} />
+                <BlogDoctorCards reviewedBy={post.reviewedBy} reviewConfirmed={post.reviewConfirmed} />
               </div>
               <BlogContactCard />
             </div>

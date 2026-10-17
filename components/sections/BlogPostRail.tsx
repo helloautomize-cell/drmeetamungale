@@ -30,8 +30,10 @@ export function BlogDoctorCards({
     : ALL_KEYS; // undetermined → show both doctors stacked
   return (
     <div className="rounded-[16px] ring-1 ring-secondary/10 bg-card-white px-4 divide-y divide-secondary/10">
+      {/* Unreviewed support articles say "Our doctors" — a "Reviewed by"
+          heading would claim a medical review that has not happened. */}
       <p className="pt-4 text-[12px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">
-        Reviewed by
+        {reviewConfirmed === false ? "Our doctors" : "Reviewed by"}
       </p>
       {keys.map((k) => (
         <SpecialistCard key={k} reviewerKey={k} compact />
