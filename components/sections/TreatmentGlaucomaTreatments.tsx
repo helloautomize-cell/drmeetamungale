@@ -9,6 +9,7 @@ import {
   TreatmentContactBand,
   RelatedArticles,
 } from "@/components/sections/TreatmentShell";
+import { supportSlugsForTreatment } from "@/content/blog-support";
 import { MedicalReviewByline } from "@/components/seo/MedicalReviewByline";
 import { TreatmentDraftContent } from "@/components/sections/TreatmentDraftContent";
 import { getTreatmentDetail } from "@/content/treatment-details";
@@ -386,10 +387,14 @@ export function TreatmentGlaucomaTreatments() {
             <Related />
             <RelatedArticles
               slugs={[
-                "glaucoma-treatment-options",
-                "glaucoma-symptoms-causes-treatment",
-                "ahmed-glaucoma-valve-surgery",
-              ]}
+                // Published 2.3, 2.5 + pillar first; existing picks fill
+                // remaining slots (max 3 total).
+                ...new Set([
+                  ...supportSlugsForTreatment("glaucoma-treatments"),
+                  "glaucoma-treatment-options",
+                  "ahmed-glaucoma-valve-surgery",
+                ]),
+              ].slice(0, 3)}
             />
             <TreatmentContactBand />
             <PrevNext />

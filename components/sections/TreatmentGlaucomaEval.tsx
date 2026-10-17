@@ -9,6 +9,7 @@ import {
   TreatmentContactBand,
   RelatedArticles,
 } from "@/components/sections/TreatmentShell";
+import { supportSlugsForTreatment } from "@/content/blog-support";
 import { MedicalReviewByline } from "@/components/seo/MedicalReviewByline";
 import { TreatmentDraftContent } from "@/components/sections/TreatmentDraftContent";
 import { getTreatmentDetail } from "@/content/treatment-details";
@@ -365,10 +366,15 @@ export function TreatmentGlaucomaEval() {
             <Related />
             <RelatedArticles
               slugs={[
-                "how-is-glaucoma-diagnosed-evaluated",
-                "glaucoma-symptoms-causes-treatment",
-                "eye-checkup-after-forty-tests-frequency-warning-signs",
-              ]}
+                // Published 2.1, 2.2, 2.4 first; existing picks fill
+                // remaining slots (max 3 total).
+                ...new Set([
+                  ...supportSlugsForTreatment("glaucoma-evaluation"),
+                  "how-is-glaucoma-diagnosed-evaluated",
+                  "glaucoma-symptoms-causes-treatment",
+                  "eye-checkup-after-forty-tests-frequency-warning-signs",
+                ]),
+              ].slice(0, 3)}
             />
             <TreatmentContactBand />
             <PrevNext />

@@ -1,4 +1,5 @@
 import type { ReviewerKey } from "@/content/doctors";
+import { supportMetas } from "@/content/blog-support";
 
 export type BlogTopic = "cataract" | "glaucoma" | "cornea" | "surgery" | "eye-health";
 
@@ -16,6 +17,16 @@ export interface BlogPostMeta {
   // Reviewer mapping confirmed by both doctors (Oct 2026).
   reviewedBy?: ReviewerKey | ReviewerKey[];
   reviewedOn?: string;
+  // ── Support-pipeline fields (optional; existing posts unaffected) ──
+  role?: "pillar" | "support";
+  cluster?: "cataract" | "glaucoma" | "keratoconus" | "corneal-transplant";
+  pillarSlug?: string;
+  supportNumber?: string;
+  seoTitle?: string; // absolute <title>, ≤60 incl. brand
+  metaDescription?: string; // 120-160
+  coverAlt?: string;
+  reviewConfirmed?: boolean;
+  treatmentPage?: string;
 }
 
 // All 36 posts — 26 live (slugs/titles/URLs VERBATIM from the WordPress
@@ -97,6 +108,8 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "cataract-surgery-guide",
+    role: "pillar",
+    cluster: "cataract",
     reviewedBy: ["sachin", "meeta"],
     title: "Cataract Surgery: Symptoms, When Surgery Is Needed, Lens Options, Procedure & Recovery",
     url: "/blog/cataract-surgery-guide/",
@@ -110,6 +123,8 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "corneal-transplant-surgery",
+    role: "pillar",
+    cluster: "corneal-transplant",
     reviewedBy: "meeta",
     title: "Corneal Transplant Surgery: When It Is Needed, Types, Recovery & Risks",
     url: "/blog/corneal-transplant-surgery/",
@@ -136,6 +151,8 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "glaucoma-symptoms-causes-treatment",
+    role: "pillar",
+    cluster: "glaucoma",
     reviewedBy: "sachin",
     title: "Glaucoma: Symptoms, Causes, Eye Pressure Tests & Treatment",
     url: "/blog/glaucoma-symptoms-causes-treatment/",
@@ -149,6 +166,8 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "keratoconus-symptoms-causes-diagnosis-treatment",
+    role: "pillar",
+    cluster: "keratoconus",
     reviewedBy: "meeta",
     title: "Keratoconus: Symptoms, Causes, Diagnosis & Treatment",
     url: "/blog/keratoconus-symptoms-causes-diagnosis-treatment/",
@@ -498,6 +517,9 @@ export const blogPosts: BlogPostMeta[] = [
     readMinutes: 3,
     topics: ["eye-health"],
   },
+  // Support articles (content/blog-support/) append LAST so the home
+  // page selection — first four posts with covers — never shifts.
+  ...supportMetas,
 ];
 
 export function getPostBySlug(slug: string): BlogPostMeta | undefined {

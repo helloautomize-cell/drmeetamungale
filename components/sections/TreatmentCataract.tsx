@@ -9,6 +9,7 @@ import {
   TreatmentContactBand,
   RelatedArticles,
 } from "@/components/sections/TreatmentShell";
+import { supportSlugsForTreatment } from "@/content/blog-support";
 import { MedicalReviewByline } from "@/components/seo/MedicalReviewByline";
 import { TreatmentDraftContent } from "@/components/sections/TreatmentDraftContent";
 import { siteConfig } from "@/content/site";
@@ -326,10 +327,14 @@ export function TreatmentCataract() {
             <Related />
             <RelatedArticles
               slugs={[
-                "cataract-surgery-guide",
-                "risks-benefits-of-cataract-surgery",
-                "benefits-of-cataract-surgery",
-              ]}
+                // Pillar + published 1.x support articles first; existing
+                // picks fill any remaining slots (max 3 total).
+                ...new Set([
+                  ...supportSlugsForTreatment("cataract-surgery"),
+                  "risks-benefits-of-cataract-surgery",
+                  "benefits-of-cataract-surgery",
+                ]),
+              ].slice(0, 3)}
             />
             <TreatmentContactBand />
             <PrevNext />

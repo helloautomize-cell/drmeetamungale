@@ -9,6 +9,7 @@ import {
   TreatmentContactBand,
   RelatedArticles,
 } from "@/components/sections/TreatmentShell";
+import { supportSlugsForTreatment } from "@/content/blog-support";
 import { MedicalReviewByline } from "@/components/seo/MedicalReviewByline";
 import { TreatmentDraftContent } from "@/components/sections/TreatmentDraftContent";
 import { getTreatmentDetail } from "@/content/treatment-details";
@@ -699,10 +700,15 @@ export function TreatmentCorneal() {
               <Related />
               <RelatedArticles
                 slugs={[
-                  "corneal-transplant-surgery",
-                  "corneal-treatment-recovery-process",
-                  "best-eye-hospital-for-corneal-transplant",
-                ]}
+                  // Published 3.x and 4.x support articles plus the
+                  // existing picks (max 3 total).
+                  ...new Set([
+                    ...supportSlugsForTreatment("corneal-treatments"),
+                    "corneal-transplant-surgery",
+                    "corneal-treatment-recovery-process",
+                    "best-eye-hospital-for-corneal-transplant",
+                  ]),
+                ].slice(0, 3)}
               />
               <TreatmentContactBand />
               <PrevNext />

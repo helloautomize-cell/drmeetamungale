@@ -9,6 +9,7 @@ import {
   TreatmentContactBand,
   RelatedArticles,
 } from "@/components/sections/TreatmentShell";
+import { supportSlugsForTreatment } from "@/content/blog-support";
 import { MedicalReviewByline } from "@/components/seo/MedicalReviewByline";
 import { TreatmentDraftContent } from "@/components/sections/TreatmentDraftContent";
 import { getTreatmentDetail } from "@/content/treatment-details";
@@ -396,10 +397,15 @@ export function TreatmentCorneaEval() {
             <Related />
             <RelatedArticles
               slugs={[
-                "keratoconus-symptoms-causes-diagnosis-treatment",
-                "eye-checkup-after-forty-tests-frequency-warning-signs",
-                "corneal-ulcer-keratitis-symptoms-treatment",
-              ]}
+                // Published 3.1 first; existing picks fill remaining
+                // slots (max 3 total).
+                ...new Set([
+                  ...supportSlugsForTreatment("cornea-evaluation"),
+                  "keratoconus-symptoms-causes-diagnosis-treatment",
+                  "eye-checkup-after-forty-tests-frequency-warning-signs",
+                  "corneal-ulcer-keratitis-symptoms-treatment",
+                ]),
+              ].slice(0, 3)}
             />
             <TreatmentContactBand />
             <PrevNext />

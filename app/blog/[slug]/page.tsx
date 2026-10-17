@@ -5,12 +5,18 @@ import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
 import { BlogFaqItem } from "@/components/sections/BlogFaqItem";
-import { getPostBySlug, blogPosts } from "@/content/blog";
+import { getPostBySlug, blogPosts, type BlogPostMeta } from "@/content/blog";
 import { getBlogBody } from "@/content/blog-bodies";
 import { blogLinks, type BlogLink } from "@/content/blog-links";
+import {
+  getSupportArticle,
+  supportLinks,
+  supportsForCluster,
+  siblingsOf,
+} from "@/content/blog-support";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { MedicalReviewByline, formatReviewDate } from "@/components/seo/MedicalReviewByline";
-import { blogPostingJsonLd, breadcrumbJsonLd, canonical } from "@/content/seo";
+import { blogPostingJsonLd, breadcrumbJsonLd, canonical, faqJsonLd } from "@/content/seo";
 import { siteConfig } from "@/content/site";
 import { BlogToc, BlogTocCollapsible, type TocItem } from "@/components/sections/BlogToc";
 import { BlogContactCard, BlogDoctorCards } from "@/components/sections/BlogPostRail";
@@ -119,34 +125,84 @@ function clampDescription(text: string): string {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const post = getPostBySlug((await params).slug);
   if (!post) return { title: "Blog" };
-  const description = clampDescription(post.excerpt);
+  // Support articles carry an explicit SEO title (≤60 incl. brand, so it
+  // is set absolutely, bypassing the layout template) and a dedicated
+  // meta description; OG/Twitter use the cover at its true size.
+  const isSupport = post.role === "support";
+  const description = post.metaDescription ?? clampDescription(post.excerpt);
   const title = post.title + " | " + siteConfig.name;
-  return {
-    title: post.title,
-    description,
-    alternates: { canonical: canonical(post.url) },
-    openGraph: {
-      title,
-      description,
-      url: canonical(post.url),
-      siteName: siteConfig.name,
-      type: "article",
-      images: [
+  const ogImages = isSupport
+    ? [
+        {
+          url: post.coverImage,
+          width: post.coverWidth,
+          height: post.coverHeight,
+          alt: post.coverAlt ?? post.title,
+        },
+      ]
+    : [
         {
           url: "/images/mungale/og-default.jpg",
           width: 1200,
           height: 630,
           alt: siteConfig.name + " — eye hospital in Kothi, Vadodara",
         },
-      ],
+      ];
+  return {
+    title: isSupport ? { absolute: post.seoTitle ?? post.title } : post.title,
+    description,
+    alternates: { canonical: canonical(post.url) },
+    ...(isSupport ? { robots: { index: true, follow: true } } : {}),
+    openGraph: {
+      title,
+      description,
+      url: canonical(post.url),
+      siteName: siteConfig.name,
+      type: "article",
+      ...(isSupport ? { publishedTime: post.date } : {}),
+      images: ogImages,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/images/mungale/og-default.jpg"],
+      images: [isSupport ? post.coverImage : "/images/mungale/og-default.jpg"],
     },
   };
+}
+
+// Related Articles ordering (spec 3.4): same cluster first — pillar then
+// siblings in queue order — then same topic, then the rest. Three cards.
+function relatedFor(post: BlogPostMeta): BlogPostMeta[] {
+  const pool = blogPosts.filter((p) => p.slug !== post.slug && p.coverImage);
+  const rank = (p: BlogPostMeta): number => {
+    if (post.cluster && p.cluster === post.cluster) {
+      if (p.role === "pillar") return 0;
+      return 1; // siblings (queue order comes from blogPosts order)
+    }
+    if (p.topics.some((t) => post.topics.includes(t))) return 2;
+    return 3;
+  };
+  return pool
+    .map((p, i) => ({ p, i }))
+    .sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i)
+    .slice(0, 3)
+    .map((x) => x.p);
+}
+
+// Cluster nav row used by "More in this guide" / "Also in this guide".
+function ClusterLink({ post }: { post: BlogPostMeta }) {
+  return (
+    <Link
+      href={post.url}
+      className="group flex items-center justify-between gap-4 border-b border-secondary/10 py-4"
+    >
+      <span className="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">
+        {post.title}
+      </span>
+      <ArrowRight className="w-5 h-5 text-primary shrink-0 group-hover:translate-x-1 transition-transform" />
+    </Link>
+  );
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -155,7 +211,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const body = getBlogBody(slug);
   if (!post || !body) notFound();
 
-  const related = blogPosts.filter((p) => p.slug !== post.slug && p.coverImage).slice(0, 3);
+  const support = getSupportArticle(slug);
+  const pillar = post.role === "support" && post.pillarSlug ? getPostBySlug(post.pillarSlug) : undefined;
+  const clusterSupports = post.cluster ? supportsForCluster(post.cluster).map((a) => a.meta) : [];
+  const related = relatedFor(post);
+
+  // FAQPage JSON-LD one-to-one with the visible FAQ block (support posts).
+  const faqItems = body.blocks
+    .filter((b) => b.type === "faq")
+    .flatMap((b) =>
+      (b.items ?? []).map((it) => ({
+        question: decodeEntities(it.q),
+        answer: decodeEntities(
+          (it.a ?? []).map((ab) => ab.text).join(" ")
+        ),
+      }))
+    );
 
   // Stable, de-duplicated h2 ids — one pass over the heading blocks so the
   // TOC anchors and the rendered ids always match.
@@ -186,6 +257,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           { label: post.title, href: post.url },
         ])}
       />
+      {post.role === "support" && faqItems.length > 0 && (
+        <JsonLd data={faqJsonLd(faqItems)} />
+      )}
       <PageHero
         breadcrumb={[
           { label: "Home", href: "/" },
@@ -217,18 +291,39 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <BlogTocCollapsible items={tocItems} />
             </div>
             <div className="mt-6">
-              <MedicalReviewByline reviewedBy={post.reviewedBy} reviewedOn={post.reviewedOn} />
+              {/* Unconfirmed support articles carry no reviewer claim:
+                  the byline names the hospital until the doctor confirms. */}
+              {post.reviewConfirmed === false ? (
+                <p className="font-body-sm text-body-sm text-on-surface-variant mt-2">
+                  Published by {siteConfig.name}
+                </p>
+              ) : (
+                <MedicalReviewByline reviewedBy={post.reviewedBy} reviewedOn={post.reviewedOn} />
+              )}
               <p className="font-body-sm text-body-sm text-on-surface-variant mt-2 mb-5">
                 {published === updated
                   ? `Published ${published}`
                   : `Published ${published} · Updated ${updated}`}
               </p>
             </div>
+            {/* Support posts: cluster chip near the top linking to the
+                pillar guide the article belongs to. */}
+            {pillar && (
+              <p className="mb-8 rounded-xl border border-secondary/15 bg-card-white px-5 py-4 font-body-sm text-body-sm text-on-surface-variant">
+                Part of our guide:{" "}
+                <Link
+                  href={pillar.url}
+                  className="font-semibold text-on-surface underline decoration-primary-fixed/60 underline-offset-4 hover:decoration-primary-fixed"
+                >
+                  {pillar.title}
+                </Link>
+              </p>
+            )}
             {post.coverImage && (
               <div className="rounded-2xl overflow-hidden shadow-md mt-1 mb-10">
                 <Image
                   src={post.coverImage}
-                  alt={post.title}
+                  alt={post.coverAlt ?? post.title}
                   width={post.coverWidth}
                   height={post.coverHeight}
                   className="w-full h-auto object-cover"
@@ -238,7 +333,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             )}
             <div className="space-y-5">
             {body.blocks.map((b, i) => {
-              const bl = (blogLinks[slug] ?? []).filter((l) => l.block === i);
+              const bl = [...(blogLinks[slug] ?? []), ...(supportLinks[slug] ?? [])].filter(
+                (l) => l.block === i
+              );
               if (b.type === "faq") {
                 return (
                   <section key={i} className="pt-4">
@@ -368,9 +465,62 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </aside>
         </div>
 
-        {/* End of every post: related articles, then a booking action. */}
+        {/* End of every post: cluster blocks, related, then a booking
+            action. */}
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="min-[1200px]:ml-[260px] min-[1200px]:mr-[360px]">
+            {/* Support posts: the article's own "Keep reading" list —
+                unpublished siblings were already dropped at compile. */}
+            {support && support.keepReading.length > 0 && (
+              <nav aria-label="Keep reading" className="mt-14 pt-8 border-t border-border-light">
+                <h2 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-6">
+                  Keep reading
+                </h2>
+                <div>
+                  {support.keepReading.map((k) => (
+                    <Link
+                      key={k.href + k.label}
+                      href={k.href}
+                      className="group flex items-center justify-between gap-4 border-b border-secondary/10 py-4"
+                    >
+                      <span className="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">
+                        {k.label}
+                      </span>
+                      <ArrowRight className="w-5 h-5 text-primary shrink-0 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  ))}
+                </div>
+              </nav>
+            )}
+
+            {/* Support posts: other published siblings in this guide. */}
+            {post.role === "support" && siblingsOf(post.slug).length > 0 && (
+              <nav aria-label="Also in this guide" className="mt-10 pt-8 border-t border-border-light">
+                <h2 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-6">
+                  Also in this guide
+                </h2>
+                <div>
+                  {siblingsOf(post.slug).map((s) => (
+                    <ClusterLink key={s.meta.slug} post={s.meta} />
+                  ))}
+                </div>
+              </nav>
+            )}
+
+            {/* Pillar posts: published support articles of this cluster. */}
+            {post.role === "pillar" && clusterSupports.length > 0 && (
+              <nav aria-label="More in this guide" className="mt-10 pt-8 border-t border-border-light">
+                <h2 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-6">
+                  More in this guide
+                </h2>
+                <div>
+                  {clusterSupports.map((s) => (
+                    <ClusterLink key={s.slug} post={s} />
+                  ))}
+                </div>
+              </nav>
+            )}
+
             {related.length > 0 && (
               <div className="mt-14 pt-8 border-t border-border-light">
                 <h2 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-6">

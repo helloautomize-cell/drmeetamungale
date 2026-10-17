@@ -195,13 +195,45 @@ export function blogPostingJsonLd(slug: string) {
       },
     },
   };
-  if (p.coverImage) payload["image"] = BASE + p.coverImage;
+  if (p.coverImage) {
+    // Support articles emit the cover at its true size; existing posts
+    // keep the plain-URL form they already ship.
+    payload["image"] =
+      p.role === "support"
+        ? {
+            "@type": "ImageObject",
+            url: BASE + p.coverImage,
+            width: p.coverWidth,
+            height: p.coverHeight,
+          }
+        : BASE + p.coverImage;
+  }
+  // Cluster wiring: isPartOf points at the pillar guide; about names the
+  // cluster's condition (names only — no invented descriptions).
+  if (post_supportCluster(p) && p.pillarSlug) {
+    payload["isPartOf"] = { "@type": "WebPage", "@id": BASE + "/blog/" + p.pillarSlug + "/" };
+    payload["about"] = {
+      "@type": "MedicalCondition",
+      name: CLUSTER_CONDITION[p.cluster!],
+    };
+  }
   if (reviewers.length > 0) {
     payload["reviewedBy"] =
       reviewers.length === 1 ? { "@id": physicianId(reviewers[0]!) } : physicianRefs(reviewers);
     payload["lastReviewed"] = p.reviewedOn ?? MEDICAL_REVIEW_DATE;
   }
   return payload;
+}
+
+const CLUSTER_CONDITION: Record<string, string> = {
+  cataract: "Cataract",
+  glaucoma: "Glaucoma",
+  keratoconus: "Keratoconus",
+  "corneal-transplant": "Corneal transplant",
+};
+
+function post_supportCluster(p: (typeof blogPosts)[number]): boolean {
+  return p.role === "support" && !!p.cluster && !!CLUSTER_CONDITION[p.cluster];
 }
 
 export function breadcrumbJsonLd(crumbs: { label: string; href: string }[]) {

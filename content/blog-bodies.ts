@@ -1,3 +1,5 @@
+import { supportBodies } from "@/content/blog-support";
+
 export interface BlogFaqItem {
   q: string;
   a: BlogBlock[];
@@ -14877,5 +14879,5 @@ export const blogBodies: BlogBody[] = [
       }
 ];
 export function getBlogBody(slug: string): BlogBody | undefined {
-  return blogBodies.find((b) => b.slug === slug);
+  return blogBodies.find((b) => b.slug === slug) ?? supportBodies[slug];
 }
