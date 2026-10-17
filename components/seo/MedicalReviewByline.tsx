@@ -47,7 +47,7 @@ export function MedicalReviewByline({
             >
               {d.name}
             </Link>
-            , {d.credentialLine} · {d.registration}
+            , {d.credentialShort} · {d.registration}
           </span>
         );
       })}{" "}

@@ -3,13 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
-import { doctors, getDoctorBySlug } from "@/content/doctors";
+import { doctors, getDoctorBySlug, sortedExperience } from "@/content/doctors";
 import { pagesReviewedBy } from "@/content/reviewed-pages";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, canonical } from "@/content/seo";
 import { physicianJsonLd, profilePageJsonLd } from "@/content/doctor-schema";
 import { siteConfig } from "@/content/site";
 import { Reveal } from "@/components/ui/motion";
+import { bookingHref } from "@/lib/booking-links";
 
 // ─── /doctors/[slug]/ — verified CV-grounded profiles ────────────────
 // All facts render from content/doctors.ts (verbatim CV data). No
@@ -32,13 +33,29 @@ export async function generateMetadata({
   const d = getDoctorBySlug((await params).slug);
   if (!d) return { title: "Doctors" };
   const url = "/doctors/" + d.slug + "/";
+  // Absolute titles — the brand suffix would push these over 60 chars.
+  const titles: Record<string, string> = {
+    "sachin-mungale":
+      "Dr. Sachin Mungale, Glaucoma Specialist in Vadodara",
+    "meeta-mungale": "Dr. Meeta Mungale, Cornea Specialist in Vadodara",
+  };
+  const descriptions: Record<string, string> = {
+    "sachin-mungale":
+      "Dr. Sachin Mungale is a glaucoma specialist at Mungale Eye Hospital, Kothi, Vadodara. Book a consultation for glaucoma, cataract and complex eye care.",
+    "meeta-mungale":
+      "Dr. Meeta Mungale is a cornea specialist at Mungale Eye Hospital, Kothi, Vadodara. Book a consultation for cornea, transplant and dry eye care.",
+  };
+  const title = titles[d.slug] ?? d.name + " — " + d.title;
+  const description =
+    descriptions[d.slug] ??
+    d.name + ", " + d.credentialShort + ". " + d.role;
   return {
-    title: d.name + " — " + d.title,
-    description: d.name + ", " + d.credentialLine + ". " + d.registration + ". " + d.role,
+    title: { absolute: title },
+    description,
     alternates: { canonical: canonical(url) },
     openGraph: {
-      title: d.name + " — " + siteConfig.name,
-      description: d.credentialLine + " · " + d.registration,
+      title,
+      description,
       url: canonical(url),
       siteName: siteConfig.name,
       type: "profile",
@@ -132,7 +149,7 @@ export default async function DoctorProfilePage({
                 {d.name}
               </h1>
               <p className="mt-4 font-body-md text-body-md text-on-surface leading-relaxed">
-                {d.credentialLine}
+                {d.credentialShort}
               </p>
               <p className="mt-2 font-body-sm text-body-sm text-on-surface-variant">
                 {d.registration} · {d.experience}
@@ -142,7 +159,7 @@ export default async function DoctorProfilePage({
               </p>
               <div className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-3">
                 <Link
-                  href={"/contact-us/?doctor=" + d.slug}
+                  href={bookingHref(d.slug)}
                   className="cta-quiet group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
                 >
                   <span className="cta-quiet-text">Book with this doctor</span>
@@ -201,7 +218,7 @@ export default async function DoctorProfilePage({
             <Section label="Experience">
               <SectionHeading>Experience.</SectionHeading>
               <ol className="mt-6 border-l-2 border-secondary/15">
-                {d.experienceHistory.map((x) => (
+                {sortedExperience(d).map((x) => (
                   <li key={x.role} className="relative pl-6 pb-6 last:pb-0">
                     <span
                       aria-hidden="true"
@@ -239,9 +256,24 @@ export default async function DoctorProfilePage({
               </p>
             )}
             {d.currentInterests && (
-              <p className="mt-3 font-body-sm text-body-sm text-on-surface-variant">
-                Current interests: {d.currentInterests}.
-              </p>
+              <div className="mt-6 border-t border-secondary/10 pt-6">
+                <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">
+                  Current interests
+                </p>
+                <p className="mt-3 max-w-[62ch] font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  {d.currentInterests.lead}
+                </p>
+                <ul className="mt-3 max-w-[62ch] space-y-2">
+                  {d.currentInterests.items.map((item) => (
+                    <li
+                      key={item}
+                      className="ml-5 list-disc font-body-md text-body-md text-on-surface-variant leading-relaxed"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           </Section>
 
@@ -265,10 +297,18 @@ export default async function DoctorProfilePage({
           )}
 
           {/* ── Teaching & CMEs ── */}
-          {(d.teaching || d.cmes) && (
+          {(d.teaching || d.training || d.cmes) && (
             <Section label="Teaching and CMEs">
               <SectionHeading>Teaching &amp; CMEs.</SectionHeading>
               {d.teaching && <RuleList items={d.teaching} />}
+              {d.training && (
+                <>
+                  <p className="mt-6 font-body-sm text-body-sm text-on-surface-variant">
+                    Professional training:
+                  </p>
+                  <RuleList items={d.training} />
+                </>
+              )}
               {d.cmes && (
                 <>
                   <p className="mt-6 font-body-sm text-body-sm text-on-surface-variant">

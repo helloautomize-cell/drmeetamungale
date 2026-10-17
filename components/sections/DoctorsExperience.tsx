@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { doctors, type Doctor } from "@/content/doctors";
 import { Reveal } from "@/components/ui/motion";
+import { bookingHref } from "@/lib/booking-links";
 
 // ─── DoctorsExperience — click-to-switch doctor scene (About page only).
 // The homepage now uses two static editorial cards (DoctorsStory.tsx).
@@ -62,7 +63,7 @@ function DoctorInfo({ doctor, index }: { doctor: Doctor; index: string }) {
         {doctor.name}
       </h3>
       <p className="mt-2 text-[14px] font-semibold text-on-surface">{doctor.title}</p>
-      <p className="mt-1 text-[13.5px] text-on-surface-variant">{doctor.credentialLine}</p>
+      <p className="mt-1 text-[13.5px] text-on-surface-variant">{doctor.credentialShort}</p>
       <p className="mt-1 text-[13px] text-on-surface-variant">
         {doctor.registration} · {doctor.experience}
       </p>
@@ -80,11 +81,8 @@ function DoctorInfo({ doctor, index }: { doctor: Doctor; index: string }) {
             className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1"
           />
         </Link>
-        {/* TODO: pre-select doctor on the booking form once the contact
-            form supports a ?doctor= param — link passes it harmlessly
-            today. */}
         <Link
-          href={"/contact-us/?doctor=" + doctor.slug}
+          href={bookingHref(doctor.slug)}
           className="cta-quiet group inline-flex items-center gap-2 text-[14px] font-medium text-on-surface-variant w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
         >
           <span className="cta-quiet-text">Book with this doctor</span>
@@ -158,7 +156,7 @@ export function DoctorsExperience({ compact = false }: { compact?: boolean }) {
                           : "text-on-surface-variant")
                       }
                     >
-                      {d.credentialLine}
+                      {d.credentialShort}
                     </span>
                   </span>
                   <ArrowRight

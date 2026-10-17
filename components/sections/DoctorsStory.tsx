@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { doctors, type Doctor } from "@/content/doctors";
 import { ArtImage } from "@/components/ui/ArtImage";
 import { Reveal } from "@/components/ui/motion";
+import { bookingHref } from "@/lib/booking-links";
 import { REAL, type ImgSet } from "@/lib/images";
 
 // ─── Doctors — two equal editorial cards (human-touch pass) ─────────────
@@ -50,7 +51,7 @@ function DoctorCard({ doctor, delay }: { doctor: Doctor; delay: number }) {
           {doctor.name}
         </h3>
         <p className="mt-2 text-[14px] font-semibold text-on-surface">{doctor.title}</p>
-        <p className="mt-1 text-[13.5px] text-on-surface-variant">{doctor.credentialLine}</p>
+        <p className="mt-1 text-[13.5px] text-on-surface-variant">{doctor.credentialShort}</p>
         <p className="mt-1 text-[13px] text-on-surface-variant">
           {doctor.registration} · {doctor.experience}
         </p>
@@ -68,10 +69,8 @@ function DoctorCard({ doctor, delay }: { doctor: Doctor; delay: number }) {
               className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1"
             />
           </Link>
-          {/* TODO: pre-select doctor on the booking form once the contact
-              form supports a ?doctor= param — passed harmlessly today. */}
           <Link
-            href={"/contact-us/?doctor=" + doctor.slug}
+            href={bookingHref(doctor.slug)}
             className="cta-quiet group inline-flex items-center gap-2 text-[14px] font-medium text-on-surface-variant focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
           >
             <span className="cta-quiet-text">Book with this doctor</span>

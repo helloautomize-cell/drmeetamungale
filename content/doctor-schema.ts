@@ -1,4 +1,5 @@
 import { siteConfig } from "@/content/site";
+import { e164 } from "@/lib/contact-links";
 import {
   doctors,
   getDoctorByKey,
@@ -59,6 +60,16 @@ function buildPhysician(d: Doctor) {
       "@type": "PropertyValue",
       name: "Gujarat Medical Council Registration",
       value: d.registrationNumber,
+    },
+    // Address/phone identical to the MedicalClinic entity (siteConfig).
+    telephone: e164(siteConfig.phone),
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "2nd Floor, Vinraj Plaza, Kothi Road, opp. Government Press",
+      addressLocality: "Vadodara",
+      addressRegion: "Gujarat",
+      postalCode: "390001",
+      addressCountry: "IN",
     },
     worksFor: { "@id": CLINIC_ID },
     availableService: d.procedures.map((p) => ({

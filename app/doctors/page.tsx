@@ -5,13 +5,21 @@ import { ArrowRight } from "lucide-react";
 import { doctors } from "@/content/doctors";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, canonical } from "@/content/seo";
+import { siteConfig } from "@/content/site";
 import { Reveal } from "@/components/ui/motion";
+import { bookingHref } from "@/lib/booking-links";
 
 export const metadata: Metadata = {
-  title: "Our Doctors",
+  title: "Eye Specialists in Vadodara",
   description:
-    "Dr. Sachin Mungale (glaucoma specialist) and Dr. Meeta Mungale (cornea specialist) — the two senior ophthalmologists who lead Mungale Eye Hospital, Kothi, Vadodara.",
+    "Meet our eye specialists in Vadodara — Dr. Sachin Mungale (glaucoma) and Dr. Meeta Mungale (cornea) at Mungale Eye Hospital, Kothi. Book a visit.",
   alternates: { canonical: canonical("/doctors/") },
+  openGraph: {
+    title: "Eye Specialists in Vadodara | " + siteConfig.name,
+    description:
+      "Meet our eye specialists in Vadodara — Dr. Sachin Mungale (glaucoma) and Dr. Meeta Mungale (cornea) at Mungale Eye Hospital, Kothi. Book a visit.",
+    url: canonical("/doctors/"),
+  },
 };
 
 const breadcrumb = [
@@ -68,7 +76,7 @@ export default function DoctorsIndexPage() {
                     </Link>
                   </h2>
                   <p className="mt-2 text-[14px] font-semibold text-on-surface">{d.title}</p>
-                  <p className="mt-1 text-[13.5px] text-on-surface-variant">{d.credentialLine}</p>
+                  <p className="mt-1 text-[13.5px] text-on-surface-variant">{d.credentialShort}</p>
                   <p className="mt-1 text-[13px] text-on-surface-variant">
                     {d.registration} · {d.experience}
                   </p>
@@ -81,7 +89,7 @@ export default function DoctorsIndexPage() {
                       <ArrowRight aria-hidden="true" className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1" />
                     </Link>
                     <Link
-                      href={"/contact-us/?doctor=" + d.slug}
+                      href={bookingHref(d.slug)}
                       className="cta-quiet group inline-flex items-center gap-2 text-[14px] font-medium text-on-surface-variant focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
                     >
                       <span className="cta-quiet-text">Book with this doctor</span>
