@@ -1,25 +1,30 @@
+import fs from "fs";
+import path from "path";
+import Image from "next/image";
 import { ArtImage } from "@/components/ui/ArtImage";
 import { Reveal } from "@/components/ui/motion";
-import { IMG, REAL, canShow } from "@/lib/images";
+import { IMG, WHY_EQUIPMENT_SRC } from "@/lib/images";
 
 // ─── Why Mungale (quiet-luxury reset, spec §5.4) — dark ink-navy band.
 // A generated lens artwork carries the header band and melts into navy;
 // below it the three numbers sit as STATIC text — the only place stats
 // appear on the page. No circles, no column photos, no scrubs, no
 // count-ups. Copy provenance unchanged: eyebrow/headline/state headings
-// and bodies are OWNER-PROVIDED; 20+/40,000+/15,000+ are the site's
+// and bodies are OWNER-PROVIDED; 19+/40,000+/15,000+ — the years figure
+// is the single EXPERIENCE_CLAIM, the other two are the site's
 // published claims; the quote is a VERBATIM Pankaj Makhijani Google
 // review excerpt.
 
 const states = [
   {
     index: "01",
-    value: "20+",
-    label: "Years of specialist eye care",
+    value: "19+",
+    label: "Over 19 years of specialist eye care",
     heading: "Experience that compounds over time.",
     body: "Established in 2007, Mungale Eye Hospital has grown into a referral center for complex cornea and glaucoma cases.",
   },
   {
+    // TODO(doctor): confirm 40,000+ patients — unverified website claim.
     index: "02",
     value: "40,000+",
     label: "Patients treated",
@@ -30,6 +35,7 @@ const states = [
     quoteBy: "Pankaj Makhijani · Google review",
   },
   {
+    // TODO(doctor): confirm 15,000+ surgeries — unverified website claim.
     index: "03",
     value: "15,000+",
     label: "Eye surgeries",
@@ -75,9 +81,11 @@ export function TrustPillars() {
         </Reveal>
       </div>
 
-      {/* Columns — static figures, hairline, serif sub-heading, body. */}
+      {/* Columns — static figures, hairline, serif sub-heading, body,
+          then a photo filling the remaining column height so all three
+          columns end level (no empty navy block). */}
       <div className="mx-auto max-w-site px-6 pb-20 lg:px-gutter lg:pb-28">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-10">
+        <div className="grid grid-cols-1 items-stretch gap-12 lg:grid-cols-3 lg:gap-10">
           {states.map((s, i) => (
             <Reveal key={s.index} delay={i * 0.08} className="min-w-0">
               <article className="flex h-full flex-col">
@@ -89,7 +97,7 @@ export function TrustPillars() {
                 </p>
                 <p className="mt-2 text-[15px] text-white/65">{s.label}</p>
 
-                <div className="mt-6 border-t border-line-dark pt-6">
+                <div className="mt-6 flex flex-1 flex-col border-t border-line-dark pt-6">
                   <h3 className="font-display-hero text-white tracking-tight leading-tight text-[22px] lg:text-[25px]">
                     {s.heading}
                   </h3>
@@ -106,38 +114,7 @@ export function TrustPillars() {
                       </cite>
                     </blockquote>
                   )}
-                  {/* Laser suite — facility/equipment imagery only, no
-                      outcome claim (NMC). CONSENT-GATED: the patient's
-                      eye is visible, so until consent is on file the
-                      slot shows a tight crop of the lens artwork. */}
-                  {s.index === "03" && (
-                    <figure className="mt-6">
-                      <div className="aspect-[4/5] max-h-[360px] lg:max-h-none overflow-hidden rounded-[20px] ring-1 ring-white/10">
-                        {canShow(REAL.theatre) ? (
-                          <ArtImage
-                            d={REAL.theatre.d}
-                            m={REAL.theatre.m}
-                            alt="Mungale Eye Hospital laser suite, guide lines projected during a procedure"
-                            sizes="(min-width: 1024px) 400px, 90vw"
-                            className="h-full w-full"
-                            imgClassName="h-full w-full object-cover object-[50%_60%]"
-                          />
-                        ) : (
-                          <ArtImage
-                            d={IMG.whyLens.d}
-                            m={IMG.whyLens.m}
-                            alt=""
-                            sizes="(min-width: 1024px) 400px, 90vw"
-                            className="h-full w-full"
-                            imgClassName="h-full w-full object-cover object-[70%_50%]"
-                          />
-                        )}
-                      </div>
-                      <figcaption className="mt-2.5 text-[12.5px] text-white/50">
-                        Our laser suite
-                      </figcaption>
-                    </figure>
-                  )}
+                  <ColumnFigure index={s.index} />
                 </div>
               </article>
             </Reveal>
@@ -145,5 +122,93 @@ export function TrustPillars() {
         </div>
       </div>
     </section>
+  );
+}
+
+const SIZES = "(min-width: 1024px) 400px, 90vw";
+const IMG_WRAP =
+  "relative flex-1 overflow-hidden rounded-[20px] ring-1 ring-white/10";
+
+// Real photographs only — never an upscaled file. The entrance source is
+// 800x533; at ~360px column width it renders at about 0.45x (under the
+// 1.3x ceiling), so it can cover the full column height safely. The
+// signboard sits in the top ~40% of the photo, hence object-[50%_18%].
+// TODO(doctor): need a real photo of the laser machine or operation
+// theatre and its correct name for the third column — see
+// WHY_EQUIPMENT_SRC in lib/images.ts.
+function ColumnFigure({ index }: { index: string }) {
+  if (index === "01") {
+    return (
+      <figure className="mt-6 flex flex-1 flex-col">
+        <div className={IMG_WRAP + " aspect-[3/2] lg:aspect-auto lg:min-h-[280px]"}>
+          <Image
+            src="/images/home/why-entrance.webp"
+            alt="Entrance of Mungale Eye Hospital, Kothi, Vadodara, with the signboard showing the hospital name and the names of Dr. Meeta Mungale and Dr. Sachin Mungale."
+            fill
+            sizes={SIZES}
+            loading="lazy"
+            className="object-cover object-[50%_18%]"
+          />
+        </div>
+        <figcaption className="mt-2.5 text-[12.5px] text-white/50">
+          Mungale Eye Hospital, Kothi, Vadodara
+        </figcaption>
+      </figure>
+    );
+  }
+  if (index === "02") {
+    return (
+      <figure className="mt-6 flex flex-1 flex-col">
+        <div className={IMG_WRAP + " aspect-[4/5] lg:aspect-auto lg:min-h-[280px]"}>
+          <Image
+            src="/images/home/why-consultation.webp"
+            alt="Dr. Sachin Mungale seated beside a slit lamp examination unit."
+            fill
+            sizes={SIZES}
+            loading="lazy"
+            className="object-cover object-[50%_35%]"
+          />
+        </div>
+        <figcaption className="mt-2.5 text-[12.5px] text-white/50">
+          Dr. Sachin Mungale, glaucoma specialist
+        </figcaption>
+      </figure>
+    );
+  }
+
+  const equipmentExists = fs.existsSync(
+    path.join(process.cwd(), "public", WHY_EQUIPMENT_SRC)
+  );
+  return (
+    <figure className="mt-6 flex flex-1 flex-col">
+      <div className={IMG_WRAP + " aspect-[4/5] lg:aspect-auto lg:min-h-[280px]"}>
+        {equipmentExists ? (
+          <Image
+            src={WHY_EQUIPMENT_SRC}
+            alt=""
+            fill
+            sizes={SIZES}
+            loading="lazy"
+            className="object-cover"
+          />
+        ) : (
+          <ArtImage
+            d={IMG.whyLens.d}
+            m={IMG.whyLens.m}
+            alt=""
+            sizes={SIZES}
+            className="absolute inset-0"
+            imgClassName="h-full w-full object-cover object-[70%_50%]"
+          />
+        )}
+      </div>
+      {equipmentExists && (
+        <figcaption className="mt-2.5 text-[12.5px] text-white/50">
+          {/* TODO(doctor): caption must describe only what the photo
+              visibly shows once the real equipment photo lands. */}
+          Equipment at Mungale Eye Hospital
+        </figcaption>
+      )}
+    </figure>
   );
 }

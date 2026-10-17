@@ -50,10 +50,15 @@ export const REAL = {
   careYag:     { d: r('care-yag-wide', 1600, 900, 'patient'),  m: r('care-yag-tall', 1200, 1273, 'patient') },
   /** Slit-lamp exam with assistant, patient visible. */
   examSlit:    { d: r('exam-slitlamp-wide', 1280, 960, 'patient'), m: r('exam-slitlamp-tall', 1280, 1500, 'patient') },
-  /** Laser suite — masked, capped patient, eye visible. */
-  theatre:     { d: r('theatre-laser-wide', 1280, 720, 'patient'), m: r('theatre-laser-tall', 1280, 1600, 'patient') },
+
   team:        { d: r('team-wide', 1920, 1200),  m: r('team-mobile', 1200, 900) },
 } as const;
+
+/** Future real equipment photo for the "Why Mungale" third column.
+    TODO(doctor): need a real photo of the laser machine or operation
+    theatre and its correct name — drop it at this path, then set the
+    caption to describe what is visibly shown. */
+export const WHY_EQUIPMENT_SRC = "/images/home/why-equipment.webp";
 
 /** True when this image set may be rendered right now. */
 export function canShow(set: ImgSet): boolean {

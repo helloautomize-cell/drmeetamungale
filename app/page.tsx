@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
+import { telHref } from "@/lib/contact-links";
 import { CareDiscovery } from "@/components/sections/CareDiscovery";
 import { CarePanel, careItems } from "@/components/sections/CarePanels";
 import { Hero } from "@/components/sections/Hero";
 import { SpecialtiesShowcase } from "@/components/sections/SpecialtiesShowcase";
 import { PatientJourney } from "@/components/sections/PatientJourney";
 import { TrustPillars } from "@/components/sections/TrustPillars";
+import { PristineDevice } from "@/components/sections/PristineDevice";
 import { DoctorsStory } from "@/components/sections/DoctorsStory";
 import { Reviews } from "@/components/sections/Reviews";
 import { HealthInsights } from "@/components/sections/HealthInsights";
@@ -25,7 +27,7 @@ export const metadata: Metadata = {
       "Mungale Eye Hospital — Specialist Eye Care in Kothi, Vadodara",
   },
   description:
-    "Mungale Eye Hospital, Kothi, Vadodara — cataract, cornea, glaucoma and optical care by specialist ophthalmologists Dr. Sachin and Dr. Meeta Mungale. Open Mon–Sat, 9 AM–8 PM.",
+    "Mungale Eye Hospital in Kothi, Vadodara — specialist cataract, cornea, glaucoma and optical care. Over 19 years of eye care. Book a consultation.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Mungale Eye Hospital — Specialist Eye Care in Kothi, Vadodara",
@@ -62,6 +64,7 @@ export default function HomePage() {
         ))}
       />
       <TrustPillars />
+      <PristineDevice />
       <SpecialtiesShowcase />
       {/* TODO(content): confirm exact visit sequence with the doctors —
           step copy is generic process language, no source doc exists.
@@ -78,7 +81,7 @@ export default function HomePage() {
       <section className="border-y border-secondary/10 bg-surface-canvas">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-7 lg:py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5 md:gap-8">
           <a
-            href={"tel:" + siteConfig.emergencyPhone.replace(/[\s-]/g, "")}
+            href={telHref(siteConfig.emergencyPhone)}
             className="group inline-flex items-center gap-3.5 w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded-lg"
           >
             <span className="w-10 h-10 rounded-full bg-primary/[0.08] text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-200">

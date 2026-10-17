@@ -26,7 +26,7 @@ const STEPS: JourneyStep[] = [
   {
     num: "02",
     title: "Detailed diagnostics",
-    body: "Tests are done in-house — vision measurement, corneal scans, eye pressure and retinal imaging as needed.",
+    body: "Tests are done in-house — vision measurement, corneal scans, eye pressure and retinal imaging as needed, including widefield retinal imaging.",
     img: gated(REAL.examSlit, IMG.j2),
     alt: gated(REAL.examSlit, IMG.j2) === REAL.examSlit
       ? "A slit-lamp examination at Mungale Eye Hospital"

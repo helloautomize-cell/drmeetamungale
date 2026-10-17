@@ -1,12 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Phone, Star } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { ArtImage } from "@/components/ui/ArtImage";
 import { BrandArc } from "@/components/ui/BrandArc";
 import { IMG } from "@/lib/images";
 import { siteConfig } from "@/content/site";
-import { reviews } from "@/content/reviews";
+import { telHref } from "@/lib/contact-links";
+import { bookingHref } from "@/lib/booking-links";
 
 // ─── Hero (quiet-luxury reset, spec §5.2) — static, dark, full-bleed.
 // The generated iris artwork fills the section; a left gradient keeps
@@ -17,13 +18,8 @@ import { reviews } from "@/content/reviews";
 // Why Mungale band).
 
 const SPECIALTIES = ["Cornea", "Glaucoma", "Cataract", "Optical & Contact Lenses"];
-const GOOGLE_URL =
-  "https://www.google.com/search?q=Mungale+Eye+Hospital+Vadodara+reviews";
 
 export function Hero() {
-  const googleAvg =
-    reviews.reduce((s, r) => s + r.rating, 0) / Math.max(reviews.length, 1);
-
   return (
     <section className="relative overflow-hidden -mt-[100px] lg:-mt-[136px] bg-[#111723]">
       {/* Preload the LCP artwork — React hoists these links into <head>. */}
@@ -85,22 +81,22 @@ export function Hero() {
         className="animate-hero-copy relative z-10 mx-auto max-w-site px-6 lg:px-gutter min-h-[100svh] lg:min-h-[760px] lg:max-h-[1040px] flex flex-col justify-start pt-[132px] md:justify-center md:pt-[140px] md:pb-16"
       >
         <div className="max-w-[620px]">
-          <p className="text-[11.5px] lg:text-[12.5px] font-semibold uppercase tracking-[0.16em] text-porcelain/70">
-            Mungale Eye Hospital · Kothi, Vadodara · Since 2007
-          </p>
+          <h1 className="text-[11.5px] lg:text-[12.5px] font-semibold uppercase tracking-[0.16em] text-porcelain/70">
+            Mungale Eye Hospital in Kothi, Vadodara · Since 2007
+          </h1>
 
-          <h1 className="mt-5 font-display-hero text-porcelain tracking-[-0.02em] text-[46px] sm:text-[60px] lg:text-[76px] xl:text-[84px] leading-[0.98]">
+          <p className="mt-5 font-display-hero text-porcelain tracking-[-0.02em] text-[46px] sm:text-[60px] lg:text-[76px] xl:text-[84px] leading-[0.98]">
             You are{" "}
             <span className="relative inline-block">
               <em className="italic text-brand-red">seen</em>
               <BrandArc className="absolute left-[16%] w-[68%] -bottom-[10px] h-[9px]" />
             </span>{" "}
             here.
-          </h1>
+          </p>
 
           <p className="mt-6 text-[18px] lg:text-[19px] leading-[1.6] text-porcelain/80">
-            Specialist eye care built around careful diagnosis, honest
-            conversations and knowing what comes next.
+            Specialist eye care in Kothi, Vadodara, built around careful
+            diagnosis, honest conversations and knowing what comes next.
           </p>
 
           {/* Specialty line — tiny red dot separators */}
@@ -127,7 +123,7 @@ export function Hero() {
               <Image
                 className="w-9 h-9 rounded-full object-cover object-[50%_22%] ring-2 ring-ink"
                 src="/images/mungale/real/doctor-meeta-desk.jpg"
-                alt="Dr. Meeta Mungale, MS Ophthalmology, DNB"
+                alt="Dr. Meeta Mungale, MBBS, MS (Ophthalmology), DNB"
                 width={72}
                 height={72}
                 sizes="36px"
@@ -135,7 +131,7 @@ export function Hero() {
               <Image
                 className="w-9 h-9 rounded-full object-cover object-[50%_30%] ring-2 ring-ink"
                 src="/images/mungale/real/doctor-sachin-portrait.jpg"
-                alt="Dr. Sachin Mungale, MS Ophthalmology"
+                alt="Dr. Sachin Mungale, MBBS, MS (Ophthalmology)"
                 width={72}
                 height={72}
                 sizes="36px"
@@ -149,7 +145,7 @@ export function Hero() {
                 </span>
               </p>
               <p className="mt-0.5 text-[13px] leading-snug text-porcelain/60">
-                Specialist ophthalmologists · MS Ophthalmology · DNB
+                Specialist ophthalmologists · MS (Ophthalmology)
               </p>
             </div>
           </div>
@@ -157,7 +153,7 @@ export function Hero() {
           {/* CTAs — red pill + porcelain text link + quiet call link */}
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
             <Link
-              href="/contact-us/"
+              href={bookingHref()}
               className="inline-flex h-12 px-7 items-center gap-2 rounded-full bg-primary text-white text-[15px] font-semibold shadow-[0_1px_3px_rgba(14,17,22,0.28)] hover:bg-primary-fixed transition-colors duration-200"
             >
               Book a consultation
@@ -171,7 +167,7 @@ export function Hero() {
               <ArrowRight className="w-4 h-4 text-brand-red transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
             <a
-              href={"tel:" + siteConfig.phone.replace(/[\s-]/g, "")}
+              href={telHref(siteConfig.phone)}
               className="inline-flex items-center gap-1.5 h-12 text-[14px] font-medium text-porcelain/70 hover:text-porcelain transition-colors duration-200"
             >
               <Phone className="w-3.5 h-3.5" aria-hidden="true" />
@@ -179,26 +175,16 @@ export function Hero() {
             </a>
           </div>
 
-          {/* Google rating chip — dark-styled translucent glass */}
-          <a
-            href={GOOGLE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-7 inline-flex items-center gap-2.5 rounded-full bg-white/[0.08] ring-1 ring-white/[0.14] pl-2 pr-4 py-2 hover:bg-white/[0.12] transition-colors duration-200 w-fit"
-          >
-            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-star-gold/15">
-              <Star
-                className="w-3.5 h-3.5 text-star-gold fill-star-gold"
-                aria-hidden="true"
-              />
+          {/* Trust chip — dark-styled translucent glass */}
+          <p className="mt-7 inline-flex items-center gap-2.5 rounded-full bg-white/[0.08] ring-1 ring-white/[0.14] px-4 py-2 w-fit">
+            <span
+              aria-hidden="true"
+              className="w-[5px] h-[5px] rounded-full bg-brand-red"
+            />
+            <span className="text-[13px] font-semibold text-porcelain/80">
+              Serving Vadodara since 2007
             </span>
-            <span className="text-[13px] text-porcelain/70">
-              <span className="font-bold text-porcelain tabular-nums">
-                {googleAvg.toFixed(1)}
-              </span>{" "}
-              on Google · {reviews.length} reviews
-            </span>
-          </a>
+          </p>
         </div>
       </div>
     </section>

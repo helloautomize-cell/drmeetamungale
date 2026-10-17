@@ -12,8 +12,11 @@ import type { Img } from "@/lib/images";
 // is active (ink), the rest fade to 40%.
 // Detection: one IntersectionObserver with rootMargin -45%/-45% (a thin
 // band around the viewport centre). No pinning, no scroll-jacking — the
-// page scrolls natively. JS off: step 1 is shown at left, all steps
-// render at full opacity (the `js`-gated CSS below).
+// page scrolls natively.
+// Contrast: inactive steps are NOT dimmed with opacity (ink at 40% on
+// porcelain was ~2.6:1, below WCAG AA). All text stays ≥4.5:1 — the
+// active step is emphasised by a red marker bar + ink title, inactive
+// steps use ink-soft (5.9:1 on porcelain).
 // Reduced motion: transitions off via the global rule; nothing moves.
 
 export type JourneyStep = {
@@ -118,14 +121,21 @@ export function JourneySticky({ steps }: { steps: JourneyStep[] }) {
             }}
             data-step={i}
             className={
-              "journey-step border-t border-line py-14 xl:py-16 transition-opacity duration-300 motion-reduce:transition-none " +
-              (i === active ? "opacity-100" : "opacity-40")
+              "journey-step border-t border-line border-l-2 py-14 pl-6 xl:py-16 transition-colors duration-300 motion-reduce:transition-none " +
+              (i === active ? "border-l-brand-red-strong" : "border-l-transparent")
             }
           >
             <p className="text-[12px] font-bold tracking-[0.2em] text-brand-red-strong tabular-nums">
               {s.num}
             </p>
-            <h3 className="mt-2 font-display-hero text-ink tracking-tight leading-tight text-[28px] xl:text-[32px]">
+            <h3
+              className={
+                "mt-2 font-display-hero tracking-tight leading-tight transition-colors duration-300 motion-reduce:transition-none " +
+                (i === active
+                  ? "text-ink text-[28px] xl:text-[32px]"
+                  : "text-ink-soft text-[26px] xl:text-[29px]")
+              }
+            >
               {s.title}
             </h3>
             <p className="mt-4 max-w-[520px] text-[16.5px] xl:text-[17.5px] leading-relaxed text-ink-soft">
