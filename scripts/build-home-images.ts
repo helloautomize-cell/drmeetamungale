@@ -1,6 +1,7 @@
 import sharp from "sharp";
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 
 // Builds the homepage images in public/images/home/ from the intake
 // sources in image-sources/ (kept out of public/ so unprocessed sources
@@ -16,7 +17,7 @@ import path from "path";
 // (an approved illustrative placeholder until 2026-10-27) — this script
 // never generates, overwrites or deletes it.
 
-const ROOT = path.join(path.dirname(new URL(import.meta.url).pathname), "..");
+const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = path.join(ROOT, "image-sources");
 const OUT = path.join(ROOT, "public", "images", "home");
 const LIMIT = 200 * 1024;
