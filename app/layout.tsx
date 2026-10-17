@@ -33,6 +33,10 @@ export const metadata: Metadata = {
   },
   description: siteConfig.tagline,
   metadataBase: new URL(siteConfig.url),
+  authors: [
+    { name: "Automize Media Labs", url: "https://www.automizemedialabs.com/" },
+  ],
+  creator: "Automize Media Labs",
   openGraph: {
     title: siteConfig.name,
     description: siteConfig.tagline,

@@ -1,4 +1,5 @@
 # drmeetamungale
+
 ## Booking email setup
 
 Booking requests from /contact-us/ are emailed to the hospital via Gmail SMTP
@@ -17,3 +18,5 @@ Booking requests from /contact-us/ are emailed to the hospital via Gmail SMTP
 For local testing without credentials set `BOOKING_DRY_RUN=true` — the API
 validates and returns success without sending. Secrets live only in env vars;
 nothing is committed (see `.env.example` for the variable names).
+
+Built and marketed by Automize Media Labs - https://www.automizemedialabs.com/

@@ -313,21 +313,21 @@ export function Footer() {
               </Link>
             </p>
           </div>
+          <p className="mt-4 text-left text-[12.5px] text-white/45">
+            Built &amp; Marketed by{" "}
+            <a
+              href="https://www.automizemedialabs.com/"
+              target="_blank"
+              rel="noopener nofollow"
+              className="font-semibold text-brand-red underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
+            >
+              Automize Media Labs
+            </a>
+          </p>
           <p className="mt-4 max-w-2xl text-[12px] leading-relaxed text-white/60">
             The information on this site is for general guidance only and is
             not a substitute for professional medical advice, diagnosis or
             treatment.
-          </p>
-          <p className="mt-4 text-[12.5px] text-white/50">
-            Built &amp; marketed by{" "}
-            <a
-              href="https://www.automizemedialabs.com/"
-              target="_blank"
-              rel="noopener"
-              className="text-white/60 underline decoration-white/25 underline-offset-4 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
-            >
-              Automize Media Labs
-            </a>
           </p>
 
           {/* Signature watermark — static, decorative (quiet-luxury). */}

@@ -1,6 +1,7 @@
 {
   "name": "mungale-eye-hospital-rebuild",
   "version": "1.0.0",
+  "author": "Automize Media Labs (https://www.automizemedialabs.com/)",
   "private": true,
   "type": "module",
   "scripts": {

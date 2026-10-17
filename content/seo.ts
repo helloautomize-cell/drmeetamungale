@@ -52,6 +52,11 @@ export function hospitalJsonLd() {
     logo: BASE + "/images/hero/httpsmungaleeyehospital-logo.svg",
     foundingDate: "2007",
     founder: physicianRefs(["sachin", "meeta"]),
+    creator: {
+      "@type": "Organization",
+      name: "Automize Media Labs",
+      url: "https://www.automizemedialabs.com/",
+    },
     areaServed: [
       { "@type": "City", name: "Vadodara" },
       { "@type": "State", name: "Gujarat" },
@@ -71,6 +76,11 @@ export function websiteJsonLd() {
     url: BASE + "/",
     inLanguage: "en-IN",
     publisher: { "@id": CLINIC_ID },
+    creator: {
+      "@type": "Organization",
+      name: "Automize Media Labs",
+      url: "https://www.automizemedialabs.com/",
+    },
   };
 }
 
