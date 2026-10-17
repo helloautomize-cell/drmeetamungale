@@ -6,6 +6,7 @@ import { MapFacade } from "@/components/sections/MapFacade";
 import { ArtImage } from "@/components/ui/ArtImage";
 import { REAL } from "@/lib/images";
 import { siteConfig } from "@/content/site";
+import { telHref } from "@/lib/contact-links";
 
 // ─── Visit Mungale — "your visit starts here" (owner rebuild) ────────
 // Replaces the white contact-card + map grid: editorial split with the map
@@ -23,10 +24,6 @@ import { siteConfig } from "@/content/site";
 //   Component).
 const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=Mungale+Eye+Hospital+Kothi+Vadodara";
-
-function telHref(n: string) {
-  return "tel:" + n.replace(/[\s-]/g, "");
-}
 
 export function LocationBlock() {
   return (
@@ -73,16 +70,18 @@ export function LocationBlock() {
                       href={telHref(siteConfig.phone)}
                       className="text-on-surface font-medium hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
                     >
-                      {siteConfig.phone}
+                      Appointments: {siteConfig.phone}
                     </a>
                     <br />
                     <a
                       href={telHref(siteConfig.landline)}
                       className="text-on-surface font-medium hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
                     >
-                      {siteConfig.landline}
+                      Reception: {siteConfig.landline}
                     </a>
                   </p>
+                  {/* TODO(doctor): confirm emergency hours — no "24 hours"
+                      claim is shown until confirmed. */}
                   <p className="mt-1.5 text-[14px] text-on-surface-variant">
                     Emergency:{" "}
                     <a

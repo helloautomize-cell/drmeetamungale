@@ -3,15 +3,24 @@ import Link from "next/link";
 import { FaqExplorer } from "@/components/sections/FaqExplorer";
 import { MedicalReviewByline } from "@/components/seo/MedicalReviewByline";
 import { faqs, faqCategoryMap } from "@/content/faqs";
+import { siteConfig } from "@/content/site";
+import { telHref } from "@/lib/contact-links";
+import { bookingHref } from "@/lib/booking-links";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqJsonLd, breadcrumbJsonLd, canonical } from "@/content/seo";
 import { Reveal, RevealNow } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
-  title: "FAQs",
+  title: "FAQs in Vadodara",
   description:
-    "Frequently asked questions about Mungale Eye Hospital — appointments, corneal blindness, eye protection, eye donation and medical records.",
+    "FAQs — Mungale Eye Hospital in Kothi, Vadodara answers common questions about appointments, eye care and records. Book a consultation today.",
   alternates: { canonical: canonical("/faqs/") },
+  openGraph: {
+    title: "FAQs in Vadodara | " + siteConfig.name,
+    description:
+      "FAQs — Mungale Eye Hospital in Kothi, Vadodara answers common questions about appointments, eye care and records. Book a consultation today.",
+    url: canonical("/faqs/"),
+  },
 };
 
 // ─── 6.7 /faqs/ — refined discovery ─────────────────────────────────────────
@@ -80,7 +89,7 @@ export default function FaqsPage() {
               </div>
               <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
                 <a
-                  href="tel:+918140050055"
+                  href={telHref(siteConfig.phone)}
                   className="group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface min-h-[44px]"
                 >
                   <span className="border-b border-primary-fixed/60 pb-0.5 group-hover:border-primary-fixed transition-colors">
@@ -89,7 +98,7 @@ export default function FaqsPage() {
                   <span aria-hidden="true" className="text-primary-fixed">&rarr;</span>
                 </a>
                 <Link
-                  href="/contact-us/"
+                  href={bookingHref()}
                   className="group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface min-h-[44px]"
                 >
                   <span className="border-b border-primary-fixed/60 pb-0.5 group-hover:border-primary-fixed transition-colors">

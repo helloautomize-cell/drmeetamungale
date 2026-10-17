@@ -1,4 +1,5 @@
 import { siteConfig } from "@/content/site";
+import { telHref } from "@/lib/contact-links";
 
 // ─── Insurance & Cashless data (/insurance-cashless/) ──────────────────────
 // SOURCE OF TRUTH: live WordPress page ID 5409, re-read via WPVibe/REST.
@@ -6,16 +7,18 @@ import { siteConfig } from "@/content/site";
 //   FAQ answers are VERBATIM live source (FAQs live in insurance-faqs.ts).
 // - Section framing (decision answer, step titles, panel labels) follows the
 //   owner brief wording; logged as OWNER-PROVIDED in docs/PROGRESS.md.
-// - Insurance desk phone is the page's own +91-8140250055 (NOT the site's
-//   main contact number). Hours use the shared siteConfig truth (Mon–Sat
+// - Insurance desk phone comes from siteConfig.insurancePhone — the
+//   page's own line (NOT the site's main contact number).
+//   TODO(doctor): confirm role of 8140250055 (insurance desk vs emergency).
+//   Hours use the shared siteConfig truth (Mon–Sat
 //   09:00 AM–08:00 PM) — the insurance page's older "9 AM – 7 PM" is
 //   superseded; see docs/CONTENT_GAPS.md.
 // - Partner artwork is unaltered live media (2026/04 re-uploads), mirrored
 //   to /images/insurance/. Pairing verified visually: i1=IFFCO Tokio,
 //   i2=Navi, i3=Tata AIG, i4=HDFC ERGO.
 
-export const INSURANCE_DESK_DISPLAY = "+91-8140250055";
-export const INSURANCE_DESK_TEL = "tel:+918140250055";
+export const INSURANCE_DESK_DISPLAY = siteConfig.insurancePhone;
+export const INSURANCE_DESK_TEL = telHref(siteConfig.insurancePhone);
 
 export interface InsurancePartner {
   name: string;

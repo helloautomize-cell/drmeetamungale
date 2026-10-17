@@ -7,10 +7,16 @@ import { breadcrumbJsonLd, canonical } from "@/content/seo";
 import { Reveal, RevealNow } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
-  title: "Gallery",
+  title: "Gallery in Vadodara",
   description:
-    "Moments inside Mungale Eye Hospital — people, practice, teaching and clinical results, Vadodara.",
+    "Gallery — inside Mungale Eye Hospital in Kothi, Vadodara: our team, teaching and clinical practice. Visit us or book a consultation today.",
   alternates: { canonical: canonical("/gallery/") },
+  openGraph: {
+    title: "Gallery in Vadodara | Mungale Eye Hospital",
+    description:
+      "Gallery — inside Mungale Eye Hospital in Kothi, Vadodara: our team, teaching and clinical practice. Visit us or book a consultation today.",
+    url: canonical("/gallery/"),
+  },
 };
 
 // ─── /gallery/ — photo journal, not a component ─────────────────────────────

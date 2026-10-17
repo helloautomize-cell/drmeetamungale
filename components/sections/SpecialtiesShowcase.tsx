@@ -20,7 +20,7 @@ const SPECIALTIES = [
     slug: "cataract-surgery",
     description:
       "Removes the clouded lens with advanced phaco technology, replacing it with a suitable intraocular lens.",
-    tags: ["Clouded lens", "Phacoemulsification", "Lens implants"],
+    tags: ["Clouded lens", "Phacoemulsification (cataract surgery)", "Lens implants"],
     img: IMG.cataract.d,
     alt: "Warm portrait-toned artwork representing cataract care",
   },

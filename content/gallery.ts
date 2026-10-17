@@ -26,6 +26,8 @@ export interface GalleryPhoto {
   height: number;
   group: GalleryGroup;
   caption?: string;
+  /** False until the doctor approves publication — filtered out below. */
+  approved?: boolean;
 }
 
 const G = "/images/gallery/";
@@ -56,9 +58,9 @@ const allGalleryPhotos: GalleryPhoto[] = [
   },
   {
     src: G + "Before-After-DSEKDescemet_s-stripping-endothelial-keratoplasty.jpg",
-    alt: "DSEK corneal transplant before-and-after clinical photographs",
+    alt: "Descemet's Stripping Endothelial Keratoplasty (DSEK) corneal transplant before-and-after clinical photographs",
     width: 1906, height: 924, group: "clinical",
-    caption: "DSEK — before and after",
+    caption: "Descemet's Stripping Endothelial Keratoplasty (DSEK) — before and after",
   },
   {
     src: G + "before-After-Pterygium-Surgery.jpg",
@@ -68,15 +70,35 @@ const allGalleryPhotos: GalleryPhoto[] = [
   },
   {
     src: G + "Before-After-DALK-Deep-anterior-lamellar-keratoplasty.jpg",
-    alt: "DALK corneal transplant before-and-after clinical photographs",
+    alt: "Deep Anterior Lamellar Keratoplasty (DALK) corneal transplant before-and-after clinical photographs",
     width: 1906, height: 924, group: "clinical",
-    caption: "DALK — before and after",
+    caption: "Deep Anterior Lamellar Keratoplasty (DALK) — before and after",
   },
   {
     src: G + "before-after-PK-Penetrating-keratoplasty.jpg",
     alt: "Penetrating keratoplasty before-and-after clinical photographs",
     width: 1906, height: 924, group: "clinical",
     caption: "Penetrating keratoplasty — before and after",
+  },
+  // Conference photographs — hidden until approved. Captions use only
+  // what is visible on the banners; alt text names no person.
+  // TODO(doctor): confirm Dr. Sachin is the person in both photos (the
+  // plaque in the award photo may name someone else) and that the other
+  // people shown agree to publication.
+  {
+    src: "/images/home/conference-2024.webp",
+    alt: "A speaker at a podium during the OphthaQuest 2024 conference, with a presentation screen and seated panelists behind",
+    width: 1536, height: 1024, group: "moments",
+    caption: "OphthaQuest 2024, Gurugram, 13 to 15 September 2024",
+    approved: false,
+  },
+  {
+    src: "/images/home/conference-2023.webp",
+    alt: "Two people holding a plaque on a conference stage with an OphthaQuest backdrop, while another person applauds",
+    width: 1536, height: 1024, group: "moments",
+    // Backdrop year is occluded in the photo — caption stays year-free.
+    caption: "OphthaQuest, Gurugram",
+    approved: false,
   },
 ];
 
@@ -87,11 +109,11 @@ export const galleryPrograms: string[] = [
   "\u2018Vision 2020\u2019 meeting Organized in Academic Partnership with Mungale Eye Hospital On 6th May 2019",
   "Post Graduate Teaching Program Organized For Students Studying Ophthalmology At Government Medical College",
   "Talk at LMW Power",
-  "Talk on SLT (Selective Laser Trabeculopasty) 2017",
+  "Talk on Selective Laser Trabeculoplasty (SLT), 2017",
   "Our Clinic Services",
   "Camp & Conference Organized At Navsari 2015",
-  "MEH proud Organiser of CME on Ocular Surface Disorders",
-  "MEH proud Organiser of CME for Women Ophthalmologists of Vadodara",
+  "Mungale Eye Hospital proud organiser of CME on Ocular Surface Disorders",
+  "Mungale Eye Hospital proud organiser of CME for Women Ophthalmologists of Vadodara",
 ];
 
 // Before/after result photographs are hidden while SHOW_BEFORE_AFTER is
@@ -100,7 +122,7 @@ const isBeforeAfter = (p: GalleryPhoto) =>
   p.group === "clinical" && /before/i.test(p.caption ?? p.alt);
 
 export const galleryPhotos: GalleryPhoto[] = allGalleryPhotos.filter(
-  (p) => SHOW_BEFORE_AFTER || !isBeforeAfter(p)
+  (p) => (SHOW_BEFORE_AFTER || !isBeforeAfter(p)) && p.approved !== false
 );
 
 export type GalleryFilter = "all" | GalleryGroup;

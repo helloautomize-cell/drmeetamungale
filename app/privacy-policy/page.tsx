@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { canonical } from "@/content/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { ContentSection } from "@/components/sections/ContentSection";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy policy of Mungale Eye Hospital.",
+  description:
+    "Privacy policy — how Mungale Eye Hospital in Vadodara collects, uses and protects your personal and health information. Contact us with questions.",
   alternates: { canonical: "/privacy-policy/" },
+  openGraph: {
+    title: "Privacy Policy | Mungale Eye Hospital",
+    description:
+      "Privacy policy — how Mungale Eye Hospital in Vadodara collects, uses and protects your personal and health information. Contact us with questions.",
+    url: canonical("/privacy-policy/"),
+  },
 };
 
 // ─── /privacy-policy/ — PLACEHOLDER (owner content pending) ─────────────

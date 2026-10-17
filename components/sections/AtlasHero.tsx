@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { RevealNow } from "@/components/ui/motion";
+import { bookingHref } from "@/lib/booking-links";
 
 // ─── AtlasHero (/treatments/) ──────────────────────────────────────────────
 // Editorial split hero: breadcrumb + OUR CARE + serif headline on the left;
@@ -40,7 +41,7 @@ export function AtlasHero() {
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3">
                 <Link
-                  href="/contact-us/"
+                  href={bookingHref()}
                   className="inline-flex items-center gap-2 bg-primary text-on-primary font-semibold text-[15px] px-6 py-3 rounded-full hover:bg-primary-fixed transition-colors"
                 >
                   Book a consultation
@@ -75,7 +76,7 @@ export function AtlasHero() {
               <div className="absolute -bottom-8 -left-4 sm:-left-8 w-[46%] overflow-hidden rounded-[16px] ring-1 ring-secondary/10 shadow-xl">
                 <Image
                   src="/images/treatments/gt1.jpg"
-                  alt="YAG laser machine used for peripheral iridotomy"
+                  alt="Nd:YAG laser machine used for peripheral iridotomy"
                   width={600}
                   height={600}
                   sizes="(min-width: 1024px) 18vw, 40vw"
@@ -83,7 +84,7 @@ export function AtlasHero() {
                 />
               </div>
               <p className="mt-12 text-[13px] text-on-surface-variant sm:pl-[52%]">
-                LED slit-lamp imaging &amp; YAG laser — diagnosis to treatment.
+                LED slit-lamp imaging &amp; Nd:YAG laser — diagnosis to treatment.
               </p>
             </RevealNow>
           </div>

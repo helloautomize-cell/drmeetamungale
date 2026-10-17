@@ -10,7 +10,7 @@ export function Input({ label, ...props }: InputProps) {
     <div>
       {label && <label className="block font-label-sm text-label-sm text-on-surface font-semibold mb-1">{label}</label>}
       <input
-        className="w-full bg-surface-canvas text-on-surface font-body-md text-body-md rounded-lg px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:text-outline-variant"
+        className="w-full bg-surface-canvas text-on-surface font-body-md text-body-md rounded-lg px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:text-on-surface-variant"
         {...props}
       />
     </div>

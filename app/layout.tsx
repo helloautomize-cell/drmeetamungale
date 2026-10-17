@@ -53,11 +53,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/images/mungale/og-default.jpg"],
   },
-  icons: {
-    icon: "/images/hero/httpsmungaleeyehospital-logo.svg",
-    shortcut: "/images/hero/httpsmungaleeyehospital-logo.svg",
-    apple: "/images/hero/cropped-logo-2.png",
-  },
+  // Icons come from file conventions: app/icon.png (square 512 eye mark)
+  // and app/apple-icon.png (180) — the wide logo SVG was not a suitable
+  // favicon, so a square mark generated from it is used instead.
 };
 
 export const viewport: Viewport = {

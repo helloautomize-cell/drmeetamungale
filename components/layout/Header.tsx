@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 import { Menu, X, CalendarDays, ArrowUpRight, Phone, Mail, Clock, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { siteConfig } from "@/content/site";
+import { telHref } from "@/lib/contact-links";
+import { bookingHref } from "@/lib/booking-links";
 import { treatments } from "@/content/treatments";
 import { MobileNavDrawer } from "@/components/layout/MobileNavDrawer";
 
@@ -89,7 +91,7 @@ function TreatmentsMegaMenu({ onNavigate }: { onNavigate: () => void }) {
         ))}
         {/* Feature card — routes to consultation, per spec copy */}
         <Link
-          href="/contact-us/"
+          href={bookingHref()}
           onClick={onNavigate}
           className="group relative flex flex-col justify-end bg-ink-navy text-left overflow-hidden"
         >
@@ -175,7 +177,7 @@ export function Header() {
   }, [openSub]);
 
   // "Book a consultation" appears once — as the CTA pill, not a nav row.
-  const navItems = siteConfig.navTree.filter((item) => item.href !== "/contact-us/");
+  const navItems = siteConfig.navTree.filter((item) => !item.href.startsWith("/contact-us"));
 
   const isActive = (item: (typeof navItems)[number]) => {
     const selfActive =
@@ -209,11 +211,11 @@ export function Header() {
             <div className="max-w-site mx-auto px-12 h-9 flex items-center justify-between text-[12.5px]">
               <div className="flex items-center gap-5 text-white/75">
                 <a
-                  href={"tel:" + siteConfig.phone.replace(/[\s-]/g, "")}
+                  href={telHref(siteConfig.phone)}
                   className="flex items-center gap-1.5 hover:text-white transition-colors duration-200"
                 >
                   <Phone className="w-3.5 h-3.5" aria-hidden="true" />
-                  {siteConfig.phone}
+                  Appointments: {siteConfig.phone}
                 </a>
                 <a
                   href={"mailto:" + siteConfig.email}
@@ -228,8 +230,10 @@ export function Header() {
                   <Clock className="w-3.5 h-3.5" aria-hidden="true" />
                   {siteConfig.hours.weekdays} · {siteConfig.hours.time}
                 </span>
+                {/* TODO(doctor): confirm emergency hours — no "24 hours"
+                    claim is shown until confirmed. */}
                 <a
-                  href={"tel:" + siteConfig.emergencyPhone.replace(/[\s-]/g, "")}
+                  href={telHref(siteConfig.emergencyPhone)}
                   className="flex items-center gap-1.5 font-semibold text-[#ff8f8f] hover:text-white transition-colors duration-200"
                 >
                   <Phone className="w-3.5 h-3.5" aria-hidden="true" />
@@ -281,7 +285,7 @@ export function Header() {
               {/* Desktop nav — absolutely centered, flat editorial links */}
               <nav
                 ref={navRef}
-                className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2"
+                className="hidden lg:flex items-center gap-0.5 absolute left-1/2 -translate-x-1/2"
                 aria-label="Main navigation"
               >
                 {navItems.map((item) => {
@@ -289,7 +293,7 @@ export function Header() {
                   const hasSub = item.subItems?.length > 0;
                   const open = openSub === item.label;
                   const itemCls =
-                    "nav-item font-label-md text-[15px] font-medium inline-flex items-center gap-1.5 transition-colors duration-200 " +
+                    "nav-item font-label-md text-[15px] font-medium inline-flex items-center gap-1.5 whitespace-nowrap transition-colors duration-200 " +
                     (isActive(item) ? "text-ink" : "text-ink/85 hover:text-ink");
                   return (
                     <div
@@ -306,7 +310,7 @@ export function Header() {
                           onClick={() => setOpenSub(open ? null : item.label)}
                           aria-expanded={open}
                           aria-haspopup="true"
-                          className={itemCls + " px-3 py-2"}
+                          className={itemCls + " px-2.5 py-2"}
                         >
                           {item.label}
                           <span className="text-ink/45" aria-hidden="true">
@@ -320,7 +324,7 @@ export function Header() {
                             href={item.href}
                             data-active={isActive(item) || undefined}
                             aria-current={isActive(item) ? "page" : undefined}
-                            className={itemCls + " pl-3 py-2 pr-1"}
+                            className={itemCls + " pl-2.5 py-2 pr-0.5"}
                           >
                             {item.label}
                           </Link>
@@ -340,7 +344,7 @@ export function Header() {
                           href={item.href}
                           data-active={isActive(item) || undefined}
                           aria-current={isActive(item) ? "page" : undefined}
-                          className={itemCls + " px-3 py-2"}
+                          className={itemCls + " px-2.5 py-2"}
                         >
                           {item.label}
                         </Link>
@@ -385,14 +389,14 @@ export function Header() {
               {/* Right cluster — Call icon + magnetic primary CTA */}
               <div className="flex items-center gap-2 pr-3">
                 <a
-                  href={"tel:" + siteConfig.phone.replace(/[\s-]/g, "")}
-                  aria-label={"Call " + siteConfig.name}
+                  href={telHref(siteConfig.phone)}
+                  aria-label={"Call " + siteConfig.name + " on " + siteConfig.phone}
                   className="hidden lg:flex w-10 h-10 rounded-full ring-1 ring-ink/15 text-ink items-center justify-center hover:ring-brand-red-strong/50 hover:text-brand-red-strong transition-colors duration-200"
                 >
                   <Phone className="w-4 h-4" />
                 </a>
                 <Link
-                  href="/contact-us/"
+                  href={bookingHref()}
                   className="hidden lg:inline-flex h-11 pl-5 pr-1.5 items-center gap-2.5 bg-primary text-white text-[14px] font-semibold rounded-full shadow-[0_1px_2px_rgba(14,17,22,0.15)] hover:bg-primary-fixed transition-colors duration-200"
                 >
                   Book a Consultation
@@ -403,7 +407,7 @@ export function Header() {
 
                 {/* Mobile: booking icon + menu */}
                 <Link
-                  href="/contact-us/"
+                  href={bookingHref()}
                   aria-label="Book an Appointment"
                   className="lg:hidden w-11 h-11 rounded-full bg-primary text-white flex items-center justify-center shadow-[0_1px_3px_rgba(14,17,22,0.18)]"
                 >

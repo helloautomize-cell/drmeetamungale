@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Reveal, RevealNow } from "@/components/ui/motion";
 import { DoctorsExperience } from "@/components/sections/DoctorsExperience";
 import { MedicalReviewByline } from "@/components/seo/MedicalReviewByline";
+import { bookingHref } from "@/lib/booking-links";
 
 // ─── About page — Mungale journey (art-direction redesign) ────────────
 // Same design system as the homepage (warm paper, ink, restrained red,
@@ -63,12 +64,13 @@ export function AboutHero({
             <p className="text-[16.5px] lg:text-[17.5px] text-on-surface-variant mt-5 leading-relaxed max-w-xl">
               Mungale Eye Hospital began in Vadodara in 2007 as a private
               joint venture of two ophthalmologists — and grew into a
-              referral center for complex cornea and glaucoma care.
+              referral center for complex cornea and glaucoma care in
+              Kothi, Vadodara.
             </p>
             <MedicalReviewByline reviewedBy={["sachin", "meeta"]} />
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
               <Link
-                href="/contact-us/"
+                href={bookingHref()}
                 className="inline-flex h-12 px-7 items-center justify-center bg-primary text-white text-[14.5px] font-semibold rounded-[13px] shadow-[0_1px_3px_rgba(17,17,18,0.18)] hover:bg-primary-fixed transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
               >
                 <span>Book a consultation</span>
@@ -339,7 +341,7 @@ export function FacilityPlace() {
               <span className="block overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
                 <Image
                   src="/images/IMG_0887-jpg.webp"
-                  alt="YAG laser procedure at Mungale Eye Hospital"
+                  alt="Nd:YAG laser procedure at Mungale Eye Hospital"
                   width={880}
                   height={620}
                   loading="lazy"

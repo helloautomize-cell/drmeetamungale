@@ -2,8 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
-import { X } from "lucide-react";
+import { X, ChevronRight } from "lucide-react";
 import { siteConfig } from "@/content/site";
+import { telHref } from "@/lib/contact-links";
+import { bookingHref } from "@/lib/booking-links";
 
 // Editorial mobile menu (owner spec): full-height warm off-white panel,
 // large links, generous whitespace, small red section labels, strong
@@ -17,12 +19,14 @@ interface MobileNavDrawerProps {
 
 export function MobileNavDrawer({ isOpen, onClose, textSizeLarge, onToggleTextSize }: MobileNavDrawerProps) {
   const closeRef = React.useRef<HTMLButtonElement>(null);
+  const [openSubMenu, setOpenSubMenu] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      setOpenSubMenu(null);
     }
     return () => {
       document.body.style.overflow = "";
@@ -39,7 +43,7 @@ export function MobileNavDrawer({ isOpen, onClose, textSizeLarge, onToggleTextSi
     return () => window.removeEventListener("keydown", onKey);
   }, [isOpen, onClose]);
 
-  const items = siteConfig.navTree.filter((i) => i.href !== "/contact-us/");
+  const items = siteConfig.navTree.filter((i) => !i.href.startsWith("/contact-us"));
 
   return (
     <div
@@ -91,28 +95,50 @@ export function MobileNavDrawer({ isOpen, onClose, textSizeLarge, onToggleTextSi
                   transitionDelay: isOpen ? `${120 + i * 55}ms` : "0ms",
                 }}
               >
-                <Link
-                  href={item.href}
-                  className="block py-2 font-display-hero text-[27px] leading-tight text-on-surface hover:text-primary transition-colors duration-200"
-                  onClick={onClose}
-                >
-                  {item.label}
-                </Link>
-                {item.subItems?.length > 0 && (
-                  <ul className="mt-1 mb-2 pl-1 space-y-0.5">
-                    {item.subItems.map((sub) => (
-                      <li key={sub.href}>
-                        <Link
-                          href={sub.href}
-                          className="block py-2 pl-3 text-[15px] text-on-surface-variant hover:text-primary transition-colors duration-200 border-l border-border-subtle"
-                          onClick={onClose}
-                        >
-                          {sub.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                {item.href === "#" ? (
+                  <button
+                    type="button"
+                    aria-haspopup="true"
+                    aria-expanded={openSubMenu === item.label}
+                    onClick={() =>
+                      setOpenSubMenu(openSubMenu === item.label ? null : item.label)
+                    }
+                    className="flex w-full items-center justify-between py-3 min-h-[44px] font-display-hero text-[27px] leading-tight text-on-surface hover:text-primary transition-colors duration-200 text-left"
+                  >
+                    {item.label}
+                    <ChevronRight
+                      className={
+                        "w-5 h-5 shrink-0 transition-transform duration-200 motion-reduce:transition-none " +
+                        (openSubMenu === item.label ? "rotate-90" : "")
+                      }
+                      aria-hidden="true"
+                    />
+                  </button>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="block py-3 min-h-[44px] font-display-hero text-[27px] leading-tight text-on-surface hover:text-primary transition-colors duration-200"
+                    onClick={onClose}
+                  >
+                    {item.label}
+                  </Link>
                 )}
+                {item.subItems?.length > 0 &&
+                  (item.href !== "#" || openSubMenu === item.label) && (
+                    <ul className="mt-1 mb-2 pl-1 space-y-0.5">
+                      {item.subItems.map((sub) => (
+                        <li key={sub.href}>
+                          <Link
+                            href={sub.href}
+                            className="block py-3 pl-3 min-h-[44px] text-[15px] text-on-surface-variant hover:text-primary transition-colors duration-200 border-l border-border-subtle"
+                            onClick={onClose}
+                          >
+                            {sub.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
               </li>
             ))}
           </ul>
@@ -126,8 +152,8 @@ export function MobileNavDrawer({ isOpen, onClose, textSizeLarge, onToggleTextSi
               {siteConfig.address}
             </p>
             <a
-              href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-              className="block mt-2 text-[16px] font-medium text-on-surface hover:text-primary transition-colors"
+              href={telHref(siteConfig.phone)}
+              className="mt-2 inline-flex min-h-[44px] items-center text-[16px] font-medium text-on-surface hover:text-primary transition-colors"
             >
               {siteConfig.phone}
             </a>
@@ -160,7 +186,7 @@ export function MobileNavDrawer({ isOpen, onClose, textSizeLarge, onToggleTextSi
         {/* Strong CTA pinned at the bottom — single booking action */}
         <div className="shrink-0 px-6 pt-4 pb-7 border-t border-secondary/10 bg-background">
           <Link
-            href="/contact-us/"
+            href={bookingHref()}
             className="flex items-center justify-center w-full h-[52px] bg-primary hover:bg-primary-fixed text-white text-[15px] font-semibold rounded-[13px] shadow-[0_1px_3px_rgba(17,17,18,0.18)] transition-colors duration-200"
             onClick={onClose}
           >

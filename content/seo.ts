@@ -1,4 +1,5 @@
 import { siteConfig } from "@/content/site";
+import { e164 } from "@/lib/contact-links";
 import { MEDICAL_REVIEW_DATE } from "@/content/doctors";
 import {
   BASE,
@@ -27,7 +28,7 @@ export function hospitalJsonLd() {
     "@id": CLINIC_ID,
     name: siteConfig.name,
     url: siteConfig.url,
-    telephone: siteConfig.phone,
+    telephone: e164(siteConfig.phone),
     email: siteConfig.email,
     address: {
       "@type": "PostalAddress",

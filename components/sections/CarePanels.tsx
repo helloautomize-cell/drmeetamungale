@@ -4,6 +4,8 @@ import { ArtImage } from "@/components/ui/ArtImage";
 import { IMG, REAL, type Img } from "@/lib/images";
 import { treatments } from "@/content/treatments";
 import { siteConfig } from "@/content/site";
+import { telHref } from "@/lib/contact-links";
+import { bookingHref } from "@/lib/booking-links";
 
 // ─── Care panels (server-rendered) ────────────────────────────────────
 // The six symptom-navigator panels for CareDiscovery. Rendered on the
@@ -199,7 +201,6 @@ function ExploreTreatments({ slugs }: { slugs: string[] }) {
 }
 
 function ConversationPanel() {
-  const phone = siteConfig.phone.replace(/\s/g, "");
   const art = concernArt[NOT_SURE_INDEX]!;
   return (
     <div className="flex flex-col gap-6 lg:flex-row lg:gap-12">
@@ -215,7 +216,7 @@ function ConversationPanel() {
       </p>
       <div className="mt-7 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
         <a
-          href={"tel:" + phone}
+          href={telHref(siteConfig.phone)}
           className="cta-quiet group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
         >
           <span className="cta-quiet-text">Speak to our team</span>
@@ -225,7 +226,7 @@ function ConversationPanel() {
           />
         </a>
         <Link
-          href="/contact-us/"
+          href={bookingHref()}
           className="cta-quiet group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
         >
           <span className="cta-quiet-text">Book a consultation</span>

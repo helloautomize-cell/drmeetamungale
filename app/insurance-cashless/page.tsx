@@ -20,10 +20,16 @@ import { faqJsonLd, breadcrumbJsonLd, canonical } from "@/content/seo";
 import { Reveal, RevealNow } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
-  title: "Insurance & Cashless",
+  title: "Insurance & Cashless in Vadodara",
   description:
-    "Cashless eye care, explained clearly — current empanelment, how cashless approval works, what to bring, and the insurance help desk at Mungale Eye Hospital, Vadodara.",
+    "Cashless eye care in Vadodara — how cashless approval works, what to bring, and the insurance help desk at Mungale Eye Hospital, Kothi. Call us today.",
   alternates: { canonical: canonical("/insurance-cashless/") },
+  openGraph: {
+    title: "Insurance & Cashless in Vadodara | Mungale Eye Hospital",
+    description:
+      "Cashless eye care in Vadodara — how cashless approval works, what to bring, and the insurance help desk at Mungale Eye Hospital, Kothi. Call us today.",
+    url: canonical("/insurance-cashless/"),
+  },
 };
 
 // ─── /insurance-cashless/ — patient-first insurance guidance ───────────────

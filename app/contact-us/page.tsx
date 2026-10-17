@@ -12,13 +12,20 @@ import { ContactBookingForm } from "@/components/sections/ContactBookingForm";
 import { LocationBlock } from "@/components/sections/LocationBlock";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, canonical } from "@/content/seo";
+import { siteConfig } from "@/content/site";
 import { Reveal, RevealNow } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Contact Us in Vadodara",
   description:
-    "Book a consultation, call the team, or find Mungale Eye Hospital in Kothi, Vadodara — address, hours, map and what happens next.",
+    "Contact Mungale Eye Hospital in Kothi, Vadodara — book a consultation, call the team, or get directions, hours and appointment details.",
   alternates: { canonical: canonical("/contact-us/") },
+  openGraph: {
+    title: "Contact Us in Vadodara | " + siteConfig.name,
+    description:
+      "Contact Mungale Eye Hospital in Kothi, Vadodara — book a consultation, call the team, or get directions, hours and appointment details.",
+    url: canonical("/contact-us/"),
+  },
 };
 
 // ─── /contact-us/ — concierge, not a form ─────────────────────────────────
@@ -55,8 +62,9 @@ export default function ContactPage() {
                 Let&rsquo;s get you started.
               </h1>
               <p className="mt-5 max-w-[48ch] font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                Whether you&rsquo;re ready to book, need directions, or simply
-                have a question, we&rsquo;re here to help.
+                Whether you&rsquo;re ready to book, need directions to our
+                Kothi, Vadodara hospital, or simply have a question,
+                we&rsquo;re here to help.
               </p>
               <div className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-3">
                 <a
@@ -222,6 +230,11 @@ export default function ContactPage() {
                 </h2>
               </div>
               <div className="flex flex-col gap-2">
+                {/* TODO(doctor): confirm emergency hours — no "24 hours"
+                    claim is shown until confirmed. */}
+                <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">
+                  Emergency
+                </p>
                 {contactPhones.emergency.map((num) => (
                   <a
                     key={num}
@@ -295,7 +308,7 @@ export default function ContactPage() {
           <Reveal>
             <dl className="grid sm:grid-cols-3 gap-8 border-t border-secondary/10 pt-8">
               <div>
-                <dt className="text-[12px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">Phone</dt>
+                <dt className="text-[12px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">Appointments</dt>
                 <dd className="mt-2">
                   <a href={telOf(contactPhones.main)} className="font-display-hero text-[20px] lg:text-[22px] tracking-tight text-on-surface hover:text-primary-fixed transition-colors">
                     {contactPhones.main}

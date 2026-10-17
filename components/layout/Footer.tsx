@@ -4,6 +4,8 @@ import { ArtImage } from "@/components/ui/ArtImage";
 import { Reveal } from "@/components/ui/motion";
 import { IMG } from "@/lib/images";
 import { siteConfig } from "@/content/site";
+import { telHref } from "@/lib/contact-links";
+import { bookingHref } from "@/lib/booking-links";
 
 // ─── Footer — two-layer editorial closing (owner rebuild) ────────────
 // LAYER 01: compact full-width official-red closing (part of page flow,
@@ -20,14 +22,10 @@ import { siteConfig } from "@/content/site";
 //   search results (no reviews page exists), rest direct.
 // - No Terms page exists → Privacy Policy only. Social = the three real
 //   siteConfig accounts, compact text links. No treatment list (seen above).
-const MAPS_URL =
+export const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=Mungale+Eye+Hospital+Kothi+Vadodara";
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?q=Mungale+Eye+Hospital+Vadodara+reviews";
-
-function telHref(n: string) {
-  return "tel:" + n.replace(/[\s-]/g, "");
-}
 
 const explore: { label: string; href: string; external?: boolean }[] = [
   { label: "About", href: "/about-us/" },
@@ -84,7 +82,7 @@ export function Footer() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
               <Link
-                href="/contact-us/"
+                href={bookingHref()}
                 className="group inline-flex h-[50px] px-7 w-full sm:w-auto items-center justify-center gap-2 bg-white text-primary text-[15px] font-bold rounded-[11px] hover:bg-background transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
                 <span>Book a consultation</span>
@@ -163,7 +161,7 @@ export function Footer() {
               aria-label="Explore"
               className="lg:col-span-3 lg:border-t-0 border-t border-white/10 pt-8 lg:pt-0"
             >
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/45">
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">
                 Explore
               </p>
               <ul className="mt-4 space-y-1">
@@ -174,7 +172,7 @@ export function Footer() {
                         href={l.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-1.5 py-1.5 text-[14.5px] text-white/70 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
+                        className="group inline-flex items-center gap-1.5 py-1.5 md:py-1.5 min-h-[44px] md:min-h-0 text-[14.5px] text-white/70 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
                       >
                         <span>{l.label}</span>
                         <ArrowRight
@@ -185,7 +183,7 @@ export function Footer() {
                     ) : (
                       <Link
                         href={l.href}
-                        className="group inline-flex items-center gap-1.5 py-1.5 text-[14.5px] text-white/70 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
+                        className="group inline-flex items-center gap-1.5 py-1.5 md:py-1.5 min-h-[44px] md:min-h-0 text-[14.5px] text-white/70 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
                       >
                         <span>{l.label}</span>
                         <ArrowRight
@@ -198,7 +196,7 @@ export function Footer() {
                 ))}
               </ul>
               <div className="mt-6 lg:mt-8 border-t border-white/10 pt-6">
-                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/45">
+                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">
                   First visit?
                 </p>
                 <Link
@@ -216,31 +214,31 @@ export function Footer() {
 
             {/* RIGHT · contact, hours, emergency */}
             <div className="lg:col-span-4 lg:border-t-0 border-t border-white/10 pt-8 lg:pt-0">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/45">
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">
                 Contact
               </p>
               <p className="mt-4 space-y-1.5 text-[15px]">
                 <a
                   href={telHref(siteConfig.phone)}
-                  className="block text-white font-medium hover:text-primary transition-colors w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
+                  className="flex items-center min-h-[44px] md:min-h-0 text-white font-medium hover:text-primary transition-colors w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
                 >
-                  {siteConfig.phone}
+                  Appointments: {siteConfig.phone}
                 </a>
                 <a
                   href={telHref(siteConfig.landline)}
-                  className="block text-white/70 hover:text-primary transition-colors w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
+                  className="flex items-center min-h-[44px] md:min-h-0 text-white/70 hover:text-primary transition-colors w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
                 >
-                  {siteConfig.landline}
+                  Reception: {siteConfig.landline}
                 </a>
                 <a
                   href={"mailto:" + siteConfig.email}
-                  className="block text-[14px] text-white/60 hover:text-primary transition-colors w-fit break-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
+                  className="flex items-center min-h-[44px] md:min-h-0 text-[14px] text-white/60 hover:text-primary transition-colors w-fit break-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
                 >
                   {siteConfig.email}
                 </a>
               </p>
               <div className="mt-5 text-[13.5px] leading-relaxed text-white/50">
-                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/45">
+                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">
                   Hours
                 </p>
                 <p className="mt-2">
@@ -256,17 +254,19 @@ export function Footer() {
                   className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"
                 />
                 <span>
+                  {/* TODO(doctor): confirm emergency hours — no "24 hours"
+                      claim is shown until confirmed. */}
                   Emergency:{" "}
                   <a
                     href={telHref(siteConfig.emergencyPhone)}
-                    className="text-[#ff8080] hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
+                    className="inline-flex items-center min-h-[44px] md:min-h-0 text-[#ff8080] hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
                   >
                     {siteConfig.emergencyPhone}
                   </a>
-                  {" · "}
+                  {" / "}
                   <a
                     href={telHref(siteConfig.emergencyPhone2)}
-                    className="text-[#ff8080] hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
+                    className="inline-flex items-center min-h-[44px] md:min-h-0 text-[#ff8080] hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
                   >
                     {siteConfig.emergencyPhone2}
                   </a>
@@ -277,7 +277,7 @@ export function Footer() {
                   href={siteConfig.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/60 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
+                  className="inline-flex items-center min-h-[44px] md:min-h-0 text-white/60 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
                 >
                   Instagram
                 </a>
@@ -285,7 +285,7 @@ export function Footer() {
                   href={siteConfig.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/60 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
+                  className="inline-flex items-center min-h-[44px] md:min-h-0 text-white/60 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
                 >
                   Facebook
                 </a>
@@ -302,7 +302,7 @@ export function Footer() {
           </div>
 
           {/* Legal bar — quiet, separated */}
-          <div className="mt-12 lg:mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[12.5px] text-white/45">
+          <div className="mt-12 lg:mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[12.5px] text-white/50">
             <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
             <p>
               <Link
@@ -318,7 +318,7 @@ export function Footer() {
             not a substitute for professional medical advice, diagnosis or
             treatment.
           </p>
-          <p className="mt-4 text-[12.5px] text-white/45">
+          <p className="mt-4 text-[12.5px] text-white/50">
             Built &amp; marketed by{" "}
             <a
               href="https://www.automizemedialabs.com/"

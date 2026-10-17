@@ -41,7 +41,7 @@ export function GET() {
 
   for (const d of doctors) {
     out.push(`### ${d.name}`, `URL: ${BASE}/doctors/${d.slug}/`);
-    out.push(`${d.title}. ${d.credentialLine}. ${d.registration}. ${d.experience}.`);
+    out.push(`${d.title}. ${d.credentialShort}. ${d.registration}. ${d.experience}.`);
     out.push(d.role);
     out.push(d.bio);
     if (d.education.length) {
@@ -55,15 +55,18 @@ export function GET() {
       for (const p of [...(d.clinicalWork ?? []), ...d.procedures]) out.push(`- ${p}`);
     }
     if (d.diagnostics) out.push(`Diagnostics: ${d.diagnostics.join(", ")}`);
-    if (d.currentInterests) out.push(`Current interests: ${d.currentInterests}`);
+    if (d.currentInterests) {
+      out.push(`Current interests: ${d.currentInterests.lead}`);
+      for (const i of d.currentInterests.items) out.push(`- ${i}`);
+    }
     if (d.publications.length) {
       out.push("Publications & research:");
       for (const p of d.publications) out.push(`- ${p}`);
     }
     if (d.memberships) out.push(`Memberships (life member): ${d.memberships.join("; ")}`);
-    if (d.teaching) {
-      out.push("Teaching & CMEs:");
-      for (const t of [...d.teaching, ...(d.cmes ?? [])]) out.push(`- ${t}`);
+    if (d.teaching || d.training) {
+      out.push("Teaching, training & CMEs:");
+      for (const t of [...(d.teaching ?? []), ...(d.training ?? []), ...(d.cmes ?? [])]) out.push(`- ${t}`);
     }
     if (d.community) out.push(`Community: ${d.community}`);
     out.push("");

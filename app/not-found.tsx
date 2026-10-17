@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, Phone } from "lucide-react";
 import { siteConfig } from "@/content/site";
+import { telHref } from "@/lib/contact-links";
 
 // ─── 6.10 not-found (site-styled 404) ───────────────────────────────────
 export default function NotFound() {
@@ -28,7 +29,7 @@ export default function NotFound() {
             <span>Back to Home</span>
           </Link>
           <a
-            href={"tel:" + siteConfig.phone.replace(/\s/g, "")}
+            href={telHref(siteConfig.phone)}
             className="px-6 py-3 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded-lg transition-colors inline-flex items-center gap-2"
           >
             <Phone className="w-[18px] h-[18px]" />

@@ -1,4 +1,13 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "Palette",
+  robots: { index: false, follow: false },
+};
+
 export default function PalettePage() {
+  if (process.env.NODE_ENV === "production") notFound();
   const swatches = [
     { name: "primary", value: "#c41e1e", desc: "Brand crimson (logo red #ed2225 toned for premium medical)" },
     { name: "primary-container", value: "#ffe5e3", desc: "Soft red tint" },

@@ -1,19 +1,31 @@
+// The single experience figure everywhere on the site. Hospital
+// established 2007 — the doctors' combined track record reads
+// "Over 19 years" until a deliberate update.
+// Update to "Over 20 years" in 2027. Not auto-computed on purpose,
+// because "over" claims should be changed deliberately.
+export const EXPERIENCE_CLAIM = "Over 19 years";
+export const ESTABLISHED_YEAR = 2007;
+
 export const siteConfig = {
   name: "Mungale Eye Hospital",
-  shortName: "MEH",
+  shortName: "Mungale Eye Hospital", // full name — never abbreviate in visible copy
   tagline: "Specialist eye hospital in Kothi, Vadodara",
   url: "https://mungaleeyehospital.com",
   address: "2nd Floor, Vinraj Plaza, opp. Government Press, Kothi Road, Anandpura, Vadodara, Gujarat 390001",
   // Contact numbers per owner decision.
-// Normal contact: +91 8140050055, +91 0265-2430101.
-// Emergency: +91 8140250055, +91 9723311209. WhatsApp: +91 8140250055.
-// (+91 8140050055 is CONFIRMED as the main number — it is printed on
-// Dr. Meeta Mungale's letterhead.)
-  phone: "+91 8140050055",
-  landline: "+91 0265-2430101",
-  emergencyPhone: "+91 9723311209",
-  emergencyPhone2: "+91 8140250055",
-  whatsapp: "+91 8140250055",
+  // Primary = appointments. Landline = reception. Emergency numbers are
+  // for emergencies only. Display strings only — every tel:/wa.me href is
+  // built by lib/contact-links.ts (drops the trunk 0 after +91).
+  // TODO(doctor): confirm emergency hours — the site must not claim 24h.
+  // TODO(doctor): confirm role of 8140250055 — it serves both as an
+  // emergency number (emergencyPhone2) and as the insurance-desk /
+  // appointment line (insurancePhone).
+  phone: "+91 81400 50055", // CONFIRMED main number — printed on Dr. Meeta Mungale's letterhead.
+  landline: "+91 0265 2430101",
+  emergencyPhone: "+91 97233 11209",
+  emergencyPhone2: "+91 81402 50055",
+  whatsapp: "+91 81400 50055",
+  insurancePhone: "+91 81402 50055",
   email: "mungaleeyehospital@gmail.com",
   hours: { weekdays: "Mon - Sat", time: "09:00 AM - 08:00 PM", sunday: "Closed" },
   social: {
@@ -22,8 +34,8 @@ export const siteConfig = {
     youtube: "https://www.youtube.com/@mungaleeyehospital",
   },
   doctors: [
-    { name: "Dr. Sachin Mungale", title: "MS (Ophthalmology) · Glaucoma Fellowship, LVPEI", slug: "sachin-mungale" },
-    { name: "Dr. Meeta Mungale", title: "MS (Ophthalmology), DNB · Cornea Fellowship, LVPEI", slug: "meeta-mungale" },
+    { name: "Dr. Sachin Mungale", title: "MBBS, MS (Ophthalmology) · Fellowship in Glaucoma, L V Prasad Eye Institute, Hyderabad", slug: "sachin-mungale" },
+    { name: "Dr. Meeta Mungale", title: "MBBS, MS (Ophthalmology), DNB · Fellowship in Cornea & Anterior Segment, L V Prasad Eye Institute, Hyderabad", slug: "meeta-mungale" },
   ],
   treatments: [
     { title: "Cornea Evaluation", slug: "cornea-evaluation" },
@@ -34,16 +46,16 @@ export const siteConfig = {
     { title: "Optical & Contact Lenses", slug: "optical-contact-lenses" },
   ],
   stats: {
-    yearsVerified: 20, // VERIFIED: source content and homepage confirm "established on 24th June, 2007" and "20+ Years Expertise"
-    yearsClaim: "20+", // As shown on site: "20+ Years Expertise"
+    yearsVerified: 19, // Established 24th June, 2007 — "Over 19 years" is the single approved figure (see EXPERIENCE_CLAIM).
+    yearsClaim: "Over 19 years", // Single source: EXPERIENCE_CLAIM. Update deliberately in 2027.
     patientsClaim: "40,000+", // CLAIMED ON WEBSITE (homepage stat chip / reference design) — must verify exact database/MCP count before final build. Currently unverified; HTML JS counter shows "0" only as dynamic placeholder.
     patientsVerifiedNote: "NOT VERIFIED — needs user confirmation or exact source data retrieval",
     surgeriesClaim: "15,000+", // CLAIMED ON WEBSITE (homepage stat chip / reference design) — must verify exact database/MCP count before final build.
     surgeriesVerifiedNote: "NOT VERIFIED — needs user confirmation or exact source data retrieval",
   },
   navTree: [
-    { label: "About Us", href: "/about-us/", subItems: [] },
-    { label: "Our Doctors", href: "/doctors/", subItems: [] },
+    { label: "About", href: "/about-us/", subItems: [] },
+    { label: "Doctors", href: "/doctors/", subItems: [] },
     { label: "Treatments", href: "/treatments/", subItems: [
       { label: "Cornea Evaluation", href: "/treatments/cornea-evaluation/" },
       { label: "Corneal Treatments", href: "/treatments/corneal-treatments/" },
@@ -52,12 +64,12 @@ export const siteConfig = {
       { label: "Cataract Surgery", href: "/treatments/cataract-surgery/" },
       { label: "Optical & Contact Lenses", href: "/treatments/optical-contact-lenses/" },
     ]},
-    { label: "Insurance & Cashless", href: "/insurance-cashless/", subItems: [] },
+    { label: "Insurance", href: "/insurance-cashless/", subItems: [] },
     { label: "Resources", href: "#", subItems: [
       { label: "Blog", href: "/blog/" },
       { label: "FAQs", href: "/faqs/" },
       { label: "Gallery", href: "/gallery/" },
     ]},
-    { label: "Book an Appointment", href: "/contact-us/", subItems: [] },
+    { label: "Book an Appointment", href: "/contact-us/#book", subItems: [] },
   ],
 };

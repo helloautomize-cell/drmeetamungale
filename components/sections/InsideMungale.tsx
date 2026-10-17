@@ -60,7 +60,7 @@ export function InsideMungale() {
             <ArtImage
               d={REAL.careYag.d}
               m={REAL.careYag.m}
-              alt="Dr. Sachin Mungale examining an elderly patient at the YAG laser"
+              alt="Dr. Sachin Mungale examining an elderly patient at the Nd:YAG laser"
               sizes="(min-width: 1600px) 1600px, 100vw"
               className="h-full w-full"
               imgClassName="h-full w-full object-cover object-[50%_40%] md:object-[50%_45%]"

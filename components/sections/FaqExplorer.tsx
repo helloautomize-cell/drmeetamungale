@@ -3,6 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import { faqCategories, type Faq, type FaqCategory } from "@/content/faqs";
+import { siteConfig } from "@/content/site";
+import { telHref } from "@/lib/contact-links";
+import { bookingHref } from "@/lib/booking-links";
 import { Reveal } from "@/components/ui/motion";
 
 // ─── FaqExplorer ───────────────────────────────────────────────────────────
@@ -21,7 +24,7 @@ function linkifyAppointment(text: string): React.ReactNode[] {
       node: (key) => (
         <Link
           key={key}
-          href="/contact-us/#book"
+          href={bookingHref()}
           className="font-bold text-on-surface underline decoration-primary-fixed/60 underline-offset-4 hover:decoration-primary-fixed"
         >
           Book an Appointment
@@ -29,18 +32,20 @@ function linkifyAppointment(text: string): React.ReactNode[] {
       ),
     },
     {
-      match: "+91 8140250055",
+      // TODO(doctor): confirm role of 8140250055 — the FAQ answer lists it
+      // as a booking line (appointment role), not emergency.
+      match: siteConfig.insurancePhone,
       node: (key) => (
-        <a key={key} href="tel:+918140250055" className="font-bold text-on-surface underline decoration-primary-fixed/60 underline-offset-4 hover:decoration-primary-fixed">
-          +91 8140250055
+        <a key={key} href={telHref(siteConfig.insurancePhone)} className="font-bold text-on-surface underline decoration-primary-fixed/60 underline-offset-4 hover:decoration-primary-fixed">
+          {siteConfig.insurancePhone}
         </a>
       ),
     },
     {
-      match: "+91 9723311209",
+      match: siteConfig.emergencyPhone,
       node: (key) => (
-        <a key={key} href="tel:+919723311209" className="font-bold text-on-surface underline decoration-primary-fixed/60 underline-offset-4 hover:decoration-primary-fixed">
-          +91 9723311209
+        <a key={key} href={telHref(siteConfig.emergencyPhone)} className="font-bold text-on-surface underline decoration-primary-fixed/60 underline-offset-4 hover:decoration-primary-fixed">
+          {siteConfig.emergencyPhone}
         </a>
       ),
     },
@@ -154,6 +159,26 @@ export function FaqExplorer({
     });
   }, [faqs, filter, query, categories]);
 
+  // Topic groups — each rendered under an H2 heading.
+  const groups = React.useMemo(() => {
+    const order = faqCategories
+      .filter((c) => c.id !== "all")
+      .map((c) => c.id as FaqCategory);
+    const byCat = new Map<FaqCategory, (Faq & { index: number })[]>();
+    for (const f of visible) {
+      const cat = categories[f.index] ?? "eye-health";
+      if (!byCat.has(cat)) byCat.set(cat, []);
+      byCat.get(cat)!.push(f);
+    }
+    return order
+      .filter((id) => byCat.has(id))
+      .map((id) => ({
+        id,
+        label: faqCategories.find((c) => c.id === id)!.label,
+        items: byCat.get(id)!,
+      }));
+  }, [visible, categories]);
+
   React.useEffect(() => {
     setActive(0);
   }, [filter, query]);
@@ -190,7 +215,7 @@ export function FaqExplorer({
               onChange={(e) => setQuery(e.target.value)}
               placeholder="What are you looking for?"
               autoComplete="off"
-              className="mt-2 w-full bg-surface-canvas text-on-surface font-body-md text-body-md rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:text-outline-variant"
+              className="mt-2 w-full bg-surface-canvas text-on-surface font-body-md text-body-md rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:text-on-surface-variant"
             />
           </div>
           <div
@@ -246,8 +271,15 @@ export function FaqExplorer({
         <>
           {/* ── Desktop explorer ── */}
           <div className="hidden lg:grid lg:grid-cols-[35%_65%] lg:gap-14 mt-8">
-            <ol className="border-t border-secondary/10 self-start">
-              {visible.map((f, i) => {
+            <div className="self-start">
+              {groups.map((g) => (
+                <div key={g.id} className="mt-8 first:mt-0">
+                  <h2 className="text-[12px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">
+                    {g.label}
+                  </h2>
+                  <ol className="mt-2 border-t border-secondary/10">
+                    {g.items.map((f) => {
+                      const i = visible.indexOf(f);
                 const selected = current?.question === f.question;
                 const isStart = showStartHere && f.index === 0;
                 return (
@@ -291,9 +323,12 @@ export function FaqExplorer({
                       />
                     </button>
                   </li>
-                );
-              })}
-            </ol>
+                    );
+                  })}
+                  </ol>
+                </div>
+              ))}
+            </div>
             <div className="self-start lg:sticky lg:top-32">
               {current && (
                 <div
@@ -315,8 +350,15 @@ export function FaqExplorer({
           </div>
 
           {/* ── Mobile accordion ── */}
-          <div className="lg:hidden border-t border-secondary/10 mt-8">
-            {visible.map((f, i) => {
+          <div className="lg:hidden mt-8">
+            {groups.map((g) => (
+              <div key={g.id} className="mt-8 first:mt-0">
+                <h2 className="mb-2 text-[12px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">
+                  {g.label}
+                </h2>
+                <div className="border-t border-secondary/10">
+                  {g.items.map((f) => {
+                    const i = visible.indexOf(f);
               const open = current?.question === f.question;
               const isStart = showStartHere && f.index === 0;
               return (
@@ -371,8 +413,11 @@ export function FaqExplorer({
                     </div>
                   </div>
                 </div>
-              );
-            })}
+                  );
+                })}
+                </div>
+              </div>
+            ))}
           </div>
         </>
       )}
