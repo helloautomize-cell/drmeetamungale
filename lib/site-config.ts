@@ -25,3 +25,14 @@ export const PATIENT_PHOTO_CONSENT_CONFIRMED = false;
  * Flip to `true` once they approve; nothing else needs to change.
  */
 export const SHOW_BEFORE_AFTER = false;
+
+/**
+ * TREATMENT DRAFT CONTENT
+ *
+ * The ~900-word patient-education drafts in content/treatment-drafts/
+ * were approved by the doctors on 2026-10-17 and are live by default.
+ * Set NEXT_PUBLIC_SHOW_TREATMENT_DRAFTS=false at build time to hide
+ * them without code changes.
+ */
+export const SHOW_TREATMENT_DRAFTS =
+  process.env["NEXT_PUBLIC_SHOW_TREATMENT_DRAFTS"] !== "false";

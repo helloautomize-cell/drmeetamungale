@@ -11,12 +11,23 @@ node_modules/
 # Source archive (kept locally, too large / not needed for the build)
 archive/
 
+# Draft-only image assets — never published
+draft-assets/
+
+# Raw image intake sources — too large / not needed for the build
+image-sources/
+
+# Unapproved conference photos — hidden until the doctor approves
+public/images/home/conference-*.webp
+public/images/home/conference-*.webp.draft
+
 # Logs and scratch verification files
 *.log
 preview*.html
 
 # Env / secrets
 .env*
+!.env.example
 *.pem
 
 # OS / editor
