@@ -18,8 +18,10 @@ const ALL_KEYS: ReviewerKey[] = ["meeta", "sachin"];
 
 export function BlogDoctorCards({
   reviewedBy,
+  reviewConfirmed,
 }: {
   reviewedBy?: ReviewerKey | ReviewerKey[];
+  reviewConfirmed?: boolean;
 }) {
   const keys = reviewedBy
     ? Array.isArray(reviewedBy)
@@ -32,7 +34,7 @@ export function BlogDoctorCards({
         Reviewed by
       </p>
       {keys.map((k) => (
-        <SpecialistCard key={k} reviewerKey={k} />
+        <SpecialistCard key={k} reviewerKey={k} compact />
       ))}
     </div>
   );

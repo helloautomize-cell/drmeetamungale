@@ -127,11 +127,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return { title: "Blog" };
   // Support articles carry an explicit SEO title (≤60 incl. brand, so it
   // is set absolutely, bypassing the layout template) and a dedicated
-  // meta description; OG/Twitter use the cover at its true size.
+  // meta description; OG/Twitter use the cover at its true size. Posts
+  // with a coverAlt (support articles + owner-supplied cover swaps) get
+  // the same cover-based OG/Twitter.
   const isSupport = post.role === "support";
+  const useCoverOg = isSupport || !!post.coverAlt;
   const description = post.metaDescription ?? clampDescription(post.excerpt);
   const title = post.title + " | " + siteConfig.name;
-  const ogImages = isSupport
+  const ogImages = useCoverOg
     ? [
         {
           url: post.coverImage,
@@ -166,7 +169,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title,
       description,
-      images: [isSupport ? post.coverImage : "/images/mungale/og-default.jpg"],
+      images: [useCoverOg ? post.coverImage : "/images/mungale/og-default.jpg"],
     },
   };
 }

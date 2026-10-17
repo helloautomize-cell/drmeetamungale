@@ -15,8 +15,70 @@ import { bookingHref } from "@/lib/booking-links";
 // is the first thing on the first screen. The specialist block, mid-page CTA
 // band and contact band below are composed by the page components.
 
-export function SpecialistCard({ reviewerKey }: { reviewerKey: ReviewerKey }) {
+export function SpecialistCard({
+  reviewerKey,
+  compact,
+}: {
+  reviewerKey: ReviewerKey;
+  compact?: boolean;
+}) {
   const d = getDoctorByKey(reviewerKey);
+  // compact: used inside the 320px blog rail — the horizontal layout's
+  // side-by-side action row squeezes the credential column there, so the
+  // compact variant stacks vertically: photo+name row, then full-width
+  // credentials, then the two links as stacked rows. Treatment pages keep
+  // the wide layout (compact=false).
+  if (compact) {
+    return (
+      <div className="py-4">
+        <div className="flex items-center gap-3.5">
+          <div className="overflow-hidden rounded-[14px] ring-1 ring-secondary/10 shrink-0">
+            <Image
+              src={d.imageUrl}
+              alt={d.alt}
+              width={112}
+              height={140}
+              className="h-16 w-[52px] object-cover object-top"
+            />
+          </div>
+          <p className="min-w-0 font-semibold text-on-surface text-[15.5px] leading-snug">
+            <Link
+              href={doctorHref(reviewerKey)}
+              className="hover:text-primary-fixed transition-colors"
+            >
+              {d.name}
+            </Link>
+          </p>
+        </div>
+        <p className="mt-2.5 text-[13px] leading-relaxed text-on-surface-variant">
+          {d.credentialShort}
+        </p>
+        <p className="mt-0.5 text-[12px] leading-relaxed text-on-surface-variant">
+          {d.registration}
+        </p>
+        <div className="mt-2 border-t border-secondary/10">
+          <Link
+            href={doctorHref(reviewerKey)}
+            className="group flex items-center justify-between gap-3 py-2.5 min-h-[44px] text-[14px] font-semibold text-on-surface"
+          >
+            <span className="border-b border-primary-fixed/60 pb-0.5 group-hover:border-primary-fixed transition-colors">
+              View profile
+            </span>
+            <ArrowRight aria-hidden="true" className="w-3.5 h-3.5 text-primary-fixed" />
+          </Link>
+          <Link
+            href={bookingHref(d.slug)}
+            className="group flex items-center justify-between gap-3 py-2.5 min-h-[44px] text-[14px] font-semibold text-on-surface"
+          >
+            <span className="border-b border-primary-fixed/60 pb-0.5 group-hover:border-primary-fixed transition-colors">
+              Book with {d.name}
+            </span>
+            <ArrowRight aria-hidden="true" className="w-3.5 h-3.5 text-primary-fixed" />
+          </Link>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="flex items-center gap-4 py-4">
       <div className="overflow-hidden rounded-[14px] ring-1 ring-secondary/10 shrink-0">
