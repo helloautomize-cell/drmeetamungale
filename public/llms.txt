@@ -41,3 +41,7 @@
 - [FAQs](https://mungaleeyehospital.com/faqs/): common patient questions
 - [Health articles](https://mungaleeyehospital.com/blog/): eye-health guidance from the doctors
 - [Contact & directions](https://mungaleeyehospital.com/contact-us/): appointments, hours, location
+
+## Patient guides
+
+- [When Does a Cataract Need Surgery? 7 Signs Not to Ignore](https://mungaleeyehospital.com/blog/when-cataract-needs-surgery-signs/): seven everyday signs that point to an eye check, and how doctors decide on timing

@@ -44,8 +44,9 @@ export interface SupportArticleSource {
 }
 
 // Articles are imported and registered here as each one is delivered.
-// Empty until the first ARTICLE message lands.
-const SOURCES: SupportArticleSource[] = [];
+import { article as a1_1 } from "./1-1";
+
+const SOURCES: SupportArticleSource[] = [a1_1];
 
 // ─── Compile: strip markdown links, emit BlogLink overlays ─────────────
 // Mirrors renderRich() semantics in app/blog/[slug]/page.tsx: a BlogLink
