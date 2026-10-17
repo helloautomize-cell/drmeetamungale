@@ -2,7 +2,19 @@
 
 import React from "react";
 import Link from "next/link";
-import { TreatmentShell } from "@/components/sections/TreatmentShell";
+import {
+  TreatmentShell,
+  SpecialistBlock,
+  TreatmentCtaBand,
+  TreatmentContactBand,
+  RelatedArticles,
+} from "@/components/sections/TreatmentShell";
+import { MedicalReviewByline } from "@/components/seo/MedicalReviewByline";
+import { TreatmentDraftContent } from "@/components/sections/TreatmentDraftContent";
+import { getTreatmentDetail } from "@/content/treatment-details";
+import { siteConfig } from "@/content/site";
+import { telHref } from "@/lib/contact-links";
+import { bookingHref } from "@/lib/booking-links";
 import { TreatmentSelectorBar, TreatmentRail, treatmentNavOrder } from "@/components/sections/TreatmentNavigator";
 import { ClinicalAccordion } from "@/components/sections/ClinicalAccordion";
 import { ClinicalGallery } from "@/components/sections/ClinicalGallery";
@@ -104,7 +116,7 @@ function Panel({
             {details.length > 0 && (
               <div className="mt-5 border-t border-secondary/10">
                 {details.map((d) => (
-                  <ClinicalAccordion key={d.title} title={d.title} body={d.body} />
+                  <ClinicalAccordion key={d.title} title={d.title} body={d.body} notes={d.notes} />
                 ))}
               </div>
             )}
@@ -241,22 +253,34 @@ export function TreatmentGlaucomaTreatments() {
               <p className="mt-5 max-w-[52ch] font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
                 {page.intro}
               </p>
+              <MedicalReviewByline
+                reviewedBy={getTreatmentDetail(SLUG)?.reviewedBy}
+                reviewedOn={getTreatmentDetail(SLUG)?.reviewedOn}
+              />
               <div className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-3">
                 <Link
-                  href="/contact-us/"
+                  href={bookingHref()}
                   className="inline-flex items-center gap-2 bg-primary text-on-primary font-semibold text-[15px] px-6 py-3 rounded-full hover:bg-primary-fixed transition-colors motion-reduce:transition-none min-h-[44px]"
                 >
                   Book a consultation
                   <span aria-hidden="true">&rarr;</span>
                 </Link>
-                <Link
-                  href="/treatments/"
+                <a
+                  href={telHref(siteConfig.phone)}
                   className="group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface min-h-[44px]"
                 >
                   <span className="border-b border-primary-fixed/60 pb-0.5 group-hover:border-primary-fixed transition-colors">
+                    Call {siteConfig.phone}
+                  </span>
+                </a>
+                <Link
+                  href="/treatments/"
+                  className="group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface-variant min-h-[44px]"
+                >
+                  <span className="border-b border-secondary/30 pb-0.5 group-hover:border-on-surface-variant transition-colors">
                     Back to all treatments
                   </span>
-                  <span aria-hidden="true" className="text-primary-fixed">&rarr;</span>
+                  <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
             </Reveal>
@@ -299,6 +323,10 @@ export function TreatmentGlaucomaTreatments() {
         </div>
       </section>
 
+      <SpecialistBlock slug={SLUG} />
+
+      <TreatmentDraftContent slug={SLUG} />
+
       <TreatmentSelectorBar activeSlug={SLUG} />
 
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
@@ -336,6 +364,8 @@ export function TreatmentGlaucomaTreatments() {
               ))}
             </div>
 
+            <TreatmentCtaBand />
+
             <section aria-label="Treatment gallery" className="border-t border-secondary/10 mt-14 lg:mt-20 pt-10 lg:pt-14">
               <Reveal>
                 <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary-fixed">
@@ -354,6 +384,14 @@ export function TreatmentGlaucomaTreatments() {
             </section>
 
             <Related />
+            <RelatedArticles
+              slugs={[
+                "glaucoma-treatment-options",
+                "glaucoma-symptoms-causes-treatment",
+                "ahmed-glaucoma-valve-surgery",
+              ]}
+            />
+            <TreatmentContactBand />
             <PrevNext />
           </div>
         </div>

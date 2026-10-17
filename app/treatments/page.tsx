@@ -8,10 +8,16 @@ import { breadcrumbJsonLd, canonical } from "@/content/seo";
 import { Reveal } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
-  title: "Treatments",
+  title: "Treatments in Vadodara",
   description:
-    "Specialist eye care, explained clearly — diagnosis, treatment, surgery and vision correction at Mungale Eye Hospital, Vadodara.",
+    "Eye treatments in Vadodara — cataract, cornea, glaucoma and lens care at Mungale Eye Hospital, Kothi. Book a consultation with a specialist.",
   alternates: { canonical: canonical("/treatments/") },
+  openGraph: {
+    title: "Treatments in Vadodara | Mungale Eye Hospital",
+    description:
+      "Eye treatments in Vadodara — cataract, cornea, glaucoma and lens care at Mungale Eye Hospital, Kothi. Book a consultation with a specialist.",
+    url: canonical("/treatments/"),
+  },
 };
 
 // ─── /treatments/ — Treatment Atlas ─────────────────────────────────────────

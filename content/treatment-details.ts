@@ -1,8 +1,18 @@
 import type { ReviewerKey } from "@/content/doctors";
+import { GLOSSARY, termLabel, type GlossaryKey } from "@/content/glossary";
+
+// "Full name (SHORT): explanation" — the visible two-line note under a
+// procedure/test name on treatment pages.
+function noteLine(key: GlossaryKey): string {
+  const t = GLOSSARY[key];
+  return `${termLabel(key)}: ${t.explanation}`;
+}
 
 export interface TreatmentDetailSection {
   heading: string;
   body: string;
+  /** Plain-language lines under the title, sourced from content/glossary.ts */
+  notes?: string[];
 }
 
 export interface TreatmentDetail {
@@ -24,12 +34,14 @@ export const treatmentDetails: TreatmentDetail[] = [
     slug: "cataract-surgery",
     reviewedBy: ["sachin", "meeta"],
     title: "Cataract Surgery",
+    // TODO(doctor): approve any pricing statement — "very reasonable prices"
+    // was a price claim; reworded to a neutral availability statement.
     intro:
-      "MEH boasts of one of the advanced systems for phacoemulsification which helps remove cataract with high efficiency in matter of minutes. Additionally all types of intraocular lenses are offered at very reasonable prices.",
+      "Mungale Eye Hospital offers an advanced phacoemulsification system that removes cataract with high efficiency in a matter of minutes. A range of intraocular lenses is offered.",
     sections: [
       {
         heading: "Ellips FXO",
-        body: "Ellips FXO AMO Phaco Machine (Sovereign Compact System With Advanced Ellips FXO Technology): MEH boasts of one of the advanced systems for phacoemulsification which helps remove cataract with high efficiency in matter of minutes. Additionally all types of intraocular lenses are offered at very reasonable prices.",
+        body: "Ellips FXO AMO Phaco Machine (Sovereign Compact System With Advanced Ellips FXO Technology): Mungale Eye Hospital offers an advanced phacoemulsification system that removes cataract with high efficiency in a matter of minutes. A range of intraocular lenses is offered.",
       },
       {
         heading: "OERTLI CataRhex 3",
@@ -53,7 +65,7 @@ export const treatmentDetails: TreatmentDetail[] = [
         body: "Pachymetry is a procedure to measure the corneal thickness of our eyes. This can be done in two ways: Optical and Ultrasonic of which the ultrasonic measurement is slightly more accurate. This is required in conditions of glaucoma and cornea.",
       },
       {
-        heading: "IDRA",
+        heading: "Dry Eye Analysis (IDRA)",
         body: "The IDRA is a non-invasive, user-friendly ophthalmic device that analyzes tear film layers, diagnoses dry eye disease, offers automated lipid analysis, and provides 3D demonstrations with documented results and treatment options.",
       },
       {
@@ -70,7 +82,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       },
       {
         heading: "Anterion",
-        body: "The ANTERION is an advanced, OCT-based device specifically designed for anterior segment imaging, including corneal tomography. It provides high-resolution cross-sectional images of the cornea, as well as detailed measurements of corneal thickness, curvature, and elevation. This helps in diagnosing and managing corneal diseases like keratoconus and planning procedures such as refractive surgeries. The device’s precision allows for a comprehensive evaluation of the cornea, ensuring accurate and reliable assessments.",
+        body: "The ANTERION is an advanced, optical coherence tomography (OCT)-based device specifically designed for anterior segment imaging, including corneal tomography. It provides high-resolution cross-sectional images of the cornea, as well as detailed measurements of corneal thickness, curvature, and elevation. This helps in diagnosing and managing corneal diseases like keratoconus and planning procedures such as refractive surgeries. The device’s precision allows for a comprehensive evaluation of the cornea, ensuring accurate and reliable assessments.",
       },
     ],
   },
@@ -83,7 +95,8 @@ export const treatmentDetails: TreatmentDetail[] = [
     sections: [
       {
         heading: "Keratoconus Treatment",
-        body: "Keratoconus is a progressive eye disease where the cornea thins and bulges into a cone shape, distorting vision. Treatments for progressive keratoconus include: Corneal collagen cross-linking (C3R), Scleral and semi-scleral lenses, Corneal transplant.",
+        body: "Keratoconus is a progressive eye disease where the cornea thins and bulges into a cone shape, distorting vision. Treatments for progressive keratoconus include: Corneal Collagen Cross-linking (C3R), Scleral and semi-scleral lenses, Corneal transplant.",
+        notes: [`${GLOSSARY.cxl.full}: ${GLOSSARY.cxl.explanation}`],
       },
       {
         heading: "Corneal Infection",
@@ -91,11 +104,13 @@ export const treatmentDetails: TreatmentDetail[] = [
       },
       {
         heading: "Transplantation",
-        body: "Corneal transplantation involves replacing a diseased cornea with a healthy donor cornea. Indications include infection, keratoconus, or post-surgery complications. Newer techniques allow for partial corneal replacement: Deep anterior lamellar keratoplasty (DALK) replaces anterior layers of the cornea. Descemet’s stripping endothelial keratoplasty (DSEK) replaces Descemet’s layer. Penetrating keratoplasty (PK) replaces all five layers of the cornea.",
+        body: "Corneal transplantation involves replacing a diseased cornea with a healthy donor cornea. Indications include infection, keratoconus, or post-surgery complications. Newer techniques allow for partial corneal replacement: Deep Anterior Lamellar Keratoplasty (DALK) replaces anterior layers of the cornea. Descemet’s Stripping Endothelial Keratoplasty (DSEK) replaces Descemet’s layer. Penetrating Keratoplasty (PK) replaces all five layers of the cornea.",
+        notes: [noteLine("dalk"), noteLine("dsek"), noteLine("keratoplasty")],
       },
       {
         heading: "Chemical Burns",
-        body: "Patients with chemical eye injuries require emergency medical care. Treatment may involve amniotic membrane transplantation, tenonplasty, or tarsorrhaphy. Further treatment could include conjunctival autografts, Simple limbal epithelial transplant (SLET), penetrating keratoplasty, keratoprosthesis for vision restoration.",
+        body: "Patients with chemical eye injuries require emergency medical care. Treatment may involve amniotic membrane transplantation, tenonplasty, or tarsorrhaphy. Further treatment could include conjunctival autografts, Simple Limbal Epithelial Transplantation (SLET), penetrating keratoplasty, keratoprosthesis for vision restoration.",
+        notes: [noteLine("slet")],
       },
       {
         heading: "Dry Eye Treatments",
@@ -120,7 +135,7 @@ export const treatmentDetails: TreatmentDetail[] = [
     sections: [
       {
         heading: "Tonometry",
-        body: "At MEH we have tonometers as shown below, which measures the eye pressure.",
+        body: "At Mungale Eye Hospital we have tonometers as shown below, which measures the eye pressure.",
       },
       {
         heading: "Goldmanns Applanation Tonometer",
@@ -159,8 +174,9 @@ export const treatmentDetails: TreatmentDetail[] = [
         body: "Peripheral vision is affected in glaucoma. Hence in the initial part of the disease the patient is unaware of this and is symptom free. Measurement of peripheral vision helps us in quantifying the disease which helps in further management of the disease. The visual field needs to be repeated at least every year.",
       },
       {
-        heading: "OCT",
+        heading: "Optical Coherence Tomography (OCT)",
         body: "OCT is very useful in assessing the structural damage to the eye. It helps in identifying early glaucoma cases.",
+        notes: [noteLine("oct")],
       },
     ],
   },
@@ -172,25 +188,35 @@ export const treatmentDetails: TreatmentDetail[] = [
       "Glaucoma treatments include eye drops, oral medications, laser therapy, and surgical options to lower eye pressure.",
     sections: [
       {
-        heading: "SLT (Selective Laser Trabeculoplasty)",
+        heading: "Selective Laser Trabeculoplasty (SLT)",
         body: "SLT is useful for reducing intra-ocular pressure and helping patients maintain a life on minimum intraocular drops. This procedure is very safe and can be repeated. Success rate of this procedure is 90%.",
+        notes: [noteLine("slt")],
       },
       {
-        heading: "YAG Laser Machine (Peripheral Iridotomy)",
-        body: "We use a laser beam (the YAG laser) to make a microscopic hole in the iris (the colored part of the eye) so that the fluid in the eye flows through the hole and the eye pressure remains under control. It is a very safe and effective procedure to treat angle-closure glaucoma.",
+        heading: "Nd:YAG Laser Peripheral Iridotomy",
+        body: "We use a laser beam (the Nd:YAG laser) to make a microscopic hole in the iris (the colored part of the eye) so that the fluid in the eye flows through the hole and the eye pressure remains under control. It is a very safe and effective procedure to treat angle-closure glaucoma.",
+        notes: [noteLine("yagIridotomy")],
       },
       {
-        heading: "Anti Glaucoma Surgeries — Conventional & MIGS",
-        body: "Trabeculectomy with MMC (Mitomycin-C): A filtration surgery to lower intraocular pressure (IOP) by creating a drainage flap. MIGS (Minimal Invasive Glaucoma Surgery): GATT (Gonioscopy-Assisted Transluminal Trabeculotomy) opens the trabecular meshwork to improve outflow of fluid. KDB (Kahook Dual Blade) excises part of the trabecular meshwork. iStent: A tiny device implanted to create a pathway for fluid drainage and lower IOP.",
+        heading: "Glaucoma surgery — conventional and Minimally Invasive Glaucoma Surgery (MIGS)",
+        body: "Conventional surgery — Trabeculectomy with Mitomycin-C (MMC): a filtration surgery to lower intraocular pressure (IOP) by creating a drainage flap. Minimally Invasive Glaucoma Surgery (MIGS) — Gonioscopy-Assisted Transluminal Trabeculotomy (GATT) opens the trabecular meshwork to improve outflow of fluid; Kahook Dual Blade (KDB) excises part of the trabecular meshwork; iStent is a tiny device implanted to create a pathway for fluid drainage and lower IOP.",
+        notes: [
+          noteLine("conventionalGlaucomaSurgery"),
+          noteLine("migs"),
+          noteLine("gatt"),
+        ],
       },
       {
-        heading: "Anti Glaucoma Surgeries — Valves & Congenital",
-        body: "Valve surgeries: AGV (Ahmed Glaucoma Valve), ACP (Ahmed ClearPath), AADI (Aurolab Aqueous Drainage Implant). Surgery for congenital glaucoma: Trabeculotomy + Trabeculectomy, Goniotomy, valve surgeries for severe cases, and GATT to enhance outflow from the anterior chamber.",
+        heading: "Glaucoma surgery — valve implants and congenital glaucoma",
+        body: "Valve surgeries: Ahmed Glaucoma Valve (AGV), Ahmed ClearPath (ACP), Aurolab Aqueous Drainage Implant (AADI). Surgery for congenital glaucoma: Trabeculotomy + Trabeculectomy, Goniotomy, valve surgeries for severe cases, and GATT to enhance outflow from the anterior chamber.",
+        notes: [noteLine("agv"), noteLine("trabeculotomyCongenital")],
       },
     ],
   },
   {
     slug: "optical-contact-lenses",
+    // TODO(doctor): confirm mapping — optical/contact lenses mapped to
+    // Dr. Meeta (cornea/anterior segment).
     reviewedBy: "meeta",
     title: "Optical & Contact Lenses",
     intro:

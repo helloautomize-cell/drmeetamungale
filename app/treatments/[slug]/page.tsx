@@ -38,18 +38,36 @@ const TREATMENT_OG_IMAGES: Record<string, string> = {
   "optical-contact-lenses": "/images/mungale/specialty-optical.jpg",
 };
 
+// 120–160-char descriptions — city + call to action, no price claims.
+const TREATMENT_DESCRIPTIONS: Record<string, string> = {
+  "cataract-surgery":
+    "Cataract surgery in Vadodara at Mungale Eye Hospital, Kothi — phacoemulsification with a range of intraocular lenses. Book a consultation.",
+  "cornea-evaluation":
+    "Cornea evaluation in Vadodara — slit-lamp and specialist corneal assessment at Mungale Eye Hospital, Kothi. Book your eye check-up today.",
+  "corneal-treatments":
+    "Corneal treatments in Vadodara for infections, injuries and keratoconus — specialist cornea care at Mungale Eye Hospital, Kothi. Book a consultation.",
+  "glaucoma-evaluation":
+    "Glaucoma evaluation in Vadodara — eye pressure, optic nerve and visual field testing at Mungale Eye Hospital, Kothi. Book a screening today.",
+  "glaucoma-treatments":
+    "Glaucoma treatments in Vadodara — drops, laser and surgical options at Mungale Eye Hospital, Kothi, led by a glaucoma specialist. Book a consultation.",
+  "optical-contact-lenses":
+    "Optical and contact lenses in Vadodara — glasses and specialty lens fitting at Mungale Eye Hospital, Kothi. Book an appointment for a fitting.",
+};
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const detail = getTreatmentDetail((await params).slug);
   if (!detail) return { title: "Treatments" };
   const ogImage = TREATMENT_OG_IMAGES[detail.slug];
+  const title = detail.title + " in Vadodara";
+  const description = TREATMENT_DESCRIPTIONS[detail.slug] ?? detail.intro;
   return {
-    title: detail.title,
-    description: detail.intro,
+    title,
+    description,
     alternates: { canonical: canonical("/treatments/" + detail.slug + "/") },
     openGraph: ogImage
       ? {
-          title: detail.title,
-          description: detail.intro,
+          title,
+          description,
           url: canonical("/treatments/" + detail.slug + "/"),
           siteName: siteConfig.name,
           type: "website",

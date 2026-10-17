@@ -12,6 +12,7 @@ import {
 } from "@/content/treatments-atlas";
 import { Reveal } from "@/components/ui/motion";
 import { ClinicalAccordion } from "@/components/sections/ClinicalAccordion";
+import { bookingHref } from "@/lib/booking-links";
 import { ClinicalLightbox } from "@/components/sections/ClinicalLightbox";
 
 // ─── TreatmentAtlas (/treatments/) ─────────────────────────────────────────
@@ -99,8 +100,16 @@ function CategoryNavigator({
   );
 }
 
-function DetailItem({ title, body }: { title: string; body: string }) {
-  return <ClinicalAccordion title={title} body={body} />;
+function DetailItem({
+  title,
+  body,
+  notes,
+}: {
+  title: string;
+  body: string;
+  notes?: string[];
+}) {
+  return <ClinicalAccordion title={title} body={body} notes={notes} />;
 }
 
 function ClinicalGallery({
@@ -275,7 +284,7 @@ function Chapter({
             </p>
             <div className="mt-2 border-t border-secondary/10">
               {treatment.details.map((d) => (
-                <DetailItem key={d.title} title={d.title} body={d.body} />
+                <DetailItem key={d.title} title={d.title} body={d.body} notes={d.notes} />
               ))}
             </div>
           </div>
@@ -296,7 +305,7 @@ function Chapter({
                 <span aria-hidden="true" className="text-primary-fixed">&rarr;</span>
               </Link>
               <Link
-                href="/contact-us/"
+                href={bookingHref()}
                 className="group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface"
               >
                 <span className="border-b border-primary-fixed/60 pb-0.5 group-hover:border-primary-fixed transition-colors">

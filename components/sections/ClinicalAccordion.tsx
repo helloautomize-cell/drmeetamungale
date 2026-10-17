@@ -6,7 +6,16 @@ import React from "react";
 // Single expandable item: strong title row + smooth max-height reveal of
 // verbatim source body. Keyboard-native <button>, aria-expanded, 44px+
 // tap target. (Extracted from TreatmentAtlas DetailItem.)
-export function ClinicalAccordion({ title, body }: { title: string; body: string }) {
+export function ClinicalAccordion({
+  title,
+  body,
+  notes,
+}: {
+  title: string;
+  body: string;
+  /** Plain-language explanations — always visible (not hover-only). */
+  notes?: string[];
+}) {
   const [open, setOpen] = React.useState(false);
   const bodyRef = React.useRef<HTMLDivElement>(null);
   return (
@@ -30,6 +39,18 @@ export function ClinicalAccordion({ title, body }: { title: string; body: string
           +
         </span>
       </button>
+      {notes && notes.length > 0 && (
+        <div className="pb-4 pr-8 -mt-1 space-y-1">
+          {notes.map((n) => (
+            <p
+              key={n}
+              className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"
+            >
+              {n}
+            </p>
+          ))}
+        </div>
+      )}
       <div
         ref={bodyRef}
         style={{ maxHeight: open ? (bodyRef.current?.scrollHeight ?? 1000) + "px" : "0px" }}

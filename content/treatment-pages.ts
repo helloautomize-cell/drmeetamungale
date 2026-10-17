@@ -26,6 +26,7 @@ export interface TreatmentHeroImage {
 export interface ResolvedDetail {
   title: string;
   body: string;
+  notes?: string[];
 }
 
 export interface PageSection {
@@ -104,7 +105,7 @@ export function pageDetails(slug: string, keys: string[]): ResolvedDetail[] {
       throw new Error(
         "[treatment-pages] heading drift for " + slug + ": " + key
       );
-    return { title: section.heading, body: section.body };
+    return { title: section.heading, body: section.body, notes: section.notes };
   });
 }
 
@@ -146,9 +147,9 @@ export const treatmentPages: TreatmentPageData[] = [
       {
         id: "idra",
         index: "03",
-        title: "IDRA",
+        title: "Dry Eye Analysis (IDRA)",
         summary: "Non-invasive tear-film analysis that diagnoses dry eye with documented, demonstrable results.",
-        bodyKeys: ["IDRA"],
+        bodyKeys: ["Dry Eye Analysis (IDRA)"],
         image: img("cornea-evaluation", T + "c1.png"),
       },
       {
@@ -171,7 +172,7 @@ export const treatmentPages: TreatmentPageData[] = [
         id: "anterion",
         index: "06",
         title: "Anterior Segment Imaging",
-        summary: "OCT-based tomography measuring thickness, curvature and elevation for diagnosis and surgical planning.",
+        summary: "Optical Coherence Tomography (OCT)-based imaging measuring thickness, curvature and elevation for diagnosis and surgical planning.",
         bodyKeys: ["Anterion"],
         image: img("cornea-evaluation", T + "c4.jpg"),
       },
@@ -309,8 +310,8 @@ export const treatmentPages: TreatmentPageData[] = [
         id: "retinal",
         index: "04",
         title: "Retinal Assessment",
-        summary: "Fundus photography and OCT reveal structural damage — including early glaucoma.",
-        bodyKeys: ["Fundus Camera", "OCT"],
+        summary: "Fundus photography and Optical Coherence Tomography (OCT) reveal structural damage — including early glaucoma.",
+        bodyKeys: ["Fundus Camera", "Optical Coherence Tomography (OCT)"],
         image: img("glaucoma-evaluation", T + "g1.jpg"),
       },
       {
@@ -335,8 +336,8 @@ export const treatmentPages: TreatmentPageData[] = [
     heroVariant: "split",
     heroImage: {
       src: T + "gt1.jpg",
-      alt: "YAG laser machine used for peripheral iridotomy",
-      caption: "YAG laser — a microscopic opening that controls pressure",
+      alt: "Nd:YAG laser machine used for peripheral iridotomy",
+      caption: "Nd:YAG laser — a microscopic opening that controls pressure",
       overlapSrc: T + "gt2.jpg",
       overlapAlt: "Glaucoma laser treatment equipment at Mungale Eye Hospital",
     },
@@ -347,7 +348,7 @@ export const treatmentPages: TreatmentPageData[] = [
         index: "01",
         title: "Laser",
         summary: "Focused laser care that lowers eye pressure — improving outflow, or opening a new drainage path.",
-        bodyKeys: ["SLT (Selective Laser Trabeculoplasty)", "YAG Laser Machine (Peripheral Iridotomy)"],
+        bodyKeys: ["Selective Laser Trabeculoplasty (SLT)", "Nd:YAG Laser Peripheral Iridotomy"],
         image: img("glaucoma-treatments", T + "gt1.jpg"),
       },
       {
@@ -355,8 +356,12 @@ export const treatmentPages: TreatmentPageData[] = [
         index: "02",
         title: "Surgery",
         summary: "From filtration surgery to micro-invasive and valve techniques — matched to the stage of disease.",
-        bodyKeys: ["Anti Glaucoma Surgeries — Conventional & MIGS", "Anti Glaucoma Surgeries — Valves & Congenital"],
-        topics: ["Trabeculectomy with MMC", "MIGS — GATT · KDB · iStent", "Valves — AGV · ACP · AADI"],
+        bodyKeys: ["Glaucoma surgery — conventional and Minimally Invasive Glaucoma Surgery (MIGS)", "Glaucoma surgery — valve implants and congenital glaucoma"],
+        topics: [
+          "Trabeculectomy with Mitomycin-C (MMC)",
+          "Minimally Invasive Glaucoma Surgery (MIGS) — Gonioscopy-Assisted Transluminal Trabeculotomy (GATT) · Kahook Dual Blade (KDB) · iStent",
+          "Valve implants — Ahmed Glaucoma Valve (AGV) · Ahmed ClearPath (ACP) · Aurolab Aqueous Drainage Implant (AADI)",
+        ],
         image: img("glaucoma-treatments", T + "gt2.jpg"),
       },
       {
@@ -365,7 +370,7 @@ export const treatmentPages: TreatmentPageData[] = [
         title: "Congenital Glaucoma",
         summary: "Surgical approaches for childhood glaucoma — detailed in the surgery panel above.",
         bodyKeys: [],
-        topics: ["Trabeculotomy + Trabeculectomy", "Goniotomy", "Valve surgeries", "GATT"],
+        topics: ["Trabeculotomy + Trabeculectomy", "Goniotomy", "Valve surgeries", "Gonioscopy-Assisted Transluminal Trabeculotomy (GATT)"],
       },
     ],
     related: ["glaucoma-evaluation", "cataract-surgery"],
@@ -389,7 +394,7 @@ export const treatmentPages: TreatmentPageData[] = [
         id: "ellips",
         index: "01",
         title: "Ellips FXO",
-        summary: "An advanced phacoemulsification system that removes cataract with high efficiency — plus intraocular lenses at reasonable prices.",
+        summary: "An advanced phacoemulsification system that removes cataract with high efficiency — plus a range of intraocular lenses.",
         bodyKeys: ["Ellips FXO"],
         image: img("cataract-surgery", T + "ct1.jpg"),
         contain: true,

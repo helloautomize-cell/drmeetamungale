@@ -2,7 +2,18 @@
 
 import React from "react";
 import Link from "next/link";
-import { TreatmentShell } from "@/components/sections/TreatmentShell";
+import {
+  TreatmentShell,
+  SpecialistBlock,
+  TreatmentCtaBand,
+  TreatmentContactBand,
+  RelatedArticles,
+} from "@/components/sections/TreatmentShell";
+import { MedicalReviewByline } from "@/components/seo/MedicalReviewByline";
+import { TreatmentDraftContent } from "@/components/sections/TreatmentDraftContent";
+import { siteConfig } from "@/content/site";
+import { telHref } from "@/lib/contact-links";
+import { bookingHref } from "@/lib/booking-links";
 import { TreatmentSelectorBar, TreatmentRail, treatmentNavOrder } from "@/components/sections/TreatmentNavigator";
 import { ClinicalAccordion } from "@/components/sections/ClinicalAccordion";
 import { ClinicalGallery } from "@/components/sections/ClinicalGallery";
@@ -174,22 +185,34 @@ export function TreatmentOptical() {
                   {source.intro}
                 </p>
               )}
+              <MedicalReviewByline
+                reviewedBy={source?.reviewedBy}
+                reviewedOn={source?.reviewedOn}
+              />
               <div className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-3">
                 <Link
-                  href="/contact-us/"
+                  href={bookingHref()}
                   className="inline-flex items-center gap-2 bg-primary text-on-primary font-semibold text-[15px] px-6 py-3 rounded-full hover:bg-primary-fixed transition-colors motion-reduce:transition-none min-h-[44px]"
                 >
                   Book a consultation
                   <span aria-hidden="true">&rarr;</span>
                 </Link>
-                <Link
-                  href="/treatments/"
+                <a
+                  href={telHref(siteConfig.phone)}
                   className="group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface min-h-[44px]"
                 >
                   <span className="border-b border-primary-fixed/60 pb-0.5 group-hover:border-primary-fixed transition-colors">
+                    Call {siteConfig.phone}
+                  </span>
+                </a>
+                <Link
+                  href="/treatments/"
+                  className="group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface-variant min-h-[44px]"
+                >
+                  <span className="border-b border-secondary/30 pb-0.5 group-hover:border-on-surface-variant transition-colors">
                     Back to all treatments
                   </span>
-                  <span aria-hidden="true" className="text-primary-fixed">&rarr;</span>
+                  <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
             </Reveal>
@@ -232,6 +255,10 @@ export function TreatmentOptical() {
         </div>
       </section>
 
+      <SpecialistBlock slug={SLUG} />
+
+      <TreatmentDraftContent slug={SLUG} />
+
       <TreatmentSelectorBar activeSlug={SLUG} />
 
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
@@ -254,12 +281,14 @@ export function TreatmentOptical() {
                   <Topics items={LENS_TERMS} />
                   <div className="mt-5 border-t border-secondary/10">
                     {optionsDetails.map((d) => (
-                      <ClinicalAccordion key={d.title} title={d.title} body={d.body} />
+                      <ClinicalAccordion key={d.title} title={d.title} body={d.body} notes={d.notes} />
                     ))}
                   </div>
                 </div>
               </Reveal>
             </article>
+
+            <TreatmentCtaBand />
 
             {/* ── 02 · Verification story ── */}
             <article id="optical-verification" className="scroll-mt-32 border-t border-secondary/10 mt-12 lg:mt-16 pt-10 lg:pt-14">
@@ -291,7 +320,7 @@ export function TreatmentOptical() {
                     </h2>
                     <div className="mt-5 border-t border-secondary/10">
                       {verificationDetails.map((d) => (
-                        <ClinicalAccordion key={d.title} title={d.title} body={d.body} />
+                        <ClinicalAccordion key={d.title} title={d.title} body={d.body} notes={d.notes} />
                       ))}
                     </div>
                   </Reveal>
@@ -310,7 +339,7 @@ export function TreatmentOptical() {
                     </h2>
                     <div className="mt-5 border-t border-secondary/10">
                       {verificationDetails.map((d) => (
-                        <ClinicalAccordion key={d.title} title={d.title} body={d.body} />
+                        <ClinicalAccordion key={d.title} title={d.title} body={d.body} notes={d.notes} />
                       ))}
                     </div>
                   </div>
@@ -336,6 +365,14 @@ export function TreatmentOptical() {
             </section>
 
             <Related />
+            <RelatedArticles
+              slugs={[
+                "eye-checkup-after-forty-tests-frequency-warning-signs",
+                "the-benefits-of-regular-eye-check-ups",
+                "when-should-you-see-an-eye-doctor",
+              ]}
+            />
+            <TreatmentContactBand />
             <PrevNext />
           </div>
         </div>
