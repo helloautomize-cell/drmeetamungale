@@ -130,9 +130,10 @@ const IMG_WRAP =
   "relative flex-1 overflow-hidden rounded-[20px] ring-1 ring-white/10";
 
 // Real photographs only — never an upscaled file. The entrance source is
-// 800x533; at ~360px column width it renders at about 0.45x (under the
-// 1.3x ceiling), so it can cover the full column height safely. The
-// signboard sits in the top ~40% of the photo, hence object-[50%_18%].
+// 1536x1024 (downscaled to 800x533); at ~360px column width it renders
+// at about 0.45x (under the 1.3x ceiling), so it can cover the full
+// column height safely. The signboard sits in the top ~40% of the
+// photo, hence object-[50%_18%].
 // TODO(doctor): need a real photo of the laser machine or operation
 // theatre and its correct name for the third column — see
 // WHY_EQUIPMENT_SRC in lib/images.ts.
