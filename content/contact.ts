@@ -1,12 +1,13 @@
 import { siteConfig } from "@/content/site";
 import { doctors } from "@/content/doctors";
+import { telHref } from "@/lib/contact-links";
 
 // ─── Contact data (/contact-us/) ───────────────────────────────────────────
 // SOURCE OF TRUTH: live WordPress /contact-us/, re-read via WPVibe/REST.
-// All phone numbers, address lines, hours, doctor names, consent and
-// Google-Sheets disclosure are VERBATIM live values (or shared siteConfig
-// values that match them exactly). Nothing invented: no response times,
-// no availability, no schedules.
+// All phone numbers, address lines, hours and doctor names are VERBATIM
+// live values (or shared siteConfig values that match them exactly).
+// Consent/privacy copy was rewritten when submissions moved to email —
+// nothing else invented: no response times, no availability, no schedules.
 // - Doctor order mirrors the live form: Dr. Meeta first, then Dr. Sachin.
 // - The file named Image_20241004_131842_773.jpeg is a location QR code,
 //   not a photograph — it is used as a scan-to-navigate utility in the
@@ -37,13 +38,13 @@ export function contactDirectionsUrl(): string {
 }
 
 export function telOf(display: string): string {
-  return "tel:" + display.replace(/[\s-]/g, "");
+  return telHref(display);
 }
 
 export const contactPhones = {
   main: siteConfig.phone,
   landline: siteConfig.landline,
-  emergency: [siteConfig.emergencyPhone2, siteConfig.emergencyPhone],
+  emergency: [siteConfig.emergencyPhone, siteConfig.emergencyPhone2],
   email: siteConfig.email,
 };
 
@@ -62,13 +63,19 @@ export const visitPrepItems = [
   "Eye reports / investigation records",
 ];
 
-// Consent + processing disclosure VERBATIM (existing implementation).
+// Consent split: (a) required — appointment contact; (b) optional —
+// marketing/health updates, unchecked by default, reported as Yes/No in the
+// booking email.
 export const CONSENT_LABEL =
-  "I agree to receive appointment details & health updates via WhatsApp & SMS.";
-export const SHEETS_DISCLOSURE =
-  "Your information will be securely sent to and stored in Google Sheets for the purpose of processing your form submission.";
+  "I agree to be contacted by Mungale Eye Hospital about this appointment request.";
+export const CONSENT_UPDATES_LABEL =
+  "Send me health updates by WhatsApp and SMS.";
 
 // Success copy: receipt only — never a confirmed appointment.
+// TODO(doctor): confirm the callback promise (for example within 2 working hours).
 export const SUCCESS_TITLE = "Request received.";
 export const SUCCESS_BODY =
-  "We'll use the contact details you provided to follow up regarding your consultation.";
+  "Thank you. Our team will call you to confirm your appointment.";
+
+// TODO(doctor): confirm slot times and whether to show hours for the
+// preferred-time field (Morning / Evening).
