@@ -1,5 +1,5 @@
 import type { ReviewerKey } from "@/content/doctors";
-import { supportMetas } from "@/content/blog-support";
+import { supportMetas, type ClusterId } from "@/content/blog-support";
 
 export type BlogTopic = "cataract" | "glaucoma" | "cornea" | "surgery" | "eye-health";
 
@@ -19,7 +19,7 @@ export interface BlogPostMeta {
   reviewedOn?: string;
   // ── Support-pipeline fields (optional; existing posts unaffected) ──
   role?: "pillar" | "support";
-  cluster?: "cataract" | "glaucoma" | "keratoconus" | "corneal-transplant";
+  cluster?: ClusterId;
   pillarSlug?: string;
   supportNumber?: string;
   seoTitle?: string; // absolute <title>, ≤60 incl. brand
@@ -43,6 +43,8 @@ export interface BlogPostMeta {
 export const blogPosts: BlogPostMeta[] = [
   {
     slug: "lasik-eye-surgery-types-cost-benefits-candidacy",
+    role: "pillar",
+    cluster: "lasik",
     reviewedBy: "meeta",
     title: "Laser-Assisted In Situ Keratomileusis (LASIK) Eye Surgery Types, Cost, Benefits and Who Qualifies",
     url: "/blog/lasik-eye-surgery-types-cost-benefits-candidacy/",
@@ -56,6 +58,8 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "diabetic-retinopathy-symptoms-screening-stages-treatment",
+    role: "pillar",
+    cluster: "diabetic-retinopathy",
     reviewedBy: "meeta",
     title: "Diabetic Retinopathy: Symptoms, Screening, Stages & Treatment",
     url: "/blog/diabetic-retinopathy-symptoms-screening-stages-treatment/",
@@ -69,6 +73,8 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "eye-checkup-after-forty-tests-frequency-warning-signs",
+    role: "pillar",
+    cluster: "eye-checkup",
     reviewedBy: ["sachin", "meeta"],
     title: "Eye Check-Up After 40: Tests, Frequency & Warning Signs",
     url: "/blog/eye-checkup-after-forty-tests-frequency-warning-signs/",
@@ -82,6 +88,8 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "pterygium-causes-symptoms-stages-treatment-surgery",
+    role: "pillar",
+    cluster: "pterygium",
     reviewedBy: "meeta",
     title: "Pterygium: Causes, Symptoms, Stages, Treatment & Surgery",
     url: "/blog/pterygium-causes-symptoms-stages-treatment-surgery/",
@@ -95,6 +103,8 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "corneal-ulcer-keratitis-symptoms-treatment",
+    role: "pillar",
+    cluster: "corneal-ulcer",
     reviewedBy: "meeta",
     title: "Corneal Ulcer & Keratitis: Symptoms & Treatment",
     url: "/blog/corneal-ulcer-keratitis-symptoms-treatment/",
@@ -145,6 +155,8 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: "dry-eye-disease-causes-symptoms-treatment",
+    role: "pillar",
+    cluster: "dry-eye",
     reviewedBy: "meeta",
     title: "Dry Eye Disease: Causes, Symptoms, Diagnosis & Treatment",
     url: "/blog/dry-eye-disease-causes-symptoms-treatment/",

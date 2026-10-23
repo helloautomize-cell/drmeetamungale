@@ -391,6 +391,61 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   </h2>
                 );
               }
+              if (b.type === "h3") {
+                return (
+                  <h3
+                    key={i}
+                    className="font-title-md text-title-md text-on-surface font-bold pt-2"
+                  >
+                    {renderRich(b.text, bl)}
+                  </h3>
+                );
+              }
+              if (b.type === "callout") {
+                return (
+                  <aside
+                    key={i}
+                    className="rounded-xl border border-primary/20 bg-primary-fixed/30 px-5 py-4"
+                  >
+                    {b.text && (
+                      <p className="font-title-md text-title-md text-on-surface font-bold pb-2">
+                        {b.text}
+                      </p>
+                    )}
+                    <div className="space-y-3">
+                      {(b.blocks ?? []).map((ib, si) => {
+                        const ilinks = bl.filter((l) => l.item === undefined && l.sub === si);
+                        if (ib.type === "item") {
+                          return (
+                            <li key={si} className="ml-5 list-disc font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                              {renderRich(ib.text, ilinks)}
+                            </li>
+                          );
+                        }
+                        return (
+                          <p key={si} className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            {renderRich(ib.text, ilinks)}
+                          </p>
+                        );
+                      })}
+                    </div>
+                  </aside>
+                );
+              }
+              if (b.type === "numlist") {
+                return (
+                  <ol key={i} className="ml-5 list-decimal space-y-3">
+                    {(b.rows ?? []).map((row, ri) => (
+                      <li
+                        key={ri}
+                        className="font-body-md text-body-md text-on-surface-variant leading-relaxed"
+                      >
+                        {decodeEntities(row[0] ?? "")}
+                      </li>
+                    ))}
+                  </ol>
+                );
+              }
               if (b.type === "table") {
                 return (
                   <div key={i} className="overflow-x-auto -mx-1 px-1 py-2">
@@ -456,13 +511,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </div>
           </div>
 
-          {/* RIGHT — doctor card sticky, contact card follows (so a short
-              viewport never clips the contact card). */}
+          {/* RIGHT — one sticky wrapper holds both cards so the contact
+              card can't slide under the doctor card while scrolling.
+              max-h + overflow keeps the booking button reachable on
+              short viewports (the column scrolls internally instead of
+              clipping). */}
           <aside className="hidden min-[1200px]:block">
-            <div className="space-y-6">
-              <div className="sticky top-28">
-                <BlogDoctorCards reviewedBy={post.reviewedBy} reviewConfirmed={post.reviewConfirmed} />
-              </div>
+            <div className="sticky top-28 space-y-6 max-h-[calc(100vh-9rem)] overflow-y-auto overscroll-contain">
+              <BlogDoctorCards reviewedBy={post.reviewedBy} reviewConfirmed={post.reviewConfirmed} />
               <BlogContactCard />
             </div>
           </aside>
