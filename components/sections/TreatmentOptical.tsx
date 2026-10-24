@@ -19,6 +19,7 @@ import { ClinicalAccordion } from "@/components/sections/ClinicalAccordion";
 import { ClinicalGallery } from "@/components/sections/ClinicalGallery";
 import { SafeImage } from "@/components/sections/SafeImage";
 import { getTreatmentDetail } from "@/content/treatment-details";
+import { supportSlugsForTreatment } from "@/content/blog-support";
 import {
   getTreatmentPage,
   pageDetails,
@@ -367,10 +368,15 @@ export function TreatmentOptical() {
             <Related />
             <RelatedArticles
               slugs={[
-                "eye-checkup-after-forty-tests-frequency-warning-signs",
-                "the-benefits-of-regular-eye-check-ups",
-                "when-should-you-see-an-eye-doctor",
-              ]}
+                // Published 9.x support articles first; existing
+                // picks fill any remaining slots (max 3 total).
+                ...new Set([
+                  ...supportSlugsForTreatment("optical-contact-lenses"),
+                  "eye-checkup-after-forty-tests-frequency-warning-signs",
+                  "the-benefits-of-regular-eye-check-ups",
+                  "when-should-you-see-an-eye-doctor",
+                ]),
+              ].slice(0, 3)}
             />
             <TreatmentContactBand />
             <PrevNext />

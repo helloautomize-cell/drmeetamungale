@@ -16,7 +16,17 @@ import type { ReviewerKey } from "@/content/doctors";
 // text, so links activate automatically when a sibling ships later.
 // Ordinary internal hrefs pass through unchanged.
 
-export type ClusterId = "cataract" | "glaucoma" | "keratoconus" | "corneal-transplant";
+export type ClusterId =
+  | "cataract"
+  | "glaucoma"
+  | "keratoconus"
+  | "corneal-transplant"
+  | "dry-eye"
+  | "pterygium"
+  | "corneal-ulcer"
+  | "diabetic-retinopathy"
+  | "lasik"
+  | "eye-checkup";
 
 export interface KeepReadingSource {
   label: string;
@@ -45,8 +55,57 @@ export interface SupportArticleSource {
 
 // Articles are imported and registered here as each one is delivered.
 import { article as a1_1 } from "./1-1";
+import { article as a1_2 } from "./1-2";
+import { article as a1_3 } from "./1-3";
+import { article as a1_4 } from "./1-4";
+import { article as a1_5 } from "./1-5";
+import { article as a2_1 } from "./2-1";
+import { article as a2_2 } from "./2-2";
+import { article as a2_3 } from "./2-3";
+import { article as a2_4 } from "./2-4";
+import { article as a2_5 } from "./2-5";
+import { article as a3_1 } from "./3-1";
+import { article as a3_2 } from "./3-2";
+import { article as a3_3 } from "./3-3";
+import { article as a3_4 } from "./3-4";
+import { article as a3_5 } from "./3-5";
+import { article as a4_1 } from "./4-1";
+import { article as a4_2 } from "./4-2";
+import { article as a4_3 } from "./4-3";
+import { article as a4_4 } from "./4-4";
+import { article as a4_5 } from "./4-5";
+import { article as a5_1 } from "./5-1";
+import { article as a5_2 } from "./5-2";
+import { article as a5_3 } from "./5-3";
+import { article as a5_4 } from "./5-4";
+import { article as a5_5 } from "./5-5";
+import { article as a6_1 } from "./6-1";
+import { article as a6_2 } from "./6-2";
+import { article as a6_3 } from "./6-3";
+import { article as a6_4 } from "./6-4";
+import { article as a6_5 } from "./6-5";
+import { article as a7_1 } from "./7-1";
+import { article as a7_2 } from "./7-2";
+import { article as a7_3 } from "./7-3";
+import { article as a7_4 } from "./7-4";
+import { article as a7_5 } from "./7-5";
+import { article as a8_1 } from "./8-1";
+import { article as a8_2 } from "./8-2";
+import { article as a8_3 } from "./8-3";
+import { article as a8_4 } from "./8-4";
+import { article as a8_5 } from "./8-5";
+import { article as a9_1 } from "./9-1";
+import { article as a9_2 } from "./9-2";
+import { article as a9_3 } from "./9-3";
+import { article as a9_4 } from "./9-4";
+import { article as a9_5 } from "./9-5";
+import { article as a10_1 } from "./10-1";
+import { article as a10_2 } from "./10-2";
+import { article as a10_3 } from "./10-3";
+import { article as a10_4 } from "./10-4";
+import { article as a10_5 } from "./10-5";
 
-const SOURCES: SupportArticleSource[] = [a1_1];
+const SOURCES: SupportArticleSource[] = [a1_1, a1_2, a1_3, a1_4, a1_5, a2_1, a2_2, a2_3, a2_4, a2_5, a3_1, a3_2, a3_3, a3_4, a3_5, a4_1, a4_2, a4_3, a4_4, a4_5, a5_1, a5_2, a5_3, a5_4, a5_5, a6_1, a6_2, a6_3, a6_4, a6_5, a7_1, a7_2, a7_3, a7_4, a7_5, a8_1, a8_2, a8_3, a8_4, a8_5, a9_1, a9_2, a9_3, a9_4, a9_5, a10_1, a10_2, a10_3, a10_4, a10_5];
 
 // ─── Compile: strip markdown links, emit BlogLink overlays ─────────────
 // Mirrors renderRich() semantics in app/blog/[slug]/page.tsx: a BlogLink
@@ -121,6 +180,25 @@ function compileBlocks(blocks: BlogBlock[]): { blocks: BlogBlock[]; links: BlogL
       }
       return { ...b, text: head.text, items };
     }
+    if (b.type === "callout") {
+      // Nested paras may carry links — the renderer addresses them with
+      // sub = inner block index (item stays undefined, like FAQ answers).
+      const inner = (b.blocks ?? []).map((ib, si) => {
+        const c = cleanInline(ib.text);
+        for (const l of linksWithNth(c.text, c.links)) {
+          links.push({ block: bi, sub: si, text: l.text, href: l.href, nth: l.nth, external: false });
+        }
+        return { ...ib, text: c.text };
+      });
+      return { ...b, blocks: inner };
+    }
+    if (b.type === "numlist" || b.type === "table") {
+      // Cells/rows render as plain text (no link overlay) — strip any
+      // markup so no raw []() or ** leaks into the page.
+      const rows = (b.rows ?? []).map((row) => row.map((cell) => cleanInline(cell).text));
+      const head = (b.head ?? []).map((h) => cleanInline(h).text);
+      return { ...b, rows, head };
+    }
     const c = cleanInline(b.text);
     if (b.type !== "heading") {
       for (const l of linksWithNth(c.text, c.links)) {
@@ -144,6 +222,7 @@ function wordCount(blocks: BlogBlock[]): number {
       tally(it.q);
       for (const ab of it.a ?? []) tally(ab.text);
     }
+    for (const ib of b.blocks ?? []) tally(ib.text);
   }
   return n;
 }
@@ -238,21 +317,19 @@ export function siblingsOf(slug: string): SupportArticle[] {
 // page, per the queue spec. Existing picks stay as fallback/fill in the
 // call sites; the final list is capped at 3 there.
 export function supportSlugsForTreatment(treatmentSlug: string): string[] {
-  const num = (n: string) =>
-    supportArticles.find((a) => a.source.number === n)?.meta.slug;
-  const pick = (...ns: string[]) => ns.map(num).filter((s): s is string => !!s);
+  const slugs = supportArticles
+    .filter((a) => a.source.treatmentPage === treatmentSlug)
+    .sort(
+      (a, b) =>
+        parseFloat(a.source.number) - parseFloat(b.source.number)
+    )
+    .map((a) => a.meta.slug);
   switch (treatmentSlug) {
     case "cataract-surgery":
-      return ["cataract-surgery-guide", ...pick("1.1", "1.2", "1.3", "1.4", "1.5")];
-    case "glaucoma-evaluation":
-      return pick("2.1", "2.2", "2.4");
+      return ["cataract-surgery-guide", ...slugs];
     case "glaucoma-treatments":
-      return [...pick("2.3", "2.5"), "glaucoma-symptoms-causes-treatment"];
-    case "corneal-treatments":
-      return pick("3.1", "3.2", "3.3", "3.4", "3.5", "4.1", "4.2", "4.3", "4.4", "4.5");
-    case "cornea-evaluation":
-      return pick("3.1");
+      return [...slugs, "glaucoma-symptoms-causes-treatment"];
     default:
-      return [];
+      return slugs;
   }
 }

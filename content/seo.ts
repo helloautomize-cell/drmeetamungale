@@ -230,6 +230,12 @@ const CLUSTER_CONDITION: Record<string, string> = {
   glaucoma: "Glaucoma",
   keratoconus: "Keratoconus",
   "corneal-transplant": "Corneal transplant",
+  "dry-eye": "Dry eye disease",
+  pterygium: "Pterygium",
+  "corneal-ulcer": "Corneal ulcer",
+  "diabetic-retinopathy": "Diabetic retinopathy",
+  lasik: "LASIK",
+  "eye-checkup": "Eye examination",
 };
 
 function post_supportCluster(p: (typeof blogPosts)[number]): boolean {

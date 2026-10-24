@@ -6,11 +6,12 @@ export interface BlogFaqItem {
 }
 
 export interface BlogBlock {
-  type: "para" | "heading" | "item" | "table" | "faq";
+  type: "para" | "heading" | "item" | "table" | "faq" | "callout" | "h3" | "numlist";
   text: string;
   head?: string[];
   rows?: string[][];
   items?: BlogFaqItem[];
+  blocks?: BlogBlock[]; // nested body of a callout (e.g. Quick Answer)
 }
 
 export interface BlogBody {
