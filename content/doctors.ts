@@ -68,6 +68,9 @@ export interface Doctor {
   currentInterests?: DoctorInterests;
   publications: string[];
   memberships?: string[];
+  /** Public profile URLs already cited on the site — used for schema
+      sameAs so search/AI engines can reconcile the doctor entity. */
+  sameAs?: string[];
   teaching?: string[];
   /** Conference photos for "Teaching & conferences" — not rendered
       anywhere while approved is false. */
@@ -141,6 +144,9 @@ export const doctors: Doctor[] = [
     publications: [
       'Mungale S, Dave P. "Novel simplified method for managing inadvertent tube cut during Aurolab aqueous drainage implant surgery for refractory glaucoma." Indian Journal of Ophthalmology, 2019.',
       'Rao H, Mungale SC, Kumbar T, Parikh RS, Garudadri CS. "Evaluation of blotchy pigments in the anterior chamber angle: a sign of angle closure." Indian Journal of Ophthalmology, 2012.',
+    ],
+    sameAs: [
+      "https://www.practo.com/vadodara/doctor/dr-sachin-mungale-ophthalmologist",
     ],
   },
   {
@@ -335,6 +341,9 @@ export const doctors: Doctor[] = [
       "CME on Dry Eye, SSG Hospital",
     ],
     community: "For 15 years, Dr. Meeta Mungale served in community eye care, including charitable work at Shri Narayan Arogyadham, Tajpura, and visits to peripheral centres around Vadodara.",
+    sameAs: [
+      "https://www.practo.com/vadodara/doctor/dr-meeta-mungale-ophthalmologist",
+    ],
   },
 ];
 

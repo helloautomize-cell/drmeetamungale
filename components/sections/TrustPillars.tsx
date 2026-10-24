@@ -9,11 +9,10 @@ import { IMG, WHY_EQUIPMENT_SRC } from "@/lib/images";
 // A generated lens artwork carries the header band and melts into navy;
 // below it the three numbers sit as STATIC text — the only place stats
 // appear on the page. No circles, no column photos, no scrubs, no
-// count-ups. Copy provenance unchanged: eyebrow/headline/state headings
-// and bodies are OWNER-PROVIDED; 19+/40,000+/15,000+ — the years figure
-// is the single EXPERIENCE_CLAIM, the other two are the site's
-// published claims; the quote is a VERBATIM Pankaj Makhijani Google
-// review excerpt.
+// count-ups. Every figure here is verified: 19+ is EXPERIENCE_CLAIM,
+// 500+ is Dr. Meeta's CV figure already published on her profile, and 2
+// is the two fellowship-trained specialists. The quote is a VERBATIM
+// Pankaj Makhijani Google review excerpt.
 
 const states = [
   {
@@ -24,23 +23,21 @@ const states = [
     body: "Established in 2007, Mungale Eye Hospital has grown into a referral center for complex cornea and glaucoma cases.",
   },
   {
-    // TODO(doctor): confirm 40,000+ patients — unverified website claim.
     index: "02",
-    value: "40,000+",
-    label: "Patients treated",
-    heading: "Every number is a person.",
-    body: "Behind every count is an individual story — a concern, a family, a decision.",
+    value: "500+",
+    label: "Corneal transplants by Dr. Meeta Mungale",
+    heading: "Depth you can count.",
+    body: "Her cornea practice includes more than 500 corneal transplants — lamellar procedures such as DALK, DSEK and DMEK.",
     quote:
       "The doctors explained everything clearly and the staff was very supportive. We are very happy with the results.",
     quoteBy: "Pankaj Makhijani · Google review",
   },
   {
-    // TODO(doctor): confirm 15,000+ surgeries — unverified website claim.
     index: "03",
-    value: "15,000+",
-    label: "Eye surgeries",
-    heading: "Surgical experience built over thousands of procedures.",
-    body: "Each procedure begins with careful evaluation, clear discussion and a plan tailored to the patient.",
+    value: "2",
+    label: "Fellowship-trained specialist surgeons",
+    heading: "Two specialists, one hospital.",
+    body: "Both doctors trained at the L V Prasad Eye Institute, Hyderabad — Dr. Sachin in glaucoma, Dr. Meeta in cornea.",
   },
 ];
 

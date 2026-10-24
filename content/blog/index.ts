@@ -1,5 +1,6 @@
 import type { ReviewerKey } from "@/content/doctors";
 import { supportMetas, type ClusterId } from "@/content/blog-support";
+import { blogSeoOverrides, CONTENT_EDIT_DATE } from "@/content/blog-seo-overrides";
 
 export type BlogTopic = "cataract" | "glaucoma" | "cornea" | "surgery" | "eye-health";
 
@@ -27,6 +28,9 @@ export interface BlogPostMeta {
   coverAlt?: string;
   reviewConfirmed?: boolean;
   treatmentPage?: string;
+  /** Real last-edit date (YYYY-MM-DD). Drives dateModified + the
+      "Updated" byline. Absent = never edited since publishing. */
+  updatedAt?: string;
 }
 
 // All 36 posts — 26 live (slugs/titles/URLs VERBATIM from the WordPress
@@ -546,6 +550,16 @@ export const blogPosts: BlogPostMeta[] = [
   // page selection — first four posts with covers — never shifts.
   ...supportMetas,
 ];
+
+// SEO overrides (titles/descriptions) + the real content-edit date.
+// Applied at module load so every consumer sees consistent metadata.
+for (const p of blogPosts) {
+  const o = blogSeoOverrides[p.slug];
+  if (o?.seoTitle) p.seoTitle = o.seoTitle;
+  if (o?.metaDescription) p.metaDescription = o.metaDescription;
+  // Legacy + new posts were copy-edited together on CONTENT_EDIT_DATE.
+  if (p.role !== "support") p.updatedAt = CONTENT_EDIT_DATE;
+}
 
 export function getPostBySlug(slug: string): BlogPostMeta | undefined {
   return blogPosts.find((p) => p.slug === slug);

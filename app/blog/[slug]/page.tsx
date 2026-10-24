@@ -133,7 +133,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const isSupport = post.role === "support";
   const useCoverOg = isSupport || !!post.coverAlt;
   const description = post.metaDescription ?? clampDescription(post.excerpt);
-  const title = post.title + " | " + siteConfig.name;
+  // A post-level seoTitle is the absolute <title> (includes the brand);
+  // otherwise the layout template appends "| Mungale Eye Hospital".
+  const title = post.seoTitle ?? post.title + " | " + siteConfig.name;
   const ogImages = useCoverOg
     ? [
         {
@@ -152,7 +154,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         },
       ];
   return {
-    title: isSupport ? { absolute: post.seoTitle ?? post.title } : post.title,
+    title: post.seoTitle ? { absolute: post.seoTitle } : post.title,
     description,
     alternates: { canonical: canonical(post.url) },
     ...(isSupport ? { robots: { index: true, follow: true } } : {}),
@@ -245,10 +247,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     )
     .filter((x): x is TocItem => x !== null);
 
-  // No separate updated field exists — both dates are post.date, so the
-  // dedupe below always collapses to "Published <date>".
+  // "Updated" renders only when a real updatedAt differs from the
+  // publish date — never a fake freshness signal.
   const published = formatReviewDate(post.date);
-  const updated = formatReviewDate(post.date);
+  const updated = post.updatedAt ? formatReviewDate(post.updatedAt) : published;
+
+  // Unique external citations attached to this post — rendered as a
+  // numbered Sources list at the end of the article.
+  const sourceLinks = [...(blogLinks[slug] ?? []), ...(supportLinks[slug] ?? [])]
+    .filter((l) => l.external)
+    .filter((l, i, arr) => arr.findIndex((x) => x.href === l.href) === i);
 
   return (
     <>
@@ -260,9 +268,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           { label: post.title, href: post.url },
         ])}
       />
-      {post.role === "support" && faqItems.length > 0 && (
-        <JsonLd data={faqJsonLd(faqItems)} />
-      )}
+      {faqItems.length > 0 && <JsonLd data={faqJsonLd(faqItems)} />}
       <PageHero
         breadcrumb={[
           { label: "Home", href: "/" },
@@ -301,7 +307,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   Published by {siteConfig.name}
                 </p>
               ) : (
-                <MedicalReviewByline reviewedBy={post.reviewedBy} reviewedOn={post.reviewedOn} />
+                <>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant mt-2">
+                    Written by the {siteConfig.name} team
+                  </p>
+                  <MedicalReviewByline reviewedBy={post.reviewedBy} reviewedOn={post.reviewedOn} />
+                </>
               )}
               <p className="font-body-sm text-body-sm text-on-surface-variant mt-2 mb-5">
                 {published === updated
@@ -503,6 +514,28 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               );
             })}
             </div>
+
+            {sourceLinks.length > 0 && (
+              <section aria-label="Sources" className="mt-12 pt-8 border-t border-secondary/10">
+                <h2 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-4">
+                  Sources
+                </h2>
+                <ol className="list-decimal ml-5 space-y-2 font-body-sm text-body-sm text-on-surface-variant">
+                  {sourceLinks.map((l) => (
+                    <li key={l.href}>
+                      <a
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline decoration-primary-fixed/60 underline-offset-4 hover:decoration-primary-fixed break-all"
+                      >
+                        {l.href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            )}
 
             {/* Below 1200px the rail cards follow the article inline. */}
             <div className="min-[1200px]:hidden mt-10 space-y-6">

@@ -16,6 +16,8 @@ export const faqCategories: { id: FaqCategory | "all"; label: string }[] = [
 ];
 
 // Category metadata only — questions/answers untouched (verbatim source).
+// Indices 8+ are additions written from live site facts (hours, insurance
+// desk, emergency numbers, address) — no invented medical claims.
 export const faqCategoryMap: Record<number, FaqCategory> = {
   0: "appointments",
   1: "eye-health",
@@ -25,6 +27,12 @@ export const faqCategoryMap: Record<number, FaqCategory> = {
   5: "donation",
   6: "donation",
   7: "eye-health",
+  8: "appointments",
+  9: "appointments",
+  10: "appointments",
+  11: "appointments",
+  12: "eye-health",
+  13: "appointments",
 };
 
 // VERBATIM FAQs from the live site
@@ -71,5 +79,35 @@ export const faqs: Faq[] = [
     question: "What is corneal blindness?",
     answer:
       "Cornea, the main focusing part, is the clear front surface of the eye. Like a window, it allows light to enter the eye. Vision could be markedly reduced or lost if the cornea becomes cloudy or scarred. This condition is known as corneal blindness.",
+  },
+  {
+    question: "Is Mungale Eye Hospital open on Sundays?",
+    answer:
+      `No. The hospital is open Monday to Saturday, ${siteConfig.hours.time}, and is closed on Sundays. For urgent eye problems, call the emergency numbers listed on the Contact Us page.`,
+  },
+  {
+    question: "Do you offer cashless insurance or TPA support?",
+    answer:
+      "Yes. Mungale Eye Hospital has an insurance desk that supports cashless hospitalisation for eligible policies and helps with TPA paperwork. Carry your insurance card and ID to your visit, and call ahead to confirm your insurer is covered.",
+  },
+  {
+    question: "What should I bring to my first appointment?",
+    answer:
+      "Bring your current glasses or contact-lens prescription if you have one, a list of medicines you take, any previous eye reports or scans, and your insurance card if you plan to use it. If your pupils are dilated, arrange for someone to accompany you.",
+  },
+  {
+    question: "Where is Mungale Eye Hospital located?",
+    answer:
+      `The hospital is at ${siteConfig.address}. It is a short distance from Raopura, Fatehgunj and the old city areas of Vadodara. Directions and a map are on the Contact Us page.`,
+  },
+  {
+    question: "Does health insurance cover LASIK or cataract surgery?",
+    answer:
+      "Most Indian health insurance policies treat LASIK as elective and do not cover it. Cataract surgery is a medically necessary procedure and is covered by most policies. Check your specific plan or ask the hospital's insurance desk before booking.",
+  },
+  {
+    question: "What should I do in an eye emergency?",
+    answer:
+      `Sudden vision loss, a curtain across your vision, severe eye pain, or a chemical or physical eye injury needs same-day care. Call ${siteConfig.emergencyPhone} or ${siteConfig.emergencyPhone2}. Outside hospital hours, go to the nearest emergency department.`,
   },
 ];

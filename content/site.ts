@@ -48,10 +48,14 @@ export const siteConfig = {
   stats: {
     yearsVerified: 19, // Established 24th June, 2007 — "Over 19 years" is the single approved figure (see EXPERIENCE_CLAIM).
     yearsClaim: "Over 19 years", // Single source: EXPERIENCE_CLAIM. Update deliberately in 2027.
-    patientsClaim: "40,000+", // CLAIMED ON WEBSITE (homepage stat chip / reference design) — must verify exact database/MCP count before final build. Currently unverified; HTML JS counter shows "0" only as dynamic placeholder.
-    patientsVerifiedNote: "NOT VERIFIED — needs user confirmation or exact source data retrieval",
-    surgeriesClaim: "15,000+", // CLAIMED ON WEBSITE (homepage stat chip / reference design) — must verify exact database/MCP count before final build.
-    surgeriesVerifiedNote: "NOT VERIFIED — needs user confirmation or exact source data retrieval",
+    // NOTE: patient/surgery counts are NOT rendered anywhere on the site —
+    // unverified claims stay out of view until the client confirms exact
+    // figures (seo-audit issue CLAIM-021). Homepage chips now show only
+    // verified numbers (19+ years, 500+ corneal transplants, 2 specialists).
+    patientsClaim: "40,000+",
+    patientsVerifiedNote: "NOT VERIFIED — needs client confirmation; do not render until confirmed",
+    surgeriesClaim: "15,000+",
+    surgeriesVerifiedNote: "NOT VERIFIED — needs client confirmation; do not render until confirmed",
   },
   navTree: [
     { label: "About", href: "/about-us/", subItems: [] },

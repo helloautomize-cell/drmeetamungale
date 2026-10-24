@@ -83,6 +83,9 @@ function buildPhysician(d: Doctor) {
       name: m,
     }));
   }
+  if (d.sameAs && d.sameAs.length > 0) {
+    page["sameAs"] = d.sameAs;
+  }
   return page;
 }
 

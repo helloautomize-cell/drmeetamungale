@@ -1,11 +1,10 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
 import { siteConfig } from "@/content/site";
 import { getTreatmentDetailSlugs, getTreatmentDetail } from "@/content/treatment-details";
 import { blogPosts } from "@/content/blog";
 import { getBlogBody } from "@/content/blog-bodies";
 import { doctors, getDoctorByKey, type ReviewerKey } from "@/content/doctors";
 import { GENERAL_REVIEWED_PAGES } from "@/content/reviewed-pages";
+import { buildLlmsTxt } from "@/content/llms";
 
 // ─── /llms-full.txt ─────────────────────────────────────────────────────
 // llms.txt + full doctor profiles + per-page medical reviewers +
@@ -36,8 +35,7 @@ function reviewerNames(value: ReviewerKey | ReviewerKey[] | undefined): string {
 }
 
 export function GET() {
-  const llms = readFileSync(join(process.cwd(), "public/llms.txt"), "utf8").trimEnd();
-  const out: string[] = [llms, "", "## Doctors — full profiles", ""];
+  const out: string[] = [buildLlmsTxt().trimEnd(), "", "## Doctors — full profiles", ""];
 
   for (const d of doctors) {
     out.push(`### ${d.name}`, `URL: ${BASE}/doctors/${d.slug}/`);

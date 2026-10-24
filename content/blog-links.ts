@@ -53,7 +53,7 @@ export const blogLinks: Record<string, BlogLink[]> = {
       "block": 12,
       "nth": 0,
       "text": "examining",
-      "href": "https://www.nei.nih.gov/index.php/learn-about-eye-health/healthy-vision/get-dilated-eye-exam",
+      "href": "https://www.nei.nih.gov/learn-about-eye-health/healthy-vision/get-dilated-eye-exam",
       "external": true
     },
     {
@@ -361,7 +361,7 @@ export const blogLinks: Record<string, BlogLink[]> = {
       "block": 3,
       "nth": 0,
       "text": "FDA",
-      "href": "https://www.fda.gov/medical-devices/contact-lenses/everyday-eye-care",
+      "href": "https://www.fda.gov/medical-devices/surgery-devices/lasik",
       "external": true
     },
     {
@@ -503,21 +503,21 @@ export const blogLinks: Record<string, BlogLink[]> = {
   ],
   "ahmed-glaucoma-valve-surgery": [
     {
-      "block": 3,
+      "block": 2,
       "nth": 0,
       "text": "Mungale Eye Hospital",
       "href": "/",
       "external": false
     },
     {
-      "block": 26,
+      "block": 25,
       "nth": 0,
       "text": "Ahmed Glaucoma Valve Surgery",
       "href": "/",
       "external": false
     },
     {
-      "block": 2,
+      "block": 1,
       "nth": 0,
       "text": "Ahmed Glaucoma Valve",
       "href": "https://eyewiki.org/Ahmed_ClearPath_Glaucoma_Drainage_Device",
@@ -618,6 +618,324 @@ export const blogLinks: Record<string, BlogLink[]> = {
       "text": "common eye problems",
       "href": "https://www.aao.org/eye-health/tips-prevention/eye-exams-101",
       "external": true
+    }
+  ]
+
+,
+
+  // ── Hospital-authored posts (added for LINK-021) ──
+  "lasik-eye-surgery-types-cost-benefits-candidacy": [
+    {
+      "block": 39,
+      "nth": 0,
+      "text": "keratoconus",
+      "href": "/blog/keratoconus-symptoms-causes-diagnosis-treatment/",
+      "external": false
+    },
+    {
+      "block": 47,
+      "nth": 0,
+      "text": "cornea specialist",
+      "href": "/doctors/meeta-mungale/",
+      "external": false
+    },
+    {
+      "block": 105,
+      "nth": 0,
+      "text": "cornea evaluation",
+      "href": "/treatments/cornea-evaluation/",
+      "external": false
+    },
+    {
+      "block": 73,
+      "nth": 0,
+      "text": "Dry eye is the side effect",
+      "href": "/blog/dry-eye-disease-causes-symptoms-treatment/",
+      "external": false
+    },
+    {
+      "block": 36,
+      "nth": 0,
+      "text": "health insurance",
+      "href": "/insurance-cashless/",
+      "external": false
+    }
+  ],
+  "diabetic-retinopathy-symptoms-screening-stages-treatment": [
+    {
+      "block": 26,
+      "nth": 0,
+      "text": "glaucoma",
+      "href": "/blog/glaucoma-symptoms-causes-treatment/",
+      "external": false
+    },
+    {
+      "block": 238,
+      "nth": 0,
+      "text": "Mungale Eye Hospital",
+      "href": "/contact-us/",
+      "external": false
+    },
+    {
+      "block": 34,
+      "nth": 0,
+      "text": "ophthalmologist",
+      "href": "/doctors/",
+      "external": false
+    }
+  ],
+  "eye-checkup-after-forty-tests-frequency-warning-signs": [
+    {
+      "block": 12,
+      "nth": 0,
+      "text": "Glaucoma shows why this matters",
+      "href": "/blog/glaucoma-symptoms-causes-treatment/",
+      "external": false
+    },
+    {
+      "block": 8,
+      "nth": 0,
+      "text": "cataract",
+      "href": "/blog/cataract-surgery-guide/",
+      "external": false
+    },
+    {
+      "block": 29,
+      "nth": 0,
+      "text": "dry eye",
+      "href": "/blog/dry-eye-disease-causes-symptoms-treatment/",
+      "external": false
+    },
+    {
+      "block": 119,
+      "nth": 0,
+      "text": "insurance and cashless support",
+      "href": "/insurance-cashless/",
+      "external": false
+    },
+    {
+      "block": 24,
+      "nth": 0,
+      "text": "Tonometry",
+      "href": "/treatments/glaucoma-evaluation/",
+      "external": false
+    }
+  ],
+  "pterygium-causes-symptoms-stages-treatment-surgery": [
+    {
+      "block": 53,
+      "nth": 0,
+      "text": "Mungale Eye Hospital",
+      "href": "/treatments/corneal-treatments/",
+      "external": false
+    },
+    {
+      "block": 147,
+      "nth": 0,
+      "text": "Dry Eye",
+      "href": "/blog/dry-eye-disease-causes-symptoms-treatment/",
+      "external": false
+    },
+    {
+      "block": 11,
+      "nth": 0,
+      "text": "surgeon",
+      "href": "/doctors/meeta-mungale/",
+      "external": false
+    },
+    {
+      "block": 0,
+      "nth": 0,
+      "text": "cornea",
+      "href": "/treatments/cornea-evaluation/",
+      "external": false
+    }
+  ],
+  "corneal-ulcer-keratitis-symptoms-treatment": [
+    {
+      "block": 31,
+      "nth": 0,
+      "text": "contact lens use",
+      "href": "/treatments/optical-contact-lenses/",
+      "external": false
+    },
+    {
+      "block": 167,
+      "nth": 0,
+      "text": "corneal transplantation",
+      "href": "/blog/corneal-transplant-surgery/",
+      "external": false
+    },
+    {
+      "block": 255,
+      "nth": 0,
+      "text": "cornea evaluation",
+      "href": "/treatments/cornea-evaluation/",
+      "external": false
+    },
+    {
+      "block": 287,
+      "nth": 0,
+      "text": "Mungale Eye Hospital provides",
+      "href": "/contact-us/",
+      "external": false
+    }
+  ],
+  "cataract-surgery-guide": [
+    {
+      "block": 1,
+      "nth": 0,
+      "text": "Cataract surgery",
+      "href": "/treatments/cataract-surgery/",
+      "external": false
+    },
+    {
+      "block": 21,
+      "nth": 0,
+      "text": "cataract surgery becomes necessary",
+      "href": "/blog/when-cataract-needs-surgery-signs/",
+      "external": false
+    },
+    {
+      "block": 80,
+      "nth": 0,
+      "text": "Mungale Eye Hospital in Kothi Road",
+      "href": "/contact-us/",
+      "external": false
+    },
+    {
+      "block": 27,
+      "nth": 0,
+      "text": "Phacoemulsification",
+      "href": "/treatments/cataract-surgery/",
+      "external": false
+    }
+  ],
+  "corneal-transplant-surgery": [
+    {
+      "block": 13,
+      "nth": 0,
+      "text": "Keratoconus",
+      "href": "/blog/keratoconus-symptoms-causes-diagnosis-treatment/",
+      "external": false
+    },
+    {
+      "block": 290,
+      "nth": 0,
+      "text": "Mungale Eye Hospital",
+      "href": "/treatments/corneal-treatments/",
+      "external": false
+    },
+    {
+      "block": 298,
+      "nth": 0,
+      "text": "corneal specialist",
+      "href": "/doctors/meeta-mungale/",
+      "external": false
+    }
+  ],
+  "dry-eye-disease-causes-symptoms-treatment": [
+    {
+      "block": 5,
+      "nth": 0,
+      "text": "meibomian",
+      "href": "/doctors/meeta-mungale/",
+      "external": false
+    },
+    {
+      "block": 147,
+      "nth": 0,
+      "text": "Mungale Eye Hospital",
+      "href": "/treatments/cornea-evaluation/",
+      "external": false
+    },
+    {
+      "block": 290,
+      "nth": 0,
+      "text": "having your eyes examined",
+      "href": "/blog/eye-checkup-after-forty-tests-frequency-warning-signs/",
+      "external": false
+    },
+    {
+      "block": 1,
+      "nth": 0,
+      "text": "contact lenses",
+      "href": "/treatments/optical-contact-lenses/",
+      "external": false
+    }
+  ],
+  "glaucoma-symptoms-causes-treatment": [
+    {
+      "block": 7,
+      "nth": 0,
+      "text": "eye pressure",
+      "href": "/treatments/glaucoma-evaluation/",
+      "external": false
+    },
+    {
+      "block": 2,
+      "nth": 0,
+      "text": "surgery",
+      "href": "/treatments/glaucoma-treatments/",
+      "external": false
+    },
+    {
+      "block": 24,
+      "nth": 0,
+      "text": "periodic pressure check and optic nerve exam",
+      "href": "/blog/eye-checkup-after-forty-tests-frequency-warning-signs/",
+      "external": false
+    },
+    {
+      "block": 84,
+      "nth": 0,
+      "text": "Dr. Sachin Mungale",
+      "href": "/doctors/sachin-mungale/",
+      "external": false
+    },
+    {
+      "block": 77,
+      "nth": 0,
+      "text": "Mungale Eye Hospital",
+      "href": "/contact-us/",
+      "external": false
+    }
+  ],
+  "keratoconus-symptoms-causes-diagnosis-treatment": [
+    {
+      "block": 2,
+      "nth": 0,
+      "text": "cross-linking",
+      "href": "/treatments/corneal-treatments/",
+      "external": false
+    },
+    {
+      "block": 49,
+      "nth": 0,
+      "text": "contact lenses",
+      "href": "/treatments/optical-contact-lenses/",
+      "external": false
+    },
+    {
+      "block": 93,
+      "nth": 0,
+      "text": "Corneal transplant",
+      "href": "/blog/corneal-transplant-surgery/",
+      "external": false
+    },
+    {
+      "block": 87,
+      "nth": 0,
+      "text": "ophthalmologist",
+      "href": "/doctors/meeta-mungale/",
+      "external": false
+    },
+    {
+      "block": 31,
+      "nth": 0,
+      "text": "topography",
+      "href": "/treatments/cornea-evaluation/",
+      "external": false
     }
   ]
 };

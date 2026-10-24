@@ -59,7 +59,7 @@ function FeaturedStory({ post }: { post: BlogPostMeta }) {
         <span className="block lg:col-span-7 overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
           <Image
             src={post.coverImage}
-            alt=""
+            alt={post.coverAlt ?? post.title}
             width={post.coverWidth}
             height={post.coverHeight}
             priority

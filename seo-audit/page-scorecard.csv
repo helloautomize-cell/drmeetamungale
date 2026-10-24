@@ -1,0 +1,56 @@
+url,type,cluster,primary_keyword,word_count,has_author,has_reviewer,has_dates,has_faq,schema_types,schema_valid,inbound_contextual_links,outbound_internal_links,ai_likeness_score,entity_coverage_pct,rewrite_priority
+/,Home,-,eye hospital vadodara,1681,n/a,n/a,n,no,MedicalClinic+MedicalOrganization+WebSite,yes,nav,n/a,80,70,Low
+/about-us/,Utility,-,about mungale eye hospital,869,n/a,n/a,n,no,MedicalClinic+MedicalOrganization+Physician x2+BreadcrumbList,yes,nav+home,n/a,82,65,Low
+/blog/,Index,-,eye health articles,1939,n/a,n/a,n,no,MedicalClinic+MedicalOrganization+BreadcrumbList,yes,nav+home,37 post links,78,60,Low
+/contact-us/,Utility,-,eye hospital contact vadodara,588,n/a,n/a,n,no,MedicalClinic+MedicalOrganization+BreadcrumbList,yes,nav sitewide,n/a,80,70,Low
+/doctors/,Doctor index,-,eye specialists vadodara,420,n/a,n/a,n,no,MedicalClinic+MedicalOrganization+BreadcrumbList,yes,nav+home,2 doctor links,82,70,Low
+/faqs/,Utility,-,eye hospital faqs,1099,n/a,n/a,n,yes(8),MedicalClinic+MedicalOrganization+FAQPage+BreadcrumbList,yes,nav+footer,n/a,75,40,Medium
+/gallery/,Utility,-,eye hospital gallery vadodara,456,n/a,n/a,n,no,MedicalClinic+MedicalOrganization+BreadcrumbList,yes,nav,n/a,75,50,Low
+/insurance-cashless/,Service,-,cashless eye treatment vadodara,1403,n/a,n/a,n,yes(9),MedicalClinic+MedicalOrganization+FAQPage+BreadcrumbList,yes,nav+home strip,n/a,82,75,Low
+/privacy-policy/,Utility,-,privacy policy,361,n/a,n/a,n,no,MedicalClinic+MedicalOrganization,yes,footer sitewide,n/a,30,5,High
+/treatments/,Index,-,eye treatments vadodara,2831,n/a,n/a,n,no,MedicalClinic+MedicalOrganization+BreadcrumbList+ItemList,yes,nav sitewide,6 treatment links,80,70,Low
+/doctors/sachin-mungale/,Doctor,-,dr sachin mungale glaucoma specialist,~1100,n/a,n/a,n,no,MedicalClinic+MedicalOrganization+Physician+ProfilePage+BreadcrumbList,yes,nav+bylines sitewide,n/a,90,85,Low
+/doctors/meeta-mungale/,Doctor,-,dr meeta mungale cornea specialist,1332,n/a,n/a,n,no,MedicalClinic+MedicalOrganization+Physician+ProfilePage+BreadcrumbList,yes,nav+bylines sitewide,n/a,90,88,Low
+/treatments/cataract-surgery/,Treatment,-,cataract surgery vadodara,1727,no,yes(both),review date,yes(6),MedicalClinic+MedicalOrganization+MedicalWebPage+FAQPage+BreadcrumbList,yes,nav+5 blog body links+related,n/a,78,72,Medium
+/treatments/cornea-evaluation/,Treatment,-,cornea evaluation vadodara,~1900,no,yes(meeta),review date,yes,MedicalClinic+MedicalOrganization+MedicalWebPage+FAQPage+BreadcrumbList,yes,nav+2 blog body links,n/a,78,70,Medium
+/treatments/corneal-treatments/,Treatment,-,corneal treatments vadodara,~1900,no,yes(meeta),review date,yes,MedicalClinic+MedicalOrganization+MedicalWebPage+FAQPage+BreadcrumbList,yes,nav,n/a,78,70,Medium
+/treatments/glaucoma-evaluation/,Treatment,-,glaucoma evaluation vadodara,1930,no,yes(sachin),review date,yes,MedicalClinic+MedicalOrganization+MedicalWebPage+FAQPage+BreadcrumbList,yes,nav+5 blog body links,n/a,78,72,Medium
+/treatments/glaucoma-treatments/,Treatment,-,glaucoma treatment vadodara,~1900,no,yes(sachin),review date,yes,MedicalClinic+MedicalOrganization+MedicalWebPage+FAQPage+BreadcrumbList,yes,nav+4 blog body links,n/a,78,72,Medium
+/treatments/optical-contact-lenses/,Treatment,-,optical contact lenses vadodara,~1600,no,yes,review date,yes,MedicalClinic+MedicalOrganization+MedicalWebPage+FAQPage+BreadcrumbList,yes,nav,n/a,78,65,Medium
+/blog/lasik-eye-surgery-types-cost-benefits-candidacy/,Article,-,lasik eye surgery cost india,4340,no,yes(meeta),published,yes(8 visible/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,3 related,88,80,Low
+/blog/diabetic-retinopathy-symptoms-screening-stages-treatment/,Article,-,diabetic retinopathy symptoms,3897,no,yes(meeta),published,yes(8/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,3,88,78,Low
+/blog/eye-checkup-after-forty-tests-frequency-warning-signs/,Article,-,eye checkup after 40,4443,no,yes(both),published,yes(8/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,1,3,86,78,Low
+/blog/pterygium-causes-symptoms-stages-treatment-surgery/,Article,-,pterygium treatment,4548,no,yes(meeta),published,yes(8/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,3,88,80,Low
+/blog/corneal-ulcer-keratitis-symptoms-treatment/,Article,-,corneal ulcer treatment,3891,no,yes(meeta),published,yes(8/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,3,88,80,Low
+/blog/cataract-surgery-guide/,Pillar,cataract,cataract surgery guide,3094,no,yes(both),published,yes(8/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,2,4(1 support+3 related),87,80,Medium
+/blog/corneal-transplant-surgery/,Pillar,corneal-transplant,corneal transplant surgery,3536,no,yes(meeta),published,yes(8/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,3,88,78,Medium
+/blog/dry-eye-disease-causes-symptoms-treatment/,Article,-,dry eye disease treatment,3940,no,yes(meeta),published,yes(8/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,3,88,78,Low
+/blog/glaucoma-symptoms-causes-treatment/,Pillar,glaucoma,glaucoma symptoms treatment,2931,no,yes(sachin),published,yes(8/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,3,87,78,Medium
+/blog/keratoconus-symptoms-causes-diagnosis-treatment/,Pillar,keratoconus,keratoconus treatment,2881,no,yes(meeta),published,yes(8/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,3,84,76,Medium
+/blog/benchmarks-in-eye-care/,Article,-,progression benchmarks eye care,1195,no,yes(sachin),published,yes(5/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,6,55,45,Medium
+/blog/routine-eye-examination/,Article,-,routine eye examination,1134,no,yes(both),published,yes(6/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,4,58,50,Medium
+/blog/disease-progression-velocity-in-eye-care/,Article,-,disease progression velocity,1181,no,yes(sachin),published,yes(7/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,6,50,40,Medium
+/blog/corneal-treatment-recovery-process/,Article,-,corneal treatment recovery,1171,no,yes(meeta),published,yes(6/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,6,55,50,Medium
+/blog/how-is-glaucoma-diagnosed-evaluated/,Article,-,glaucoma diagnosis,1218,no,yes(sachin),published,yes(5/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,8,55,55,Medium
+/blog/risks-benefits-of-cataract-surgery/,Article,-,cataract surgery risks benefits,1122,no,yes(both),published,yes(6/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,5,42,50,High
+/blog/the-benefits-of-regular-eye-check-ups/,Article,-,regular eye checkup benefits,812,no,yes(meeta),published,yes(4/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,4,40,40,High
+/blog/glaucoma-treatment-options/,Article,-,glaucoma treatment options,1394,no,yes(sachin),published,yes(6/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,1,6,40,55,High
+/blog/benefits-of-cataract-surgery/,Article,-,benefits of cataract surgery,1239,no,yes(both),published,yes(5/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,4,50,50,Medium
+/blog/best-foods-for-eye-health/,Article,-,foods for eye health,2918,no,yes(meeta),published,yes(8/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,5,50,60,Medium
+/blog/ai-in-eye-care-in-2026/,Article,-,ai in eye care,2154,no,yes(both),published,yes(7/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,6,48,50,Medium
+/blog/new-year-eye-health-resolutions-2026/,Article,-,eye health resolutions,2256,no,yes(meeta),published,yes(10/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,5,50,45,Medium
+/blog/glaucoma-awareness-month-2026/,Article,-,glaucoma awareness month,579,no,yes(sachin),published,yes(5/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,4,55,35,Medium
+/blog/corneal-ulcer-treatment/,Article,-,corneal ulcer treatment (DUPLICATE INTENT),851,no,yes(meeta),published,yes(4/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,3,42,45,High
+/blog/thinking-of-lasik-surgery/,Article,-,lasik surgery vadodara,1060,no,yes(meeta),published,yes(4/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,5,55,55,Medium
+/blog/when-should-you-see-an-eye-doctor/,Article,-,when to see eye doctor,823,no,yes(both),published,yes(5/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,4,62,50,Low
+/blog/best-eye-hospital-near-me/,Article,-,eye hospital near me,1907,no,yes(both),published,yes(6/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,6,50,55,Medium
+/blog/best-eye-hospital-for-corneal-transplant/,Article,-,corneal transplant vadodara,739,no,yes(meeta),published,no faq block,MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,4,45,45,High
+/blog/cataract-surgery-vadodara-gujarat/,Article,-,cataract surgery vadodara (OVERLAP pillar),828,no,yes(both),published,yes(4/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,5,42,50,High
+/blog/advanced-eye-care-treatment/,Article,-,eye care raopura vadodara,741,no,yes(both),published,no faq,MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,4,40,35,High
+/blog/ahmed-glaucoma-valve-surgery/,Article,-,ahmed glaucoma valve surgery,779,no,yes(sachin),published,yes(4/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,5,42,50,High
+/blog/best-eye-hospital-in-vadodara/,Article,-,eye hospital vadodara,952,no,yes(both),published,yes(5/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,5,45,45,Medium
+/blog/advanced-eye-care-in-vadodara/,Article,-,eye care vadodara (OVERLAP),803,no,yes(meeta),published,yes(3/no schema),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,5,35,35,High
+/blog/5-easy-eye-care-tips-for-computer-geeks/,Article,-,eye care tips computer users,436,no,yes(meeta),published,no faq,MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,4,38,30,High
+/blog/7-eye-care-tips-never-ignore/,Article,-,eye care tips,588,no,yes(meeta),published,no faq,MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,4,32,30,High
+/blog/tips-for-choosing-an-eye-care-doctor/,Article,-,choosing eye doctor,625,no,yes(meeta),published,no faq,MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList,yes,0,5,40,35,High
+/blog/when-cataract-needs-surgery-signs/,Support,cataract,when does cataract need surgery,1027,no,no(review pending),published,yes(6 + FAQPage),MedicalClinic+MedicalOrganization+BlogPosting+BreadcrumbList+FAQPage,yes,1(pillar+keep-reading),8,90,78,Low

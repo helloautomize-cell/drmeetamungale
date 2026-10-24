@@ -304,14 +304,22 @@ export function Footer() {
           {/* Legal bar — quiet, separated */}
           <div className="mt-12 lg:mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[12.5px] text-white/50">
             <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
-            <p>
-              <Link
-                href="/privacy-policy/"
-                className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
-              >
-                Privacy Policy
-              </Link>
-            </p>
+            <nav aria-label="Legal" className="flex flex-wrap gap-x-5 gap-y-1">
+              {[
+                { label: "Privacy Policy", href: "/privacy-policy/" },
+                { label: "Medical Disclaimer", href: "/medical-disclaimer/" },
+                { label: "Editorial Policy", href: "/editorial-policy/" },
+                { label: "Terms of Use", href: "/terms/" },
+              ].map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </nav>
           </div>
           <p className="mt-4 text-left text-[12.5px] text-white/45">
             Built &amp; Marketed by{" "}

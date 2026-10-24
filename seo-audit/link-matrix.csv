@@ -1,0 +1,46 @@
+source_url,target_url,anchor_text,link_location,cluster,status
+/blog/when-cataract-needs-surgery-signs/,/blog/cataract-surgery-guide/,"clouding of the eye's natural lens",body(first para),cataract,OK
+/blog/when-cataract-needs-surgery-signs/,/doctors/,"Dr. Sachin Mungale and Dr. Meeta Mungale",body(final para),cataract,OK
+/blog/when-cataract-needs-surgery-signs/,/blog/cataract-surgery-guide/,"Part of our guide: Cataract Surgery…",cluster chip,cataract,OK
+/blog/when-cataract-needs-surgery-signs/,/treatments/cataract-surgery/,"Cataract surgery at Mungale Eye Hospital",keep-reading widget,cataract,OK
+/blog/when-cataract-needs-surgery-signs/,/blog/eye-checkup-after-forty-tests-frequency-warning-signs/,"Eye check-up after 40…",keep-reading widget,cataract,OK
+/blog/when-cataract-needs-surgery-signs/,link:1.2 (unpublished),"Cataract surgery cost in Vadodara…",keep-reading widget,cataract,MISSING TARGET (sibling not yet written — degrades to nothing)
+/blog/when-cataract-needs-surgery-signs/,link:1.3 (unpublished),"lens options",body(final para),cataract,MISSING TARGET (renders as plain text)
+/blog/when-cataract-needs-surgery-signs/,link:1.4 (unpublished),"recovery",body(final para),cataract,MISSING TARGET (renders as plain text)
+/blog/cataract-surgery-guide/,/blog/when-cataract-needs-surgery-signs/,post title,"More in this guide" widget,cataract,PARTIAL (widget only; no contextual body link)
+/blog/cataract-surgery-guide/,5 supports required,—,body,cataract,MISSING (4 of 5 supports unwritten; no body links to any)
+/blog/glaucoma-symptoms-causes-treatment/,5 supports required,—,body,glaucoma,MISSING (0 supports published; 0 body links in post)
+/blog/keratoconus-symptoms-causes-diagnosis-treatment/,5 supports required,—,body,keratoconus,MISSING (0 supports published; 0 body links in post)
+/blog/corneal-transplant-surgery/,5 supports required,—,body,corneal-transplant,MISSING (0 supports published; 0 body links in post)
+/blog/lasik-eye-surgery-types-cost-benefits-candidacy/,—,—,body,-,MISSING (0 body links)
+/blog/diabetic-retinopathy-symptoms-screening-stages-treatment/,—,—,body,-,MISSING (0 body links)
+/blog/eye-checkup-after-forty-tests-frequency-warning-signs/,—,—,body,-,MISSING (0 body links)
+/blog/pterygium-causes-symptoms-stages-treatment-surgery/,—,—,body,-,MISSING (0 body links)
+/blog/corneal-ulcer-keratitis-symptoms-treatment/,—,—,body,-,MISSING (0 body links)
+/blog/dry-eye-disease-causes-symptoms-treatment/,—,—,body,-,MISSING (0 body links)
+/blog/benchmarks-in-eye-care/,/blog/glaucoma-treatment-options/,"benchmark for glaucoma",body,-,OK
+/blog/benchmarks-in-eye-care/,/treatments/glaucoma-evaluation/,"treatment for a glaucoma",body,-,OK
+/blog/benchmarks-in-eye-care/,/contact-us/,"Mungale Eye Hospital in Vadodara",body,-,OK
+/blog/benchmarks-in-eye-care/,https://my.clevelandclinic.org/health/diagnostics/eye-exam,"glaucoma",body,-,OK (external; weak anchor on generic word)
+/blog/routine-eye-examination/,/treatments/,"booking your next appointment",body,-,OK
+/blog/routine-eye-examination/,https://www.nei.nih.gov/index.php/learn-about-eye-health/healthy-vision/get-dilated-eye-exam,"examining",body,-,WRONG URL PATH (legacy /index.php/ — redirects; update to canonical)
+/blog/disease-progression-velocity-in-eye-care/,/treatments/glaucoma-evaluation/,"Optical Coherence Tomography (OCT)",body,-,OK
+/blog/disease-progression-velocity-in-eye-care/,/treatments/glaucoma-treatments/,"surgical glaucoma treatment",body,-,OK
+/blog/corneal-treatment-recovery-process/,4 internal + external targets,various,body,-,OK
+/blog/how-is-glaucoma-diagnosed-evaluated/,6 internal + external targets,various,body,-,OK
+/blog/risks-benefits-of-cataract-surgery/,3 internal + external targets,various,body,-,OK
+/blog/the-benefits-of-regular-eye-check-ups/,2 internal + external targets,various,body,-,OK
+/blog/glaucoma-treatment-options/,4 internal + external targets,various,body,-,OK
+/blog/benefits-of-cataract-surgery/,2 internal targets,various,body,-,OK
+/blog/best-foods-for-eye-health/,3 internal + external targets,various,body,-,OK
+/blog/ai-in-eye-care-in-2026/,4 incl. ophthalmologytimes,various,body,-,OK
+/blog/new-year-eye-health-resolutions-2026/,3 targets,various,body,-,OK
+/blog/glaucoma-awareness-month-2026/,2 targets,various,body,-,OK
+/blog/corneal-ulcer-treatment/,1 target,various,body,-,PARTIAL (single body link; overlaps newer corneal-ulcer post)
+/blog/thinking-of-lasik-surgery/,https://www.fda.gov/medical-devices/contact-lenses/everyday-eye-care,contact-lens citation,body,-,BROKEN (404)
+/blog/when-should-you-see-an-eye-doctor/,https://www.practo.com/vadodara/doctor/dr-sachin-mungale-ophthalmologist,"Dr. Sachin Mungale Practo profile",body,-,VERIFY (403 to curl — likely bot-block; check in browser)
+/blog/when-should-you-see-an-eye-doctor/,https://www.practo.com/vadodara/doctor/dr-meeta-mungale-ophthalmologist,"Dr. Meeta Mungale Practo profile",body,-,VERIFY (403 to curl — likely bot-block)
+/blog/best-eye-hospital-near-me/,https://www.justdial.com/.../Dr-Sachin-Mungale-...,Justdial listing,body,-,OK (200)
+"ALL posts (legacy 26 + 10 new + 1 support)",/blog/,post titles,blog index list,-,OK (all 37 rendered in raw HTML; overflow hidden via [hidden] attr)
+"ALL posts",3 related posts each,titles,"Related Articles" widget,-,OK
+"ALL posts",/doctors/<reviewer>/,doctor name,byline + sticky rail cards,-,OK (reviewer links on all reviewed posts)

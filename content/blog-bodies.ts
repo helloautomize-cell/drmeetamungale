@@ -95,7 +95,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Optical Coherence Tomography (OCT)"
+                        "text": "Optical coherence tomography (OCT)"
                   },
                   {
                         "type": "para",
@@ -103,7 +103,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Visual Field Testing (Perimetry)"
+                        "text": "Visual field testing (perimetry)"
                   },
                   {
                         "type": "para",
@@ -115,7 +115,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Operational Authority Block: Your Checklist for Discussing Progression with Your Doctor"
+                        "text": "Operational authority block: your checklist for discussing progression with your doctor"
                   },
                   {
                         "type": "para",
@@ -163,7 +163,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "What is considered a significant change in intraocular pressure (IOP)?",
@@ -225,7 +225,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Happens During A Routine Eye examination?"
+                        "text": "What happens during a routine eye examination?"
                   },
                   {
                         "type": "para",
@@ -249,7 +249,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is The Difference Between A Vision Screening And A Full Eye Examination?"
+                        "text": "What is the difference between a vision screening and a full eye examination?"
                   },
                   {
                         "type": "para",
@@ -288,7 +288,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Specific Eye Diseases Are Doctors Screening For During A Check-Up?"
+                        "text": "What specific eye diseases are doctors screening for during a check-up?"
                   },
                   {
                         "type": "para",
@@ -296,7 +296,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Who Should Schedule A Comprehensive Eye Exam And Who Can Skip It?"
+                        "text": "Who should schedule a comprehensive eye exam and who can skip it?"
                   },
                   {
                         "type": "para",
@@ -304,7 +304,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Should I Prepare For A Comprehensive Eye Exam?"
+                        "text": "How should I prepare for a comprehensive eye exam?"
                   },
                   {
                         "type": "para",
@@ -312,11 +312,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Where To Book An Eye Test In Vadodara And What Does It Cost?"
+                        "text": "Where to book an eye test in Vadodara and what does it cost?"
                   },
                   {
                         "type": "para",
-                        "text": "Patients seeking an eye test in Vadodara, Gujarat, India, can expect costs ranging from ₹500 to ₹2,000 depending on the facility&#8217;s diagnostic equipment. When evaluating an eye care hospital in Vadodara , verify that the clinic utilizes digital phoropters and non-contact tonometers. For advanced eye care in Vadodara, patients typically consult an eye specialist Vadodara who provides full retinal imaging and dilation services. Facilities like Mungale Eye Hospital in Vadodara, Gujarat, offer these standardized diagnostic protocols. Selecting an experienced eye doctor in Vadodara supports accurate prescriptions and early disease detection."
+                        "text": "Patients seeking an eye test in Vadodara, Gujarat, India, can expect costs ranging from ₹500 to ₹2,000 depending on the facility&#8217;s diagnostic equipment. When evaluating an eye care hospital in Vadodara, verify that the clinic utilizes digital phoropters and non-contact tonometers. For advanced eye care in Vadodara, patients typically consult an eye specialist Vadodara who provides full retinal imaging and dilation services. Facilities like Mungale Eye Hospital in Vadodara, Gujarat, offer these standardized diagnostic protocols. Selecting an experienced eye doctor in Vadodara supports accurate prescriptions and early disease detection."
                   },
                   {
                         "type": "para",
@@ -324,7 +324,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "How much does a routine eye examination cost?",
@@ -395,7 +395,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is the Step-by-Step Process for Calculating Mean Deviation Slope from Visual Field Data?"
+                        "text": "What is the step-by-step process for calculating mean deviation slope from visual field data?"
                   },
                   {
                         "type": "para",
@@ -403,7 +403,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Do You Correlate Structural OCT Changes with Functional Visual Field Loss Over Time?"
+                        "text": "How do you correlate structural OCT changes with functional visual field loss over time?"
                   },
                   {
                         "type": "para",
@@ -411,7 +411,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Are the Differences Between Trend-Based and Event-Based Progression Analysis in Glaucoma?"
+                        "text": "What are the differences between trend-based and event-based progression analysis in glaucoma?"
                   },
                   {
                         "type": "para",
@@ -450,7 +450,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is the Minimum Number of Tests Needed to Establish a Reliable Progression Baseline?"
+                        "text": "What is the minimum number of tests needed to establish a reliable progression baseline?"
                   },
                   {
                         "type": "para",
@@ -474,7 +474,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Does Calculating Progression Velocity Differ for Pediatric Myopia Versus Glaucoma?"
+                        "text": "How does calculating progression velocity differ for pediatric myopia versus glaucoma?"
                   },
                   {
                         "type": "para",
@@ -482,7 +482,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Are the Common Pitfalls and Sources of Variability When Interpreting Eye Disease Progression Reports?"
+                        "text": "What are the common pitfalls and sources of variability when interpreting eye disease progression reports?"
                   },
                   {
                         "type": "para",
@@ -506,7 +506,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Can Clinicians Explain the Rate of Vision Loss to a Patient Using Progression Velocity Metrics?"
+                        "text": "How can clinicians explain the rate of vision loss to a patient using progression velocity metrics?"
                   },
                   {
                         "type": "para",
@@ -514,7 +514,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "What is disease progression velocity in eye care?",
@@ -590,7 +590,7 @@ export const blogBodies: BlogBody[] = [
             "blocks": [
                   {
                         "type": "heading",
-                        "text": "How Does the Week-by-Week Recovery Timeline Unfold After a Cornea Transplant?"
+                        "text": "How does the week-by-week recovery timeline unfold after a cornea transplant?"
                   },
                   {
                         "type": "para",
@@ -602,7 +602,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Does Recovery Differ for Different Types of Corneal Transplants Like DSAEK vs PKP?"
+                        "text": "How does recovery differ for different types of corneal transplants like DSAEK vs PKP?"
                   },
                   {
                         "type": "para",
@@ -648,7 +648,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Who Is This Treatment For and Who Should Skip It?"
+                        "text": "Who is this treatment for and who should skip it?"
                   },
                   {
                         "type": "para",
@@ -664,7 +664,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Are the Specific Activity Restrictions and Early Warning Signs of Graft Rejection?"
+                        "text": "What are the specific activity restrictions and early warning signs of graft rejection?"
                   },
                   {
                         "type": "para",
@@ -672,7 +672,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Operational Authority Block: Graft Rejection Assessment Protocol"
+                        "text": "Operational authority block: graft rejection assessment protocol"
                   },
                   {
                         "type": "para",
@@ -692,11 +692,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Where Can Patients Seek Consultation and What Are the Treatment Pricing Expectations?"
+                        "text": "Where can patients seek consultation and what are the treatment pricing expectations?"
                   },
                   {
                         "type": "para",
-                        "text": "Surgical and postoperative costs vary based on geographic location, the specific procedure performed, and insurance coverage. Patients seeking specialized care often consult a cornea specialist in Vadodara , London, or major metropolitan medical hubs where advanced eye banks and laser facilities are accessible. The initial consultation typically ranges from $150 to $300, which includes topography and endothelial cell counts."
+                        "text": "Surgical and postoperative costs vary based on geographic location, the specific procedure performed, and insurance coverage. Patients seeking specialized care often consult a cornea specialist in Vadodara, London, or major metropolitan medical hubs where advanced eye banks and laser facilities are accessible. The initial consultation typically ranges from $150 to $300, which includes topography and endothelial cell counts."
                   },
                   {
                         "type": "para",
@@ -708,7 +708,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "How do I prepare my home environment before undergoing corneal surgery?",
@@ -779,7 +779,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Does a Comprehensive Glaucoma Eye Exam Feel Like for the Patient?"
+                        "text": "What does a comprehensive glaucoma eye exam feel like for the patient?"
                   },
                   {
                         "type": "para",
@@ -787,7 +787,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Are the Key Tests Used to Diagnose Glaucoma?"
+                        "text": "What are the key tests used to diagnose glaucoma?"
                   },
                   {
                         "type": "para",
@@ -795,7 +795,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why Are Multiple Tests Like OCT and Visual Field Tests Needed to Confirm a Glaucoma Diagnosis?"
+                        "text": "Why are multiple tests like OCT and visual field tests needed to confirm a glaucoma diagnosis?"
                   },
                   {
                         "type": "para",
@@ -803,7 +803,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Is Normal-Tension Glaucoma Diagnosed If Eye Pressure Readings Are Normal?"
+                        "text": "How is normal-tension glaucoma diagnosed if eye pressure readings are normal?"
                   },
                   {
                         "type": "para",
@@ -811,7 +811,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Do Glaucoma Diagnostic Tests Compare?"
+                        "text": "How do glaucoma diagnostic tests compare?"
                   },
                   {
                         "type": "table",
@@ -857,7 +857,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Are the Clinical Thresholds for Glaucoma Screening and Diagnosis?"
+                        "text": "What are the clinical thresholds for glaucoma screening and diagnosis?"
                   },
                   {
                         "type": "para",
@@ -885,7 +885,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Who Should Undergo Glaucoma Screening and How Often?"
+                        "text": "Who should undergo glaucoma screening and how often?"
                   },
                   {
                         "type": "para",
@@ -893,7 +893,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Happens After a Glaucoma Diagnosis to Monitor Its Progression Over Time?"
+                        "text": "What happens after a glaucoma diagnosis to monitor its progression over time?"
                   },
                   {
                         "type": "para",
@@ -905,14 +905,14 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "How do modern clinics integrate OCT scan data into a patient s electronic health record?",
                                     "a": [
                                           {
                                                 "type": "para",
-                                                "text": "Modern ophthalmic clinics utilize DICOM (Digital Imaging and Communications in Medicine) standards to automatically transfer high-resolution OCT scans directly from the imaging device into the patient s electronic health record. This seamless integration allows the specialist to overlay historical scans with new images, calculating precise micrometer changes in the retinal nerve fiber layer over time."
+                                                "text": "Modern ophthalmic clinics utilize DICOM (Digital Imaging and Communications in Medicine) standards to automatically transfer high-resolution OCT scans directly from the imaging device into the patient s electronic health record. This integration allows the specialist to overlay historical scans with new images, calculating precise micrometer changes in the retinal nerve fiber layer over time."
                                           }
                                     ]
                               },
@@ -963,7 +963,7 @@ export const blogBodies: BlogBody[] = [
             "blocks": [
                   {
                         "type": "heading",
-                        "text": "Cataract Surgery: Navigating the Risks and Embracing the Benefits"
+                        "text": "Cataract surgery: navigating the risks and embracing the benefits"
                   },
                   {
                         "type": "para",
@@ -971,7 +971,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "The Remarkable Benefits of Cataract Surgery"
+                        "text": "The remarkable benefits of cataract surgery"
                   },
                   {
                         "type": "para",
@@ -999,7 +999,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Understanding the Potential Risks of Cataract Surgery"
+                        "text": "Understanding the potential risks of cataract surgery"
                   },
                   {
                         "type": "para",
@@ -1007,7 +1007,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "item",
-                        "text": "Infection: Although uncommon, there is a risk of infection within the eye. Strict sterile techniques and post-operative antibiotic use are crucial in prevention."
+                        "text": "Infection: Although uncommon, there is a risk of infection within the eye. Strict sterile techniques and post-operative antibiotic use are important in prevention."
                   },
                   {
                         "type": "item",
@@ -1015,7 +1015,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "item",
-                        "text": "Retinal Detachment: This is a serious complication where the retina pulls away from the back of the eye. While rare, patients with existing retinal conditions may have a slightly higher risk. Prompt detection and treatment are vital."
+                        "text": "Retinal Detachment: This is a serious complication where the retina pulls away from the back of the eye. While rare, patients with existing retinal conditions may have a slightly higher risk. Prompt detection and treatment make the difference."
                   },
                   {
                         "type": "item",
@@ -1035,19 +1035,19 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Mungale Eye Hospital: Expertise You Can Trust"
+                        "text": "Mungale Eye Hospital: expertise you can trust"
                   },
                   {
                         "type": "para",
-                        "text": "At Mungale Eye Hospital, our ophthalmologists are highly skilled and experienced in performing state-of-the-art cataract surgery. We utilize advanced surgical technologies, including femtosecond laser-assisted cataract surgery and a wide range of premium intraocular lenses, to offer personalized solutions for each patient. Our commitment to patient care ensures that every step of your journey, from consultation to post-operative follow-up, is handled with precision and compassion."
+                        "text": "At Mungale Eye Hospital, our ophthalmologists are highly skilled and experienced in performing state-of-the-art cataract surgery. We utilize advanced surgical technologies, including femtosecond laser-assisted cataract surgery and a wide range of premium intraocular lenses, to offer personalized solutions for each patient. Our commitment to patient care ensures that every step of your care, from consultation to post-operative follow-up, is handled with precision and compassion."
                   },
                   {
                         "type": "heading",
-                        "text": "The Recovery Process After Cataract Surgery"
+                        "text": "The recovery process after cataract surgery"
                   },
                   {
                         "type": "para",
-                        "text": "Recovery from cataract surgery is typically swift and straightforward. Most patients experience a significant improvement in vision within 24-48 hours. You will likely be prescribed eye drops to prevent infection and reduce inflammation. It&#8217;s essential to follow your doctor&#8217;s instructions carefully:"
+                        "text": "Recovery from cataract surgery is typically quick and simple. Most patients experience a significant improvement in vision within 24-48 hours. You will likely be prescribed eye drops to prevent infection and reduce inflammation. It&#8217;s essential to follow your doctor&#8217;s instructions carefully:"
                   },
                   {
                         "type": "item",
@@ -1063,7 +1063,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "item",
-                        "text": "Attend Follow-Up Appointments: Regular check-ups are crucial to monitor your healing."
+                        "text": "Attend Follow-Up Appointments: Regular check-ups are important for monitoring your healing."
                   },
                   {
                         "type": "para",
@@ -1071,7 +1071,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When to Seek Immediate Medical Attention"
+                        "text": "When to seek immediate medical attention"
                   },
                   {
                         "type": "para",
@@ -1099,11 +1099,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "Cataract surgery is a life-changing procedure that can significantly enhance your vision and overall well-being. By understanding both the benefits and potential risks, and by choosing a reputable institution like Mungale Eye Hospital, you can embark on your journey to clearer sight with confidence."
+                        "text": "Cataract surgery is a life-changing procedure that can significantly enhance your vision and overall well-being. By understanding both the benefits and potential risks, and by choosing a reputable institution like Mungale Eye Hospital, you can move towards clearer sight with confidence."
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions About Cataract Surgery",
+                        "text": "Frequently asked questions about cataract surgery",
                         "items": [
                               {
                                     "q": "What are the most common benefits of cataract surgery?",
@@ -1170,23 +1170,23 @@ export const blogBodies: BlogBody[] = [
             "blocks": [
                   {
                         "type": "heading",
-                        "text": "The Crucial Importance of Regular Eye Check-ups for Your Vision and Health"
+                        "text": "Why regular eye check-ups matter for your vision and health"
                   },
                   {
                         "type": "para",
-                        "text": "Our vision is one of our most precious senses, allowing us to experience the world in vivid detail. Yet, many people underestimate the importance of regular eye check-ups. These routine appointments are not just about getting a new prescription for glasses; they are a vital part of maintaining both your eye health and your overall well-being. Professional eye care offers a window into your body&#8217;s health that is often overlooked."
+                        "text": "Our vision is one of our most precious senses, allowing us to experience the world in vivid detail. Yet, many people underestimate the importance of regular eye check-ups. These routine appointments are not just about getting a new prescription for glasses; they are an important part of maintaining both your eye health and your overall well-being. Professional eye care offers a window into your body&#8217;s health that is often overlooked."
                   },
                   {
                         "type": "heading",
-                        "text": "Early Detection of Serious Eye Diseases"
+                        "text": "Early detection of serious eye diseases"
                   },
                   {
                         "type": "para",
-                        "text": "Many serious eye conditions, such as glaucoma, diabetic retinopathy, and macular degeneration, can develop silently with no noticeable symptoms in their early stages. Regular comprehensive eye exams conducted by an optometrist or ophthalmologist are crucial for detecting these diseases early. Early detection often means more effective treatment, which can prevent significant vision loss or even blindness. During an eye exam, your eye doctor can identify subtle changes in your eye&#8217;s structure and function that might indicate an underlying problem long before you experience any discomfort or vision changes."
+                        "text": "Many serious eye conditions, such as glaucoma, diabetic retinopathy, and macular degeneration, can develop silently with no noticeable symptoms in their early stages. Regular comprehensive eye exams conducted by an optometrist or ophthalmologist are important for detecting these diseases early. Early detection often means more effective treatment, which can prevent significant vision loss or even blindness. During an eye exam, your eye doctor can identify subtle changes in your eye&#8217;s structure and function that might indicate an underlying problem long before you experience any discomfort or vision changes."
                   },
                   {
                         "type": "heading",
-                        "text": "Ensuring Optimal Vision Correction"
+                        "text": "Ensuring optimal vision correction"
                   },
                   {
                         "type": "para",
@@ -1194,7 +1194,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Preventing and Managing Eye Strain"
+                        "text": "Preventing and managing eye strain"
                   },
                   {
                         "type": "para",
@@ -1202,7 +1202,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Monitoring Overall Health"
+                        "text": "Monitoring overall health"
                   },
                   {
                         "type": "para",
@@ -1210,7 +1210,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "The Importance of Professional Eye Care"
+                        "text": "The importance of professional eye care"
                   },
                   {
                         "type": "para",
@@ -1222,7 +1222,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "The Power of Early Detection in Preserving Sight"
+                        "text": "The power of early detection in preserving sight"
                   },
                   {
                         "type": "para",
@@ -1230,7 +1230,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions About Regular Eye Check-ups",
+                        "text": "Frequently asked questions about regular eye check-ups",
                         "items": [
                               {
                                     "q": "How often should I get my eyes checked?",
@@ -1264,7 +1264,7 @@ export const blogBodies: BlogBody[] = [
                                     "a": [
                                           {
                                                 "type": "para",
-                                                "text": "Regular eye check-ups are crucial for maintaining good vision and detecting eye diseases in their early stages, often before you notice any symptoms. Many serious eye conditions, such as glaucoma, age-related macular degeneration, and diabetic retinopathy, can lead to irreversible vision loss if not treated promptly. Mungale Eye Hospital emphasizes the importance of these regular visits for preserving your sight."
+                                                "text": "Regular eye check-ups are important for maintaining good vision and detecting eye diseases in their early stages, often before you notice any symptoms. Many serious eye conditions, such as glaucoma, age-related macular degeneration, and diabetic retinopathy, can lead to irreversible vision loss if not treated promptly. Mungale Eye Hospital emphasizes the importance of these regular visits for preserving your sight."
                                           }
                                     ]
                               }
@@ -1279,23 +1279,23 @@ export const blogBodies: BlogBody[] = [
             "blocks": [
                   {
                         "type": "heading",
-                        "text": "Glaucoma Treatment Options: A Comprehensive Guide"
+                        "text": "Glaucoma treatment options"
                   },
                   {
                         "type": "para",
-                        "text": "Glaucoma is a group of eye conditions that damage the optic nerve, which is vital for good vision. This damage is often caused by an abnormally high pressure in your eye. If left untreated, glaucoma can lead to vision loss and blindness. Fortunately, with early detection and appropriate treatment, vision loss can often be slowed or prevented. Mungale Eye Hospital is dedicated to providing comprehensive care and the latest treatment options for glaucoma patients."
+                        "text": "Glaucoma is a group of eye conditions that damage the optic nerve, which is essential for good vision. This damage is often caused by an abnormally high pressure in your eye. If left untreated, glaucoma can lead to vision loss and blindness. Fortunately, with early detection and appropriate treatment, vision loss can often be slowed or prevented. Mungale Eye Hospital is dedicated to providing comprehensive care and the latest treatment options for glaucoma patients."
                   },
                   {
                         "type": "heading",
-                        "text": "Early Detection: The First Step to Preserving Vision"
+                        "text": "Early detection: the first step to preserving vision"
                   },
                   {
                         "type": "para",
-                        "text": "Early detection is crucial in managing glaucoma effectively. Regular comprehensive eye exams, especially if you have risk factors such as a family history of glaucoma, are over 40, have diabetes, high blood pressure, or have had a previous eye injury, are essential. Mungale Eye Hospital emphasizes the importance of these screenings as they can identify glaucoma in its early stages when treatment is most effective."
+                        "text": "Early detection makes the biggest difference in managing glaucoma. Regular comprehensive eye exams, especially if you have risk factors such as a family history of glaucoma, are over 40, have diabetes, high blood pressure, or have had a previous eye injury, are essential. Mungale Eye Hospital emphasizes the importance of these screenings as they can identify glaucoma in its early stages when treatment is most effective."
                   },
                   {
                         "type": "heading",
-                        "text": "Understanding Glaucoma Treatment Approaches"
+                        "text": "Understanding glaucoma treatment approaches"
                   },
                   {
                         "type": "para",
@@ -1303,7 +1303,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "1. Medical Treatments (Eye Drops)"
+                        "text": "1. medical treatments (eye drops)"
                   },
                   {
                         "type": "para",
@@ -1319,11 +1319,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "item",
-                        "text": "Risks: Side effects can include stinging, redness, itching, blurred vision, and in some cases, systemic effects affecting heart rate or breathing. Consistent adherence to the prescribed schedule is vital for effectiveness."
+                        "text": "Risks: Side effects can include stinging, redness, itching, blurred vision, and in some cases, systemic effects affecting heart rate or breathing. Consistent sticking to the prescribed schedule is essential for the drops to work."
                   },
                   {
                         "type": "heading",
-                        "text": "2. Laser Treatments"
+                        "text": "2. laser treatments"
                   },
                   {
                         "type": "para",
@@ -1355,7 +1355,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "3. Surgical Treatments"
+                        "text": "3. surgical treatments"
                   },
                   {
                         "type": "para",
@@ -1387,7 +1387,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "In addition to medical, laser, and surgical treatments, lifestyle choices can play a supportive role in managing glaucoma. Maintaining a healthy diet, regular exercise (under guidance, as some exercises might affect eye pressure), and stress management can contribute to overall eye health. Regular communication with your eye care team at Mungale Eye Hospital about any concerns or changes in your vision is paramount."
+                        "text": "In addition to medical, laser, and surgical treatments, lifestyle choices can play a supportive role in managing glaucoma. Maintaining a healthy diet, regular exercise (under guidance, as some exercises might affect eye pressure), and stress management can contribute to overall eye health. Regular communication with your eye care team at Mungale Eye Hospital about any concerns or changes in your vision early protects your sight."
                   },
                   {
                         "type": "para",
@@ -1399,7 +1399,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions About Glaucoma Treatment Options",
+                        "text": "Frequently asked questions about glaucoma treatment options",
                         "items": [
                               {
                                     "q": "What are the main types of glaucoma treatment?",
@@ -1431,7 +1431,7 @@ export const blogBodies: BlogBody[] = [
                                     "a": [
                                           {
                                                 "type": "para",
-                                                "text": "The success rate of glaucoma surgery can vary depending on the type of procedure, the patient s overall eye health, and the severity of the glaucoma. Generally, glaucoma surgeries are highly effective in lowering intraocular pressure (IOP) and slowing or halting disease progression in a significant majority of patients. At Mungale Eye Hospital, our experienced surgeons strive for optimal outcomes through precise surgical techniques and careful patient selection. Regular follow-up appointments are crucial to monitor the long-term success of the surgery."
+                                                "text": "The success rate of glaucoma surgery can vary depending on the type of procedure, the patient s overall eye health, and the severity of the glaucoma. Generally, glaucoma surgeries are highly effective in lowering intraocular pressure (IOP) and slowing or halting disease progression in a significant majority of patients. At Mungale Eye Hospital, our experienced surgeons strive for optimal outcomes through precise surgical techniques and careful patient selection. Regular follow-up appointments help monitor the long-term success of the surgery."
                                           }
                                     ]
                               },
@@ -1449,7 +1449,7 @@ export const blogBodies: BlogBody[] = [
                                     "a": [
                                           {
                                                 "type": "para",
-                                                "text": "Recovery time after glaucoma surgery varies. For many procedures, patients can resume normal activities within a few days to a couple of weeks. However, it s crucial to follow your surgeon s post-operative instructions carefully, which typically involve avoiding strenuous activities, heavy lifting, and rubbing the operated eye. You will likely have several follow-up appointments to monitor healing and eye pressure. The team at Mungale Eye Hospital provides detailed post-operative care plans to ensure a smooth recovery."
+                                                "text": "Recovery time after glaucoma surgery varies. For many procedures, patients can resume normal activities within a few days to a couple of weeks. However, it is important to follow your surgeon&#8217;s post-operative instructions carefully, which typically involve avoiding strenuous activities, heavy lifting, and rubbing the operated eye. You will likely have several follow-up appointments to monitor healing and eye pressure. The team at Mungale Eye Hospital provides detailed post-operative care plans to ensure a smooth recovery."
                                           }
                                     ]
                               },
@@ -1506,7 +1506,7 @@ export const blogBodies: BlogBody[] = [
             "blocks": [
                   {
                         "type": "heading",
-                        "text": "Benefits of Cataract Surgery for Better Vision in Daily Life"
+                        "text": "Benefits of cataract surgery for better vision in daily life"
                   },
                   {
                         "type": "para",
@@ -1522,7 +1522,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Everyday Tasks Feel Clearer Again"
+                        "text": "Everyday tasks feel clearer again"
                   },
                   {
                         "type": "para",
@@ -1538,7 +1538,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Colours Look Right Again"
+                        "text": "Colours look right again"
                   },
                   {
                         "type": "para",
@@ -1554,7 +1554,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Glare Stops Being a Problem, Especially at Night"
+                        "text": "Glare stops being a problem, especially at night"
                   },
                   {
                         "type": "para",
@@ -1562,7 +1562,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "That&#8217;s usually the point where people stop driving after dark. Some stop going out in the evening altogether. Not because they want to because it&#8217;s genuinely uncomfortable."
+                        "text": "That&#8217;s usually the point where people stop driving after dark. Some stop going out in the evening altogether. Not because they want to, but because it&#8217;s uncomfortable."
                   },
                   {
                         "type": "para",
@@ -1570,7 +1570,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Reading and Screens Stop Being Exhausting"
+                        "text": "Reading and screens stop being exhausting"
                   },
                   {
                         "type": "para",
@@ -1586,7 +1586,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Confidence Comes Back"
+                        "text": "Confidence comes back"
                   },
                   {
                         "type": "para",
@@ -1602,7 +1602,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Daily Life Just Feels Lighter"
+                        "text": "Daily life just feels lighter"
                   },
                   {
                         "type": "para",
@@ -1618,7 +1618,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "You Might Need Glasses Less Too"
+                        "text": "You might need glasses less too"
                   },
                   {
                         "type": "para",
@@ -1630,7 +1630,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When Will You Notice the Difference?"
+                        "text": "When will you notice the difference?"
                   },
                   {
                         "type": "para",
@@ -1642,7 +1642,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Signs It Might Be Time to Get Checked"
+                        "text": "Signs it might be time to get checked"
                   },
                   {
                         "type": "para",
@@ -1658,7 +1658,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "What s the main benefit of cataract surgery?",
@@ -1732,7 +1732,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "The 5 Key Nutrients Your Eyes Need Daily"
+                        "text": "The 5 key nutrients your eyes need daily"
                   },
                   {
                         "type": "para",
@@ -1744,11 +1744,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "15 Superfoods for Better Vision"
+                        "text": "15 superfoods for better vision"
                   },
                   {
                         "type": "heading",
-                        "text": "1. Palak (Spinach) - The #1 Eye Superfood"
+                        "text": "1. palak (spinach) - the #1 eye superfood"
                   },
                   {
                         "type": "para",
@@ -1764,7 +1764,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "2. Gajar (Carrots) - The Vision Vegetable"
+                        "text": "2. gajar (carrots) - the vision vegetable"
                   },
                   {
                         "type": "para",
@@ -1780,7 +1780,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "3. Machhali (Fatty Fish) - The Omega-3 Powerhouse"
+                        "text": "3. machhali (fatty fish) - the Omega-3 powerhouse"
                   },
                   {
                         "type": "para",
@@ -1812,7 +1812,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "4. Methi (Fenugreek Leaves) - The Overlooked Eye Protector"
+                        "text": "4. methi (fenugreek leaves) - the overlooked eye protector"
                   },
                   {
                         "type": "para",
@@ -1828,7 +1828,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "5. Amla (Indian Gooseberry) - Nature&#8217;s Vitamin C Bomb"
+                        "text": "5. amla (Indian gooseberry) - nature&#8217;s vitamin C bomb"
                   },
                   {
                         "type": "para",
@@ -1844,7 +1844,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "6. Rajma & Chana (Kidney Beans & Chickpeas) - The Zinc Heroes"
+                        "text": "6. rajma & chana (kidney beans & chickpeas) - the zinc heroes"
                   },
                   {
                         "type": "para",
@@ -1860,7 +1860,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "7. Ande (Eggs) - The Bioavailable Eye Food"
+                        "text": "7. ande (eggs) - the bioavailable eye food"
                   },
                   {
                         "type": "para",
@@ -1876,7 +1876,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "8. Badam (Almonds) - The Vitamin E Champion"
+                        "text": "8. badam (almonds) - the vitamin E champion"
                   },
                   {
                         "type": "para",
@@ -1892,7 +1892,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "9. Haldi (Turmeric) - The Anti-Inflammatory Eye Spice"
+                        "text": "9. haldi (turmeric) - the anti-inflammatory eye spice"
                   },
                   {
                         "type": "para",
@@ -1900,7 +1900,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "Curcumin, the active compound in turmeric, has powerful anti-inflammatory and antioxidant properties being studied for eye health applications including glaucoma, AMD, and dry eye disease. India&#8217;s tradition of using turmeric in daily cooking is genuinely beneficial for eye health."
+                        "text": "Curcumin, the active compound in turmeric, has powerful anti-inflammatory and antioxidant properties being studied for eye health applications including glaucoma, AMD, and dry eye disease. India&#8217;s tradition of using turmeric in daily cooking is beneficial for eye health."
                   },
                   {
                         "type": "para",
@@ -1908,7 +1908,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "10. Citrus Fruits (Santara, Mosambi, Nimbu) - Vitamin C for Corneal Health"
+                        "text": "10. citrus fruits (santara, mosambi, nimbu) - vitamin C for corneal health"
                   },
                   {
                         "type": "para",
@@ -1924,7 +1924,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "11. Akhrot (Walnuts) - Omega-3 for Vegetarians"
+                        "text": "11. akhrot (walnuts) - Omega-3 for vegetarians"
                   },
                   {
                         "type": "para",
@@ -1940,7 +1940,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "12. Hari Sabziyan (Green Vegetables) - Kale, Broccoli, Peas"
+                        "text": "12. hari sabziyan (green vegetables) - kale, broccoli, peas"
                   },
                   {
                         "type": "para",
@@ -1956,7 +1956,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "13. Kachche Beej (Seeds) - Pumpkin, Sunflower, Flaxseed"
+                        "text": "13. kachche beej (seeds) - pumpkin, sunflower, flaxseed"
                   },
                   {
                         "type": "para",
@@ -1984,7 +1984,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "14. Shakarkandi & Arbi (Sweet Potato & Taro) - Vitamin A Champions"
+                        "text": "14. shakarkandi & arbi (sweet potato & taro) - vitamin A champions"
                   },
                   {
                         "type": "para",
@@ -2000,7 +2000,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "15. Saffron (Kesar) - India&#8217;s Precious Eye Spice"
+                        "text": "15. saffron (kesar) - india&#8217;s precious eye spice"
                   },
                   {
                         "type": "para",
@@ -2016,11 +2016,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Best Foods For Eye Health Meal Plan"
+                        "text": "Best foods for eye health meal plan"
                   },
                   {
                         "type": "heading",
-                        "text": "Daily Non-Negotiables:"
+                        "text": "Daily non-negotiables:"
                   },
                   {
                         "type": "item",
@@ -2040,7 +2040,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Weekly Must-Haves:"
+                        "text": "Weekly must-haves:"
                   },
                   {
                         "type": "item",
@@ -2064,7 +2064,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Foods That Harm Your Eye Health (Avoid or Limit)"
+                        "text": "Foods that harm your eye health (avoid or limit)"
                   },
                   {
                         "type": "para",
@@ -2092,7 +2092,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "The Bottom Line: Your Kitchen is Your First Eye Clinic"
+                        "text": "Your kitchen is your first eye clinic"
                   },
                   {
                         "type": "para",
@@ -2108,7 +2108,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Consult Our Eye Nutrition Experts at Mungale Eye Hospital"
+                        "text": "Consult our eye nutrition experts at Mungale Eye Hospital"
                   },
                   {
                         "type": "para",
@@ -2116,11 +2116,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "With advanced diagnostic technology and experienced eye specialists, we ensure holistic vision care from medical treatment to preventive nutrition support."
+                        "text": "With advanced diagnostic technology and experienced eye specialists, we offer complete vision care, from medical treatment to nutrition guidance."
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions (FAQs)",
+                        "text": "Frequently asked questions (FAQs)",
                         "items": [
                               {
                                     "q": "Can eating carrots actually improve my eyesight?",
@@ -2132,7 +2132,7 @@ export const blogBodies: BlogBody[] = [
                                     ]
                               },
                               {
-                                    "q": "I m vegetarian. Can I get enough omega-3 for my eyes without eating fish?",
+                                    "q": "I m vegetarian. can I get enough omega-3 for my eyes without eating fish?",
                                     "a": [
                                           {
                                                 "type": "para",
@@ -2177,7 +2177,7 @@ export const blogBodies: BlogBody[] = [
                                     ]
                               },
                               {
-                                    "q": "My child has increasing myopia. Are there foods that can help slow it down?",
+                                    "q": "My child has increasing myopia. are there foods that can help slow it down?",
                                     "a": [
                                           {
                                                 "type": "para",
@@ -2217,7 +2217,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Exactly is AI in Eye Care?"
+                        "text": "What exactly is AI in eye care?"
                   },
                   {
                         "type": "para",
@@ -2253,11 +2253,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Where AI is Making the Biggest Difference: 5 Key Areas"
+                        "text": "Where AI is making the biggest difference: 5 key areas"
                   },
                   {
                         "type": "heading",
-                        "text": "1. Diabetic Retinopathy: AI Saving Millions of Indian Eyes"
+                        "text": "1. diabetic retinopathy: AI saving millions of Indian eyes"
                   },
                   {
                         "type": "para",
@@ -2281,7 +2281,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "2. Glaucoma: Detecting the Silent Thief Before It Strikes"
+                        "text": "2. glaucoma: detecting the silent thief before it strikes"
                   },
                   {
                         "type": "para",
@@ -2309,7 +2309,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "3. Age-Related Macular Degeneration (AMD): Smarter Monitoring"
+                        "text": "3. age-related macular degeneration (AMD): smarter monitoring"
                   },
                   {
                         "type": "para",
@@ -2337,7 +2337,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "4. Childhood Myopia: Predicting Who Will Develop High Power"
+                        "text": "4. childhood myopia: predicting who will develop high power"
                   },
                   {
                         "type": "para",
@@ -2361,7 +2361,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "5. Cataract Surgery: Precision Planning with AI"
+                        "text": "5. cataract surgery: precision planning with AI"
                   },
                   {
                         "type": "para",
@@ -2385,7 +2385,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "AI in India: The National Push"
+                        "text": "AI in India: the national push"
                   },
                   {
                         "type": "para",
@@ -2413,7 +2413,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "AI + Doctor: Better Together"
+                        "text": "AI + doctor: better together"
                   },
                   {
                         "type": "para",
@@ -2473,7 +2473,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What AI-Powered Eye Care Looks Like for You Today"
+                        "text": "What ai-powered eye care looks like for you today"
                   },
                   {
                         "type": "para",
@@ -2481,7 +2481,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "The Honest Limitations: What AI Still Can&#8217;t Do"
+                        "text": "The honest limitations: what AI still can&#8217;t do"
                   },
                   {
                         "type": "para",
@@ -2505,7 +2505,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "The Bottom Line: AI is Making Eye Care Better for Every Indian"
+                        "text": "AI is making eye care better for every Indian"
                   },
                   {
                         "type": "para",
@@ -2521,7 +2521,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions (FAQs)",
+                        "text": "Frequently asked questions (FAQs)",
                         "items": [
                               {
                                     "q": "Can AI diagnose eye diseases on its own without a doctor?",
@@ -2533,7 +2533,7 @@ export const blogBodies: BlogBody[] = [
                                     ]
                               },
                               {
-                                    "q": "Is AI-based eye screening available in India right now?",
+                                    "q": "Is ai-based eye screening available in India right now?",
                                     "a": [
                                           {
                                                 "type": "para",
@@ -2542,7 +2542,7 @@ export const blogBodies: BlogBody[] = [
                                     ]
                               },
                               {
-                                    "q": "Is AI eye screening accurate? Can I trust the results?",
+                                    "q": "Is AI eye screening accurate? can I trust the results?",
                                     "a": [
                                           {
                                                 "type": "para",
@@ -2560,7 +2560,7 @@ export const blogBodies: BlogBody[] = [
                                     ]
                               },
                               {
-                                    "q": "My child has increasing myopia. Can AI help predict how severe it will get?",
+                                    "q": "My child has increasing myopia. can AI help predict how severe it will get?",
                                     "a": [
                                           {
                                                 "type": "para",
@@ -2578,7 +2578,7 @@ export const blogBodies: BlogBody[] = [
                                     ]
                               },
                               {
-                                    "q": "I have diabetes. Should I ask for an AI-based retinal screening?",
+                                    "q": "I have diabetes. should I ask for an ai-based retinal screening?",
                                     "a": [
                                           {
                                                 "type": "para",
@@ -2605,11 +2605,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Here are the 7 Habit for New Year Eye Health Resolutions 2026:"
+                        "text": "Here are the 7 habit for new Year eye health resolutions 2026:"
                   },
                   {
                         "type": "heading",
-                        "text": "1. Schedule Your Comprehensive Eye Exam (Don&#8217;t Wait for Symptoms)"
+                        "text": "1. schedule your comprehensive eye exam (don&#8217;t wait for symptoms)"
                   },
                   {
                         "type": "para",
@@ -2621,7 +2621,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "item",
-                        "text": "Ages 6-18: Annually (crucial for learning and development)"
+                        "text": "Ages 6-18: Annually (important for learning and development)"
                   },
                   {
                         "type": "item",
@@ -2653,7 +2653,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "2. Master the 20-20-20 Rule (Your Screen Time Savior)"
+                        "text": "2. master the 20-20-20 rule (your screen time savior)"
                   },
                   {
                         "type": "para",
@@ -2701,7 +2701,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "3. Nourish Your Eyes from Within (Eat for Better Vision)"
+                        "text": "3. nourish your eyes from within (eat for better vision)"
                   },
                   {
                         "type": "para",
@@ -2741,7 +2741,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "4. Upgrade Your Sunglasses Game (UV Protection is Essential)"
+                        "text": "4. upgrade your sunglasses game (UV protection is essential)"
                   },
                   {
                         "type": "para",
@@ -2785,7 +2785,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "5. Quit Smoking (Your Eyes Will Thank You)"
+                        "text": "5. quit smoking (your eyes will thank you)"
                   },
                   {
                         "type": "para",
@@ -2845,7 +2845,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "6. Manage Chronic Conditions (The Eye-Health Connection)"
+                        "text": "6. manage chronic conditions (the eye-health connection)"
                   },
                   {
                         "type": "para",
@@ -2909,7 +2909,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "7. Protect Your Eyes at Work and Play (Safety First)"
+                        "text": "7. protect your eyes at work and play (safety first)"
                   },
                   {
                         "type": "para",
@@ -2965,7 +2965,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Your 2026 Eye Health Action Plan"
+                        "text": "Your 2026 eye health action plan"
                   },
                   {
                         "type": "item",
@@ -3037,7 +3037,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions (FAQs)",
+                        "text": "Frequently asked questions (FAQs)",
                         "items": [
                               {
                                     "q": "How often should I get an eye exam if I have no vision problems?",
@@ -3085,7 +3085,7 @@ export const blogBodies: BlogBody[] = [
                                     ]
                               },
                               {
-                                    "q": "My parents have diabetes. When should I start getting eye exams?",
+                                    "q": "My parents have diabetes. when should I start getting eye exams?",
                                     "a": [
                                           {
                                                 "type": "para",
@@ -3152,7 +3152,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "The Indian Glaucoma Awareness Month 2026 Crisis: Numbers That Demand Attention"
+                        "text": "The Indian glaucoma Awareness Month 2026 crisis: numbers that demand attention"
                   },
                   {
                         "type": "para",
@@ -3188,7 +3188,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Who’s at Highest Risk? (India-Specific)"
+                        "text": "Who’s at highest risk? (india-specific)"
                   },
                   {
                         "type": "item",
@@ -3232,11 +3232,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Common Types of Glaucoma in India"
+                        "text": "Common types of glaucoma in India"
                   },
                   {
                         "type": "heading",
-                        "text": "Primary Open-Angle Glaucoma (36.4%)"
+                        "text": "Primary open-angle glaucoma (36.4%)"
                   },
                   {
                         "type": "item",
@@ -3252,7 +3252,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Primary Angle-Closure Glaucoma (34.5%)"
+                        "text": "Primary angle-closure glaucoma (34.5%)"
                   },
                   {
                         "type": "para",
@@ -3276,7 +3276,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Secondary Glaucoma (17.4%)"
+                        "text": "Secondary glaucoma (17.4%)"
                   },
                   {
                         "type": "item",
@@ -3292,7 +3292,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why Early Detection Is Critical for India"
+                        "text": "Why early detection is critical for India"
                   },
                   {
                         "type": "item",
@@ -3316,7 +3316,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Glaucoma Is Diagnosed"
+                        "text": "How glaucoma is diagnosed"
                   },
                   {
                         "type": "item",
@@ -3332,7 +3332,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Recommended Screening Frequency"
+                        "text": "Recommended screening frequency"
                   },
                   {
                         "type": "item",
@@ -3348,7 +3348,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Treatment Options"
+                        "text": "Treatment options"
                   },
                   {
                         "type": "para",
@@ -3364,7 +3364,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Surgical Options"
+                        "text": "Surgical options"
                   },
                   {
                         "type": "item",
@@ -3376,7 +3376,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "Can glaucoma be cured?",
@@ -3438,7 +3438,7 @@ export const blogBodies: BlogBody[] = [
             "blocks": [
                   {
                         "type": "heading",
-                        "text": "Corneal Ulcer Treatment Starts With Early Awareness"
+                        "text": "Corneal ulcer treatment starts with early awareness"
                   },
                   {
                         "type": "para",
@@ -3450,11 +3450,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "Early awareness and timely specialist care play a crucial role in saving vision."
+                        "text": "Early awareness and timely specialist care play a key role in saving vision."
                   },
                   {
                         "type": "heading",
-                        "text": "How Corneal Ulcers Commonly Develop"
+                        "text": "How corneal ulcers commonly develop"
                   },
                   {
                         "type": "para",
@@ -3498,7 +3498,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why Using Eye Drops Without Doctor Advice Can Delay Corneal Ulcer Treatment"
+                        "text": "Why using eye drops without doctor advice can delay corneal ulcer treatment"
                   },
                   {
                         "type": "para",
@@ -3514,7 +3514,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Early Signs That Indicate the Need for Corneal Ulcer Treatment"
+                        "text": "Early signs that indicate the need for corneal ulcer treatment"
                   },
                   {
                         "type": "para",
@@ -3554,7 +3554,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why Cornea Evaluation Is the First Step in Corneal Ulcer Treatment"
+                        "text": "Why cornea evaluation is the first step in corneal ulcer treatment"
                   },
                   {
                         "type": "para",
@@ -3586,7 +3586,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Corneal Ulcer Treatment Options"
+                        "text": "Corneal ulcer treatment options"
                   },
                   {
                         "type": "para",
@@ -3610,7 +3610,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Happens If Corneal Ulcer Treatment Is Delayed"
+                        "text": "What happens if corneal ulcer treatment is delayed"
                   },
                   {
                         "type": "para",
@@ -3638,7 +3638,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Preventing the Need for Corneal Ulcer Treatment"
+                        "text": "Preventing the need for corneal ulcer treatment"
                   },
                   {
                         "type": "para",
@@ -3670,7 +3670,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why Choose Mungale Eye Hospital for Corneal Ulcer Treatment in Vadodara"
+                        "text": "Why choose Mungale Eye Hospital for corneal ulcer treatment in Vadodara"
                   },
                   {
                         "type": "para",
@@ -3702,7 +3702,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions About Corneal Ulcer Treatment",
+                        "text": "Frequently asked questions about corneal ulcer treatment",
                         "items": [
                               {
                                     "q": "What is corneal ulcer treatment",
@@ -3767,7 +3767,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "This guide walks you through LASIK Surgery before and after common questions and what you should know before booking your screening."
+                        "text": "This guide walks you through LASIK surgery before and after common questions and what you should know before booking your screening."
                   },
                   {
                         "type": "para",
@@ -3815,7 +3815,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "If you live in Vadodara or Ahmedabad and are wondering am I suitable for LASIK the only real way to know is a detailed screening. Many people bring old reports or previous prescriptions. The team at Mungale Eye Hospital checks everything calmly and explains the findings in simple words. Their approach is straightforward. If something in your eyes makes LASIK unsafe the doctor will recommend an alternative. There is no pressure and no marketing style push."
+                        "text": "If you live in Vadodara or Ahmedabad and are wondering am I suitable for LASIK the only real way to know is a detailed screening. Many people bring old reports or previous prescriptions. The team at Mungale Eye Hospital checks everything calmly and explains the findings in simple words. Their approach is simple. If something in your eyes makes LASIK unsafe the doctor will recommend an alternative. There is no pressure and no marketing style push."
                   },
                   {
                         "type": "para",
@@ -3939,7 +3939,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "FAQ",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "Does LASIK hurt",
@@ -4012,11 +4012,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When Should You See an Eye Doctor?"
+                        "text": "When should you see an eye doctor?"
                   },
                   {
                         "type": "heading",
-                        "text": "Your Eyes Work Harder Than You Think"
+                        "text": "Your eyes work harder than you think"
                   },
                   {
                         "type": "para",
@@ -4028,7 +4028,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Eye Hospital Care in Vadodara: A Complete Guide"
+                        "text": "Eye Hospital care in Vadodara: a complete guide"
                   },
                   {
                         "type": "para",
@@ -4088,7 +4088,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How to Find the Right Eye Doctor"
+                        "text": "How to find the right eye doctor"
                   },
                   {
                         "type": "para",
@@ -4108,7 +4108,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "People Often Ask Us",
+                        "text": "People often ask us",
                         "items": [
                               {
                                     "q": "How often should I get my eyes checked?",
@@ -4174,7 +4174,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "1. Why Eye Care Shouldn’t Be an Afterthought When Choosing an Eye Hospital Near Me"
+                        "text": "1. why eye care shouldn’t be an afterthought when choosing an eye Hospital Near Me"
                   },
                   {
                         "type": "para",
@@ -4198,7 +4198,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "2.The Everyday Challenges Our Eyes Face – And How an Eye Hospital Near Me Can Help"
+                        "text": "2.The everyday challenges our eyes face – and how an eye Hospital Near Me can help"
                   },
                   {
                         "type": "para",
@@ -4234,7 +4234,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "3. What Makes a Good Eye Hospital Near Me in Vadodara Stand Out from the Rest"
+                        "text": "3. what makes a good eye Hospital Near Me in Vadodara stand out from the rest"
                   },
                   {
                         "type": "para",
@@ -4262,7 +4262,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "4. Services You Can Expect at an Eye Hospital Near Me in Vadodara"
+                        "text": "4. services you can expect at an eye Hospital Near Me in Vadodara"
                   },
                   {
                         "type": "para",
@@ -4310,7 +4310,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "5. Common Eye Conditions Treated at Trusted Eye Hospitals Near Me in Vadodara and Western India"
+                        "text": "5. common eye conditions treated at trusted eye hospitals near Me in Vadodara and western India"
                   },
                   {
                         "type": "para",
@@ -4346,7 +4346,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "6. Why Early Eye Check‑Ups at an Eye Hospital Near Me Make All the Difference"
+                        "text": "6. why early eye check‑ups at an eye Hospital Near Me make all the difference"
                   },
                   {
                         "type": "para",
@@ -4362,7 +4362,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "7. The Role of Technology in a Modern Eye Hospital Near Me"
+                        "text": "7. the role of technology in a modern eye Hospital Near Me"
                   },
                   {
                         "type": "para",
@@ -4394,11 +4394,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "These technologies make local hospitals like Mungale Eye Hospital stand shoulder to shoulder with big-city institutions in Ahmedabad or Mumbai -giving Vadodara residents world-class care without long travel or costs."
+                        "text": "These technologies make local hospitals like Mungale Eye Hospital stand shoulder to shoulder with big-city institutions in Ahmedabad or Mumbai -giving Vadodara residents big-city-standard care without the travel or the costs."
                   },
                   {
                         "type": "heading",
-                        "text": "8. How to Find an Eye Hospital Near You (Without Getting Lost Online)"
+                        "text": "8. how to find an eye Hospital Near you (without getting lost online)"
                   },
                   {
                         "type": "para",
@@ -4434,7 +4434,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "9. Simple Things You Can Do at Home for Better Vision – Recommended by Eye Specialists Near Me"
+                        "text": "9. simple things you can do at home for better vision – recommended by eye specialists near Me"
                   },
                   {
                         "type": "para",
@@ -4470,7 +4470,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "10. When to Visit an Eye Doctor Near Me Immediately for Emergency Care"
+                        "text": "10. when to visit an eye doctor near Me immediately for emergency care"
                   },
                   {
                         "type": "para",
@@ -4502,7 +4502,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "11. Frequently Asked Questions When You Search for an Eye Hospital",
+                        "text": "Frequently asked questions when you search for an eye hospital",
                         "items": [
                               {
                                     "q": "How often should I get my eyes tested?",
@@ -4562,7 +4562,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "12. The Human Side of Eye Care – What to Expect at a Compassionate Eye Hospital Near Me"
+                        "text": "12. the human side of eye care – what to expect at a compassionate eye Hospital Near Me"
                   },
                   {
                         "type": "para",
@@ -4578,7 +4578,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "13. The Bottom Line: See Clearly, Live Fully with the Right Eye Hospital Near Me"
+                        "text": "See clearly, live fully — choosing the right eye hospital"
                   },
                   {
                         "type": "para",
@@ -4605,15 +4605,15 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "This article is not a medical textbook. Think of it as a guide you might hear from your trusted eye doctor- straightforward, practical, and focused on what really matters. Careful evaluation before a corneal transplant is important, which diseases to watch out for, when a transplant becomes necessary, and how modern surgeries and careful follow-up can restore confidence in your sight."
+                        "text": "This article is not a medical textbook. Think of it as a guide you might hear from your trusted eye doctor- plain, practical, and focused on what really matters. Careful evaluation before a corneal transplant is important, which diseases to watch out for, when a transplant becomes necessary, and how modern surgeries and careful follow-up can restore confidence in your sight."
                   },
                   {
                         "type": "heading",
-                        "text": "Corneal Transplant Care at Mungale Eye Hospital"
+                        "text": "Corneal transplant care at Mungale Eye Hospital"
                   },
                   {
                         "type": "heading",
-                        "text": "Why Early Cornea Evaluation Matters"
+                        "text": "Why early cornea evaluation matters"
                   },
                   {
                         "type": "para",
@@ -4645,7 +4645,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Common Corneal Diseases that can be diagnosed at Mungale Eye Hospital"
+                        "text": "Common corneal diseases that can be diagnosed at Mungale Eye Hospital"
                   },
                   {
                         "type": "para",
@@ -4673,7 +4673,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When can you visit Eye Hospital for a Corneal Transplant"
+                        "text": "When can you visit eye Hospital for a corneal transplant"
                   },
                   {
                         "type": "para",
@@ -4701,7 +4701,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Advances in Surgery"
+                        "text": "Advances in surgery"
                   },
                   {
                         "type": "para",
@@ -4745,7 +4745,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "Follow-up is not a formality. Even years after surgery, check-ups are crucial to keep the graft healthy."
+                        "text": "Follow-up is not a formality. Even years after surgery, check-ups are important to keep the graft healthy."
                   }
             ]
       },
@@ -4764,7 +4764,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How to Tell if It’s More Than “Getting Older Eyes” – Signs You May Need Cataract Surgery Vadodara Gujarat"
+                        "text": "How to tell if it’s more than “getting Older Eyes” – signs you May need cataract surgery Vadodara Gujarat"
                   },
                   {
                         "type": "para",
@@ -4772,7 +4772,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Common Red Flags for Cataract Surgery"
+                        "text": "Common red flags for cataract surgery"
                   },
                   {
                         "type": "item",
@@ -4796,7 +4796,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When to Say “Yes” to Cataract Surgery"
+                        "text": "When to say “yes” to cataract surgery"
                   },
                   {
                         "type": "para",
@@ -4808,7 +4808,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Cataract Surgery Options Look Like Today"
+                        "text": "What cataract surgery options look like today"
                   },
                   {
                         "type": "para",
@@ -4832,7 +4832,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "The Honest Truth About Cataract Surgery – Relief and Temporary Side Effects"
+                        "text": "The honest truth about cataract surgery – relief and temporary side effects"
                   },
                   {
                         "type": "item",
@@ -4856,7 +4856,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "The Lens You Choose Matters"
+                        "text": "The lens you choose matters"
                   },
                   {
                         "type": "para",
@@ -4884,7 +4884,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "What People Often Ask About Cataract Surgery",
+                        "text": "What people often ask about cataract surgery",
                         "items": [
                               {
                                     "q": "Is cataract surgery risky?",
@@ -4926,7 +4926,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Closing Thoughts"
+                        "text": "Closing thoughts"
                   },
                   {
                         "type": "para",
@@ -4945,11 +4945,11 @@ export const blogBodies: BlogBody[] = [
             "blocks": [
                   {
                         "type": "heading",
-                        "text": "Advanced Eye Care Treatment in Raopura Vadodara"
+                        "text": "Advanced eye care treatment in raopura Vadodara"
                   },
                   {
                         "type": "para",
-                        "text": "Access to timely and accurate eye care plays a crucial role in preserving vision and preventing long-term complications."
+                        "text": "Access to timely and accurate eye care plays a key role in preserving vision and preventing long-term complications."
                   },
                   {
                         "type": "para",
@@ -4961,7 +4961,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Importance of Advanced Eye Care Treatment in Raopura and Central Vadodara"
+                        "text": "Importance of advanced eye care treatment in raopura and central Vadodara"
                   },
                   {
                         "type": "para",
@@ -5001,7 +5001,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Comprehensive Advanced Eye Care Treatment Services at an Eye Care Hospital in Vadodara"
+                        "text": "Comprehensive advanced eye care treatment services at an eye care hospital in Vadodara"
                   },
                   {
                         "type": "para",
@@ -5009,7 +5009,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Cataract Advanced Eye Care Treatment in Vadodara"
+                        "text": "Cataract advanced eye care treatment in Vadodara"
                   },
                   {
                         "type": "para",
@@ -5017,7 +5017,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Advanced Eye Care Treatment with LASIK Eye Surgery in Vadodara"
+                        "text": "Advanced eye care treatment with LASIK eye surgery in Vadodara"
                   },
                   {
                         "type": "para",
@@ -5025,7 +5025,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Glaucoma Eye Care Treatment in Vadodara"
+                        "text": "Glaucoma eye care treatment in Vadodara"
                   },
                   {
                         "type": "para",
@@ -5033,7 +5033,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Advanced Eye Care Treatment by a Retina Specialist in Vadodara"
+                        "text": "Advanced eye care treatment by a retina specialist in Vadodara"
                   },
                   {
                         "type": "para",
@@ -5041,7 +5041,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Cornea Advanced Eye Care Treatment in Vadodara"
+                        "text": "Cornea advanced eye care treatment in Vadodara"
                   },
                   {
                         "type": "para",
@@ -5049,7 +5049,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Pediatric Eye Care Advanced Treatment in Vadodara"
+                        "text": "Pediatric eye care advanced treatment in Vadodara"
                   },
                   {
                         "type": "para",
@@ -5057,7 +5057,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Advanced Eye Care Treatment Facilities and Modern Equipment in Vadodara"
+                        "text": "Advanced eye care treatment facilities and modern equipment in Vadodara"
                   },
                   {
                         "type": "para",
@@ -5081,7 +5081,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Advanced Eye Care Treatment Serving Raopura, Kothi, and Nearby Areas of Vadodara"
+                        "text": "Advanced eye care treatment serving raopura, Kothi, and nearby areas of Vadodara"
                   },
                   {
                         "type": "para",
@@ -5093,7 +5093,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Ethical and Patient-Focused Advanced Eye Care Treatment"
+                        "text": "Ethical and patient-focused advanced eye care treatment"
                   },
                   {
                         "type": "para",
@@ -5117,7 +5117,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When Should You Seek Advanced Eye Care Treatment?"
+                        "text": "When should you seek advanced eye care treatment?"
                   },
                   {
                         "type": "para",
@@ -5149,7 +5149,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Advanced Eye Care Treatment You Can Rely On in Raopura Vadodara"
+                        "text": "Advanced eye care treatment you can rely on in raopura Vadodara"
                   },
                   {
                         "type": "para",
@@ -5168,19 +5168,15 @@ export const blogBodies: BlogBody[] = [
             "blocks": [
                   {
                         "type": "para",
-                        "text": "Introduction"
-                  },
-                  {
-                        "type": "para",
                         "text": "In Vadodara and across Gujarat, glaucoma is an increasingly common concern, especially among adults over 40 and diabetic patients. Unlike many eye conditions, glaucoma often progresses silently until irreversible vision loss has occurred."
                   },
                   {
                         "type": "para",
-                        "text": "But there is hope. One advanced solution that’s transforming glaucoma care is the Ahmed Glaucoma Valve surgery a scientifically proven way to control intraocular pressure (IOP) when other treatments have failed."
+                        "text": "But there is hope. One advanced solution that’s transforming glaucoma care is the Ahmed Glaucoma Valve surgery — a scientifically proven way to control intraocular pressure (IOP) when other treatments have failed."
                   },
                   {
                         "type": "para",
-                        "text": "At Mungale Eye Hospital , Vadodara, we specialize in advanced glaucoma surgeries, including AGV implantation, providing patients with a renewed opportunity to protect their vision and maintain their quality of life."
+                        "text": "At Mungale Eye Hospital, Vadodara, we specialize in advanced glaucoma surgeries, including AGV implantation, providing patients with a renewed opportunity to protect their vision and maintain their quality of life."
                   },
                   {
                         "type": "para",
@@ -5208,7 +5204,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "In Gujarat, late diagnosis—especially in rural areas—makes advanced surgical options like the Ahmed Glaucoma Valve all the more vital."
+                        "text": "In Gujarat, late diagnosis—especially in rural areas—makes advanced surgical options like the Ahmed Glaucoma Valve all the more important."
                   },
                   {
                         "type": "para",
@@ -5300,11 +5296,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "At Mungale Eye Hospital , Vadodara, we provide comprehensive evaluations to determine if AGV surgery is the right path—especially for high-risk patients from both urban and rural regions."
+                        "text": "At Mungale Eye Hospital, Vadodara, we provide comprehensive evaluations to determine if AGV surgery is the right path—especially for high-risk patients from both urban and rural regions."
                   },
                   {
                         "type": "heading",
-                        "text": "Benefits of Ahmed Glaucoma Valve Surgery in Vadodara"
+                        "text": "Benefits of ahmed glaucoma valve surgery in Vadodara"
                   },
                   {
                         "type": "para",
@@ -5352,7 +5348,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "Most patients return home the same day of the procedure. The healing process is straightforward with proper care."
+                        "text": "Most patients return home the same day of the procedure. The healing process is usually smooth with proper care."
                   },
                   {
                         "type": "para",
@@ -5380,10 +5376,10 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "FAQs – People Also Ask",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
-                                    "q": "Is the Ahmed Glaucoma Valve safe for long-term use?",
+                                    "q": "Is the ahmed glaucoma valve safe for long-term use?",
                                     "a": [
                                           {
                                                 "type": "para",
@@ -5410,11 +5406,11 @@ export const blogBodies: BlogBody[] = [
                                     ]
                               },
                               {
-                                    "q": "Is Ahmed Valve Surgery available in Vadodara?",
+                                    "q": "Is ahmed valve surgery available in Vadodara?",
                                     "a": [
                                           {
                                                 "type": "para",
-                                                "text": "Absolutely. We offer the full procedure at Mungale Eye Hospital , backed by experienced surgeons and a compassionate care team."
+                                                "text": "Absolutely. We offer the full procedure at Mungale Eye Hospital, backed by experienced surgeons and a compassionate care team."
                                           }
                                     ]
                               }
@@ -5422,11 +5418,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "Conclusion"
-                  },
-                  {
-                        "type": "para",
-                        "text": "Glaucoma may be silent, but it doesn’t have to be blinding. For patients with complex or uncontrolled glaucoma, the Ahmed Glaucoma Valve is a game-changer. At Mungale Eye Hospital, Vadodara , we’re committed to delivering advanced glaucoma care with ethics, precision, and empathy."
+                        "text": "Glaucoma may be silent, but it doesn’t have to be blinding. For patients with complex or uncontrolled glaucoma, the Ahmed Glaucoma Valve is a proven option for difficult cases. At Mungale Eye Hospital, Vadodara, we’re committed to delivering advanced glaucoma care with ethics, precision, and empathy."
                   },
                   {
                         "type": "para",
@@ -5441,15 +5433,15 @@ export const blogBodies: BlogBody[] = [
             "blocks": [
                   {
                         "type": "para",
-                        "text": "Eye Care in Vadodara, the centre of Gujarat, something is unfolding. Eye care is no longer restricted to old-fashioned surgeries or tedious waiting lists for donor tissues. Due to the devotion and skill of contemporary Eye Specialists, cutting-edge treatments previously accessible solely in big metros now reach here, transforming individuals&#8217; view of the world, literally."
+                        "text": "Something is quietly changing in eye care in Vadodara. Good eye care is no longer limited to old-fashioned surgeries or long waiting lists for donor tissue. Thanks to specialist training and better technology, treatments once available only in the big metros now reach patients here — and change how they see the world, literally."
                   },
                   {
                         "type": "para",
-                        "text": "At Mungale Eye Hospital , we know just how important good eyesight is to your well-being and work, whether you&#8217;re tending a field in a rural village or in a corporate office in the city. This guide will walk you through some of the most thrilling advancements in eye care, from high-precision surgeries such as DMEK to science-fiction-like alternatives like artificial corneas and cell therapies. You&#8217;ll understand how the area is changing and what this implies for you or your loved one."
+                        "text": "At Mungale Eye Hospital, we know just how important good eyesight is to your well-being and work, whether you&#8217;re tending a field in a rural village or in a corporate office in the city. This guide will walk you through some of the most important advances in eye care, from high-precision surgeries such as DMEK to science-fiction-like alternatives like artificial corneas and cell therapies. You&#8217;ll understand how the area is changing and what this implies for you or your loved one."
                   },
                   {
                         "type": "heading",
-                        "text": "2. DMEK: A New Era in Corneal Transplants"
+                        "text": "2. DMEK: a new era in corneal transplants"
                   },
                   {
                         "type": "para",
@@ -5481,7 +5473,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "3. Healing with Cells: The Future of Eye Care"
+                        "text": "3. healing with cells: the future of eye care"
                   },
                   {
                         "type": "para",
@@ -5509,7 +5501,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "4. When Donors Aren&#8217;t Available: Artificial Corneas"
+                        "text": "4. when donors aren&#8217;t available: artificial corneas"
                   },
                   {
                         "type": "para",
@@ -5529,7 +5521,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "5. The Rise of Technology in Eye Surgery"
+                        "text": "5. the rise of technology in eye surgery"
                   },
                   {
                         "type": "para",
@@ -5557,7 +5549,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "6. Real Stories, Real Impact: Vadodara Patients See the Difference"
+                        "text": "6. real stories, real impact: Vadodara patients see the difference"
                   },
                   {
                         "type": "para",
@@ -5573,7 +5565,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "7. People Also Ask (FAQ)",
+                        "text": "People also ask",
                         "items": [
                               {
                                     "q": "Is DMEK better than a regular corneal transplant?",
@@ -5594,7 +5586,7 @@ export const blogBodies: BlogBody[] = [
                                     ]
                               },
                               {
-                                    "q": "Are such new treatments for Eye Care in Vadodara being provided?",
+                                    "q": "Are such new treatments for eye care in Vadodara being provided?",
                                     "a": [
                                           {
                                                 "type": "para",
@@ -5606,7 +5598,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "8. Summary"
+                        "text": "8. summary"
                   },
                   {
                         "type": "item",
@@ -5645,11 +5637,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "With the right decisions and steps outlined in this guide, you will have greater confidence in the decisions you make when it comes to your eye care. This guide will take the guesswork out of one of the most sensitive matters of your health."
+                        "text": "With the right decisions and steps outlined in this guide, you will have greater confidence in the decisions you make about your eye care. This guide will take the guesswork out of one of the most sensitive matters of your health."
                   },
                   {
                         "type": "heading",
-                        "text": "Why Your Eye Care Decision Matters the Most"
+                        "text": "Why your eye care decision matters the most"
                   },
                   {
                         "type": "para",
@@ -5681,7 +5673,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What to Consider When Choosing an Eye Hospital in Vadodara"
+                        "text": "What to consider when choosing an eye Hospital in Vadodara"
                   },
                   {
                         "type": "para",
@@ -5733,7 +5725,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Must-Have Services for Quality Eye Care"
+                        "text": "Must-have services for quality eye care"
                   },
                   {
                         "type": "para",
@@ -5765,7 +5757,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why So Many Patients Trust Mungale Eye Hospital"
+                        "text": "Why so many patients trust Mungale Eye Hospital"
                   },
                   {
                         "type": "para",
@@ -5817,7 +5809,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions When Choosing an Eye Hospital in Vadodara (People Also Ask)",
+                        "text": "Frequently asked questions when choosing an eye Hospital in Vadodara (people also ask)",
                         "items": [
                               {
                                     "q": "How do I choose an eye doctor in Vadodara?",
@@ -5847,7 +5839,7 @@ export const blogBodies: BlogBody[] = [
                                     ]
                               },
                               {
-                                    "q": "I am from a village around Vadodara. Is the hospital for me also?",
+                                    "q": "I am from a village around Vadodara. is the hospital for me also?",
                                     "a": [
                                           {
                                                 "type": "para",
@@ -5895,11 +5887,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Here are some 5 Easy Eye Care Tips you should follow:"
+                        "text": "Here are some 5 easy eye care tips you should follow:"
                   },
                   {
                         "type": "heading",
-                        "text": "1. Understanding the Sensitivity of your eye"
+                        "text": "1. understanding the sensitivity of your eye"
                   },
                   {
                         "type": "para",
@@ -5907,7 +5899,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "2. Start Blinking Your Eyes"
+                        "text": "2. start blinking your eyes"
                   },
                   {
                         "type": "para",
@@ -5915,7 +5907,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "3. Eyeballs Exercise at frequent intervals."
+                        "text": "3. eyeballs exercise at frequent intervals."
                   },
                   {
                         "type": "para",
@@ -5923,7 +5915,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "4. Try to give your Eyes Warmth"
+                        "text": "4. try to give your eyes warmth"
                   },
                   {
                         "type": "para",
@@ -5931,7 +5923,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "5. Use an Anti-Glare Screen"
+                        "text": "5. use an anti-glare screen"
                   },
                   {
                         "type": "para",
@@ -5950,11 +5942,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Mentioned Below are some of the great tips for choosing an Eye Care Doctor"
+                        "text": "Mentioned below are some of the great tips for choosing an eye care doctor"
                   },
                   {
                         "type": "heading",
-                        "text": "1. Complete Know-how About Eye Doctor:"
+                        "text": "1. complete know-how about eye doctor:"
                   },
                   {
                         "type": "para",
@@ -5962,7 +5954,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "2. Check Available Resources Online:"
+                        "text": "2. check available resources online:"
                   },
                   {
                         "type": "para",
@@ -5970,7 +5962,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "3. Know about Services Offered:"
+                        "text": "3. know about services offered:"
                   },
                   {
                         "type": "para",
@@ -5978,7 +5970,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "4. Visit Online in search of Reviews:"
+                        "text": "4. visit online in search of reviews:"
                   },
                   {
                         "type": "para",
@@ -5986,7 +5978,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "5. Online Availability:"
+                        "text": "5. online availability:"
                   },
                   {
                         "type": "para",
@@ -5994,7 +5986,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "6. Schedule an Appointment:"
+                        "text": "6. schedule an appointment:"
                   },
                   {
                         "type": "para",
@@ -6002,7 +5994,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "These are just some of the important tips for choosing an eye care doctor that you should consider when selecting the right specialist to care for your vision. It may take weeks or even months to find the right doctor, and that’s perfectly fine. Remember, this professional will play a crucial role in maintaining your eye health for years to come, so it’s important to choose carefully and choose an eye care practitioner you trust in your area."
+                        "text": "These are just some of the important tips for choosing an eye care doctor that you should consider when selecting the right specialist to care for your vision. It may take weeks or even months to find the right doctor, and that’s perfectly fine. Remember, this professional will play a key role in looking after your eye health for years to come, so it’s important to choose carefully and choose an eye care practitioner you trust in your area."
                   }
             ]
       },
@@ -6148,7 +6140,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is a Cataract?"
+                        "text": "What is a cataract?"
                   },
                   {
                         "type": "para",
@@ -6160,7 +6152,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Cataract Symptoms: What Changes Should You Notice?"
+                        "text": "Cataract symptoms: what changes should you notice?"
                   },
                   {
                         "type": "para",
@@ -6212,7 +6204,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why Do Cataracts Cause Glare at Night?"
+                        "text": "Why do cataracts cause glare at night?"
                   },
                   {
                         "type": "para",
@@ -6220,7 +6212,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When Is Cataract Surgery Actually Needed?"
+                        "text": "When is cataract surgery actually needed?"
                   },
                   {
                         "type": "para",
@@ -6228,7 +6220,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Is There a Best Age for Cataract Surgery?"
+                        "text": "Is there a best age for cataract surgery?"
                   },
                   {
                         "type": "para",
@@ -6236,7 +6228,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Happens Before Cataract Surgery?"
+                        "text": "What happens before cataract surgery?"
                   },
                   {
                         "type": "para",
@@ -6244,15 +6236,15 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is Phacoemulsification?"
+                        "text": "What is phacoemulsification?"
                   },
                   {
                         "type": "para",
-                        "text": "Phacoemulsification is a commonly used technique for cataract removal. The surgeon accesses the cloudy natural lens through a small opening, breaks the lens into smaller pieces using ultrasound energy and removes the fragments. An artificial intraocular lens is then placed inside the eye. Mungale Eye Hospital's documented service information includes cataract surgery using phacoemulsification and intraocular lens replacement. The hospital's cataract content plan also identifies phacoemulsification and IOL options as key areas for patient education."
+                        "text": "Phacoemulsification is a commonly used technique for cataract removal. The surgeon accesses the cloudy natural lens through a small opening, breaks the lens into smaller pieces using ultrasound energy and removes the fragments. An artificial intraocular lens is then placed inside the eye. Cataract surgery using phacoemulsification and intraocular lens replacement is performed at Mungale Eye Hospital in Kothi, Vadodara."
                   },
                   {
                         "type": "heading",
-                        "text": "What Happens During Cataract Surgery?"
+                        "text": "What happens during cataract surgery?"
                   },
                   {
                         "type": "para",
@@ -6280,7 +6272,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is an Intraocular Lens (IOL)?"
+                        "text": "What is an intraocular lens (IOL)?"
                   },
                   {
                         "type": "para",
@@ -6288,7 +6280,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Monofocal, Toric, Multifocal and EDOF Lenses: What Is the Difference?"
+                        "text": "Monofocal, toric, multifocal and EDOF lenses: what is the difference?"
                   },
                   {
                         "type": "para",
@@ -6332,7 +6324,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Which Cataract Lens Is Right for You?"
+                        "text": "Which cataract lens is right for you?"
                   },
                   {
                         "type": "para",
@@ -6340,7 +6332,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Can Cataract Surgery Correct Astigmatism?"
+                        "text": "Can cataract surgery correct astigmatism?"
                   },
                   {
                         "type": "para",
@@ -6348,7 +6340,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Are Multifocal or EDOF Lenses Suitable for Everyone?"
+                        "text": "Are multifocal or EDOF lenses suitable for everyone?"
                   },
                   {
                         "type": "para",
@@ -6356,7 +6348,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Can Cataract Surgery Guarantee Freedom From Glasses?"
+                        "text": "Can cataract surgery guarantee freedom from glasses?"
                   },
                   {
                         "type": "para",
@@ -6364,7 +6356,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is Recovery Like After Cataract Surgery?"
+                        "text": "What is recovery like after cataract surgery?"
                   },
                   {
                         "type": "para",
@@ -6372,7 +6364,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Should You Do During Cataract Recovery?"
+                        "text": "What should you do during cataract recovery?"
                   },
                   {
                         "type": "para",
@@ -6404,7 +6396,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Are the Possible Risks of Cataract Surgery?"
+                        "text": "What are the possible risks of cataract surgery?"
                   },
                   {
                         "type": "para",
@@ -6412,7 +6404,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is a Secondary Cataract?"
+                        "text": "What is a secondary cataract?"
                   },
                   {
                         "type": "para",
@@ -6420,7 +6412,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When Should You Seek Urgent Help After Cataract Surgery?"
+                        "text": "When should you seek urgent help after cataract surgery?"
                   },
                   {
                         "type": "para",
@@ -6456,15 +6448,15 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Cataract Surgery Cost in Vadodara: What Affects the Price?"
+                        "text": "Cataract surgery cost in Vadodara: what affects the price?"
                   },
                   {
                         "type": "para",
-                        "text": "There is no sensible single price that applies to every cataract operation. The final cost can depend on the IOL selected, pre-operative investigations, surgical technique, hospital or facility charges, medicines, consumables and follow-up. The lens itself can make a significant difference to the overall package. A patient should therefore ask what is included in the quotation instead of comparing only the headline price. Mungale Eye Hospital's content plan recommends explaining cataract cost through the factors that determine the final amount rather than publishing an unsupported fixed figure."
+                        "text": "There is no sensible single price that applies to every cataract operation. The final cost can depend on the IOL selected, pre-operative investigations, surgical technique, hospital or facility charges, medicines, consumables and follow-up. The lens itself can make a significant difference to the overall package. A patient should therefore ask what is included in the quotation instead of comparing only the headline price."
                   },
                   {
                         "type": "heading",
-                        "text": "Does Insurance Cover Cataract Surgery?"
+                        "text": "Does insurance cover cataract surgery?"
                   },
                   {
                         "type": "para",
@@ -6472,7 +6464,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Common Cataract Myths"
+                        "text": "Common cataract myths"
                   },
                   {
                         "type": "para",
@@ -6480,7 +6472,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Should You Choose an Eye Hospital for Cataract Surgery?"
+                        "text": "How should you choose an eye Hospital for cataract surgery?"
                   },
                   {
                         "type": "para",
@@ -6488,15 +6480,15 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Cataract Care at Mungale Eye Hospital, Vadodara"
+                        "text": "Cataract care at Mungale Eye Hospital, Vadodara"
                   },
                   {
                         "type": "para",
-                        "text": "Mungale Eye Hospital in Kothi Road, Vadodara provides ophthalmic services including cataract care, phacoemulsification and intraocular lens replacement. Its documented services also cover areas such as cornea, glaucoma, retina and routine eye examinations. The hospital was established in 2007 by Dr. Sachin Mungale and Dr. Meeta Mungale, both ophthalmologists. The appropriate surgical and IOL plan still needs to be determined after an individual examination. Online information can explain the options, but it cannot replace an assessment of the eye."
+                        "text": "Mungale Eye Hospital in Kothi Road, Vadodara provides ophthalmic services including cataract care, phacoemulsification and intraocular lens replacement. Its services also cover areas such as cornea, glaucoma, retina and routine eye examinations. The hospital was established in 2007 by Dr. Sachin Mungale and Dr. Meeta Mungale, both ophthalmologists. The appropriate surgical and IOL plan still needs to be determined after an individual examination. Online information can explain the options, but it cannot replace an assessment of the eye."
                   },
                   {
                         "type": "heading",
-                        "text": "Questions to Ask Before Cataract Surgery"
+                        "text": "Questions to ask before cataract surgery"
                   },
                   {
                         "type": "para",
@@ -6552,7 +6544,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Key Takeaways"
+                        "text": "Key takeaways"
                   },
                   {
                         "type": "item",
@@ -6600,7 +6592,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "What is the most common symptom of a cataract?",
@@ -6678,7 +6670,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Medical Disclaimer"
+                        "text": "Medical disclaimer"
                   },
                   {
                         "type": "para",
@@ -6693,7 +6685,7 @@ export const blogBodies: BlogBody[] = [
             "blocks": [
                   {
                         "type": "heading",
-                        "text": "Quick Answer"
+                        "text": "Quick answer"
                   },
                   {
                         "type": "para",
@@ -6701,7 +6693,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is a Corneal Transplant?"
+                        "text": "What is a corneal transplant?"
                   },
                   {
                         "type": "para",
@@ -6729,7 +6721,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why Might Someone Need a Corneal Transplant?"
+                        "text": "Why might someone need a corneal transplant?"
                   },
                   {
                         "type": "para",
@@ -6757,7 +6749,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Corneal Scarring"
+                        "text": "Corneal scarring"
                   },
                   {
                         "type": "para",
@@ -6797,7 +6789,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Corneal Dystrophies"
+                        "text": "Corneal dystrophies"
                   },
                   {
                         "type": "para",
@@ -6809,7 +6801,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Fuchs' Endothelial Corneal Dystrophy"
+                        "text": "Fuchs' endothelial corneal dystrophy"
                   },
                   {
                         "type": "para",
@@ -6825,7 +6817,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Previous Corneal Transplant Failure"
+                        "text": "Previous corneal transplant failure"
                   },
                   {
                         "type": "para",
@@ -6837,7 +6829,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When Is a Corneal Transplant Actually Needed?"
+                        "text": "When is a corneal transplant actually needed?"
                   },
                   {
                         "type": "para",
@@ -6901,7 +6893,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Are the Different Types of Corneal Transplant?"
+                        "text": "What are the different types of corneal transplant?"
                   },
                   {
                         "type": "para",
@@ -6945,7 +6937,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is Penetrating Keratoplasty (PK)?"
+                        "text": "What is penetrating keratoplasty (PK)?"
                   },
                   {
                         "type": "para",
@@ -6973,7 +6965,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is DALK?"
+                        "text": "What is DALK?"
                   },
                   {
                         "type": "para",
@@ -6997,7 +6989,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is DSEK?"
+                        "text": "What is DSEK?"
                   },
                   {
                         "type": "para",
@@ -7021,7 +7013,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is DMEK?"
+                        "text": "What is DMEK?"
                   },
                   {
                         "type": "para",
@@ -7045,7 +7037,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "DMEK vs DSEK vs DALK vs PK: What Is the Difference?"
+                        "text": "DMEK vs DSEK vs DALK vs PK: what is the difference?"
                   },
                   {
                         "type": "para",
@@ -7057,7 +7049,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Does the Doctor Decide Which Corneal Transplant Is Appropriate?"
+                        "text": "How does the doctor decide which corneal transplant is appropriate?"
                   },
                   {
                         "type": "para",
@@ -7073,7 +7065,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Slit-Lamp Examination"
+                        "text": "Slit-lamp examination"
                   },
                   {
                         "type": "para",
@@ -7116,7 +7108,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Corneal Topography or Tomography"
+                        "text": "Corneal topography or tomography"
                   },
                   {
                         "type": "para",
@@ -7140,7 +7132,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Specular Microscopy"
+                        "text": "Specular microscopy"
                   },
                   {
                         "type": "para",
@@ -7152,7 +7144,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Anterior Segment Imaging"
+                        "text": "Anterior segment imaging"
                   },
                   {
                         "type": "para",
@@ -7164,7 +7156,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Happens During Corneal Transplant Surgery?"
+                        "text": "What happens during corneal transplant surgery?"
                   },
                   {
                         "type": "para",
@@ -7192,7 +7184,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Is Corneal Transplant Surgery Painful?"
+                        "text": "Is corneal transplant surgery painful?"
                   },
                   {
                         "type": "para",
@@ -7240,7 +7232,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is Recovery Like After a Corneal Transplant?"
+                        "text": "What is recovery like after a corneal transplant?"
                   },
                   {
                         "type": "para",
@@ -7260,7 +7252,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Early Recovery"
+                        "text": "Early recovery"
                   },
                   {
                         "type": "para",
@@ -7284,7 +7276,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "The First Few Weeks"
+                        "text": "The first few weeks"
                   },
                   {
                         "type": "para",
@@ -7304,7 +7296,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "The Following Months"
+                        "text": "The following months"
                   },
                   {
                         "type": "para",
@@ -7324,7 +7316,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Can Vision Return Completely After a Corneal Transplant?"
+                        "text": "Can vision return completely after a corneal transplant?"
                   },
                   {
                         "type": "para",
@@ -7388,7 +7380,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Will I Need Glasses After a Corneal Transplant?"
+                        "text": "Will I need glasses after a corneal transplant?"
                   },
                   {
                         "type": "para",
@@ -7424,7 +7416,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Are the Risks of Corneal Transplant Surgery?"
+                        "text": "What are the risks of corneal transplant surgery?"
                   },
                   {
                         "type": "para",
@@ -7488,7 +7480,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is Corneal Graft Rejection?"
+                        "text": "What is corneal graft rejection?"
                   },
                   {
                         "type": "para",
@@ -7516,7 +7508,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Are the Warning Signs of Corneal Graft Rejection?"
+                        "text": "What are the warning signs of corneal graft rejection?"
                   },
                   {
                         "type": "para",
@@ -7556,7 +7548,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Can a Corneal Graft Reject Years After Surgery?"
+                        "text": "Can a corneal graft reject years after surgery?"
                   },
                   {
                         "type": "para",
@@ -7580,7 +7572,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Precautions Should I Take After Corneal Transplant Surgery?"
+                        "text": "What precautions should I take after corneal transplant surgery?"
                   },
                   {
                         "type": "para",
@@ -7648,7 +7640,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Long Does a Corneal Transplant Last?"
+                        "text": "How long does a corneal transplant last?"
                   },
                   {
                         "type": "para",
@@ -7704,7 +7696,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When Should You Seek Urgent Eye Care After a Transplant?"
+                        "text": "When should you seek urgent eye care after a transplant?"
                   },
                   {
                         "type": "para",
@@ -7744,7 +7736,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Common Misunderstandings About Corneal Transplants"
+                        "text": "Common misunderstandings about corneal transplants"
                   },
                   {
                         "type": "heading",
@@ -7816,7 +7808,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Should You Ask Your Ophthalmologist Before a Corneal Transplant?"
+                        "text": "What should you ask your ophthalmologist before a corneal transplant?"
                   },
                   {
                         "type": "para",
@@ -7872,7 +7864,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Corneal Transplant at Mungale Eye Hospital, Vadodara"
+                        "text": "Corneal transplant at Mungale Eye Hospital, Vadodara"
                   },
                   {
                         "type": "para",
@@ -7888,7 +7880,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "Frequently Asked Questions",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "Is a corneal transplant a major surgery?",
@@ -7966,7 +7958,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Final Takeaway"
+                        "text": "Final takeaway"
                   },
                   {
                         "type": "para",
@@ -8013,7 +8005,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Quick Answer"
+                        "text": "Quick answer"
                   },
                   {
                         "type": "para",
@@ -8029,7 +8021,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why Does Dry Eye Matter?"
+                        "text": "Why does dry eye matter?"
                   },
                   {
                         "type": "para",
@@ -8057,7 +8049,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is Dry Eye Disease?"
+                        "text": "What is dry eye disease?"
                   },
                   {
                         "type": "para",
@@ -8105,7 +8097,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Causes Dry Eye Disease?"
+                        "text": "What causes dry eye disease?"
                   },
                   {
                         "type": "para",
@@ -8117,7 +8109,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Evaporative Dry Eye"
+                        "text": "Evaporative dry eye"
                   },
                   {
                         "type": "para",
@@ -8137,7 +8129,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Reduced Tear Production"
+                        "text": "Reduced tear production"
                   },
                   {
                         "type": "para",
@@ -8157,7 +8149,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Screen Use"
+                        "text": "Screen use"
                   },
                   {
                         "type": "para",
@@ -8181,7 +8173,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Air Conditioning, Fans and Dry Air"
+                        "text": "Air conditioning, fans and dry air"
                   },
                   {
                         "type": "para",
@@ -8201,7 +8193,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Contact Lenses"
+                        "text": "Contact lenses"
                   },
                   {
                         "type": "para",
@@ -8217,7 +8209,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Medicines and Other Medical Conditions"
+                        "text": "Medicines and other medical conditions"
                   },
                   {
                         "type": "para",
@@ -8233,7 +8225,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Are the Symptoms of Dry Eye?"
+                        "text": "What are the symptoms of dry eye?"
                   },
                   {
                         "type": "para",
@@ -8301,7 +8293,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Can Dry Eye Cause Blurry Vision?"
+                        "text": "Can dry eye cause blurry vision?"
                   },
                   {
                         "type": "para",
@@ -8325,7 +8317,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When Should You See an Ophthalmologist?"
+                        "text": "When should you see an ophthalmologist?"
                   },
                   {
                         "type": "para",
@@ -8381,7 +8373,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Is Dry Eye Diagnosed?"
+                        "text": "How is dry eye diagnosed?"
                   },
                   {
                         "type": "para",
@@ -8397,7 +8389,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Tear-Film Assessment"
+                        "text": "Tear-film assessment"
                   },
                   {
                         "type": "para",
@@ -8413,7 +8405,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Meibomian Gland Examination"
+                        "text": "Meibomian gland examination"
                   },
                   {
                         "type": "para",
@@ -8429,7 +8421,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Examination of the Cornea and Ocular Surface"
+                        "text": "Examination of the cornea and ocular surface"
                   },
                   {
                         "type": "para",
@@ -8445,7 +8437,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Other Dry-Eye Tests"
+                        "text": "Other dry-eye tests"
                   },
                   {
                         "type": "para",
@@ -8480,12 +8472,8 @@ export const blogBodies: BlogBody[] = [
                         "text": "The more useful question is why the tear film is not functioning properly and what needs to be addressed."
                   },
                   {
-                        "type": "para",
-                        "text": "The Mungale Eye Hospital content plan specifically identifies tear-film evaluation, meibomian gland assessment and other dry-eye evaluations as important diagnostic areas for this pillar."
-                  },
-                  {
                         "type": "heading",
-                        "text": "How Is Dry Eye Treated?"
+                        "text": "How is dry eye treated?"
                   },
                   {
                         "type": "para",
@@ -8501,7 +8489,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Artificial Tears"
+                        "text": "Artificial tears"
                   },
                   {
                         "type": "para",
@@ -8541,7 +8529,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Treating Eyelid and Meibomian Gland Problems"
+                        "text": "Treating eyelid and Meibomian gland problems"
                   },
                   {
                         "type": "para",
@@ -8557,7 +8545,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Prescription Treatment"
+                        "text": "Prescription treatment"
                   },
                   {
                         "type": "para",
@@ -8573,7 +8561,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Punctal Plugs"
+                        "text": "Punctal plugs"
                   },
                   {
                         "type": "para",
@@ -8597,7 +8585,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Can Lifestyle Changes Help Dry Eye?"
+                        "text": "Can lifestyle changes help dry eye?"
                   },
                   {
                         "type": "para",
@@ -8609,7 +8597,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Take Regular Screen Breaks"
+                        "text": "Take regular screen breaks"
                   },
                   {
                         "type": "para",
@@ -8629,7 +8617,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Remember to Blink"
+                        "text": "Remember to blink"
                   },
                   {
                         "type": "para",
@@ -8641,7 +8629,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Reduce Direct Airflow"
+                        "text": "Reduce direct airflow"
                   },
                   {
                         "type": "para",
@@ -8653,7 +8641,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Be Careful With Contact Lenses"
+                        "text": "Be careful with contact lenses"
                   },
                   {
                         "type": "para",
@@ -8665,7 +8653,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Protect the Eyes From Dust and Wind"
+                        "text": "Protect the eyes from dust and wind"
                   },
                   {
                         "type": "para",
@@ -8681,7 +8669,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Does the 20-20-20 Rule Really Help?"
+                        "text": "Does the 20-20-20 rule really help?"
                   },
                   {
                         "type": "para",
@@ -8709,7 +8697,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Can Dry Eye Be Cured Permanently?"
+                        "text": "Can dry eye be cured permanently?"
                   },
                   {
                         "type": "para",
@@ -8736,12 +8724,8 @@ export const blogBodies: BlogBody[] = [
                         "text": "What is causing my dry eye, and can that cause be treated or controlled?"
                   },
                   {
-                        "type": "para",
-                        "text": "The Mungale content plan identifies permanent cure versus long-term treatment as one of the main patient questions for this pillar."
-                  },
-                  {
                         "type": "heading",
-                        "text": "What Happens If Dry Eye Is Not Treated?"
+                        "text": "What happens if dry eye is not treated?"
                   },
                   {
                         "type": "para",
@@ -8765,7 +8749,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Can Dry Eye Affect LASIK Candidacy?"
+                        "text": "Can dry eye affect LASIK candidacy?"
                   },
                   {
                         "type": "para",
@@ -8789,7 +8773,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Which Dry Eye Treatment Is Right for You?"
+                        "text": "Which dry eye treatment is right for you?"
                   },
                   {
                         "type": "para",
@@ -8809,7 +8793,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Common Myths About Dry Eye"
+                        "text": "Common myths about dry eye"
                   },
                   {
                         "type": "heading",
@@ -8873,7 +8857,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Mistakes to Avoid When Managing Dry Eye"
+                        "text": "Mistakes to avoid when managing dry eye"
                   },
                   {
                         "type": "table",
@@ -8943,7 +8927,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Can You Manage Dry Eye Over the Long Term?"
+                        "text": "How can you manage dry eye over the long term?"
                   },
                   {
                         "type": "para",
@@ -9019,7 +9003,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When Does Dry Eye Need a Corneal Assessment?"
+                        "text": "When does dry eye need a corneal assessment?"
                   },
                   {
                         "type": "para",
@@ -9063,7 +9047,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Choosing an Eye Hospital for Dry Eye Treatment"
+                        "text": "Choosing an eye Hospital for dry eye treatment"
                   },
                   {
                         "type": "para",
@@ -9131,7 +9115,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Key Takeaways"
+                        "text": "Key takeaways"
                   },
                   {
                         "type": "item",
@@ -9183,7 +9167,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Final Thoughts"
+                        "text": "Final thoughts"
                   },
                   {
                         "type": "para",
@@ -9211,7 +9195,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "FAQ SECTION",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "What is the main cause of dry eye disease?",
@@ -9300,7 +9284,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Quick Answer"
+                        "text": "Quick answer"
                   },
                   {
                         "type": "para",
@@ -9308,7 +9292,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why It Matters"
+                        "text": "Why it matters"
                   },
                   {
                         "type": "para",
@@ -9316,7 +9300,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is Glaucoma?"
+                        "text": "What is glaucoma?"
                   },
                   {
                         "type": "para",
@@ -9328,7 +9312,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Types of Glaucoma"
+                        "text": "Types of glaucoma"
                   },
                   {
                         "type": "para",
@@ -9348,7 +9332,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Causes and Risk Factors"
+                        "text": "Causes and risk factors"
                   },
                   {
                         "type": "para",
@@ -9396,11 +9380,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Symptoms and When to See a Doctor"
+                        "text": "Symptoms and when to see a doctor"
                   },
                   {
                         "type": "heading",
-                        "text": "Why Do People Call Glaucoma \"Silent\"?"
+                        "text": "Why do people call glaucoma \"Silent\"?"
                   },
                   {
                         "type": "para",
@@ -9408,7 +9392,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Progressing Glaucoma Can Look Like"
+                        "text": "What progressing glaucoma can look like"
                   },
                   {
                         "type": "item",
@@ -9428,7 +9412,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When It's an Emergency"
+                        "text": "When it's an emergency"
                   },
                   {
                         "type": "para",
@@ -9460,7 +9444,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Glaucoma Is Diagnosed"
+                        "text": "How glaucoma is diagnosed"
                   },
                   {
                         "type": "para",
@@ -9492,7 +9476,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Treatment Options"
+                        "text": "Treatment options"
                   },
                   {
                         "type": "para",
@@ -9500,7 +9484,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Non-Surgical Treatment"
+                        "text": "Non-surgical treatment"
                   },
                   {
                         "type": "para",
@@ -9516,7 +9500,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Surgical Treatment"
+                        "text": "Surgical treatment"
                   },
                   {
                         "type": "para",
@@ -9544,7 +9528,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What to Expect During Procedures"
+                        "text": "What to expect during procedures"
                   },
                   {
                         "type": "para",
@@ -9556,7 +9540,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Recovery and Aftercare"
+                        "text": "Recovery and aftercare"
                   },
                   {
                         "type": "para",
@@ -9592,7 +9576,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Risks and Limitations"
+                        "text": "Risks and limitations"
                   },
                   {
                         "type": "para",
@@ -9600,7 +9584,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Cost and Insurance Considerations"
+                        "text": "Cost and insurance considerations"
                   },
                   {
                         "type": "para",
@@ -9608,7 +9592,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Common Myths About Glaucoma"
+                        "text": "Common myths about glaucoma"
                   },
                   {
                         "type": "para",
@@ -9628,7 +9612,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How to Choose an Eye Hospital for Glaucoma Care"
+                        "text": "How to choose an eye Hospital for glaucoma care"
                   },
                   {
                         "type": "para",
@@ -9636,7 +9620,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Latest Developments in Glaucoma Care"
+                        "text": "Latest developments in glaucoma care"
                   },
                   {
                         "type": "para",
@@ -9644,7 +9628,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Common Mistakes Patients Make"
+                        "text": "Common mistakes patients make"
                   },
                   {
                         "type": "item",
@@ -9668,7 +9652,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Best Practices for Managing Glaucoma"
+                        "text": "Best practices for managing glaucoma"
                   },
                   {
                         "type": "item",
@@ -9692,7 +9676,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Expert Tips"
+                        "text": "Expert tips"
                   },
                   {
                         "type": "para",
@@ -9700,7 +9684,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Key Takeaways"
+                        "text": "Key takeaways"
                   },
                   {
                         "type": "item",
@@ -9728,7 +9712,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Final Thoughts"
+                        "text": "Final thoughts"
                   },
                   {
                         "type": "para",
@@ -9736,7 +9720,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "FAQ SECTION",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "Can glaucoma be prevented?",
@@ -9825,7 +9809,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Quick Answer"
+                        "text": "Quick answer"
                   },
                   {
                         "type": "para",
@@ -9833,7 +9817,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why It Matters"
+                        "text": "Why it matters"
                   },
                   {
                         "type": "para",
@@ -9841,11 +9825,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "None of this needs to feel like an emergency. Most people diagnosed with keratoconus go on living completely ordinary lives once their vision is corrected properly, and treatment has genuinely improved over the past couple of decades, cross-linking especially. What follows is a plain explanation of what's actually happening inside the eye, how doctors work out what stage it's at, and what treatment realistically looks like depending on where things stand."
+                        "text": "None of this needs to feel like an emergency. Most people diagnosed with keratoconus go on living completely ordinary lives once their vision is corrected properly, and treatment has improved a great deal over the past couple of decades, cross-linking especially. What follows is a plain explanation of what's actually happening inside the eye, how doctors work out what stage it's at, and what treatment realistically looks like depending on where things stand."
                   },
                   {
                         "type": "heading",
-                        "text": "What Is Keratoconus?"
+                        "text": "What is keratoconus?"
                   },
                   {
                         "type": "para",
@@ -9861,7 +9845,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Causes and Risk Factors"
+                        "text": "Causes and risk factors"
                   },
                   {
                         "type": "para",
@@ -9897,7 +9881,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Symptoms and When to See a Doctor"
+                        "text": "Symptoms and when to see a doctor"
                   },
                   {
                         "type": "para",
@@ -9937,7 +9921,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Keratoconus Is Diagnosed"
+                        "text": "How keratoconus is diagnosed"
                   },
                   {
                         "type": "para",
@@ -9965,7 +9949,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Treatment Options"
+                        "text": "Treatment options"
                   },
                   {
                         "type": "para",
@@ -9973,7 +9957,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Glasses and Contact Lenses"
+                        "text": "Glasses and contact lenses"
                   },
                   {
                         "type": "para",
@@ -10001,7 +9985,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Corneal Collagen Cross-Linking (C3R/CXL)"
+                        "text": "Corneal collagen cross-linking (C3R/CXL)"
                   },
                   {
                         "type": "para",
@@ -10013,7 +9997,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Intracorneal Ring Segments"
+                        "text": "Intracorneal ring segments"
                   },
                   {
                         "type": "para",
@@ -10021,15 +10005,15 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When a Corneal Transplant Comes Into the Picture"
+                        "text": "When a corneal transplant comes into the picture"
                   },
                   {
                         "type": "para",
-                        "text": "A smaller group of patients reach a point where the cornea is too thin, too scarred, or too irregular for lenses or cross-linking to give usable vision anymore. That's when a transplant gets discussed. Depending on which corneal layers are involved, this might mean replacing the full thickness of the cornea, or only certain layers, an approach known as lamellar keratoplasty. This decision comes after the other options have genuinely been tried and is based on detailed imaging plus how much functional vision the person actually needs day to day."
+                        "text": "A smaller group of patients reach a point where the cornea is too thin, too scarred, or too irregular for lenses or cross-linking to give usable vision anymore. That's when a transplant gets discussed. Depending on which corneal layers are involved, this might mean replacing the full thickness of the cornea, or only certain layers, an approach known as lamellar keratoplasty. This decision comes after the other options have been properly tried and is based on detailed imaging plus how much functional vision the person actually needs day to day."
                   },
                   {
                         "type": "heading",
-                        "text": "What to Expect During Cross-Linking"
+                        "text": "What to expect during cross-linking"
                   },
                   {
                         "type": "para",
@@ -10041,7 +10025,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Recovery and Aftercare"
+                        "text": "Recovery and aftercare"
                   },
                   {
                         "type": "para",
@@ -10069,11 +10053,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Risks and Limitations"
+                        "text": "Risks and limitations"
                   },
                   {
                         "type": "para",
-                        "text": "Cross-linking is generally well tolerated. That said, some temporary haze in the cornea during healing is common, and in a small number of cases, healing runs slower than expected or an infection develops, which is exactly why follow-up visits aren't optional. It also won't restore a shape that's already changed. This is a stabilizing treatment, not a correction, so most people still need glasses or specialty lenses afterward."
+                        "text": "Cross-linking is generally well tolerated. Still, some temporary haze in the cornea during healing is common, and in a small number of cases, healing runs slower than expected or an infection develops, which is exactly why follow-up visits aren't optional. It also won't restore a shape that's already changed. This is a stabilizing treatment, not a correction, so most people still need glasses or specialty lenses afterward."
                   },
                   {
                         "type": "para",
@@ -10081,7 +10065,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Cost and Insurance Considerations"
+                        "text": "Cost and insurance considerations"
                   },
                   {
                         "type": "para",
@@ -10089,7 +10073,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Common Myths About Keratoconus"
+                        "text": "Common myths about keratoconus"
                   },
                   {
                         "type": "para",
@@ -10109,7 +10093,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How to Choose an Eye Hospital or Specialist"
+                        "text": "How to choose an eye Hospital or specialist"
                   },
                   {
                         "type": "para",
@@ -10117,7 +10101,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Latest Developments"
+                        "text": "Latest developments"
                   },
                   {
                         "type": "para",
@@ -10125,7 +10109,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Common Mistakes to Avoid"
+                        "text": "Common mistakes to avoid"
                   },
                   {
                         "type": "item",
@@ -10141,11 +10125,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "item",
-                        "text": "Trying non-prescribed lenses or online lens fittings for a condition that genuinely needs a customized, in-person fit"
+                        "text": "Trying non-prescribed lenses or online lens fittings for a condition that needs a customised, in-person fit"
                   },
                   {
                         "type": "heading",
-                        "text": "Best Practices for Managing Keratoconus"
+                        "text": "Best practices for managing keratoconus"
                   },
                   {
                         "type": "item",
@@ -10165,7 +10149,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Expert Tips"
+                        "text": "Expert tips"
                   },
                   {
                         "type": "para",
@@ -10173,7 +10157,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Key Takeaways"
+                        "text": "Key takeaways"
                   },
                   {
                         "type": "item",
@@ -10201,7 +10185,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Final Thoughts"
+                        "text": "Final thoughts"
                   },
                   {
                         "type": "para",
@@ -10213,7 +10197,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "FAQ SECTION",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "Can keratoconus be cured completely?",
@@ -10310,7 +10294,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Quick Answer"
+                        "text": "Quick answer"
                   },
                   {
                         "type": "para",
@@ -10326,7 +10310,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why a Pterygium Is Worth Taking Seriously"
+                        "text": "Why a pterygium is worth taking seriously"
                   },
                   {
                         "type": "para",
@@ -10346,7 +10330,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Exactly Is a Pterygium?"
+                        "text": "What exactly is a pterygium?"
                   },
                   {
                         "type": "para",
@@ -10366,7 +10350,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Causes Pterygium?"
+                        "text": "What causes pterygium?"
                   },
                   {
                         "type": "para",
@@ -10406,7 +10390,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Symptoms: How Do You Know It Is a Pterygium?"
+                        "text": "Symptoms: how do you know it is a pterygium?"
                   },
                   {
                         "type": "para",
@@ -10466,7 +10450,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Stages of Pterygium"
+                        "text": "Stages of pterygium"
                   },
                   {
                         "type": "para",
@@ -10513,7 +10497,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How a Pterygium Affects Your Vision"
+                        "text": "How a pterygium affects your vision"
                   },
                   {
                         "type": "para",
@@ -10533,7 +10517,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Is Pterygium Diagnosed?"
+                        "text": "How is pterygium diagnosed?"
                   },
                   {
                         "type": "para",
@@ -10553,7 +10537,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Treatment: Eye Drops or Surgery?"
+                        "text": "Treatment: eye drops or surgery?"
                   },
                   {
                         "type": "para",
@@ -10629,7 +10613,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Happens During Pterygium Surgery?"
+                        "text": "What happens during pterygium surgery?"
                   },
                   {
                         "type": "para",
@@ -10681,7 +10665,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Recovery After Pterygium Surgery"
+                        "text": "Recovery after pterygium surgery"
                   },
                   {
                         "type": "para",
@@ -10713,7 +10697,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Can Pterygium Come Back After Surgery?"
+                        "text": "Can pterygium come back after surgery?"
                   },
                   {
                         "type": "para",
@@ -10733,7 +10717,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Risks of Pterygium Surgery"
+                        "text": "Risks of pterygium surgery"
                   },
                   {
                         "type": "para",
@@ -10753,7 +10737,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Pterygium or Pinguecula?"
+                        "text": "Pterygium or pinguecula?"
                   },
                   {
                         "type": "para",
@@ -10801,7 +10785,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Cost and Insurance for Pterygium Surgery"
+                        "text": "Cost and insurance for pterygium surgery"
                   },
                   {
                         "type": "para",
@@ -10821,7 +10805,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Myths We Hear Often"
+                        "text": "Myths we hear often"
                   },
                   {
                         "type": "para",
@@ -10845,7 +10829,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Mistakes That Make Things Harder"
+                        "text": "Mistakes that make things harder"
                   },
                   {
                         "type": "para",
@@ -10865,7 +10849,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Looking After Your Eyes Day to Day"
+                        "text": "Looking after your eyes day to day"
                   },
                   {
                         "type": "para",
@@ -10877,7 +10861,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "A Few Practical Tips From the Clinic"
+                        "text": "A few practical tips from the clinic"
                   },
                   {
                         "type": "para",
@@ -10897,7 +10881,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Choosing Where to Get Pterygium Treatment"
+                        "text": "Choosing where to get pterygium treatment"
                   },
                   {
                         "type": "para",
@@ -10909,7 +10893,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Has Changed in Pterygium Treatment"
+                        "text": "What has changed in pterygium treatment"
                   },
                   {
                         "type": "para",
@@ -10921,7 +10905,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Key Takeaways"
+                        "text": "Key takeaways"
                   },
                   {
                         "type": "item",
@@ -10957,7 +10941,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Final Thoughts"
+                        "text": "Final thoughts"
                   },
                   {
                         "type": "para",
@@ -10973,7 +10957,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "FAQ SECTION",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "Is pterygium dangerous?",
@@ -11070,7 +11054,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Quick Answer"
+                        "text": "Quick answer"
                   },
                   {
                         "type": "para",
@@ -11090,7 +11074,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is a Corneal Ulcer?"
+                        "text": "What is a corneal ulcer?"
                   },
                   {
                         "type": "para",
@@ -11110,7 +11094,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is Keratitis?"
+                        "text": "What is keratitis?"
                   },
                   {
                         "type": "para",
@@ -11150,7 +11134,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is the Difference Between a Corneal Ulcer and Keratitis?"
+                        "text": "What is the difference between a corneal ulcer and keratitis?"
                   },
                   {
                         "type": "para",
@@ -11193,7 +11177,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Causes Corneal Ulcers and Keratitis?"
+                        "text": "What causes corneal ulcers and keratitis?"
                   },
                   {
                         "type": "para",
@@ -11309,7 +11293,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Can Contact Lenses Cause a Corneal Ulcer?"
+                        "text": "Can contact lenses cause a corneal ulcer?"
                   },
                   {
                         "type": "para",
@@ -11365,7 +11349,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Are the Symptoms of a Corneal Ulcer?"
+                        "text": "What are the symptoms of a corneal ulcer?"
                   },
                   {
                         "type": "para",
@@ -11429,7 +11413,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why Is My Eye Red and Painful?"
+                        "text": "Why is my eye red and painful?"
                   },
                   {
                         "type": "para",
@@ -11449,7 +11433,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When Does a Red or Painful Eye Need Urgent Care?"
+                        "text": "When does a red or painful eye need urgent care?"
                   },
                   {
                         "type": "para",
@@ -11500,12 +11484,8 @@ export const blogBodies: BlogBody[] = [
                         "text": "A chemical injury, penetrating eye injury or sudden major loss of vision requires immediate medical attention."
                   },
                   {
-                        "type": "para",
-                        "text": "The Mungale Eye Hospital content plan specifically identifies same-day assessment for concerning corneal-ulcer symptoms as a major search and safety intent for this cluster."
-                  },
-                  {
                         "type": "heading",
-                        "text": "What Should You Do Before Seeing an Eye Doctor?"
+                        "text": "What should you do before seeing an eye doctor?"
                   },
                   {
                         "type": "para",
@@ -11533,7 +11513,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Is a Corneal Ulcer Diagnosed?"
+                        "text": "How is a corneal ulcer diagnosed?"
                   },
                   {
                         "type": "para",
@@ -11644,12 +11624,8 @@ export const blogBodies: BlogBody[] = [
                         "text": "Microbiological testing can be particularly useful when the ulcer is severe, unusual, does not respond as expected or when identifying the organism will influence treatment."
                   },
                   {
-                        "type": "para",
-                        "text": "The pillar brief for Mungale Eye Hospital specifically includes diagnosis and microbiology as part of the corneal-ulcer content."
-                  },
-                  {
                         "type": "heading",
-                        "text": "How Is a Corneal Ulcer Treated?"
+                        "text": "How is a corneal ulcer treated?"
                   },
                   {
                         "type": "para",
@@ -11729,7 +11705,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why Should You Avoid Self-Medicating With Steroid Eye Drops?"
+                        "text": "Why should you avoid self-medicating with steroid eye drops?"
                   },
                   {
                         "type": "para",
@@ -11748,12 +11724,8 @@ export const blogBodies: BlogBody[] = [
                         "text": "There are situations in which an ophthalmologist may deliberately use a steroid as part of treatment. The decision depends on the diagnosis, the stage of infection and the response to antimicrobial treatment."
                   },
                   {
-                        "type": "para",
-                        "text": "The Mungale content plan specifically highlights the risks of steroid and self-medication in selected corneal infections."
-                  },
-                  {
                         "type": "heading",
-                        "text": "Does Every Corneal Ulcer Need Surgery?"
+                        "text": "Does every corneal ulcer need surgery?"
                   },
                   {
                         "type": "para",
@@ -11801,11 +11773,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "Mungale Eye Hospital's documented corneal services include treatment of corneal infections and other corneal disorders, with procedures including amniotic membrane grafting and corneal transplantation techniques such as DALK, DSEK and DMEK."
+                        "text": "Mungale Eye Hospital's corneal services include treatment of corneal infections and other corneal disorders, with procedures including amniotic membrane grafting and corneal transplantation techniques such as DALK, DSEK and DMEK."
                   },
                   {
                         "type": "heading",
-                        "text": "How Long Does a Corneal Ulcer Take to Heal?"
+                        "text": "How long does a corneal ulcer take to heal?"
                   },
                   {
                         "type": "para",
@@ -11865,7 +11837,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Can a Corneal Ulcer Leave a Scar?"
+                        "text": "Can a corneal ulcer leave a scar?"
                   },
                   {
                         "type": "para",
@@ -11889,7 +11861,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Happens If a Corneal Ulcer Is Not Treated?"
+                        "text": "What happens if a corneal ulcer is not treated?"
                   },
                   {
                         "type": "para",
@@ -11941,7 +11913,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Corneal Ulcer vs Conjunctivitis"
+                        "text": "Corneal ulcer vs conjunctivitis"
                   },
                   {
                         "type": "para",
@@ -11994,7 +11966,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Common Myths About Corneal Ulcers"
+                        "text": "Common myths about corneal ulcers"
                   },
                   {
                         "type": "heading",
@@ -12038,7 +12010,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Common Mistakes Patients Should Avoid"
+                        "text": "Common mistakes patients should avoid"
                   },
                   {
                         "type": "para",
@@ -12058,7 +12030,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Can Corneal Ulcers Be Prevented?"
+                        "text": "How can corneal ulcers be prevented?"
                   },
                   {
                         "type": "para",
@@ -12114,7 +12086,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Do You Choose an Eye Hospital for Corneal Problems?"
+                        "text": "How do you choose an eye Hospital for corneal problems?"
                   },
                   {
                         "type": "para",
@@ -12158,11 +12130,11 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "Mungale Eye Hospital in Vadodara lists cornea evaluation and corneal treatments among its services, including management of corneal infections and other corneal disorders."
+                        "text": "Mungale Eye Hospital in Vadodara offers cornea evaluation and corneal treatments among its services, including management of corneal infections and other corneal disorders."
                   },
                   {
                         "type": "heading",
-                        "text": "Cost and Insurance Considerations"
+                        "text": "Cost and insurance considerations"
                   },
                   {
                         "type": "para",
@@ -12170,7 +12142,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "The expense depends on what the patient actually needs. A straightforward infection treated with medication is very different from a severe infection requiring repeated investigations, intensive treatment or surgery."
+                        "text": "The expense depends on what the patient actually needs. An uncomplicated infection treated with medication is very different from a severe infection requiring repeated investigations, intensive treatment or surgery."
                   },
                   {
                         "type": "para",
@@ -12214,7 +12186,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Should You Remember About Corneal Ulcers and Keratitis?"
+                        "text": "What should you remember about corneal ulcers and keratitis?"
                   },
                   {
                         "type": "item",
@@ -12270,7 +12242,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Final Thoughts"
+                        "text": "Final thoughts"
                   },
                   {
                         "type": "para",
@@ -12294,7 +12266,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "FAQ SECTION",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "What is the difference between a corneal ulcer and keratitis?",
@@ -12387,7 +12359,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Quick Answer"
+                        "text": "Quick answer"
                   },
                   {
                         "type": "para",
@@ -12451,7 +12423,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Femto-LASIK (bladeless LASIK)"
+                        "text": "Femto-lasik (bladeless LASIK)"
                   },
                   {
                         "type": "para",
@@ -12459,7 +12431,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Contoura Vision"
+                        "text": "Contoura vision"
                   },
                   {
                         "type": "para",
@@ -12467,7 +12439,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "SMILE (Small Incision Lenticule Extraction)"
+                        "text": "SMILE (small incision lenticule extraction)"
                   },
                   {
                         "type": "para",
@@ -12475,7 +12447,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "PRK (Photorefractive Keratectomy)"
+                        "text": "PRK (photorefractive keratectomy)"
                   },
                   {
                         "type": "para",
@@ -12483,7 +12455,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "ICL (Implantable Collamer Lens)"
+                        "text": "ICL (implantable collamer lens)"
                   },
                   {
                         "type": "para",
@@ -12806,7 +12778,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Key Takeaways"
+                        "text": "Key takeaways"
                   },
                   {
                         "type": "item",
@@ -12842,7 +12814,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Final Thoughts"
+                        "text": "Final thoughts"
                   },
                   {
                         "type": "para",
@@ -12858,7 +12830,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "FAQ SECTION",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "Is LASIK eye surgery safe?",
@@ -12888,7 +12860,7 @@ export const blogBodies: BlogBody[] = [
                                     ]
                               },
                               {
-                                    "q": "Which is better, LASIK, SMILE or Contoura Vision?",
+                                    "q": "Which is better, LASIK, SMILE or contoura vision?",
                                     "a": [
                                           {
                                                 "type": "para",
@@ -12951,7 +12923,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Quick Answer: What Is Diabetic Retinopathy?"
+                        "text": "Quick answer: what is diabetic retinopathy?"
                   },
                   {
                         "type": "para",
@@ -12971,7 +12943,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why Does Diabetes Affect the Retina?"
+                        "text": "Why does diabetes affect the retina?"
                   },
                   {
                         "type": "para",
@@ -12995,7 +12967,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Can You Have Diabetic Retinopathy Without Any Symptoms?"
+                        "text": "Can you have diabetic retinopathy without any symptoms?"
                   },
                   {
                         "type": "para",
@@ -13055,7 +13027,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Are the Stages of Diabetic Retinopathy?"
+                        "text": "What are the stages of diabetic retinopathy?"
                   },
                   {
                         "type": "para",
@@ -13110,7 +13082,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Happens in Mild Diabetic Retinopathy?"
+                        "text": "What happens in mild diabetic retinopathy?"
                   },
                   {
                         "type": "para",
@@ -13130,7 +13102,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is Moderate Diabetic Retinopathy?"
+                        "text": "What is moderate diabetic retinopathy?"
                   },
                   {
                         "type": "para",
@@ -13150,7 +13122,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is Severe Nonproliferative Diabetic Retinopathy?"
+                        "text": "What is severe nonproliferative diabetic retinopathy?"
                   },
                   {
                         "type": "para",
@@ -13170,7 +13142,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is Proliferative Diabetic Retinopathy?"
+                        "text": "What is proliferative diabetic retinopathy?"
                   },
                   {
                         "type": "para",
@@ -13194,7 +13166,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Is Diabetic Macular Edema?"
+                        "text": "What is diabetic macular edema?"
                   },
                   {
                         "type": "para",
@@ -13238,7 +13210,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Is Diabetic Retinopathy Diagnosed?"
+                        "text": "How is diabetic retinopathy diagnosed?"
                   },
                   {
                         "type": "para",
@@ -13250,7 +13222,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Dilated Eye Examination"
+                        "text": "Dilated eye examination"
                   },
                   {
                         "type": "para",
@@ -13262,7 +13234,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Retinal Photography"
+                        "text": "Retinal photography"
                   },
                   {
                         "type": "para",
@@ -13274,7 +13246,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "OCT Scan"
+                        "text": "OCT scan"
                   },
                   {
                         "type": "para",
@@ -13286,7 +13258,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Fluorescein Angiography"
+                        "text": "Fluorescein angiography"
                   },
                   {
                         "type": "para",
@@ -13298,7 +13270,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Does Every Patient Need All These Tests?"
+                        "text": "Does every patient need all these tests?"
                   },
                   {
                         "type": "para",
@@ -13314,7 +13286,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Often Should a Person With Diabetes Have an Eye Check-Up?"
+                        "text": "How often should a person with diabetes have an eye check-up?"
                   },
                   {
                         "type": "para",
@@ -13334,7 +13306,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Treatments Are Used for Diabetic Retinopathy?"
+                        "text": "What treatments are used for diabetic retinopathy?"
                   },
                   {
                         "type": "para",
@@ -13350,7 +13322,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Managing Blood Sugar, Blood Pressure and Lipids"
+                        "text": "Managing blood sugar, blood pressure and lipids"
                   },
                   {
                         "type": "para",
@@ -13370,7 +13342,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Do Anti-VEGF Eye Injections Help?"
+                        "text": "How do anti-vegf eye injections help?"
                   },
                   {
                         "type": "para",
@@ -13394,7 +13366,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When Is Laser Treatment Used?"
+                        "text": "When is laser treatment used?"
                   },
                   {
                         "type": "para",
@@ -13414,7 +13386,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When Is Retinal Surgery Needed?"
+                        "text": "When is retinal surgery needed?"
                   },
                   {
                         "type": "para",
@@ -13434,7 +13406,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Laser vs Injections vs Surgery: What Is the Difference?"
+                        "text": "Laser vs injections vs surgery: what is the difference?"
                   },
                   {
                         "type": "table",
@@ -13473,7 +13445,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Can Diabetic Retinopathy Be Reversed?"
+                        "text": "Can diabetic retinopathy be reversed?"
                   },
                   {
                         "type": "para",
@@ -13497,7 +13469,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Increases the Risk of Diabetic Retinopathy?"
+                        "text": "What increases the risk of diabetic retinopathy?"
                   },
                   {
                         "type": "para",
@@ -13545,7 +13517,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Symptoms Mean You Should Seek Urgent Eye Care?"
+                        "text": "What symptoms mean you should seek urgent eye care?"
                   },
                   {
                         "type": "para",
@@ -13589,7 +13561,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Can Diabetic Retinopathy Be Prevented?"
+                        "text": "Can diabetic retinopathy be prevented?"
                   },
                   {
                         "type": "para",
@@ -13601,7 +13573,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Keep Blood Glucose Within Your Recommended Range"
+                        "text": "Keep blood glucose within your recommended range"
                   },
                   {
                         "type": "para",
@@ -13613,7 +13585,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Keep Blood Pressure Under Control"
+                        "text": "Keep blood pressure under control"
                   },
                   {
                         "type": "para",
@@ -13625,7 +13597,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Address Abnormal Lipid Levels"
+                        "text": "Address abnormal lipid levels"
                   },
                   {
                         "type": "para",
@@ -13637,7 +13609,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Do Not Skip Eye Screening"
+                        "text": "Do not skip eye screening"
                   },
                   {
                         "type": "para",
@@ -13649,7 +13621,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Tell Your Ophthalmologist About Your Diabetes"
+                        "text": "Tell your ophthalmologist about your diabetes"
                   },
                   {
                         "type": "para",
@@ -13661,7 +13633,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What If I Have Diabetes but My Vision Is Completely Clear?"
+                        "text": "What if I have diabetes but my vision is completely clear?"
                   },
                   {
                         "type": "para",
@@ -13681,7 +13653,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Common Myths About Diabetic Retinopathy"
+                        "text": "Common myths about diabetic retinopathy"
                   },
                   {
                         "type": "heading",
@@ -13745,7 +13717,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Should You Prepare for a Diabetic Eye Examination?"
+                        "text": "How should you prepare for a diabetic eye examination?"
                   },
                   {
                         "type": "para",
@@ -13805,7 +13777,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Should You Ask Your Ophthalmologist?"
+                        "text": "What should you ask your ophthalmologist?"
                   },
                   {
                         "type": "para",
@@ -13853,7 +13825,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Practical Tips for Protecting Your Vision"
+                        "text": "Practical tips for protecting your vision"
                   },
                   {
                         "type": "para",
@@ -13881,7 +13853,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Key Takeaways"
+                        "text": "Key takeaways"
                   },
                   {
                         "type": "item",
@@ -13925,7 +13897,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Final Thoughts"
+                        "text": "Final thoughts"
                   },
                   {
                         "type": "para",
@@ -13957,7 +13929,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "FAQ SECTION",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "What are the first signs of diabetic retinopathy?",
@@ -14054,7 +14026,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Quick Answer"
+                        "text": "Quick answer"
                   },
                   {
                         "type": "para",
@@ -14066,7 +14038,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why Does Eyesight Change After 40?"
+                        "text": "Why does eyesight change after 40?"
                   },
                   {
                         "type": "para",
@@ -14082,7 +14054,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "My eyesight seems fine. Do I still need a check-up?"
+                        "text": "My eyesight seems fine. do I still need a check-up?"
                   },
                   {
                         "type": "para",
@@ -14094,7 +14066,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Happens During a Complete Eye Check-Up?"
+                        "text": "What happens during a complete eye check-up?"
                   },
                   {
                         "type": "para",
@@ -14182,7 +14154,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Which Eye Tests Are Done After 40, and What Do They Show?"
+                        "text": "Which eye tests are done after 40, and what do they show?"
                   },
                   {
                         "type": "table",
@@ -14276,7 +14248,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Often Should You Get Your Eyes Checked After 40?"
+                        "text": "How often should you get your eyes checked after 40?"
                   },
                   {
                         "type": "para",
@@ -14348,7 +14320,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What Eye Problems Are Common After 40?"
+                        "text": "What eye problems are common after 40?"
                   },
                   {
                         "type": "para",
@@ -14368,7 +14340,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Why is my vision getting hazy? Could it be a cataract?"
+                        "text": "Why is my vision getting hazy? could it be a cataract?"
                   },
                   {
                         "type": "para",
@@ -14440,7 +14412,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "When Should You See an Eye Doctor Urgently?"
+                        "text": "When should you see an eye doctor urgently?"
                   },
                   {
                         "type": "para",
@@ -14524,7 +14496,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What to Expect on the Day of Your Eye Check-Up"
+                        "text": "What to expect on the day of your eye check-up"
                   },
                   {
                         "type": "heading",
@@ -14572,7 +14544,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "How Much Does an Eye Check-Up Cost, and Will Insurance Pay for It?"
+                        "text": "How much does an eye check-up cost, and will insurance pay for it?"
                   },
                   {
                         "type": "para",
@@ -14584,7 +14556,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Myths About Eye Check-Ups After 40"
+                        "text": "Myths about eye check-ups after 40"
                   },
                   {
                         "type": "heading",
@@ -14628,7 +14600,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Mistakes People Often Make in Their Forties and Fifties"
+                        "text": "Mistakes people often make in their forties and fifties"
                   },
                   {
                         "type": "item",
@@ -14660,7 +14632,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Simple Habits That Help Protect Your Eyes"
+                        "text": "Simple habits that help protect your eyes"
                   },
                   {
                         "type": "item",
@@ -14700,7 +14672,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "A Few Practical Tips"
+                        "text": "A few practical tips"
                   },
                   {
                         "type": "para",
@@ -14720,7 +14692,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Choosing Where to Get Your Eye Check-Up"
+                        "text": "Choosing where to get your eye check-up"
                   },
                   {
                         "type": "para",
@@ -14736,7 +14708,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "What's New in Eye Screening?"
+                        "text": "What's new in eye screening?"
                   },
                   {
                         "type": "para",
@@ -14748,7 +14720,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Key Takeaways"
+                        "text": "Key takeaways"
                   },
                   {
                         "type": "item",
@@ -14780,7 +14752,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "heading",
-                        "text": "Final Thoughts"
+                        "text": "Final thoughts"
                   },
                   {
                         "type": "para",
@@ -14800,7 +14772,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "faq",
-                        "text": "FAQ SECTION",
+                        "text": "Frequently asked questions",
                         "items": [
                               {
                                     "q": "At what age should I have my first complete eye check-up?",

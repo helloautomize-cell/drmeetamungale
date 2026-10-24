@@ -28,14 +28,15 @@ export function generateStaticParams() {
   return getTreatmentDetailSlugs().map((slug) => ({ slug }));
 }
 
-// Per-page OG images — specialty photography per service line.
+// Per-page OG images — 1200x630 landscape crops derived from the
+// specialty photography per service line (see scripts/build-og-treatments.ts).
 const TREATMENT_OG_IMAGES: Record<string, string> = {
-  "cataract-surgery": "/images/mungale/specialty-cataract.jpg",
-  "cornea-evaluation": "/images/mungale/specialty-cornea.jpg",
-  "corneal-treatments": "/images/mungale/specialty-cornea.jpg",
-  "glaucoma-evaluation": "/images/mungale/specialty-glaucoma.jpg",
-  "glaucoma-treatments": "/images/mungale/specialty-glaucoma.jpg",
-  "optical-contact-lenses": "/images/mungale/specialty-optical.jpg",
+  "cataract-surgery": "/images/mungale/og-cataract.jpg",
+  "cornea-evaluation": "/images/mungale/og-cornea.jpg",
+  "corneal-treatments": "/images/mungale/og-cornea.jpg",
+  "glaucoma-evaluation": "/images/mungale/og-glaucoma.jpg",
+  "glaucoma-treatments": "/images/mungale/og-glaucoma.jpg",
+  "optical-contact-lenses": "/images/mungale/og-optical.jpg",
 };
 
 // 120–160-char descriptions — city + call to action, no price claims.
@@ -71,7 +72,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
           url: canonical("/treatments/" + detail.slug + "/"),
           siteName: siteConfig.name,
           type: "website",
-          images: [{ url: ogImage, width: 1600, height: 2000, alt: detail.title }],
+          images: [{ url: ogImage, width: 1200, height: 630, alt: detail.title }],
         }
       : undefined,
   };
@@ -100,6 +101,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
     return (
       <>
         <JsonLd data={medicalWebPageJsonLd(slug)} />
+        <JsonLd data={procedureJsonLd(detail.slug)} />
         <JsonLd data={breadcrumbJsonLd(crumbs)} />
         <Custom />
       </>

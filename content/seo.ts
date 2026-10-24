@@ -58,7 +58,15 @@ export function hospitalJsonLd() {
       { "@type": "State", name: "Madhya Pradesh" },
       { "@type": "State", name: "Rajasthan" },
     ],
-    sameAs: [siteConfig.social.facebook, siteConfig.social.instagram, siteConfig.social.youtube],
+    sameAs: [
+      siteConfig.social.facebook,
+      siteConfig.social.instagram,
+      siteConfig.social.youtube,
+      // Public directory listings cited elsewhere on the site.
+      "https://www.justdial.com/Vadodara/Dr-Sachin-Mungale-Mungale-Eye-Hospital-Opposite-Government-Press-Kothi/0265PX265-X265-170614070649-D5F7_BZDET",
+      "https://www.practo.com/vadodara/doctor/dr-sachin-mungale-ophthalmologist",
+      "https://www.practo.com/vadodara/doctor/dr-meeta-mungale-ophthalmologist",
+    ],
   };
 }
 
@@ -178,13 +186,10 @@ export function blogPostingJsonLd(slug: string) {
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     inLanguage: "en-IN",
     datePublished: p.date,
-    dateModified: p.date,
-    author:
-      reviewers.length > 0
-        ? reviewers.length === 1
-          ? { "@id": physicianId(reviewers[0]!) }
-          : physicianRefs(reviewers)
-        : { "@type": "Organization", "@id": CLINIC_ID, name: siteConfig.name },
+    dateModified: p.updatedAt ?? p.date,
+    // Articles are hospital-authored; doctors are the medical reviewers.
+    // Conflating author and reviewer weakens E-E-A-T.
+    author: { "@type": "Organization", "@id": CLINIC_ID, name: siteConfig.name },
     publisher: {
       "@type": "Organization",
       "@id": CLINIC_ID,

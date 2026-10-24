@@ -57,6 +57,18 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      // Preview/staging deployments (Vercel previews, dev servers) must
+      // never be indexed — production stays fully indexable.
+      ...(process.env["VERCEL_ENV"] && process.env["VERCEL_ENV"] !== "production"
+        ? [
+            {
+              source: "/:path*",
+              headers: [
+                { key: "X-Robots-Tag", value: "noindex, nofollow" },
+              ],
+            },
+          ]
+        : []),
     ];
   },
   async redirects() {
