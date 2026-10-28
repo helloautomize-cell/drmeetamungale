@@ -70,7 +70,7 @@ export function AboutHero({
             <MedicalReviewByline reviewedBy={["sachin", "meeta"]} />
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
               <Link
-                href={bookingHref()}
+                href={bookingHref()} data-ga="appointment"
                 className="inline-flex h-12 px-7 items-center justify-center bg-primary text-white text-[14.5px] font-semibold rounded-[13px] shadow-[0_1px_3px_rgba(17,17,18,0.18)] hover:bg-primary-fixed transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
               >
                 <span>Book a consultation</span>

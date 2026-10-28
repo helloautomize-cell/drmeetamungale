@@ -82,7 +82,7 @@ function DoctorInfo({ doctor, index }: { doctor: Doctor; index: string }) {
           />
         </Link>
         <Link
-          href={bookingHref(doctor.slug)}
+          href={bookingHref(doctor.slug)} data-ga="appointment"
           className="cta-quiet group inline-flex items-center gap-2 text-[14px] font-medium text-on-surface-variant w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
         >
           <span className="cta-quiet-text">Book with this doctor</span>

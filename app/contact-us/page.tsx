@@ -66,9 +66,10 @@ export default function ContactPage() {
                 Kothi, Vadodara hospital, or simply have a question,
                 we&rsquo;re here to help.
               </p>
-              <div className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-3">
+              <div className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-3" data-ga-location="hero">
                 <a
                   href="#book"
+                  data-ga="appointment"
                   className="inline-flex items-center gap-2 bg-primary text-on-primary font-semibold text-[15px] px-6 py-3 rounded-full hover:bg-primary-fixed transition-colors min-h-[44px]"
                 >
                   Book a consultation
@@ -130,13 +131,14 @@ export default function ContactPage() {
             </h2>
             <div className="mt-6 border-t border-secondary/10">
               {[
-                { n: "01", t: "Book a consultation", d: "Request a consultation with the hospital.", cta: "Start booking", href: "#book", external: false },
+                { n: "01", t: "Book a consultation", d: "Request a consultation with the hospital.", cta: "Start booking", href: "#book", external: false, ga: "appointment" },
                 { n: "02", t: "Talk to the team", d: "Call the hospital directly.", cta: contactPhones.main, href: telOf(contactPhones.main), external: false },
                 { n: "03", t: "Find the hospital", d: "See the address and get directions.", cta: "Get directions", href: "#visit", external: false },
               ].map((a) => (
                 <a
                   key={a.n}
                   href={a.href}
+                  data-ga={"ga" in a ? a.ga : undefined}
                   className="group grid grid-cols-[auto_1fr_auto] items-center gap-5 sm:gap-8 border-b border-secondary/10 py-6"
                 >
                   <span aria-hidden="true" className="font-display-hero text-[15px] text-primary-fixed w-8">

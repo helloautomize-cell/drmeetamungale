@@ -15,6 +15,7 @@ export function StickyMobileBar() {
       <div className="grid grid-cols-3 border-t border-line bg-paper/95 backdrop-blur-md pb-[env(safe-area-inset-bottom)]">
         <a
           href={telHref(siteConfig.phone)}
+          data-ga-location="sticky"
           className="flex flex-col items-center justify-center gap-1 py-2.5 text-brand-red-strong active:bg-red-wash"
           aria-label={"Call " + siteConfig.name + " on " + siteConfig.phone}
         >
@@ -23,6 +24,7 @@ export function StickyMobileBar() {
         </a>
         <a
           href={waHref(siteConfig.whatsapp)}
+          data-ga-location="sticky"
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-col items-center justify-center gap-1 py-2.5 text-success active:bg-red-wash"
@@ -32,7 +34,7 @@ export function StickyMobileBar() {
           <span className="text-[11px] font-semibold">WhatsApp</span>
         </a>
         <Link
-          href={bookingHref()}
+          href={bookingHref()} data-ga="appointment" data-ga-location="sticky"
           className="flex flex-col items-center justify-center gap-1 py-2.5 text-ink active:bg-red-wash"
           aria-label="Book an Appointment"
         >

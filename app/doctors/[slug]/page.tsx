@@ -159,7 +159,7 @@ export default async function DoctorProfilePage({
               </p>
               <div className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-3">
                 <Link
-                  href={bookingHref(d.slug)}
+                  href={bookingHref(d.slug)} data-ga="appointment"
                   className="cta-quiet group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
                 >
                   <span className="cta-quiet-text">Book with this doctor</span>

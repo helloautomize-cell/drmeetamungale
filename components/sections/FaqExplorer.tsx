@@ -24,7 +24,7 @@ function linkifyAppointment(text: string): React.ReactNode[] {
       node: (key) => (
         <Link
           key={key}
-          href={bookingHref()}
+          href={bookingHref()} data-ga="appointment"
           className="font-bold text-on-surface underline decoration-primary-fixed/60 underline-offset-4 hover:decoration-primary-fixed"
         >
           Book an Appointment

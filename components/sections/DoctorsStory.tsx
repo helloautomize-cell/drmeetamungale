@@ -70,7 +70,7 @@ function DoctorCard({ doctor, delay }: { doctor: Doctor; delay: number }) {
             />
           </Link>
           <Link
-            href={bookingHref(doctor.slug)}
+            href={bookingHref(doctor.slug)} data-ga="appointment"
             className="cta-quiet group inline-flex items-center gap-2 text-[14px] font-medium text-on-surface-variant focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
           >
             <span className="cta-quiet-text">Book with this doctor</span>

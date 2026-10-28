@@ -91,7 +91,7 @@ function TreatmentsMegaMenu({ onNavigate }: { onNavigate: () => void }) {
         ))}
         {/* Feature card — routes to consultation, per spec copy */}
         <Link
-          href={bookingHref()}
+          href={bookingHref()} data-ga="appointment"
           onClick={onNavigate}
           className="group relative flex flex-col justify-end bg-ink-navy text-left overflow-hidden"
         >
@@ -396,7 +396,7 @@ export function Header() {
                   <Phone className="w-4 h-4" />
                 </a>
                 <Link
-                  href={bookingHref()}
+                  href={bookingHref()} data-ga="appointment"
                   className="hidden lg:inline-flex h-11 pl-5 pr-1.5 items-center gap-2.5 bg-primary text-white text-[14px] font-semibold rounded-full shadow-[0_1px_2px_rgba(14,17,22,0.15)] hover:bg-primary-fixed transition-colors duration-200"
                 >
                   Book a Consultation
@@ -407,7 +407,7 @@ export function Header() {
 
                 {/* Mobile: booking icon + menu */}
                 <Link
-                  href={bookingHref()}
+                  href={bookingHref()} data-ga="appointment"
                   aria-label="Book an Appointment"
                   className="lg:hidden w-11 h-11 rounded-full bg-primary text-white flex items-center justify-center shadow-[0_1px_3px_rgba(14,17,22,0.18)]"
                 >

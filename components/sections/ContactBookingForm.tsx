@@ -12,6 +12,7 @@ import {
   contactPhones,
   telOf,
 } from "@/content/contact";
+import { trackEvent } from "@/components/AnalyticsEvents";
 
 // ─── ContactBookingForm ────────────────────────────────────────────────────
 // Single-page consultation request. Posts to /api/booking — the server
@@ -109,6 +110,12 @@ function BookingFormInner() {
         errors?: Record<string, string>;
       };
       if (res.ok && json.ok) {
+        // Conversion fires only on a confirmed 2xx — never on click,
+        // validation failure or send failure. No form data is sent.
+        trackEvent("appointment_submit", {
+          form_name: "appointment_form",
+          page_path: window.location.pathname,
+        });
         setSent(true);
         return;
       }

@@ -82,7 +82,7 @@ export function Footer() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
               <Link
-                href={bookingHref()}
+                href={bookingHref()} data-ga="appointment"
                 className="group inline-flex h-[50px] px-7 w-full sm:w-auto items-center justify-center gap-2 bg-white text-primary text-[15px] font-bold rounded-[11px] hover:bg-background transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
                 <span>Book a consultation</span>

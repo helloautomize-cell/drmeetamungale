@@ -89,7 +89,7 @@ export default function DoctorsIndexPage() {
                       <ArrowRight aria-hidden="true" className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1" />
                     </Link>
                     <Link
-                      href={bookingHref(d.slug)}
+                      href={bookingHref(d.slug)} data-ga="appointment"
                       className="cta-quiet group inline-flex items-center gap-2 text-[14px] font-medium text-on-surface-variant focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"
                     >
                       <span className="cta-quiet-text">Book with this doctor</span>

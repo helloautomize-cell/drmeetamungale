@@ -7,8 +7,9 @@ const nextConfig: NextConfig = {
     return [
       {
         // Security headers on every route. CSP covers only what the site
-        // actually loads: self-hosted assets and fonts, and the Google
-        // Maps iframe (click-to-load facade). No third-party scripts.
+        // actually loads: self-hosted assets and fonts, the Google tag
+        // (gtag.js + GA4 collection endpoints), and the Google Maps iframe
+        // (click-to-load facade).
         source: "/:path*",
         headers: [
           {
@@ -31,11 +32,11 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline'",
+              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
               "style-src 'self' 'unsafe-inline'",
-              "img-src 'self' data: blob:",
+              "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com",
               "font-src 'self'",
-              "connect-src 'self'",
+              "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com",
               "frame-src https://maps.google.com https://www.google.com",
               "object-src 'none'",
               "base-uri 'self'",

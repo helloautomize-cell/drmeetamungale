@@ -153,7 +153,7 @@ export function Hero() {
           {/* CTAs — red pill + porcelain text link + quiet call link */}
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
             <Link
-              href={bookingHref()}
+              href={bookingHref()} data-ga="appointment" data-ga-location="hero"
               className="inline-flex h-12 px-7 items-center gap-2 rounded-full bg-primary text-white text-[15px] font-semibold shadow-[0_1px_3px_rgba(14,17,22,0.28)] hover:bg-primary-fixed transition-colors duration-200"
             >
               Book a consultation
@@ -168,6 +168,7 @@ export function Hero() {
             </Link>
             <a
               href={telHref(siteConfig.phone)}
+              data-ga-location="hero"
               className="inline-flex items-center gap-1.5 h-12 text-[14px] font-medium text-porcelain/70 hover:text-porcelain transition-colors duration-200"
             >
               <Phone className="w-3.5 h-3.5" aria-hidden="true" />

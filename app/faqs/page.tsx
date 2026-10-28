@@ -98,7 +98,7 @@ export default function FaqsPage() {
                   <span aria-hidden="true" className="text-primary-fixed">&rarr;</span>
                 </a>
                 <Link
-                  href={bookingHref()}
+                  href={bookingHref()} data-ga="appointment"
                   className="group inline-flex items-center gap-2 text-[15px] font-semibold text-on-surface min-h-[44px]"
                 >
                   <span className="border-b border-primary-fixed/60 pb-0.5 group-hover:border-primary-fixed transition-colors">

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Fraunces } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { siteConfig } from "@/content/site";
 import { Header } from "@/components/layout/Header";
@@ -7,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingCTA } from "@/components/layout/FloatingCTA";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { RevealObserver } from "@/components/ui/RevealObserver";
+import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 import { hospitalJsonLd } from "@/content/seo";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -52,6 +54,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     images: ["/images/mungale/og-default.jpg"],
+  },
+  verification: {
+    google: "dggu9bruS91K2Oh-LpmWgfU-A1t9aU9RFclEZS9WxjE",
   },
   // Icons come from file conventions: app/icon.png (square 512 eye mark)
   // and app/apple-icon.png (180) — the wide logo SVG was not a suitable
@@ -102,7 +107,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <FloatingCTA />
         <RevealObserver />
+        <AnalyticsEvents />
       </body>
+      <GoogleAnalytics gaId="G-XMGYEFNLY5" />
     </html>
   );
 }

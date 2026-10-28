@@ -67,7 +67,7 @@ export function SpecialistCard({
             <ArrowRight aria-hidden="true" className="w-3.5 h-3.5 text-primary-fixed" />
           </Link>
           <Link
-            href={bookingHref(d.slug)}
+            href={bookingHref(d.slug)} data-ga="appointment"
             className="group flex items-center justify-between gap-3 py-2.5 min-h-[44px] text-[14px] font-semibold text-on-surface"
           >
             <span className="border-b border-primary-fixed/60 pb-0.5 group-hover:border-primary-fixed transition-colors">
@@ -113,7 +113,7 @@ export function SpecialistCard({
           <ArrowRight aria-hidden="true" className="w-3.5 h-3.5 text-primary-fixed" />
         </Link>
         <Link
-          href={bookingHref(d.slug)}
+          href={bookingHref(d.slug)} data-ga="appointment"
           className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-on-surface"
         >
           <span className="border-b border-primary-fixed/60 pb-0.5 group-hover:border-primary-fixed transition-colors">
@@ -166,7 +166,7 @@ export function TreatmentCtaBand() {
           </p>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
             <Link
-              href={bookingHref()}
+              href={bookingHref()} data-ga="appointment"
               className="inline-flex items-center gap-2 bg-white text-primary font-semibold text-[15px] px-6 py-3 rounded-full hover:bg-background transition-colors motion-reduce:transition-none min-h-[44px]"
             >
               Book a consultation
@@ -221,7 +221,7 @@ export function TreatmentContactBand() {
           </div>
         </div>
         <Link
-          href={bookingHref()}
+          href={bookingHref()} data-ga="appointment"
           className="inline-flex items-center gap-2 self-start lg:self-auto bg-white text-primary font-semibold text-[15px] px-7 py-3.5 rounded-full hover:bg-background transition-colors motion-reduce:transition-none min-h-[44px]"
         >
           Book a consultation

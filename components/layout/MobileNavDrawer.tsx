@@ -186,7 +186,7 @@ export function MobileNavDrawer({ isOpen, onClose, textSizeLarge, onToggleTextSi
         {/* Strong CTA pinned at the bottom — single booking action */}
         <div className="shrink-0 px-6 pt-4 pb-7 border-t border-secondary/10 bg-background">
           <Link
-            href={bookingHref()}
+            href={bookingHref()} data-ga="appointment"
             className="flex items-center justify-center w-full h-[52px] bg-primary hover:bg-primary-fixed text-white text-[15px] font-semibold rounded-[13px] shadow-[0_1px_3px_rgba(17,17,18,0.18)] transition-colors duration-200"
             onClick={onClose}
           >

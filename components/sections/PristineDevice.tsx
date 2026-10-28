@@ -82,7 +82,7 @@ export function PristineDevice() {
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
               <Link
-                href={bookingHref()}
+                href={bookingHref()} data-ga="appointment"
                 className="inline-flex h-12 px-7 items-center gap-2 rounded-full bg-primary text-white text-[15px] font-semibold shadow-[0_1px_3px_rgba(14,17,22,0.28)] hover:bg-primary-fixed transition-colors duration-200"
               >
                 Book an eye check-up

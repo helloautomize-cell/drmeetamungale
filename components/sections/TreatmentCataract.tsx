@@ -237,7 +237,7 @@ export function TreatmentCataract() {
               />
               <div className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-3">
                 <Link
-                  href={bookingHref()}
+                  href={bookingHref()} data-ga="appointment"
                   className="inline-flex items-center gap-2 bg-primary text-on-primary font-semibold text-[15px] px-6 py-3 rounded-full hover:bg-primary-fixed transition-colors motion-reduce:transition-none min-h-[44px]"
                 >
                   Book a consultation

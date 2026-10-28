@@ -41,7 +41,7 @@ export function AtlasHero() {
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3">
                 <Link
-                  href={bookingHref()}
+                  href={bookingHref()} data-ga="appointment" data-ga-location="hero"
                   className="inline-flex items-center gap-2 bg-primary text-on-primary font-semibold text-[15px] px-6 py-3 rounded-full hover:bg-primary-fixed transition-colors"
                 >
                   Book a consultation
