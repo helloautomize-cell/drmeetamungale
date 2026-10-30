@@ -4,8 +4,14 @@ import { MEDICAL_REVIEW_DATE } from "@/content/doctors";
 import {
   BASE,
   CLINIC_ID,
+  CLINIC_ADDRESS,
+  CLINIC_GEO,
+  CLINIC_OPENING_HOURS,
+  CLINIC_HAS_MAP,
+  CLINIC_PRICE_RANGE,
   physicianId,
   physicianRefs,
+  reviewerPersons,
   reviewersOf,
 } from "@/content/doctor-schema";
 import { treatments } from "@/content/treatments";
@@ -30,23 +36,17 @@ export function hospitalJsonLd() {
     url: siteConfig.url,
     telephone: e164(siteConfig.phone),
     email: siteConfig.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "2nd Floor, Vinraj Plaza, Kothi Road, opp. Government Press",
-      addressLocality: "Vadodara",
-      addressRegion: "Gujarat",
-      postalCode: "390001",
-      addressCountry: "IN",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: e164(siteConfig.phone),
+      email: siteConfig.email,
+      contactType: "customer service",
     },
-    geo: { "@type": "GeoCoordinates", latitude: 22.304108, longitude: 73.193533 },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "09:00",
-        closes: "20:00",
-      },
-    ],
+    address: CLINIC_ADDRESS,
+    geo: CLINIC_GEO,
+    openingHoursSpecification: CLINIC_OPENING_HOURS,
+    priceRange: CLINIC_PRICE_RANGE,
+    hasMap: CLINIC_HAS_MAP,
     medicalSpecialty: "Ophthalmologic",
     image: BASE + "/images/mungale/og-default.jpg",
     logo: BASE + "/images/hero/httpsmungaleeyehospital-logo.svg",
@@ -149,7 +149,6 @@ export function medicalWebPageJsonLd(slug: string) {
   const url = BASE + "/treatments/" + slug + "/";
   const reviewers = reviewersOf(d.reviewedBy);
   const page: Record<string, unknown> = {
-    "@context": "https://schema.org",
     "@type": "MedicalWebPage",
     "@id": url + "#webpage",
     url,
@@ -169,7 +168,12 @@ export function medicalWebPageJsonLd(slug: string) {
     page["reviewedBy"] =
       reviewers.length === 1 ? { "@id": physicianId(reviewers[0]!) } : physicianRefs(reviewers);
   }
-  return page;
+  // Person stubs resolve the reviewedBy @ids on this page — the full
+  // Physician entities live on /about-us/ and /doctors/*.
+  return {
+    "@context": "https://schema.org",
+    "@graph": [page, ...reviewerPersons(reviewers)],
+  };
 }
 
 export function blogPostingJsonLd(slug: string) {
@@ -178,7 +182,6 @@ export function blogPostingJsonLd(slug: string) {
   const url = BASE + p.url;
   const reviewers = reviewersOf(p.reviewedBy);
   const payload: Record<string, unknown> = {
-    "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: p.title,
     description: p.excerpt,
@@ -187,18 +190,16 @@ export function blogPostingJsonLd(slug: string) {
     inLanguage: "en-IN",
     datePublished: p.date,
     dateModified: p.updatedAt ?? p.date,
-    // Articles are hospital-authored; doctors are the medical reviewers.
-    // Conflating author and reviewer weakens E-E-A-T.
-    author: { "@type": "Organization", "@id": CLINIC_ID, name: siteConfig.name },
-    publisher: {
-      "@type": "Organization",
-      "@id": CLINIC_ID,
-      name: siteConfig.name,
-      logo: {
-        "@type": "ImageObject",
-        url: BASE + "/images/hero/httpsmungaleeyehospital-logo.svg",
-      },
-    },
+    // Doctor-written articles: author references the reviewing
+    // physician(s); publisher references the clinic (full Organization
+    // node incl. name + logo lives in the layout script — merged by @id).
+    author:
+      reviewers.length === 0
+        ? { "@id": CLINIC_ID }
+        : reviewers.length === 1
+          ? { "@id": physicianId(reviewers[0]!) }
+          : physicianRefs(reviewers),
+    publisher: { "@id": CLINIC_ID },
   };
   if (p.coverImage) {
     // Support articles emit the cover at its true size; existing posts
@@ -227,7 +228,12 @@ export function blogPostingJsonLd(slug: string) {
       reviewers.length === 1 ? { "@id": physicianId(reviewers[0]!) } : physicianRefs(reviewers);
     payload["lastReviewed"] = p.reviewedOn ?? MEDICAL_REVIEW_DATE;
   }
-  return payload;
+  // Person stubs resolve the author/reviewedBy @ids into nodes carrying
+  // name + url; the full Physician entities live on the doctor pages.
+  return {
+    "@context": "https://schema.org",
+    "@graph": [payload, ...reviewerPersons(reviewers)],
+  };
 }
 
 const CLUSTER_CONDITION: Record<string, string> = {
