@@ -65,6 +65,7 @@ export function MobileNavDrawer({ isOpen, onClose, textSizeLarge, onToggleTextSi
             className="h-[44px] w-auto object-contain"
             width={196}
             height={82}
+            fetchPriority="low"
           />
           <button
             ref={closeRef}

@@ -279,6 +279,7 @@ export function Header() {
                   className="h-[44px] w-auto object-contain"
                   width={196}
                   height={82}
+                  fetchPriority="low"
                 />
               </Link>
 

@@ -11,6 +11,8 @@ import { blogLinks, type BlogLink } from "@/content/blog-links";
 import {
   getSupportArticle,
   supportLinks,
+} from "@/content/blog-support/compiled";
+import {
   supportsForCluster,
   siblingsOf,
 } from "@/content/blog-support";
@@ -218,7 +220,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   const support = getSupportArticle(slug);
   const pillar = post.role === "support" && post.pillarSlug ? getPostBySlug(post.pillarSlug) : undefined;
-  const clusterSupports = post.cluster ? supportsForCluster(post.cluster).map((a) => a.meta) : [];
+  const clusterSupports = post.cluster ? supportsForCluster(post.cluster) : [];
   const related = relatedFor(post);
 
   // FAQPage JSON-LD one-to-one with the visible FAQ block (support posts).
@@ -593,7 +595,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </h2>
                 <div>
                   {siblingsOf(post.slug).map((s) => (
-                    <ClusterLink key={s.meta.slug} post={s.meta} />
+                    <ClusterLink key={s.slug} post={s} />
                   ))}
                 </div>
               </nav>

@@ -1,0 +1,110 @@
+import type { BlogBlock } from "@/content/blog-bodies";
+
+// Article 9.1 body blocks — kept in a separate module so meta-only
+// consumers (post lists, related picks) never bundle article text.
+export const blocks: BlogBlock[] = [
+    {
+      type: "callout",
+      text: "Quick Answer",
+      blocks: [
+        { type: "para", text: "Standard LASIK uses a blade (microkeratome) to make a flap and an excimer laser to reshape the cornea. Femto-LASIK makes the flap with a femtosecond laser instead of a blade. Contoura Vision is a topography-guided LASIK that customises treatment to the cornea's surface map. SMILE removes a small lens of tissue through a tiny incision without a flap. Each has strengths for different patients." },
+      ],
+    },
+    { type: "para", text: "Standard [LASIK](/blog/lasik-eye-surgery-types-cost-benefits-candidacy/), Femto-LASIK, Contoura Vision and SMILE are all laser procedures that reshape the cornea to reduce or remove the need for glasses. They differ in how the corneal flap or opening is made and how the laser treatment is planned. The best option depends on your power, corneal thickness and shape, dry eye status and lifestyle, not on which name sounds most advanced." },
+    { type: "heading", text: "How Does Laser Vision Correction Work?" },
+    { type: "para", text: "Myopia, hyperopia and astigmatism happen when the eye does not focus light sharply on the retina. Reshaping the cornea changes its focusing power so light focuses correctly. All four procedures aim to do this precisely and safely." },
+    { type: "heading", text: "Standard LASIK (Microkeratome)" },
+    { type: "item", text: "A thin flap is created with a precise mechanical blade" },
+    { type: "item", text: "An excimer laser reshapes the cornea under the flap" },
+    { type: "item", text: "The flap is placed back and heals naturally" },
+    { type: "item", text: "Quick visual recovery, often within a day or two" },
+    { type: "item", text: "Suits many patients with suitable corneal thickness" },
+    { type: "heading", text: "Femto-LASIK (Bladeless LASIK)" },
+    { type: "item", text: "The flap is made with a femtosecond laser instead of a blade" },
+    { type: "item", text: "Flap thickness and shape are more predictable" },
+    { type: "item", text: "The rest of the procedure is similar to LASIK" },
+    { type: "item", text: "Many surgeons prefer it for precision and safety margins" },
+    { type: "heading", text: "Contoura Vision (Topography-Guided LASIK)" },
+    { type: "item", text: "Uses a detailed map of the corneal surface, with thousands of points" },
+    { type: "item", text: "Treatment is customised to irregularities in your cornea" },
+    { type: "item", text: "Aims to improve sharpness and reduce glare or halos for suitable eyes" },
+    { type: "item", text: "Still involves a corneal flap" },
+    { type: "item", text: "Particularly useful when the cornea has subtle irregularities" },
+    { type: "heading", text: "SMILE (Small Incision Lenticule Extraction)" },
+    { type: "item", text: "A femtosecond laser creates a small disc of tissue inside the cornea" },
+    { type: "item", text: "The surgeon removes it through a tiny incision of a few millimetres" },
+    { type: "item", text: "No flap is created" },
+    { type: "item", text: "May cause less dry eye in the early months for some patients" },
+    { type: "item", text: "Mainly used for myopia and astigmatism, with fewer options for hyperopia" },
+    { type: "heading", text: "How Do They Compare?" },
+    { type: "h3", text: "Flap" },
+    { type: "para", text: "LASIK, Femto-LASIK and Contoura create a flap. SMILE does not." },
+    { type: "h3", text: "Recovery" },
+    { type: "para", text: "LASIK and Contoura often give very quick early vision. SMILE vision may take a little longer to become crisp for some people." },
+    { type: "h3", text: "Dry eye" },
+    { type: "para", text: "All can cause temporary dry eye. SMILE may cause slightly less in the early phase." },
+    { type: "h3", text: "Suitability" },
+    { type: "para", text: "Contoura suits eyes with irregular surface patterns. SMILE suits many myopia patients, especially those in contact sports. Your tests decide which is safest." },
+    { type: "heading", text: "What Determines Which One You Get?" },
+    { type: "item", text: "Corneal thickness and shape (topography and tomography)" },
+    { type: "item", text: "Spectacle power and stability" },
+    { type: "item", text: "Dry eye status" },
+    { type: "item", text: "Pupil size and night vision needs" },
+    { type: "item", text: "Occupation and sports" },
+    { type: "item", text: "Overall eye health" },
+    { type: "para", text: "Sometimes none of these is suitable, and options such as ICL or PRK are advised instead." },
+    { type: "heading", text: "Key Takeaways" },
+    { type: "item", text: "All four procedures reshape the cornea to correct vision." },
+    { type: "item", text: "Femto-LASIK uses a laser instead of a blade for the flap." },
+    { type: "item", text: "Contoura customises treatment to your corneal map." },
+    { type: "item", text: "SMILE is flapless and uses a small incision." },
+    { type: "item", text: "Pre-surgery tests decide which is safest for you." },
+    { type: "heading", text: "Final Thoughts" },
+    { type: "para", text: "The right procedure is the one that fits your eyes, not the newest name on a brochure. A thorough evaluation gives a clear, honest recommendation. For a detailed refractive assessment, you can consult [Dr. Meeta Mungale](/doctors/meeta-mungale/), an ophthalmologist at [Mungale Eye Hospital](/contact-us/) in Vadodara." },
+    {
+      type: "faq",
+      text: "Frequently Asked Questions",
+      items: [
+      {
+        q: "Which laser eye surgery is best?",
+        a: [
+          { type: "para", text: "There is no single best procedure for everyone. The right choice depends on corneal thickness, shape, power, dry eye and lifestyle. A detailed pre-LASIK evaluation shows which option is safest and most suitable for your eyes." },
+        ],
+      },
+      {
+        q: "Is bladeless LASIK safer than standard LASIK?",
+        a: [
+          { type: "para", text: "Femto-LASIK makes the flap with a laser, which gives more predictable flap thickness. Both methods have good safety records in suitable patients. Your surgeon will choose based on your corneal measurements and experience." },
+        ],
+      },
+      {
+        q: "What is special about Contoura Vision?",
+        a: [
+          { type: "para", text: "Contoura uses a detailed map of the corneal surface to customise treatment. It may improve visual quality for eyes with small irregularities. It is not automatically better for everyone, so suitability is decided after testing." },
+        ],
+      },
+      {
+        q: "Is SMILE better for dry eye?",
+        a: [
+          { type: "para", text: "SMILE may cause slightly less dry eye in the early months because it uses a small incision instead of a flap. Dry eye can still happen. Treating any existing dry eye before surgery is important with all methods." },
+        ],
+      },
+      {
+        q: "Can all four procedures treat astigmatism?",
+        a: [
+          { type: "para", text: "Yes, all four can correct astigmatism within certain limits. Exact ranges depend on the laser platform and your eye measurements. Your surgeon will confirm whether your astigmatism can be treated safely." },
+        ],
+      },
+      {
+        q: "What if I am not suitable for any laser procedure?",
+        a: [
+          { type: "para", text: "Options such as PRK, ICL (implantable contact lens) or refractive lens exchange may be considered. Your eye specialist will discuss the safest alternative after evaluation." },
+        ],
+      },
+      ],
+    },
+    { type: "heading", text: "Sources and further reading" },
+    { type: "item", text: "[AAO: LASIK laser eye surgery](https://www.aao.org/eye-health/treatments/lasik)" },
+    { type: "item", text: "[AAO: Facts about LASIK complications](https://www.aao.org/eye-health/treatments/facts-about-lasik-complications)" },
+    { type: "item", text: "[AAO: Questions to ask when considering LASIK](https://www.aao.org/eye-health/treatments/lasik-questions-to-ask)" },
+  ];

@@ -9,8 +9,8 @@ import { blogLinks } from "../content/blog-links";
 import {
   supportArticles,
   supportLinks,
-  supportSlugsForTreatment,
-} from "../content/blog-support";
+} from "../content/blog-support/compiled";
+import { supportSlugsForTreatment } from "../content/blog-support";
 import { getTreatmentDetailSlugs } from "../content/treatment-details";
 import { doctors } from "../content/doctors";
 

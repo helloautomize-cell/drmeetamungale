@@ -125,6 +125,7 @@ export function Footer() {
                   className="h-10 w-auto"
                   width={168}
                   height={70}
+                  fetchPriority="low"
                 />
               </Link>
               <p className="mt-5 text-[17px] font-semibold text-white">

@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Fraunces } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { siteConfig } from "@/content/site";
 import { Header } from "@/components/layout/Header";
@@ -90,6 +89,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "if(e.isIntersecting){e.target.classList.add('is-visible','reveal-instant');io.unobserve(e.target);}});",
               "},{rootMargin:'0px 0px -5% 0px',threshold:0});",
               "document.querySelectorAll('.reveal').forEach(function(n){io.observe(n);});});}",
+              // GA4 stub — ~100 bytes, runs at parse time so every
+              // gtag()/sendEvent call queues into dataLayer. gtag.js itself
+              // is injected lazily by AnalyticsEvents on first interaction
+              // (or a timer fallback) so it never competes with the LCP
+              // image or blocks hydration. Queued calls flush on load.
+              "window.dataLayer=window.dataLayer||[];",
+              "function gtag(){dataLayer.push(arguments)}",
+              "gtag('js',new Date());",
+              "gtag('config','G-XMGYEFNLY5');",
             ].join(""),
           }}
         />
@@ -109,7 +117,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <RevealObserver />
         <AnalyticsEvents />
       </body>
-      <GoogleAnalytics gaId="G-XMGYEFNLY5" />
     </html>
   );
 }

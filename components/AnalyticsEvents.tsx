@@ -1,13 +1,18 @@
 "use client";
 
 import { useEffect } from "react";
-import { sendGAEvent } from "@next/third-parties/google";
 
 // ─── AnalyticsEvents ───────────────────────────────────────────────────────
 // One document-level delegated click listener for GA4 conversion events,
 // mounted once in the root layout. Parameters are deliberately minimal —
 // never phone numbers, emails or link text (hospital site: no patient or
 // health-related data may reach analytics).
+//
+// gtag.js is injected lazily — on the first real interaction, else on a
+// short timer — so the ~100KB third-party script never competes with the
+// LCP image or runs on the critical path. The head stub (app/layout.tsx)
+// queues every gtag() call into dataLayer; queued calls flush when the
+// library loads, so early clicks and the page_view config are preserved.
 //
 //   <a href="tel:">                              → phone_click
 //   wa.me / api.whatsapp.com / whatsapp: links   → whatsapp_click
@@ -18,6 +23,8 @@ import { sendGAEvent } from "@next/third-parties/google";
 //
 // The booking-form success branch fires appointment_submit separately
 // (ContactBookingForm.tsx → trackEvent).
+
+const GA_ID = "G-XMGYEFNLY5";
 
 const TEL_RE = /^tel:/i;
 const MAILTO_RE = /^mailto:/i;
@@ -41,14 +48,14 @@ type GaWindow = Window & {
 };
 
 // Guarded so clicks before gtag.js has loaded are queued via dataLayer
-// (sendGAEvent) or dropped silently — never throw from analytics.
+// (the head stub) or dropped silently — never throw from analytics.
 export function trackEvent(name: string, params: Record<string, string>) {
   try {
     const w = window as GaWindow;
     if (typeof w.gtag === "function") {
       w.gtag("event", name, params);
     } else if (Array.isArray(w.dataLayer)) {
-      sendGAEvent("event", name, params);
+      w.dataLayer.push(["event", name, params]);
     }
   } catch {
     // analytics must never break the page
@@ -102,7 +109,34 @@ export function AnalyticsEvents() {
       });
     };
     document.addEventListener("click", onClick, true);
-    return () => document.removeEventListener("click", onClick, true);
+
+    // Lazy gtag.js — first interaction wins; the timer catches visitors
+    // who read without ever clicking or scrolling.
+    let injected = false;
+    const loadGtag = () => {
+      if (injected) return;
+      injected = true;
+      const s = document.createElement("script");
+      s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+      s.async = true;
+      document.head.appendChild(s);
+    };
+    const triggers: (keyof WindowEventMap)[] = [
+      "pointerdown",
+      "keydown",
+      "touchstart",
+      "scroll",
+    ];
+    triggers.forEach((e) =>
+      window.addEventListener(e, loadGtag, { once: true, passive: true })
+    );
+    const timer = window.setTimeout(loadGtag, 4000);
+
+    return () => {
+      document.removeEventListener("click", onClick, true);
+      triggers.forEach((e) => window.removeEventListener(e, loadGtag));
+      window.clearTimeout(timer);
+    };
   }, []);
   return null;
 }

@@ -1,4 +1,4 @@
-import { supportBodies } from "@/content/blog-support";
+import { supportBodies } from "@/content/blog-support/compiled";
 
 export interface BlogFaqItem {
   q: string;

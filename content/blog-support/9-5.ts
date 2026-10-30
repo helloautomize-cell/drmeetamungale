@@ -1,9 +1,9 @@
-import type { SupportArticleSource } from "@/content/blog-support";
+import type { SupportArticleMetaSource } from "@/content/blog-support";
 
 // Article 9.5 - LASIK & Refractive Surgery cluster. Body adapted from the supplied
 // source document; [label](link:N.M) sibling links resolve in the registry
 // compiler, plain internal/external hrefs pass through.
-export const article: SupportArticleSource = {
+export const article: SupportArticleMetaSource = {
   number: "9.5",
   slug: "lasik-risks-side-effects-icl-alternative",
   title: "LASIK Risks, Side Effects and ICL as an Alternative",
@@ -23,113 +23,7 @@ export const article: SupportArticleSource = {
     height: 720,
     alt: "Illustration: ophthalmologist holding a small model of the eye while explaining options to a thoughtful young Indian woman wearing thick glasses in a bright.",
   },
-  blocks: [
-    {
-      type: "callout",
-      text: "Quick Answer",
-      blocks: [
-        { type: "para", text: "Common LASIK side effects include dry eyes, glare, halos and fluctuating vision in the first weeks. Less common risks include under- or over-correction, flap problems, infection and, rarely, corneal weakening called ectasia. People with keratoconus, thin corneas, unstable power, severe dry eye or certain health conditions should avoid LASIK. ICL corrects vision without removing corneal tissue." },
-      ],
-    },
-    { type: "para", text: "LASIK is a well-established procedure with high satisfaction in suitable patients, but like any surgery it carries risks. The most common side effects are temporary dry eye and night glare or halos. Serious complications are uncommon when patients are carefully screened. For people who are not suitable for LASIK, such as those with very high power or thin corneas, an ICL (implantable collamer lens) can be a safe alternative." },
-    { type: "heading", text: "Common Side Effects" },
-    { type: "h3", text: "Dry eye" },
-    { type: "para", text: "Most patients have some dryness for weeks to months as corneal nerves heal. Lubricating drops usually help." },
-    { type: "h3", text: "Glare, halos and starbursts" },
-    { type: "para", text: "Lights may look surrounded by rings at night, especially early on. These usually improve over one to three months." },
-    { type: "h3", text: "Fluctuating vision" },
-    { type: "para", text: "Vision may vary slightly through the day in the first few weeks." },
-    { type: "h3", text: "Small red spots" },
-    { type: "para", text: "Tiny bleeds on the white of the eye can appear and fade within two weeks." },
-    { type: "heading", text: "Less Common Risks" },
-    { type: "item", text: "Under-correction or over-correction, sometimes needing an enhancement" },
-    { type: "item", text: "Regression, where some power returns over time" },
-    { type: "item", text: "Flap complications, such as wrinkles or displacement, mostly in the early days" },
-    { type: "item", text: "Infection or inflammation under the flap, which is rare" },
-    { type: "item", text: "Corneal ectasia, a rare weakening of the cornea, mostly in eyes with undetected risk factors" },
-    { type: "para", text: "Thorough screening greatly lowers these risks." },
-    { type: "heading", text: "Who Should Avoid LASIK?" },
-    { type: "item", text: "People with keratoconus or suspicious corneal shape" },
-    { type: "item", text: "Those with thin corneas" },
-    { type: "item", text: "People whose power is still changing" },
-    { type: "item", text: "Pregnant or breastfeeding women" },
-    { type: "item", text: "People with severe, untreated dry eye" },
-    { type: "item", text: "Those with uncontrolled diabetes or autoimmune diseases" },
-    { type: "item", text: "Patients with active eye disease, such as infection or advanced glaucoma" },
-    { type: "heading", text: "What Is ICL?" },
-    { type: "para", text: "ICL is a thin, flexible lens placed inside the eye, in front of the natural lens and behind the iris. It works like a permanent contact lens that you cannot feel or see." },
-    { type: "h3", text: "Who may benefit" },
-    { type: "item", text: "People with very high myopia" },
-    { type: "item", text: "Those with thin or irregular corneas not suited to laser" },
-    { type: "item", text: "Some patients with dry eye who want to avoid corneal surgery" },
-    { type: "h3", text: "Advantages" },
-    { type: "item", text: "No corneal tissue is removed" },
-    { type: "item", text: "Can treat high powers" },
-    { type: "item", text: "Often gives sharp vision quality" },
-    { type: "item", text: "The lens can be removed or exchanged if needed" },
-    { type: "h3", text: "Considerations" },
-    { type: "para", text: "ICL is an internal eye procedure, so it has its own risks, such as raised eye pressure, cataract or infection, though these are uncommon. Regular follow-up is needed." },
-    { type: "heading", text: "How to Lower Your Risk" },
-    { type: "item", text: "Choose a centre that performs full corneal and dry eye tests" },
-    { type: "item", text: "Share your full medical history" },
-    { type: "item", text: "Follow aftercare and drop schedules carefully" },
-    { type: "item", text: "Avoid rubbing your eyes" },
-    { type: "item", text: "Attend every follow-up visit" },
-    { type: "heading", text: "Key Takeaways" },
-    { type: "item", text: "LASIK is safe for well-screened, suitable eyes." },
-    { type: "item", text: "Dry eye and night glare are the most common side effects." },
-    { type: "item", text: "Serious complications are uncommon." },
-    { type: "item", text: "Some people should avoid LASIK for safety reasons." },
-    { type: "item", text: "ICL is a strong option for high power or thin corneas." },
-    { type: "heading", text: "Final Thoughts" },
-    { type: "para", text: "Understanding the risks helps you make a confident, informed choice. A good surgeon will tell you honestly if [LASIK](/blog/lasik-eye-surgery-types-cost-benefits-candidacy/) is not right for you and offer safer alternatives. For a complete refractive evaluation, you can consult [Dr. Meeta Mungale](/doctors/meeta-mungale/), an ophthalmologist at [Mungale Eye Hospital](/contact-us/) in Vadodara." },
-    {
-      type: "faq",
-      text: "Frequently Asked Questions",
-      items: [
-      {
-        q: "Is LASIK safe in the long term?",
-        a: [
-          { type: "para", text: "For suitable, well-screened patients, LASIK has a long safety record and stable results. Long-term problems are uncommon. Careful testing before surgery helps avoid risks such as corneal weakening in later years." },
-        ],
-      },
-      {
-        q: "Can LASIK cause blindness?",
-        a: [
-          { type: "para", text: "Blindness from LASIK is extremely rare. Most complications can be treated. Choosing an experienced surgeon, having full pre-operative tests and following aftercare closely reduce the risk of serious problems." },
-        ],
-      },
-      {
-        q: "Will my power come back after LASIK?",
-        a: [
-          { type: "para", text: "Most people keep stable vision for many years. A small number may have some regression, especially with high power. Age-related near vision change (presbyopia) after 40 is separate and still occurs." },
-        ],
-      },
-      {
-        q: "Is ICL better than LASIK?",
-        a: [
-          { type: "para", text: "Neither is better for everyone. ICL suits high power or thin corneas, while LASIK suits many people with moderate power and healthy corneas. Your eye measurements decide which is safer and more suitable." },
-        ],
-      },
-      {
-        q: "Can ICL be removed?",
-        a: [
-          { type: "para", text: "Yes. One advantage of ICL is that the lens can be removed or replaced if needed. This makes it a reversible option compared with laser procedures that permanently reshape the cornea." },
-        ],
-      },
-      {
-        q: "Who is not suitable for ICL?",
-        a: [
-          { type: "para", text: "People with a shallow front chamber, low inner cell counts of the cornea, uncontrolled glaucoma or certain eye diseases may not be suitable. Detailed tests decide whether ICL is safe for you." },
-        ],
-      },
-      ],
-    },
-    { type: "heading", text: "Sources and further reading" },
-    { type: "item", text: "[AAO: LASIK laser eye surgery](https://www.aao.org/eye-health/treatments/lasik)" },
-    { type: "item", text: "[AAO: Facts about LASIK complications](https://www.aao.org/eye-health/treatments/facts-about-lasik-complications)" },
-    { type: "item", text: "[AAO: Questions to ask when considering LASIK](https://www.aao.org/eye-health/treatments/lasik-questions-to-ask)" },
-  ],
+  readMinutes: 5,
   keepReading: [
     { label: "Laser-Assisted In Situ Keratomileusis (LASIK) Eye Surgery Types, Cost, Benefits and Who Qualifies", target: "/blog/lasik-eye-surgery-types-cost-benefits-candidacy/" },
     { label: "Am I a Good Candidate for LASIK?", target: "link:9.2" },
