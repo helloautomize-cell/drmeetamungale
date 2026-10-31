@@ -7,11 +7,11 @@ import { blogPosts, type BlogPostMeta, type BlogTopic } from "@/content/blog";
 import { Reveal } from "@/components/ui/motion";
 
 // ─── JournalExplorer ───────────────────────────────────────────────────────
-// Editorial journal over all 26 live posts (newest first): search + topic
-// tabs + live count; featured cover story (first of results); rhythm grid
-// (every 7th story spans two columns); concern browser (intent presets);
-// load-more in sixes with scroll preserved. Titles/URLs/covers verbatim
-// source; excerpts source-derived; read time from live word counts.
+// Editorial journal over all live posts (newest first): search + topic
+// tabs + live count; featured cover story (first of results); uniform
+// story grid; concern browser (intent presets); load-more with scroll
+// preserved. Titles/URLs/covers verbatim source; excerpts source-derived;
+// read time from live word counts.
 type TopicFilter = BlogTopic | "all";
 
 const TOPIC_TABS: { id: TopicFilter; label: string }[] = [
@@ -40,7 +40,7 @@ const CONCERNS: { topic: string; line: string; filter?: TopicFilter; query?: str
   { topic: "Eye health", line: "Everyday habits for lasting vision.", filter: "eye-health" },
 ];
 
-const PAGE_SIZE = 7;
+const PAGE_SIZE = 12;
 
 function Meta({ post }: { post: BlogPostMeta }) {
   return (
@@ -92,14 +92,12 @@ function FeaturedStory({ post }: { post: BlogPostMeta }) {
   );
 }
 
-function StoryCard({ post, large, hidden }: { post: BlogPostMeta; large?: boolean; hidden?: boolean }) {
+function StoryCard({ post, hidden }: { post: BlogPostMeta; hidden?: boolean }) {
   return (
     <Link
       href={post.url}
       hidden={hidden}
-      className={
-        "group flex flex-col " + (large ? "sm:col-span-2" : "")
-      }
+      className="group flex flex-col"
     >
       <span className="block overflow-hidden rounded-[16px] ring-1 ring-secondary/10">
         <Image
@@ -108,14 +106,14 @@ function StoryCard({ post, large, hidden }: { post: BlogPostMeta; large?: boolea
           width={post.coverWidth}
           height={post.coverHeight}
           loading="lazy"
-          sizes={large ? "(min-width: 1024px) 55vw, 90vw" : "(min-width: 1024px) 26vw, (min-width: 640px) 44vw, 90vw"}
+          sizes="(min-width: 1024px) 26vw, (min-width: 640px) 44vw, 90vw"
           className="w-full h-auto transition-transform duration-700 motion-reduce:transition-none group-hover:scale-[1.02]"
         />
       </span>
       <span className="mt-4 block">
         <Meta post={post} />
       </span>
-      <span className={"mt-2 block font-title-md font-semibold text-on-surface leading-snug " + (large ? "text-[20px] lg:text-[24px]" : "text-[18px]")}>
+      <span className="mt-2 block font-title-md font-semibold text-on-surface leading-snug text-[18px]">
         {post.title}
       </span>
       <span className="mt-2 hidden font-body-sm text-body-sm text-on-surface-variant leading-relaxed line-clamp-2 sm:block">
@@ -259,7 +257,7 @@ export function JournalExplorer() {
                   beyond the load-more count stay hidden until expanded. */}
               <div className="mt-6 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
                 {rest.map((p, i) => (
-                  <StoryCard key={p.slug} post={p} large={i % 7 === 6} hidden={i >= count} />
+                  <StoryCard key={p.slug} post={p} hidden={i >= count} />
                 ))}
               </div>
               {rest.length > count && (

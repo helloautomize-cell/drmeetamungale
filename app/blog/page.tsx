@@ -20,8 +20,8 @@ export const metadata: Metadata = {
 
 // ─── /blog/ — editorial eye-health journal ────────────────────────────────
 // All 36 posts (newest first) with covers, source excerpts and
-// word-count read times. Magazine cover story + rhythm grid + concern
-// browser + load-more. Trust copy says "from Mungale Eye Hospital" —
+// word-count read times. Magazine cover story + uniform story grid +
+// concern browser + load-more. Trust copy says "from Mungale Eye Hospital" —
 // author data does not prove doctor authorship, so no byline claims.
 export default function BlogPage() {
   return (
