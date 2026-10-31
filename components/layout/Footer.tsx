@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Facebook, Instagram, Youtube } from "lucide-react";
 import { ArtImage } from "@/components/ui/ArtImage";
 import { Reveal } from "@/components/ui/motion";
 import { IMG } from "@/lib/images";
@@ -273,30 +273,33 @@ export function Footer() {
                   </a>
                 </span>
               </p>
-              <div className="mt-5 flex items-center gap-5 text-[13.5px] font-medium">
+              <div className="mt-5 flex items-center gap-5">
                 <a
                   href={siteConfig.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={siteConfig.name + " on Instagram"}
                   className="inline-flex items-center min-h-[44px] md:min-h-0 text-white/60 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
                 >
-                  Instagram
+                  <Instagram aria-hidden="true" className="w-[18px] h-[18px]" />
                 </a>
                 <a
                   href={siteConfig.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={siteConfig.name + " on Facebook"}
                   className="inline-flex items-center min-h-[44px] md:min-h-0 text-white/60 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
                 >
-                  Facebook
+                  <Facebook aria-hidden="true" className="w-[18px] h-[18px]" />
                 </a>
                 <a
                   href={siteConfig.social.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/60 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
+                  aria-label={siteConfig.name + " on YouTube"}
+                  className="inline-flex items-center min-h-[44px] md:min-h-0 text-white/60 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
                 >
-                  YouTube
+                  <Youtube aria-hidden="true" className="w-[18px] h-[18px]" />
                 </a>
               </div>
             </div>
