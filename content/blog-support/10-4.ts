@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/blurry-vision-after-40-causes-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: middle-aged Indian woman holding a book at arm's length, squinting slightly in a bright living room.",
+    alt: "AI-generated illustration: middle-aged Indian woman holding a book at arm's length, squinting slightly in a bright living room.",
   },
   readMinutes: 2,
   keepReading: [

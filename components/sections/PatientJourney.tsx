@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ArtImage } from "@/components/ui/ArtImage";
 import { Reveal } from "@/components/ui/motion";
-import { IMG, REAL, gated } from "@/lib/images";
+import { IMG, REAL } from "@/lib/images";
 import { JourneySticky, type JourneyStep } from "@/components/sections/JourneySticky";
 
 // ─── Patient journey — "What happens when you come in." ────────────────
@@ -27,10 +27,8 @@ const STEPS: JourneyStep[] = [
     num: "02",
     title: "Detailed diagnostics",
     body: "Tests are done in-house — vision measurement, corneal scans, eye pressure and retinal imaging as needed, including widefield retinal imaging.",
-    img: gated(REAL.examSlit, IMG.j2),
-    alt: gated(REAL.examSlit, IMG.j2) === REAL.examSlit
-      ? "A slit-lamp examination at Mungale Eye Hospital"
-      : "Diagnostic imaging being performed",
+    img: IMG.j2,
+    alt: "Diagnostic imaging being performed",
     pos: "object-[50%_45%]",
   },
   {

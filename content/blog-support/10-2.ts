@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/what-happens-complete-eye-examination-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: eye doctor using a slit lamp to examine a patient in a modern eye clinic.",
+    alt: "AI-generated illustration: eye doctor using a slit lamp to examine a patient in a modern eye clinic.",
   },
   readMinutes: 3,
   keepReading: [

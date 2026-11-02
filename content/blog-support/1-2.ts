@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/cataract-surgery-cost-vadodara-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist in a white coat sits across a desk from an elderly patient and an adult family member, with a printed estimate and a simple eye.",
+    alt: "AI-generated illustration: ophthalmologist in a white coat sits across a desk from an elderly patient and an adult family member, with a printed estimate and a simple eye.",
   },
   readMinutes: 7,
   keepReading: [

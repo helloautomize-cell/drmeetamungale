@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/lasik-risks-side-effects-icl-alternative-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist holding a small model of the eye while explaining options to a thoughtful young Indian woman wearing thick glasses in a bright.",
+    alt: "AI-generated illustration: ophthalmologist holding a small model of the eye while explaining options to a thoughtful young Indian woman wearing thick glasses in a bright.",
   },
   readMinutes: 5,
   keepReading: [

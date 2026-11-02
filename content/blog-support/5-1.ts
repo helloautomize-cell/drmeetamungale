@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/can-dry-eyes-cause-blurry-vision-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: office worker blinking and rubbing tired eyes while looking at a computer screen.",
+    alt: "AI-generated illustration: office worker blinking and rubbing tired eyes while looking at a computer screen.",
   },
   readMinutes: 4,
   keepReading: [

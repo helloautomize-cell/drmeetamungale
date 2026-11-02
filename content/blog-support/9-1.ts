@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/lasik-vs-femto-lasik-contoura-smile-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: modern laser vision correction suite in a Vadodara eye hospital, with a refractive laser machine, a surgeon in scrubs and a calm young Indian.",
+    alt: "AI-generated illustration: modern laser vision correction suite in a Vadodara eye hospital, with a refractive laser machine, a surgeon in scrubs and a calm young Indian.",
   },
   readMinutes: 5,
   keepReading: [

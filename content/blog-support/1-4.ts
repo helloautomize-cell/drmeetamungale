@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/cataract-surgery-recovery-week-by-week-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: older adult sits across from an ophthalmologist, with a slit-lamp examination microscope in the foreground.",
+    alt: "AI-generated illustration: older adult sits across from an ophthalmologist, with a slit-lamp examination microscope in the foreground.",
   },
   readMinutes: 7,
   keepReading: [

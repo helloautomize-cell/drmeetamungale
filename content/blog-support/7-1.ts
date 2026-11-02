@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/corneal-ulcer-symptoms-red-eye-emergency-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: worried Indian man holding a tissue near one red, watery eye in an eye hospital waiting area in Vadodara, with a nurse approaching.",
+    alt: "AI-generated illustration: worried Indian man holding a tissue near one red, watery eye in an eye hospital waiting area in Vadodara, with a nurse approaching.",
   },
   readMinutes: 5,
   keepReading: [

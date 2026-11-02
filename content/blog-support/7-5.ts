@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/corneal-ulcer-left-untreated-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: Indian adult holding a hand near a red, watering eye while sitting in a clinic waiting area.",
+    alt: "AI-generated illustration: Indian adult holding a hand near a red, watering eye while sitting in a clinic waiting area.",
   },
   readMinutes: 3,
   keepReading: [

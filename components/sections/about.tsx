@@ -121,7 +121,7 @@ const eras = [
   {
     year: "2011",
     title: "A new home in Kothi.",
-    text: "Relocated to a new, state-of-the-art facility in Kothi, the heart of Baroda city.",
+    text: "Relocated to a new facility in Kothi, the heart of Baroda city.",
   },
   {
     year: "Today",
@@ -229,9 +229,8 @@ export function OurApproach() {
           </h2>
           {/* Condensed from the verified mission copy — meaning kept. */}
           <p className="mt-4 text-[16px] lg:text-[17px] leading-relaxed text-on-surface-variant max-w-xl">
-            Mungale Eye Hospital is committed to the highest standard of eye
-            care — advanced diagnostics, expert intervention and cutting-edge
-            surgery, at affordable prices.
+            Mungale Eye Hospital provides specialist diagnostics and surgery
+            for cornea, glaucoma and cataract care.
           </p>
         </Reveal>
         <ol className="mt-10 lg:mt-12 max-w-3xl border-t border-secondary/10">
@@ -340,8 +339,8 @@ export function FacilityPlace() {
             <figure>
               <span className="block overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
                 <Image
-                  src="/images/IMG_0887-jpg.webp"
-                  alt="Nd:YAG laser procedure at Mungale Eye Hospital"
+                  src="/images/home/why-consultation.webp"
+                  alt="Dr. Sachin Mungale in surgical scrubs beside a slit lamp at Mungale Eye Hospital"
                   width={880}
                   height={620}
                   loading="lazy"
@@ -359,8 +358,8 @@ export function FacilityPlace() {
               <figure>
                 <span className="block overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
                   <Image
-                    src="/images/11-jpg.webp"
-                    alt="Eye examination underway at Mungale Eye Hospital"
+                    src="/images/IMG_2223-jpg.webp"
+                    alt="Dr. Meeta Mungale reviewing records at her consultation desk"
                     width={640}
                     height={420}
                     loading="lazy"
@@ -377,8 +376,8 @@ export function FacilityPlace() {
               <figure>
                 <span className="block overflow-hidden rounded-[20px] ring-1 ring-secondary/10">
                   <Image
-                    src="/images/30-jpg.webp"
-                    alt="Computerised eye testing at Mungale Eye Hospital"
+                    src="/images/home/pristine-fundus-camera.webp"
+                    alt="Widefield fundus camera used for retinal imaging at Mungale Eye Hospital"
                     width={640}
                     height={420}
                     loading="lazy"

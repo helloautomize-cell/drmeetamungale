@@ -51,7 +51,7 @@ export const siteConfig = {
     // NOTE: patient/surgery counts are NOT rendered anywhere on the site —
     // unverified claims stay out of view until the client confirms exact
     // figures (seo-audit issue CLAIM-021). Homepage chips now show only
-    // verified numbers (19+ years, 500+ corneal transplants, 2 specialists).
+    // verified numbers only (NMC-03: surgery counts are not rendered).
     patientsClaim: "40,000+",
     patientsVerifiedNote: "NOT VERIFIED — needs client confirmation; do not render until confirmed",
     surgeriesClaim: "15,000+",

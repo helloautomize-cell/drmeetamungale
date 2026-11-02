@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/lasik-recovery-timeline-day-by-day-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: happy young Indian woman without glasses reading a book on a balcony in Vadodara a week after LASIK, wearing sunglasses pushed up on her head.",
+    alt: "AI-generated illustration: happy young Indian woman without glasses reading a book on a balcony in Vadodara a week after LASIK, wearing sunglasses pushed up on her head.",
   },
   readMinutes: 4,
   keepReading: [

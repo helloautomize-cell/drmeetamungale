@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/lasik-candidate-eligibility-criteria-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: young Indian man resting his chin on a corneal topography machine while a technician runs a scan in a bright Vadodara eye hospital.",
+    alt: "AI-generated illustration: young Indian man resting his chin on a corneal topography machine while a technician runs a scan in a bright Vadodara eye hospital.",
   },
   readMinutes: 4,
   keepReading: [

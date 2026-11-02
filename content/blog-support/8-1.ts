@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/diabetes-eye-damage-without-symptoms-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: Indian patient with diabetes looking into a retinal imaging machine while a technician adjusts it.",
+    alt: "AI-generated illustration: Indian patient with diabetes looking into a retinal imaging machine while a technician adjusts it.",
   },
   readMinutes: 3,
   keepReading: [

@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/corneal-transplant-recovery-first-6-months-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: patient wearing a protective eye shield resting.",
+    alt: "AI-generated illustration: patient wearing a protective eye shield resting.",
   },
   readMinutes: 4,
   keepReading: [

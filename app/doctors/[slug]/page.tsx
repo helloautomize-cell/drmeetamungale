@@ -20,11 +20,6 @@ export function generateStaticParams() {
   return doctors.map((d) => ({ slug: d.slug }));
 }
 
-const OG_DIMS: Record<string, { width: number; height: number }> = {
-  "sachin-mungale": { width: 1200, height: 1600 },
-  "meeta-mungale": { width: 285, height: 331 },
-};
-
 export async function generateMetadata({
   params,
 }: {
@@ -59,7 +54,8 @@ export async function generateMetadata({
       url: canonical(url),
       siteName: siteConfig.name,
       type: "profile",
-      images: [{ url: d.imageUrl, ...OG_DIMS[d.slug], alt: d.alt }],
+      // NMC-11: share card uses the site image, not the doctor portrait.
+      images: [{ url: "/images/mungale/og-default.jpg", width: 1200, height: 630, alt: siteConfig.name }],
     },
   };
 }

@@ -124,7 +124,7 @@ export const atlasTreatments: AtlasTreatment[] = [
     details: [
       {
         title: "LED CSO Slit Lamp With Imaging",
-        body: "Slit lamp with brilliant LED illumination which allows simultaneous visualisation by both doctors and relatives of the patient. It has imaging systems that will capture photos and real time videos of the eye. It helps the Doctors to see the minutest details of the patient\u2019s eye, which includes all the parts of the eye. It is the gold standard for eye examination.",
+        body: "Slit lamp with brilliant LED illumination which allows simultaneous visualisation by both doctors and relatives of the patient. It has imaging systems that capture photos and real time videos of the eye, used for detailed eye examination.",
       },
       {
         title: "Corneal Handy Pachymeter SP-100",
@@ -140,7 +140,7 @@ export const atlasTreatments: AtlasTreatment[] = [
       },
       {
         title: "Rose K Contact Lens",
-        body: "These are specialized contact lenses which provide excellent visual acuity in cases of Keratoconus.",
+        body: "Rose K lenses improve visual acuity in keratoconus; fit and result vary by eye.",
       },
       {
         title: "Scleral Contact Lens",
@@ -217,7 +217,7 @@ export const atlasTreatments: AtlasTreatment[] = [
       },
       {
         title: "Goldmanns Applanation Tonometer",
-        body: "The most ideal way to measure intra-ocular pressure gives accurate readings always.",
+        body: "Goldmann applanation tonometry — the standard clinical method for measuring eye pressure.",
       },
       {
         title: "Perkins Hand Held Tonometer",
@@ -291,71 +291,6 @@ export const atlasTreatments: AtlasTreatment[] = [
         alt: "Healthy versus keratoconus cornea illustration",
         caption: "Keratoconus — clinical illustration",
       },
-      {
-        src: "/images/treatments/infection.jpg",
-        alt: "Corneal infection clinical photograph at Mungale Eye Hospital",
-        caption: "Corneal infection — clinical photograph",
-      },
-      {
-        src: "/images/treatments/cb2.jpg",
-        alt: "Chemical burn clinical photograph at Mungale Eye Hospital",
-        caption: "Chemical burns — clinical photograph",
-      },
-      {
-        src: "/images/treatments/cb1.jpg",
-        alt: "Chemical burn clinical photograph at Mungale Eye Hospital",
-        caption: "Chemical burns — clinical photograph",
-      },
-      {
-        src: "/images/treatments/de1.jpg",
-        alt: "Dry eye clinical photograph at Mungale Eye Hospital",
-        caption: "Dry eye — clinical photograph",
-      },
-      {
-        src: "/images/treatments/de2.jpg",
-        alt: "Dry eye clinical photograph at Mungale Eye Hospital",
-        caption: "Dry eye — clinical photograph",
-      },
-      {
-        src: "/images/treatments/de3.jpg",
-        alt: "Dry eye clinical photograph at Mungale Eye Hospital",
-        caption: "Dry eye — clinical photograph",
-      },
-      {
-        src: "/images/treatments/de4.jpg",
-        alt: "Dry eye clinical photograph at Mungale Eye Hospital",
-        caption: "Dry eye — clinical photograph",
-      },
-      {
-        src: "/images/treatments/de5.jpg",
-        alt: "Dry eye clinical photograph at Mungale Eye Hospital",
-        caption: "Dry eye — clinical photograph",
-      },
-      {
-        src: "/images/treatments/de6.jpg",
-        alt: "Dry eye clinical photograph at Mungale Eye Hospital",
-        caption: "Dry eye — clinical photograph",
-      },
-      {
-        src: "/images/treatments/allergy.jpg",
-        alt: "Eye allergy clinical photograph at Mungale Eye Hospital",
-        caption: "Eye allergy — clinical photograph",
-      },
-      {
-        src: "/images/treatments/sjs2.jpg",
-        alt: "Stevens-Johnson syndrome clinical photograph at Mungale Eye Hospital",
-        caption: "Stevens\u2013Johnson syndrome — clinical photograph",
-      },
-      {
-        src: "/images/treatments/sjs1.jpg",
-        alt: "Stevens-Johnson syndrome clinical photograph at Mungale Eye Hospital",
-        caption: "Stevens\u2013Johnson syndrome — clinical photograph",
-      },
-      {
-        src: "/images/treatments/sjs3.jpg",
-        alt: "Stevens-Johnson syndrome clinical photograph at Mungale Eye Hospital",
-        caption: "Stevens\u2013Johnson syndrome — clinical photograph",
-      },
     ],
     details: [
       {
@@ -427,12 +362,12 @@ export const atlasTreatments: AtlasTreatment[] = [
     details: [
       {
         title: "Selective Laser Trabeculoplasty (SLT)",
-        body: "SLT is useful for reducing intra-ocular pressure and helping patients maintain a life on minimum intraocular drops. This procedure is very safe and can be repeated. Success rate of this procedure is 90%.",
+        body: "SLT lowers eye pressure for many patients and can be repeated; its effect can lessen over time and drops may still be needed. Your doctor will explain the likely benefit for your eyes.",
         notes: [noteLine("slt")],
       },
       {
         title: "Nd:YAG Laser Peripheral Iridotomy",
-        body: "We use a laser beam (the Nd:YAG laser) to make a microscopic hole in the iris (the colored part of the eye) so that the fluid in the eye flows through the hole and the eye pressure remains under control. It is a very safe and effective procedure to treat angle-closure glaucoma.",
+        body: "Nd:YAG iridotomy creates a small opening in the iris so fluid can drain; it is a short clinic procedure, and your doctor will explain its risks and benefits for your eyes.",
         notes: [noteLine("yagIridotomy")],
       },
       {
@@ -482,7 +417,7 @@ export const atlasTreatments: AtlasTreatment[] = [
       {
         title: "Ellips FXO",
         // TODO(doctor): approve any pricing statement — price claim reworded.
-        body: "Ellips FXO AMO Phaco Machine (Sovereign Compact System With Advanced Ellips FXO Technology): Mungale Eye Hospital offers an advanced phacoemulsification system that removes cataract with high efficiency in a matter of minutes. A range of intraocular lenses is offered.",
+        body: "Ellips FXO AMO Phaco Machine (Sovereign Compact System With Advanced Ellips FXO Technology): phacoemulsification is a short day-care procedure. A range of intraocular lenses is offered.",
       },
       {
         title: "OERTLI CataRhex 3",
@@ -543,7 +478,7 @@ export const atlasFacilities = [
   },
   {
     title: "Well-equipped operation theatre",
-    body: "Mungale Eye Hospital has one of the largest eye operation theatres in Vadodara city. It has two operation theatre tables and 2 LED microscopes. Eye surgeries can be performed under General anesthesia which makes us equipped to perform pediatric eye surgeries, corneal tears, and emergency cases. We also have the class B sterilizer which allows us to autoclave all hollow tubings required for eye surgeries under strict safety and quality controls. In addition, an ETO sealing machine for ethylene oxide sterilization is also available. No compromise in ensuring sterility and safety for eye surgeries!",
+    body: "A dedicated eye operation theatre with two tables, two LED microscopes, general-anaesthesia capability and class-B/ETO sterilisation. Eye surgeries including pediatric procedures, corneal tears and emergency cases are performed here.",
   },
 ];
 

@@ -46,10 +46,8 @@ export const REAL = {
       the proper portrait arrives. */
   meeta:       { d: r('doctor-meeta-desk', 872, 1090) },
   consultDesk: { d: r('consultation-desk-wide', 1280, 960) },
-  /** Dr. Sachin examining an elderly patient at the YAG laser. */
-  careYag:     { d: r('care-yag-wide', 1600, 900, 'patient'),  m: r('care-yag-tall', 1200, 1273, 'patient') },
-  /** Slit-lamp exam with assistant, patient visible. */
-  examSlit:    { d: r('exam-slitlamp-wide', 1280, 960, 'patient'), m: r('exam-slitlamp-tall', 1280, 1500, 'patient') },
+  // NMC-13: care-yag-* and exam-slitlamp-* (identifiable patients) moved
+  // out of public/ to archive/ — consent unconfirmed, entries removed.
 
   team:        { d: r('team-wide', 1920, 1200),  m: r('team-mobile', 1200, 900) },
 } as const;

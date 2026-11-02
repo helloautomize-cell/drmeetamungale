@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/pterygium-recurrence-after-surgery-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist examining an Indian patient's eye at a slit lamp during a follow-up visit in a bright Vadodara eye hospital.",
+    alt: "AI-generated illustration: ophthalmologist examining an Indian patient's eye at a slit lamp during a follow-up visit in a bright Vadodara eye hospital.",
   },
   readMinutes: 4,
   keepReading: [

@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/can-glaucoma-be-cured-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist, seen from behind and not identifiable, explains an optic nerve scan on a monitor to an older patient seated comfortably beside.",
+    alt: "AI-generated illustration: ophthalmologist, seen from behind and not identifiable, explains an optic nerve scan on a monitor to an older patient seated comfortably beside.",
   },
   readMinutes: 7,
   keepReading: [

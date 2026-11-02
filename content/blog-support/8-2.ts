@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/how-often-diabetics-eye-checkup-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: calendar with a circled date next to a glucose meter and a pair of glasses on a desk.",
+    alt: "AI-generated illustration: calendar with a circled date next to a glucose meter and a pair of glasses on a desk.",
   },
   readMinutes: 2,
   keepReading: [

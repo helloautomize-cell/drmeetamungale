@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/warning-signs-see-eye-doctor-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: Indian adult covering one eye with a hand and looking concerned in a bright home setting.",
+    alt: "AI-generated illustration: Indian adult covering one eye with a hand and looking concerned in a bright home setting.",
   },
   readMinutes: 3,
   keepReading: [

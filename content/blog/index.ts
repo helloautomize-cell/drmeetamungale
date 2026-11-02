@@ -138,7 +138,7 @@ export const blogPosts: BlogPostMeta[] = [
     coverWidth: 1280,
     coverHeight: 720,
     coverAlt:
-      "Illustration: a woman patient beside circular before-and-after eye close-ups, an intraocular lens graphic and an eye surgery scene.",
+      "AI-generated illustration: a woman patient beside circular before-and-after eye close-ups, an intraocular lens graphic and an eye surgery scene.",
     date: "2026-09-28",
     excerpt: "A practical guide to cataract symptoms, when surgery is considered, cataract surgery steps, lens choices, recovery, risks and common patient questions.",
     readMinutes: 15,
@@ -155,7 +155,7 @@ export const blogPosts: BlogPostMeta[] = [
     coverWidth: 1280,
     coverHeight: 720,
     coverAlt:
-      "Illustration: a woman doctor examining a man's eyes at a slit-lamp unit in a consulting room.",
+      "AI-generated illustration: a woman doctor examining a man's eyes at a slit-lamp unit in a consulting room.",
     date: "2026-09-28",
     excerpt: "A corneal transplant is an operation in which damaged or diseased corneal tissue is replaced with healthy donor tissue. It may be considered when corneal disease cau…",
     readMinutes: 17,
@@ -172,7 +172,7 @@ export const blogPosts: BlogPostMeta[] = [
     coverWidth: 1280,
     coverHeight: 720,
     coverAlt:
-      "Illustration: a woman having her eyes examined by a female doctor at a slit-lamp unit.",
+      "AI-generated illustration: a woman having her eyes examined by a female doctor at a slit-lamp unit.",
     date: "2026-09-28",
     excerpt: "Dry eye disease can cause burning, irritation and fluctuating vision. Learn about its causes, symptoms, diagnosis, treatment and long-term management.",
     readMinutes: 19,
@@ -191,7 +191,7 @@ export const blogPosts: BlogPostMeta[] = [
     coverWidth: 1280,
     coverHeight: 720,
     coverAlt:
-      "Illustration: an eye examination room with a slit lamp and an eye-pressure testing device on a table.",
+      "AI-generated illustration: an eye examination room with a slit lamp and an eye-pressure testing device on a table.",
     date: "2026-09-28",
     excerpt: "Glaucoma often develops without warning signs. Learn its causes, symptoms, eye pressure tests, and treatment options from Mungale Eye Hospital, Vadodara.",
     readMinutes: 15,

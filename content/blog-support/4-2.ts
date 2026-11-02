@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/dmek-vs-dsek-vs-dalk-vs-pk-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: corneal surgeon at an operating microscope during eye surgery.",
+    alt: "AI-generated illustration: corneal surgeon at an operating microscope during eye surgery.",
   },
   readMinutes: 4,
   keepReading: [

@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/pterygium-surgery-recovery-time-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: smiling Indian woman wearing protective dark glasses resting on a sofa at home in Vadodara a day after eye surgery, with a small bottle of eye.",
+    alt: "AI-generated illustration: smiling Indian woman wearing protective dark glasses resting on a sofa at home in Vadodara a day after eye surgery, with a small bottle of eye.",
   },
   readMinutes: 4,
   keepReading: [

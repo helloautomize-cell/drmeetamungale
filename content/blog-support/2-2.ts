@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/glaucoma-eye-tests-tonometry-oct-visual-field-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmology consultation room with soft daylight from a side window.  An OCT scanner and a slit lamp sit on a clean white desk in the foreground..",
+    alt: "AI-generated illustration: ophthalmology consultation room with soft daylight from a side window.  An OCT scanner and a slit lamp sit on a clean white desk in the foreground..",
   },
   readMinutes: 6,
   keepReading: [

@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/contact-lenses-corneal-ulcer-risk-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: young Indian woman carefully placing a soft contact lens into a clean lens case beside a bottle of solution at a tidy bathroom counter in Vadodara.",
+    alt: "AI-generated illustration: young Indian woman carefully placing a soft contact lens into a clean lens case beside a bottle of solution at a tidy bathroom counter in Vadodara.",
   },
   readMinutes: 4,
   keepReading: [

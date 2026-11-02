@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/can-dry-eye-be-cured-permanently-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: middle-aged Indian woman applying eye drops at a sunny window at home in Vadodara, with a small bottle and warm compress on a side table.",
+    alt: "AI-generated illustration: middle-aged Indian woman applying eye drops at a sunny window at home in Vadodara, with a small bottle and warm compress on a side table.",
   },
   readMinutes: 4,
   keepReading: [

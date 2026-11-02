@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/early-signs-keratoconus-corneal-topography-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: young adult resting their chin on a corneal topography machine while an optometrist operates it.",
+    alt: "AI-generated illustration: young adult resting their chin on a corneal topography machine while an optometrist operates it.",
   },
   readMinutes: 4,
   keepReading: [

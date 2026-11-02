@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/keratoconus-treatment-cost-india-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist explaining a corneal scan report to a young Indian patient and a parent in a bright eye clinic.",
+    alt: "AI-generated illustration: ophthalmologist explaining a corneal scan report to a young Indian patient and a parent in a bright eye clinic.",
   },
   readMinutes: 3,
   keepReading: [

@@ -248,7 +248,7 @@ function BookingFormInner() {
         <label htmlFor="cf-message" className={labelCls}>Message <span className="font-normal normal-case tracking-normal text-on-surface-variant">(optional)</span></label>
         <textarea
           id="cf-message" name="message" rows={4} maxLength={1000}
-          placeholder="Briefly describe your concern"
+          placeholder="Preferred day or general query. Please do not include medical details or reports."
           className={fieldCls + " min-h-28"}
           aria-invalid={Boolean(errors["message"])} aria-describedby={errors["message"] ? "cf-message-err" : undefined}
         />

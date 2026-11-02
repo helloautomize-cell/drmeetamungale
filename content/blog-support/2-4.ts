@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/acute-glaucoma-attack-symptoms-emergency-care-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: slit lamp microscope sits in the foreground, slightly out of focus.  An ophthalmologist in a white coat, seen from behind and not identifiable,.",
+    alt: "AI-generated illustration: slit lamp microscope sits in the foreground, slightly out of focus.  An ophthalmologist in a white coat, seen from behind and not identifiable,.",
   },
   readMinutes: 7,
   keepReading: [

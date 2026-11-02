@@ -189,9 +189,9 @@ export const treatmentPages: TreatmentPageData[] = [
       "Seven areas of cornea care, each approached according to the condition and clinical need.",
     heroVariant: "overlay",
     heroImage: {
-      src: T + "cb1.jpg",
-      alt: "Clouded cornea photographed at Mungale Eye Hospital",
-      caption: "Corneal care — clinical photograph",
+      src: T + "cornea-transplant.webp",
+      alt: "Corneal transplantation surgery diagram used at Mungale Eye Hospital",
+      caption: "Corneal care — clinical illustration",
     },
     sections: [
       {
@@ -209,7 +209,7 @@ export const treatmentPages: TreatmentPageData[] = [
         title: "Corneal Infection",
         summary: "Viral, bacterial or fungal — a microbiology scraping identifies the cause so treatment targets it.",
         bodyKeys: ["Corneal Infection"],
-        image: img("corneal-treatments", T + "infection.jpg"),
+
       },
       {
         id: "transplantation",
@@ -226,7 +226,7 @@ export const treatmentPages: TreatmentPageData[] = [
         title: "Chemical Burns",
         summary: "Chemical injuries need emergency care — from amniotic membrane transplantation to vision-restoring procedures.",
         bodyKeys: ["Chemical Burns"],
-        image: img("corneal-treatments", T + "cb2.jpg"),
+
       },
       {
         id: "dry-eye",
@@ -241,7 +241,7 @@ export const treatmentPages: TreatmentPageData[] = [
         title: "Eye Allergy",
         summary: "Allergic symptoms identified early — left untreated, they may contribute to vision loss.",
         bodyKeys: ["Eye Allergy Treatments"],
-        image: img("corneal-treatments", T + "allergy.jpg"),
+
       },
       {
         id: "sjs",
@@ -249,7 +249,7 @@ export const treatmentPages: TreatmentPageData[] = [
         title: "Stevens–Johnson Syndrome",
         summary: "A rare disorder needing careful lubrication, infection watch, and stage-matched surgical care.",
         bodyKeys: ["Steven Johnson Syndrome"],
-        image: img("corneal-treatments", T + "sjs1.jpg"),
+
       },
     ],
     galleryFilters: [
@@ -394,7 +394,7 @@ export const treatmentPages: TreatmentPageData[] = [
         id: "ellips",
         index: "01",
         title: "Ellips FXO",
-        summary: "An advanced phacoemulsification system that removes cataract with high efficiency — plus a range of intraocular lenses.",
+        summary: "A phacoemulsification system for day-care cataract surgery, with a range of intraocular lenses.",
         bodyKeys: ["Ellips FXO"],
         image: img("cataract-surgery", T + "ct1.jpg"),
         contain: true,

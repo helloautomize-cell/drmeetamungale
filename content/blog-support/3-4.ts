@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/can-keratoconus-be-cured-or-controlled-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist reviewing corneal topography maps with a young adult patient on a screen.",
+    alt: "AI-generated illustration: ophthalmologist reviewing corneal topography maps with a young adult patient on a screen.",
   },
   readMinutes: 4,
   keepReading: [

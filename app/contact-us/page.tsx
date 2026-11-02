@@ -235,7 +235,7 @@ export default function ContactPage() {
                 {/* TODO(doctor): confirm emergency hours — no "24 hours"
                     claim is shown until confirmed. */}
                 <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">
-                  Emergency
+                  Emergency contact numbers
                 </p>
                 {contactPhones.emergency.map((num) => (
                   <a

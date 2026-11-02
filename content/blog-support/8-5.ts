@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/can-diabetic-retinopathy-be-reversed-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: smiling senior Indian couple checking a blood glucose meter together at a breakfast table in a bright Vadodara home, with fresh fruit.",
+    alt: "AI-generated illustration: smiling senior Indian couple checking a blood glucose meter together at a breakfast table in a bright Vadodara home, with fresh fruit.",
   },
   readMinutes: 4,
   keepReading: [

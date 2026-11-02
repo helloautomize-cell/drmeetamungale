@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/how-often-adults-eye-checkup-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: Indian adult reading an eye chart in a bright optical clinic while an eye doctor looks.",
+    alt: "AI-generated illustration: Indian adult reading an eye chart in a bright optical clinic while an eye doctor looks.",
   },
   readMinutes: 3,
   keepReading: [

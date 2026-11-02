@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/dry-eye-tests-tear-film-meibomian-glands-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist examining a patient's eye at a slit lamp in a clean, modern eye hospital in Vadodara, with soft blue diagnostic light.",
+    alt: "AI-generated illustration: ophthalmologist examining a patient's eye at a slit lamp in a clean, modern eye hospital in Vadodara, with soft blue diagnostic light.",
   },
   readMinutes: 4,
   keepReading: [

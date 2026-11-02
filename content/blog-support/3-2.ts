@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/c3r-cxl-keratoconus-corneal-cross-linking-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist performing corneal cross-linking with a UV light device over a patient's eye.",
+    alt: "AI-generated illustration: ophthalmologist performing corneal cross-linking with a UV light device over a patient's eye.",
   },
   readMinutes: 4,
   keepReading: [
