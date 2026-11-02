@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/diabetic-retinopathy-stages-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist pointing to a retina scan on a large monitor while explaining to a middle-aged Indian man with diabetes in a modern Vadodara eye.",
+    alt: "AI-generated illustration: ophthalmologist pointing to a retina scan on a large monitor while explaining to a middle-aged Indian man with diabetes in a modern Vadodara eye.",
   },
   readMinutes: 4,
   keepReading: [

@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/lasik-eye-surgery-cost-vadodara-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: hospital counsellor explaining a printed treatment plan to a young Indian couple at a reception desk of a modern eye hospital in Vadodara.",
+    alt: "AI-generated illustration: hospital counsellor explaining a printed treatment plan to a young Indian couple at a reception desk of a modern eye hospital in Vadodara.",
   },
   readMinutes: 4,
   keepReading: [

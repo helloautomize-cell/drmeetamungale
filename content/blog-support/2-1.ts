@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/early-glaucoma-symptoms-without-signs-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: eye clinic in soft morning light.  A patient in their fifties sits at a visual field analyser, shown from behind and slightly to the side so.",
+    alt: "AI-generated illustration: eye clinic in soft morning light.  A patient in their fifties sits at a visual field analyser, shown from behind and slightly to the side so.",
   },
   readMinutes: 6,
   keepReading: [

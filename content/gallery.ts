@@ -33,53 +33,18 @@ export interface GalleryPhoto {
 const G = "/images/gallery/";
 
 const allGalleryPhotos: GalleryPhoto[] = [
-  { src: G + "IMG_2179-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
-  { src: G + "IMG_2131-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
+  // NMC-01: photographs showing identifiable patients or EMR/clinical
+  // screens were removed (IMG_2179, IMG_2130, IMG_2207, IMG_2219,
+  // IMG_2193, IMG_2197, IMG_2116, IMG_2131, IMG_2188, IMG_2217) and the
+  // before/after clinical set with them (NMC-13) — files moved out of
+  // public/ until documented patient consent is on file.
   { src: G + "IMG_2098-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
   { src: G + "IMG_2138-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
   { src: G + "IMG_2174-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
-  { src: G + "IMG_2116-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
-  { src: G + "IMG_2188-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
-  { src: G + "IMG_2130.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1200, height: 2133, group: "moments" },
   { src: G + "IMG_2235-scaled.jpg", alt: "Doctors at work at Mungale Eye Hospital", width: 1440, height: 2560, group: "moments" },
-  { src: G + "IMG_2197-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
-  { src: G + "IMG_2219-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
-  { src: G + "IMG_2217-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
-  { src: G + "IMG_2207.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1200, height: 2133, group: "moments" },
   { src: G + "IMG_2220-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
-  { src: G + "IMG_2193-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
   { src: G + "IMG_2239-scaled.jpg", alt: "Hospital photograph from the Mungale Eye Hospital gallery", width: 1440, height: 2560, group: "moments" },
   { src: G + "Dr-Sachin.jpg", alt: "Dr. Sachin Mungale", width: 1200, height: 1600, group: "moments" },
-  {
-    src: G + "Before-After-Tattooing.jpg",
-    alt: "Ocular tattooing before-and-after clinical photographs",
-    width: 1906, height: 924, group: "clinical",
-    caption: "Ocular tattooing — before and after",
-  },
-  {
-    src: G + "Before-After-DSEKDescemet_s-stripping-endothelial-keratoplasty.jpg",
-    alt: "Descemet's Stripping Endothelial Keratoplasty (DSEK) corneal transplant before-and-after clinical photographs",
-    width: 1906, height: 924, group: "clinical",
-    caption: "Descemet's Stripping Endothelial Keratoplasty (DSEK) — before and after",
-  },
-  {
-    src: G + "before-After-Pterygium-Surgery.jpg",
-    alt: "Pterygium surgery before-and-after clinical photographs",
-    width: 1906, height: 924, group: "clinical",
-    caption: "Pterygium surgery — before and after",
-  },
-  {
-    src: G + "Before-After-DALK-Deep-anterior-lamellar-keratoplasty.jpg",
-    alt: "Deep Anterior Lamellar Keratoplasty (DALK) corneal transplant before-and-after clinical photographs",
-    width: 1906, height: 924, group: "clinical",
-    caption: "Deep Anterior Lamellar Keratoplasty (DALK) — before and after",
-  },
-  {
-    src: G + "before-after-PK-Penetrating-keratoplasty.jpg",
-    alt: "Penetrating keratoplasty before-and-after clinical photographs",
-    width: 1906, height: 924, group: "clinical",
-    caption: "Penetrating keratoplasty — before and after",
-  },
   // Conference photographs — hidden until approved. Captions use only
   // what is visible on the banners; alt text names no person.
   // TODO(doctor): confirm Dr. Sachin is the person in both photos (the

@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/can-corneal-transplant-restore-vision-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: patient reading a vision chart during a follow-up visit after corneal surgery.",
+    alt: "AI-generated illustration: patient reading a vision chart during a follow-up visit after corneal surgery.",
   },
   readMinutes: 4,
   keepReading: [

@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/cataract-lens-types-monofocal-toric-multifocal-edof-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist, seen from behind and unidentifiable, explains an eye model to an elderly patient seated at a slit-lamp examination station..",
+    alt: "AI-generated illustration: ophthalmologist, seen from behind and unidentifiable, explains an eye model to an elderly patient seated at a slit-lamp examination station..",
   },
   readMinutes: 6,
   keepReading: [

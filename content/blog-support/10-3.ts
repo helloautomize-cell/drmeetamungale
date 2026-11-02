@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/eye-tests-after-40-oct-eye-pressure-retina-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: middle-aged Indian man placing his chin on an OCT scanner while a technician operates it.",
+    alt: "AI-generated illustration: middle-aged Indian man placing his chin on an OCT scanner while a technician operates it.",
   },
   readMinutes: 2,
   keepReading: [

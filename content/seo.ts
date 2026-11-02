@@ -62,10 +62,10 @@ export function hospitalJsonLd() {
       siteConfig.social.facebook,
       siteConfig.social.instagram,
       siteConfig.social.youtube,
-      // Public directory listings cited elsewhere on the site.
-      "https://www.justdial.com/Vadodara/Dr-Sachin-Mungale-Mungale-Eye-Hospital-Opposite-Government-Press-Kothi/0265PX265-X265-170614070649-D5F7_BZDET",
-      "https://www.practo.com/vadodara/doctor/dr-sachin-mungale-ophthalmologist",
-      "https://www.practo.com/vadodara/doctor/dr-meeta-mungale-ophthalmologist",
+      // Owner-verified business/directory listings (2 Nov 2026).
+      "https://maps.app.goo.gl/8qCydiUwCAx95giW9",
+      "https://www.practo.com/vadodara/hospital/mungale-eye-hospital-raopura",
+      "https://www.justdial.com/Vadodara/Mungale-Eye-Hospital-Opposite-Government-Press-Kothi/0265PX265-X265-170128074351-V9G1_BZDET",
     ],
   };
 }
@@ -155,7 +155,8 @@ export function medicalWebPageJsonLd(slug: string) {
     name: d.title,
     description: d.intro,
     inLanguage: "en-IN",
-    specialty: "Ophthalmology",
+    // MedicalSpecialty enumeration member (matches the clinic node).
+    specialty: "Ophthalmologic",
     lastReviewed: d.reviewedOn ?? (reviewers.length ? MEDICAL_REVIEW_DATE : BUILD_DATE),
     mainEntityOfPage: url,
     about: {
@@ -183,7 +184,10 @@ export function blogPostingJsonLd(slug: string) {
   const reviewers = reviewersOf(p.reviewedBy);
   const payload: Record<string, unknown> = {
     "@type": "BlogPosting",
-    headline: p.title,
+    // schemaHeadline carries a ≤110-char variant for posts whose verbatim
+    // title is longer (Google truncates/warns past ~110); visible H1 is
+    // always p.title and never changes.
+    headline: p.schemaHeadline ?? p.title,
     description: p.excerpt,
     url,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },

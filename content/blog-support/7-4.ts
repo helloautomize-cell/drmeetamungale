@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/how-long-corneal-ulcer-takes-to-heal-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist examining a patient's eye at a slit lamp in a clean eye clinic.",
+    alt: "AI-generated illustration: ophthalmologist examining a patient's eye at a slit lamp in a clean eye clinic.",
   },
   readMinutes: 3,
   keepReading: [

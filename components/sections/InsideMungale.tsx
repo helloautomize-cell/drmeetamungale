@@ -1,7 +1,7 @@
 import React from "react";
 import { ArtImage } from "@/components/ui/ArtImage";
 import { Reveal } from "@/components/ui/motion";
-import { REAL, canShow } from "@/lib/images";
+import { REAL } from "@/lib/images";
 
 // ─── "The moment of being seen" — photo band directly after the hero.
 // The bridge from the brand idea (iris artwork) to real care (a specialist
@@ -52,34 +52,9 @@ function Caption({ dark }: { dark?: boolean }) {
 }
 
 export function InsideMungale() {
-  if (canShow(REAL.careYag)) {
-    return (
-      <section className="bg-background pt-6 pb-4 lg:pt-8 lg:pb-6">
-        <Reveal className="mx-auto max-w-[1600px] px-3 lg:px-6">
-          <div className="relative overflow-hidden rounded-[28px] max-h-[80vh] aspect-[4/5] sm:aspect-[3/2] md:aspect-[16/9]">
-            <ArtImage
-              d={REAL.careYag.d}
-              m={REAL.careYag.m}
-              alt="Dr. Sachin Mungale examining an elderly patient at the Nd:YAG laser"
-              sizes="(min-width: 1600px) 1600px, 100vw"
-              className="h-full w-full"
-              imgClassName="h-full w-full object-cover object-[50%_40%] md:object-[50%_45%]"
-            />
-            {/* Bottom-left legibility for the caption card */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-x-0 bottom-0 h-[55%] bg-[linear-gradient(180deg,rgba(14,17,22,0)_0%,rgba(14,17,22,0.55)_100%)]"
-            />
-            <div className="absolute left-4 bottom-4 lg:left-8 lg:bottom-8">
-              <Caption dark />
-            </div>
-          </div>
-        </Reveal>
-      </section>
-    );
-  }
-
-  // Fallback — consent not yet on file.
+  // NMC-13: the care-yag-* patient photograph moved out of public/ —
+  // consent unconfirmed. Portrait + caption composition is now the only
+  // variant (was the consent fallback).
   return (
     <section className="bg-background py-6 lg:py-10">
       <Reveal className="mx-auto max-w-site px-6 lg:px-gutter">

@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/pterygium-surgery-or-eye-drops-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist in Vadodara holding a small eye drop bottle while explaining options to a middle-aged Indian patient in a bright consultation room.",
+    alt: "AI-generated illustration: ophthalmologist in Vadodara holding a small eye drop bottle while explaining options to a middle-aged Indian patient in a bright consultation room.",
   },
   readMinutes: 4,
   keepReading: [

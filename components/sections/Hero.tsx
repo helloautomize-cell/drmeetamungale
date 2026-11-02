@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { ArtImage } from "@/components/ui/ArtImage";
@@ -116,27 +115,8 @@ export function Hero() {
 
           {/* Doctor credibility — quiet two-line block on dark */}
           <div className="mt-7 flex items-center gap-3">
-            <div className="flex -space-x-2.5">
-              {/* Avatars — tight face crops from the new real portraits.
-                  next/image resizes these (real photos are otherwise
-                  served pre-optimised via ArtImage). */}
-              <Image
-                className="w-9 h-9 rounded-full object-cover object-[50%_22%] ring-2 ring-ink"
-                src="/images/mungale/real/doctor-meeta-desk.jpg"
-                alt="Dr. Meeta Mungale, MBBS, MS (Ophthalmology), DNB"
-                width={72}
-                height={72}
-                sizes="36px"
-              />
-              <Image
-                className="w-9 h-9 rounded-full object-cover object-[50%_30%] ring-2 ring-ink"
-                src="/images/mungale/real/doctor-sachin-portrait.jpg"
-                alt="Dr. Sachin Mungale, MBBS, MS (Ophthalmology)"
-                width={72}
-                height={72}
-                sizes="36px"
-              />
-            </div>
+            {/* NMC-11: hero doctor avatars removed — portraits stay on
+                profile/directory placements only. */}
             <div>
               <p className="text-[14.5px] leading-snug text-porcelain/80">
                 Led by{" "}

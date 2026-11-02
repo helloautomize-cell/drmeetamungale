@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/when-cataract-needs-surgery-signs-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: elderly man sits at a slit-lamp examination unit while an ophthalmologist in a white coat, seen from behind and slightly out of focus, adjusts.",
+    alt: "AI-generated illustration: elderly man sits at a slit-lamp examination unit while an ophthalmologist in a white coat, seen from behind and slightly out of focus, adjusts.",
   },
   readMinutes: 6,
   keepReading: [

@@ -31,7 +31,7 @@ const explore: { label: string; href: string; external?: boolean }[] = [
   { label: "About", href: "/about-us/" },
   { label: "Doctors", href: "/doctors/" },
   { label: "Treatments", href: "/treatments/" },
-  { label: "Patient Stories", href: GOOGLE_REVIEWS_URL, external: true },
+  { label: "Find us on Google", href: GOOGLE_REVIEWS_URL, external: true },
   { label: "Health Insights", href: "/blog/" },
   { label: "Contact", href: "/contact-us/" },
 ];
@@ -257,7 +257,7 @@ export function Footer() {
                 <span>
                   {/* TODO(doctor): confirm emergency hours — no "24 hours"
                       claim is shown until confirmed. */}
-                  Emergency:{" "}
+                  Emergency contact numbers:{" "}
                   <a
                     href={telHref(siteConfig.emergencyPhone)}
                     className="inline-flex items-center min-h-[44px] md:min-h-0 text-[#ff8080] hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:rounded"
@@ -335,6 +335,11 @@ export function Footer() {
             >
               Automize Media Labs
             </a>
+          </p>
+          <p className="mt-4 max-w-2xl text-[12px] leading-relaxed text-white/60">
+            Dr. Sachin Mungale, MBBS, MS (Ophthalmology), Gujarat Medical
+            Council Reg. No. G-12281 · Dr. Meeta Mungale, MBBS, MS
+            (Ophthalmology), DNB, Gujarat Medical Council Reg. No. G-39262
           </p>
           <p className="mt-4 max-w-2xl text-[12px] leading-relaxed text-white/60">
             The information on this site is for general guidance only and is

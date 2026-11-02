@@ -10,7 +10,6 @@ import { PatientJourney } from "@/components/sections/PatientJourney";
 import { TrustPillars } from "@/components/sections/TrustPillars";
 import { PristineDevice } from "@/components/sections/PristineDevice";
 import { DoctorsStory } from "@/components/sections/DoctorsStory";
-import { Reviews } from "@/components/sections/Reviews";
 import { HealthInsights } from "@/components/sections/HealthInsights";
 import { LocationBlock } from "@/components/sections/LocationBlock";
 import { InsideMungale } from "@/components/sections/InsideMungale";
@@ -72,7 +71,8 @@ export default function HomePage() {
       <PatientJourney />
       <DoctorsStory />
       <TeamBand />
-      <Reviews />
+      {/* NMC-02: patient testimonials removed — review promotion is not
+          permitted under NMC advertising guidelines. */}
       <HealthInsights />
       {/* Practical assurance strip (UI/UX audit): emergency line +
           cashless insurance — the two questions older patients actually

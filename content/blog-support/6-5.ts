@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/pterygium-vs-pinguecula-difference-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: healthy adult eye with a gentle focus on the white of the eye near the inner corner, in soft clinical lighting at a Vadodara eye clinic.",
+    alt: "AI-generated illustration: healthy adult eye with a gentle focus on the white of the eye near the inner corner, in soft clinical lighting at a Vadodara eye clinic.",
   },
   readMinutes: 4,
   keepReading: [

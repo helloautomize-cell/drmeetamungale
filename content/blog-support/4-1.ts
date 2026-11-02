@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/when-is-corneal-transplant-needed-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: corneal surgeon examining a patient's eye with a slit lamp.",
+    alt: "AI-generated illustration: corneal surgeon examining a patient's eye with a slit lamp.",
   },
   readMinutes: 4,
   keepReading: [

@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/corneal-graft-rejection-warning-signs-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist examining a red eye with a slit lamp.",
+    alt: "AI-generated illustration: ophthalmologist examining a red eye with a slit lamp.",
   },
   readMinutes: 4,
   keepReading: [

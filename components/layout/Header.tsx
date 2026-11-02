@@ -237,7 +237,7 @@ export function Header() {
                   className="flex items-center gap-1.5 font-semibold text-[#ff8f8f] hover:text-white transition-colors duration-200"
                 >
                   <Phone className="w-3.5 h-3.5" aria-hidden="true" />
-                  Emergency: {siteConfig.emergencyPhone}
+                  Emergency contact: {siteConfig.emergencyPhone}
                 </a>
                 <button
                   type="button"

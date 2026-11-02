@@ -16,7 +16,8 @@ import { bookingHref } from "@/lib/booking-links";
 // installed device.
 // TODO(doctor): confirm these three features match the unit installed.
 
-export const PRISTINE_BADGE = "First installation in Vadodara";
+// NMC-06: "First installation in Vadodara" badge removed — unverifiable
+// superlative claim under the NMC advertising guidelines.
 
 // TODO(agency): replace with a real photo of the installed device and
 // delete the "Illustrative image" caption + this constant.
@@ -75,11 +76,6 @@ export function PristineDevice() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6">
-              <span className="inline-flex items-center rounded-full bg-primary/10 px-3.5 py-1.5 text-[12px] font-bold uppercase tracking-[0.14em] text-primary-fixed ring-1 ring-primary/20">
-                {PRISTINE_BADGE}
-              </span>
-            </p>
             <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
               <Link
                 href={bookingHref()} data-ga="appointment"

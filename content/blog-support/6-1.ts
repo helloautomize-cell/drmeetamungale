@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/what-causes-pterygium-sun-dust-wind-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: Indian man in his forties wearing wraparound sunglasses and a cap while riding a two-wheeler on a sunny, dusty road in Vadodara.",
+    alt: "AI-generated illustration: Indian man in his forties wearing wraparound sunglasses and a cap while riding a two-wheeler on a sunny, dusty road in Vadodara.",
   },
   readMinutes: 4,
   keepReading: [

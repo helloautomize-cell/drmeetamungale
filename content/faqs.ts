@@ -41,10 +41,10 @@ export const faqCategoryMap: Record<number, FaqCategory> = {
 export const faqs: Faq[] = [
   {
     question: "How do I schedule an appointment with Mungale Eye Hospital",
-    // TODO(doctor): confirm role of 8140250055 — listed here as a booking
-    // line alongside the emergency mobile; wording otherwise VERBATIM.
+    // TODO(doctor): confirm role of 8140250055 — it also serves as the
+    // insurance-desk line; bookings route to the confirmed main number.
     answer:
-      `To schedule an Appointment at Mungale Eye Hospital, you can fill the form here Book an Appointment or call on ${siteConfig.insurancePhone} or ${siteConfig.emergencyPhone} between 9am to 8 pm on week days. The hospital is closed on Sundays`,
+      `To schedule an Appointment at Mungale Eye Hospital, you can fill the form here Book an Appointment or call on ${siteConfig.phone} between 9am to 8 pm on week days. The hospital is closed on Sundays`,
   },
   {
     question: "What are the causes of corneal blindness?",

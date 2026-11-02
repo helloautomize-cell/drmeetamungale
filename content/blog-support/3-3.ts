@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/scleral-lenses-keratoconus-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: large scleral contact lens held on a fingertip with saline before insertion.",
+    alt: "AI-generated illustration: large scleral contact lens held on a fingertip with saline before insertion.",
   },
   readMinutes: 4,
   keepReading: [

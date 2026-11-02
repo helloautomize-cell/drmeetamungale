@@ -37,11 +37,11 @@ export const treatmentDetails: TreatmentDetail[] = [
     // TODO(doctor): approve any pricing statement — "very reasonable prices"
     // was a price claim; reworded to a neutral availability statement.
     intro:
-      "Mungale Eye Hospital offers an advanced phacoemulsification system that removes cataract with high efficiency in a matter of minutes. A range of intraocular lenses is offered.",
+      "Phacoemulsification is a short day-care procedure. A range of intraocular lenses is offered.",
     sections: [
       {
         heading: "Ellips FXO",
-        body: "Ellips FXO AMO Phaco Machine (Sovereign Compact System With Advanced Ellips FXO Technology): Mungale Eye Hospital offers an advanced phacoemulsification system that removes cataract with high efficiency in a matter of minutes. A range of intraocular lenses is offered.",
+        body: "Ellips FXO AMO Phaco Machine (Sovereign Compact System With Advanced Ellips FXO Technology): Phacoemulsification is a short day-care procedure. A range of intraocular lenses is offered.",
       },
       {
         heading: "OERTLI CataRhex 3",
@@ -54,11 +54,11 @@ export const treatmentDetails: TreatmentDetail[] = [
     reviewedBy: "meeta",
     title: "Cornea Evaluation",
     intro:
-      "Slit lamp with brilliant LED illumination which allows simultaneous visualisation by both doctors and relatives of the patient. It is the gold standard for eye examination.",
+      "An imaging slit lamp used for detailed eye examination.",
     sections: [
       {
         heading: "LED CSO Slit Lamp With Imaging",
-        body: "Slit lamp with brilliant LED illumination which allows simultaneous visualisation by both doctors and relatives of the patient. It has imaging systems that will capture photos and real time videos of the eye. It helps the Doctors to see the minutest details of the patient’s eye, which includes all the parts of the eye. It is the gold standard for eye examination.",
+        body: "Slit lamp with brilliant LED illumination which allows simultaneous visualisation by both doctors and relatives of the patient. It has imaging systems that capture photos and real time videos of the eye, used for detailed eye examination.",
       },
       {
         heading: "Corneal Handy Pachymeter SP-100",
@@ -74,7 +74,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       },
       {
         heading: "Rose K Contact Lens",
-        body: "These are specialized contact lenses which provide excellent visual acuity in cases of Keratoconus.",
+        body: "Rose K lenses improve visual acuity in keratoconus; fit and result vary by eye.",
       },
       {
         heading: "Scleral Contact Lens",
@@ -139,7 +139,7 @@ export const treatmentDetails: TreatmentDetail[] = [
       },
       {
         heading: "Goldmanns Applanation Tonometer",
-        body: "The most ideal way to measure intra-ocular pressure gives accurate readings always.",
+        body: "Goldmann applanation tonometry — the standard clinical method for measuring eye pressure.",
       },
       {
         heading: "Perkins Hand Held Tonometer",
@@ -189,12 +189,12 @@ export const treatmentDetails: TreatmentDetail[] = [
     sections: [
       {
         heading: "Selective Laser Trabeculoplasty (SLT)",
-        body: "SLT is useful for reducing intra-ocular pressure and helping patients maintain a life on minimum intraocular drops. This procedure is very safe and can be repeated. Success rate of this procedure is 90%.",
+        body: "SLT lowers eye pressure for many patients and can be repeated; its effect can lessen over time and drops may still be needed. Your doctor will explain the likely benefit for your eyes.",
         notes: [noteLine("slt")],
       },
       {
         heading: "Nd:YAG Laser Peripheral Iridotomy",
-        body: "We use a laser beam (the Nd:YAG laser) to make a microscopic hole in the iris (the colored part of the eye) so that the fluid in the eye flows through the hole and the eye pressure remains under control. It is a very safe and effective procedure to treat angle-closure glaucoma.",
+        body: "Nd:YAG iridotomy creates a small opening in the iris so fluid can drain; it is a short clinic procedure, and your doctor will explain its risks and benefits for your eyes.",
         notes: [noteLine("yagIridotomy")],
       },
       {

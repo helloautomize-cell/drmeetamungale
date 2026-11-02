@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/punctal-plugs-dry-eye-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist in a Vadodara eye clinic gently examining the lower eyelid of a relaxed senior Indian patient seated at a slit lamp.",
+    alt: "AI-generated illustration: ophthalmologist in a Vadodara eye clinic gently examining the lower eyelid of a relaxed senior Indian patient seated at a slit lamp.",
   },
   readMinutes: 4,
   keepReading: [

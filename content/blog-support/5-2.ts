@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/screen-time-dry-eyes-20-20-20-rule-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: young Indian professional in a bright Vadodara office looking away from a computer screen toward a window, a desk plant and water bottle nearby.",
+    alt: "AI-generated illustration: young Indian professional in a bright Vadodara office looking away from a computer screen toward a window, a desk plant and water bottle nearby.",
   },
   readMinutes: 4,
   keepReading: [

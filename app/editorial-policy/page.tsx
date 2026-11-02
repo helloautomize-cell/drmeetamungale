@@ -96,6 +96,17 @@ export default function EditorialPolicyPage() {
           </section>
           <section>
             <h2 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-3">
+              Use of AI-generated images
+            </h2>
+            <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Some decorative illustrations and article covers on this site
+              are AI-generated; they depict no real patient or procedure,
+              and all medical content is written and reviewed by our
+              doctors.
+            </p>
+          </section>
+          <section>
+            <h2 className="font-headline-sm text-headline-sm text-on-surface font-bold mb-3">
               Corrections
             </h2>
             <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">

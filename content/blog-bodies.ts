@@ -1039,7 +1039,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "At Mungale Eye Hospital, our ophthalmologists are highly skilled and experienced in performing state-of-the-art cataract surgery. We utilize advanced surgical technologies, including femtosecond laser-assisted cataract surgery and a wide range of premium intraocular lenses, to offer personalized solutions for each patient. Our commitment to patient care ensures that every step of your care, from consultation to post-operative follow-up, is handled with precision and compassion."
+                        "text": "Cataract surgery is performed with techniques such as phacoemulsification and femtosecond laser assistance, with a range of intraocular lens options."
                   },
                   {
                         "type": "heading",
@@ -1119,7 +1119,7 @@ export const blogBodies: BlogBody[] = [
                                     "a": [
                                           {
                                                 "type": "para",
-                                                "text": "While cataract surgery is generally very safe, like any surgical procedure, it carries some potential risks. These can include infection, inflammation, bleeding, swelling, or a small chance of retinal detachment or glaucoma. Serious complications are rare, and the experienced surgeons at Mungale Eye Hospital take every precaution to minimize these risks."
+                                                "text": "Cataract surgery carries some potential risks, which can include infection, inflammation, bleeding, swelling, or a small chance of retinal detachment or glaucoma. Serious complications are rare, and the surgical team takes precautions to minimise them."
                                           }
                                     ]
                               },
@@ -1218,7 +1218,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "For trusted and comprehensive eye care, Mungale Eye Hospital is your premier choice. Schedule your next eye check-up with their experienced team to safeguard your vision and overall health."
+                        "text": "Schedule regular eye check-ups to safeguard your vision and overall health."
                   },
                   {
                         "type": "heading",
@@ -2116,7 +2116,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "With advanced diagnostic technology and experienced eye specialists, we offer complete vision care, from medical treatment to nutrition guidance."
+                        "text": "Vision care at the hospital covers medical treatment as well as nutrition guidance."
                   },
                   {
                         "type": "faq",
@@ -4104,7 +4104,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "Most of our patients come from Vadodara, but also from nearby states, not because we’re fancy, but because we focus on clarity, honesty, and comfort."
+                        "text": "Most of our patients come from Vadodara and nearby states."
                   },
                   {
                         "type": "faq",
@@ -4330,7 +4330,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "item",
-                        "text": "Corneal Disorders Injuries, infections, or inherited conditions like keratoconus can affect the cornea’s shape or clarity. Advanced corneal surgeries now offer good recovery."
+                        "text": "Corneal Disorders Injuries, infections, or inherited conditions like keratoconus can affect the cornea’s shape or clarity. Corneal surgeries are used to treat these conditions."
                   },
                   {
                         "type": "item",
@@ -5765,7 +5765,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "item",
-                        "text": "Dr. Meeta Mungale is renowned throughout Vadodara for her cornea care work."
+                        "text": "Dr. Meeta Mungale practices cornea care at Mungale Eye Hospital, Vadodara."
                   },
                   {
                         "type": "item",
@@ -5825,7 +5825,7 @@ export const blogBodies: BlogBody[] = [
                                     "a": [
                                           {
                                                 "type": "para",
-                                                "text": "It varies according to the lens type and technology utilized. At Mungale Eye Hospital, the staff guarantees complete transparency and affordability—no hidden costs."
+                                                "text": "It varies according to the lens type and technology utilized. At Mungale Eye Hospital, the staff explains costs before treatment."
                                           }
                                     ]
                               },

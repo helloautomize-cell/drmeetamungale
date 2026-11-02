@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/glaucoma-treatment-options-drops-laser-surgery-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: senior ophthalmologist, seen from behind or in soft focus with no identifiable face, sits across a desk from an older patient, reviewing a tablet.",
+    alt: "AI-generated illustration: senior ophthalmologist, seen from behind or in soft focus with no identifiable face, sits across a desk from an older patient, reviewing a tablet.",
   },
   readMinutes: 6,
   keepReading: [

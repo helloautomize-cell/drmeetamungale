@@ -24,13 +24,11 @@ const states = [
   },
   {
     index: "02",
-    value: "500+",
-    label: "Corneal transplants by Dr. Meeta Mungale",
+    value: "LVPEI",
+    label: "Fellowship-trained cornea surgeon",
     heading: "Depth you can count.",
-    body: "Her cornea practice includes more than 500 corneal transplants — lamellar procedures such as DALK, DSEK and DMEK.",
-    quote:
-      "The doctors explained everything clearly and the staff was very supportive. We are very happy with the results.",
-    quoteBy: "Pankaj Makhijani · Google review",
+    // NMC-03: surgery counts are prohibited — credentials line instead.
+    body: "Dr. Meeta Mungale is a fellowship-trained cornea surgeon: DALK, DSEK, DMEK, PK.",
   },
   {
     index: "03",
@@ -101,16 +99,6 @@ export function TrustPillars() {
                   <p className="mt-2.5 text-[15px] leading-relaxed text-white/65">
                     {s.body}
                   </p>
-                  {s.quote && (
-                    <blockquote className="relative mt-4 border-l-2 border-primary pl-4">
-                      <p className="text-[14px] leading-relaxed text-white/85 italic">
-                        “{s.quote}”
-                      </p>
-                      <cite className="mt-1.5 block text-[12.5px] not-italic text-white/50">
-                        — {s.quoteBy}
-                      </cite>
-                    </blockquote>
-                  )}
                   <ColumnFigure index={s.index} />
                 </div>
               </article>

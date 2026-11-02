@@ -75,7 +75,10 @@ function buildPhysician(d: Doctor) {
     description: d.bio,
     image: BASE + d.imageUrl,
     url: BASE + "/doctors/" + d.slug + "/",
-    medicalSpecialty: "Ophthalmology",
+    // MedicalSpecialty enumeration member — matches the clinic node
+    // (content/seo.ts); schema.org lists "Ophthalmologic", not
+    // "Ophthalmology".
+    medicalSpecialty: "Ophthalmologic",
     knowsAbout: [...d.focus, ...d.procedures],
     alumniOf: d.education.map((e) => ({
       "@type": "CollegeOrUniversity",

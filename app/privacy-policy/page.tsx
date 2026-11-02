@@ -21,16 +21,25 @@ export const metadata: Metadata = {
 
 // ─── /privacy-policy/ ────────────────────────────────────────────────────
 // Describes only what this site actually does: the appointment form sends
-// details to the hospital's Gmail inbox; there is no analytics, no
-// advertising, no tracking scripts and no patient database on the site.
+// details to the hospital's Gmail inbox, Google Analytics 4 measures
+// anonymous usage (no names, phone numbers or health details), there is no
+// advertising or remarketing tooling and no patient database on the site.
 // Flagged for owner review before relying on it legally.
 const sections: { heading: string; body: string[] }[] = [
   {
     heading: "What we collect",
     body: [
-      "When you request an appointment through this website, we ask for your name, mobile number, and — optionally — your email address, age, preferred doctor, preferred date and time, and a short message about your concern.",
+      "When you request an appointment through this website, we ask for your name, mobile number, and — optionally — your email address, age, preferred doctor, preferred date and time, and a short message about your concern. Please keep medical details and reports for your visit — do not send them through the form or by email.",
       "When you call, WhatsApp or email us directly, we receive whatever contact details you choose to share.",
-      "This website does not use analytics, advertising or tracking tools, and it does not set any cookies.",
+    ],
+  },
+  {
+    heading: "Analytics and cookies",
+    body: [
+      "This website uses Google Analytics 4 to count visits and to see which buttons are used — for example clicks on the phone, WhatsApp, email, directions and appointment links. It tells us which pages are helpful, nothing more.",
+      "Google Analytics sets cookies (such as _ga) and sends anonymous usage data to Google. No names, phone numbers, email addresses or health details are sent to analytics.",
+      "You can opt out at any time through your browser's cookie settings, or with Google's Analytics opt-out browser add-on.",
+      "The site uses no advertising or remarketing tools.",
     ],
   },
   {
@@ -80,6 +89,9 @@ export default function PrivacyPolicyPage() {
             Press, Kothi Road, Anandpura, Vadodara, Gujarat 390001, runs
             this website. This policy explains what happens to the personal
             information you share with us here.
+          </p>
+          <p className="font-body-sm text-body-sm text-on-surface-variant">
+            Last updated: November 2026
           </p>
           {sections.map((s) => (
             <section key={s.heading}>

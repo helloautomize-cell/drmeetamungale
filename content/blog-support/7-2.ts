@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/bacterial-fungal-viral-keratitis-difference-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist and a lab technician reviewing a microscope slide in a clean eye hospital laboratory in Vadodara.",
+    alt: "AI-generated illustration: ophthalmologist and a lab technician reviewing a microscope slide in a clean eye hospital laboratory in Vadodara.",
   },
   readMinutes: 4,
   keepReading: [

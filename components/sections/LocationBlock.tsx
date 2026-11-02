@@ -83,7 +83,7 @@ export function LocationBlock() {
                   {/* TODO(doctor): confirm emergency hours — no "24 hours"
                       claim is shown until confirmed. */}
                   <p className="mt-1.5 text-[14px] text-on-surface-variant">
-                    Emergency:{" "}
+                    Emergency contact numbers:{" "}
                     <a
                       href={telHref(siteConfig.emergencyPhone)}
                       className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded"

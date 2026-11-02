@@ -38,7 +38,7 @@ export function buildLlmsTxt(): string {
   out.push("- Address: " + siteConfig.address + ", India");
   out.push("- Appointments: " + siteConfig.phone);
   out.push("- Reception: " + siteConfig.landline);
-  out.push("- Emergency: " + siteConfig.emergencyPhone + " / " + siteConfig.emergencyPhone2);
+  out.push("- Emergency contact numbers: " + siteConfig.emergencyPhone + " / " + siteConfig.emergencyPhone2);
   out.push("- WhatsApp: " + siteConfig.whatsapp);
   out.push("- Email: " + siteConfig.email);
   out.push(

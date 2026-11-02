@@ -195,7 +195,7 @@ export const doctors: Doctor[] = [
     registrationNumber: "G-39262",
     experience: EXPERIENCE_CLAIM,
     role: "Consultant, Cornea & Anterior Segment, in Vadodara since 2008; Mungale Eye Hospital.",
-    bio: "Dr. Meeta Mungale is an ophthalmic surgeon and cornea specialist. She holds an MS and DNB in Ophthalmology and completed a fellowship in cornea and anterior segment at the L V Prasad Eye Institute, Hyderabad, where she later served as faculty. She has performed more than 500 corneal transplants, including lamellar procedures such as Deep Anterior Lamellar Keratoplasty (DALK), Descemet's Stripping Endothelial Keratoplasty (DSEK) and Descemet Membrane Endothelial Keratoplasty (DMEK), and treats keratoconus, ocular surface disease, cataract and refractive errors. Her primary focus is corneal infections (infectious keratitis), and her current interests include dry eye disease and Meibomian Gland Dysfunction, with newer diagnostics and treatments such as Dry Eye Analysis (IDRA) and E-Eye treatments.",
+    bio: "Dr. Meeta Mungale is an ophthalmic surgeon and cornea specialist. She holds an MS and DNB in Ophthalmology and completed a fellowship in cornea and anterior segment at the L V Prasad Eye Institute, Hyderabad, where she later served as faculty. Her corneal transplant practice covers lamellar procedures such as Deep Anterior Lamellar Keratoplasty (DALK), Descemet's Stripping Endothelial Keratoplasty (DSEK) and Descemet Membrane Endothelial Keratoplasty (DMEK), and she treats keratoconus, ocular surface disease, cataract and refractive errors. Her primary focus is corneal infections (infectious keratitis), and her current interests include dry eye disease and Meibomian Gland Dysfunction, with newer diagnostics and treatments such as Dry Eye Analysis (IDRA) and E-Eye treatments.",
     description:
       "Ophthalmic surgeon and cornea specialist; fellowship-trained in cornea and anterior segment at L V Prasad Eye Institute, Hyderabad.",
     imageUrl: "/images/doctors/DrMeeta-2.webp",
@@ -280,8 +280,8 @@ export const doctors: Doctor[] = [
       "Corneal surgery combined with cataract, glaucoma and retina surgery",
       "Eye trauma",
     ],
-    // TODO(doctor): confirm OK to publish "More than 500 corneal transplants".
-    clinicalWork: ["More than 500 corneal transplants"],
+    // NMC-03: surgery counts are prohibited — credentials line instead.
+    clinicalWork: ["Fellowship-trained cornea surgeon — DALK, DSEK, DMEK, PK"],
     // Two diagnostics entries dropped per Dr. Meeta's review — the
     // hospital does not have that equipment.
     diagnostics: ["Specular microscopy", "Topography", "Optical Coherence Tomography (OCT)"],

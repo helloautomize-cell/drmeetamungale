@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/phaco-vs-msics-cataract-surgery-difference-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: ophthalmologist seated beside a slit-lamp microscope, pointing to a simple anatomical eye model while an older patient and an adult family member.",
+    alt: "AI-generated illustration: ophthalmologist seated beside a slit-lamp microscope, pointing to a simple anatomical eye model while an older patient and an adult family member.",
   },
   readMinutes: 6,
   keepReading: [

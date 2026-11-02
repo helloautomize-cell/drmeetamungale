@@ -21,7 +21,7 @@ export const article: SupportArticleMetaSource = {
     src: "/images/blog/diabetic-retinopathy-treatment-laser-injections-surgery-cover.webp",
     width: 1280,
     height: 720,
-    alt: "Illustration: retina specialist preparing laser equipment beside a calm senior Indian patient seated at a treatment machine in a modern Vadodara eye hospital.",
+    alt: "AI-generated illustration: retina specialist preparing laser equipment beside a calm senior Indian patient seated at a treatment machine in a modern Vadodara eye hospital.",
   },
   readMinutes: 4,
   keepReading: [
