@@ -156,7 +156,10 @@ export const blogSeoOverrides: Record<string, BlogSeoOverride> = {
       "What getting a corneal transplant in Vadodara involves — donor tissue, the procedure, recovery and choosing where to have it.",
   },
   "cataract-surgery-vadodara-gujarat": {
-    seoTitle: "Cataract Surgery in Vadodara" + B,
+    // Distinct from /treatments/cataract-surgery/ ("Cataract Surgery in
+    // Vadodara") — identical <title>s split relevance; the article's
+    // intent is the patient journey from symptoms to clear vision.
+    seoTitle: "Planning Cataract Surgery in Vadodara" + B,
     metaDescription:
       "Cataract surgery in Vadodara — from the first subtle symptoms to clear vision, what the procedure and recovery involve.",
   },

@@ -155,7 +155,8 @@ export function medicalWebPageJsonLd(slug: string) {
     name: d.title,
     description: d.intro,
     inLanguage: "en-IN",
-    specialty: "Ophthalmology",
+    // MedicalSpecialty enumeration member (matches the clinic node).
+    specialty: "Ophthalmologic",
     lastReviewed: d.reviewedOn ?? (reviewers.length ? MEDICAL_REVIEW_DATE : BUILD_DATE),
     mainEntityOfPage: url,
     about: {
@@ -183,7 +184,10 @@ export function blogPostingJsonLd(slug: string) {
   const reviewers = reviewersOf(p.reviewedBy);
   const payload: Record<string, unknown> = {
     "@type": "BlogPosting",
-    headline: p.title,
+    // schemaHeadline carries a ≤110-char variant for posts whose verbatim
+    // title is longer (Google truncates/warns past ~110); visible H1 is
+    // always p.title and never changes.
+    headline: p.schemaHeadline ?? p.title,
     description: p.excerpt,
     url,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
