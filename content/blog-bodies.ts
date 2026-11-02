@@ -2112,7 +2112,7 @@ export const blogBodies: BlogBody[] = [
                   },
                   {
                         "type": "para",
-                        "text": "Want a personalised eye-health diet plan based on your specific eye condition? Our expert ophthalmology team at Mungale Eye Hospital,provides comprehensive eye care along with customised dietary guidance on foods that support eye health in conditions such as diabetic retinopathy, dry eyes, age-related macular degeneration (AMD), glaucoma, and cataract."
+                        "text": "Want a personalised eye-health diet plan based on your specific eye condition? The ophthalmology team at Mungale Eye Hospital provides eye care along with dietary guidance on foods that support eye health in conditions such as diabetic retinopathy, dry eyes, age-related macular degeneration (AMD), glaucoma, and cataract."
                   },
                   {
                         "type": "para",

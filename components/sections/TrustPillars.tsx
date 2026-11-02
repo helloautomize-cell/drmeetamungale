@@ -7,12 +7,11 @@ import { IMG, WHY_EQUIPMENT_SRC } from "@/lib/images";
 
 // ─── Why Mungale (quiet-luxury reset, spec §5.4) — dark ink-navy band.
 // A generated lens artwork carries the header band and melts into navy;
-// below it the three numbers sit as STATIC text — the only place stats
+// below it the three figures sit as STATIC text — the only place stats
 // appear on the page. No circles, no column photos, no scrubs, no
-// count-ups. Every figure here is verified: 19+ is EXPERIENCE_CLAIM,
-// 500+ is Dr. Meeta's CV figure already published on her profile, and 2
-// is the two fellowship-trained specialists. The quote is a VERBATIM
-// Pankaj Makhijani Google review excerpt.
+// count-ups. NMC-02/NMC-03: testimonials, review quotes and surgery
+// counts are prohibited, so the middle column carries Dr. Meeta's
+// fellowship credential instead of the old "500+" figure.
 
 const states = [
   {
