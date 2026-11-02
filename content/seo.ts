@@ -62,10 +62,10 @@ export function hospitalJsonLd() {
       siteConfig.social.facebook,
       siteConfig.social.instagram,
       siteConfig.social.youtube,
-      // Public directory listings cited elsewhere on the site.
-      "https://www.justdial.com/Vadodara/Dr-Sachin-Mungale-Mungale-Eye-Hospital-Opposite-Government-Press-Kothi/0265PX265-X265-170614070649-D5F7_BZDET",
-      "https://www.practo.com/vadodara/doctor/dr-sachin-mungale-ophthalmologist",
-      "https://www.practo.com/vadodara/doctor/dr-meeta-mungale-ophthalmologist",
+      // Owner-verified business/directory listings (2 Nov 2026).
+      "https://maps.app.goo.gl/8qCydiUwCAx95giW9",
+      "https://www.practo.com/vadodara/hospital/mungale-eye-hospital-raopura",
+      "https://www.justdial.com/Vadodara/Mungale-Eye-Hospital-Opposite-Government-Press-Kothi/0265PX265-X265-170128074351-V9G1_BZDET",
     ],
   };
 }
