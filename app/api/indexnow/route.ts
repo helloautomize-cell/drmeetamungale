@@ -8,16 +8,16 @@ export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
 const INDEXNOW_KEY = "2c62ba02365535ea4521c79d025aafdc";
-const ORIGIN = process.env.INDEXNOW_ORIGIN ?? "https://mungaleeyehospital.com";
+const ORIGIN = process.env["INDEXNOW_ORIGIN"] ?? "https://mungaleeyehospital.com";
 
-type Entry = { loc: string; lastmod?: string };
+type Entry = { loc: string; lastmod?: string | undefined };
 
 async function readSitemap(url: string, depth = 0): Promise<Entry[]> {
   const res = await fetch(url, { cache: "no-store", headers: { "user-agent": "indexnow-cron" } });
   if (!res.ok) return [];
   const xml = await res.text();
-  const tag = (block: string, name: string) =>
-    block.match(new RegExp(`<${name}>\\s*(?:<!\\[CDATA\\[)?([^<\\]]+)`))?.[1]?.trim();
+  const tag = (block: string | undefined, name: string) =>
+    (block ?? "").match(new RegExp(`<${name}>\\s*(?:<!\\[CDATA\\[)?([^<\\]]+)`))?.[1]?.trim();
   if (/<sitemapindex/i.test(xml) && depth < 2) {
     const children = [...xml.matchAll(/<sitemap>([\s\S]*?)<\/sitemap>/g)]
       .map((m) => tag(m[1], "loc"))
@@ -33,7 +33,7 @@ async function readSitemap(url: string, depth = 0): Promise<Entry[]> {
 export async function GET(req: Request) {
   // Vercel Cron sends "Bearer $CRON_SECRET"; INDEXNOW_SECRET allows manual runs.
   const auth = req.headers.get("authorization");
-  const allowed = [process.env.CRON_SECRET, process.env.INDEXNOW_SECRET].filter(Boolean);
+  const allowed = [process.env["CRON_SECRET"], process.env["INDEXNOW_SECRET"]].filter(Boolean);
   if (!allowed.some((s) => auth === `Bearer ${s}`)) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
